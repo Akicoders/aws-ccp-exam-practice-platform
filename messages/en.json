@@ -1,0 +1,123 @@
+{
+  "app": {
+    "title": "AWS CCP Practice Exam",
+    "description": "Practice for the AWS Certified Cloud Practitioner (CLF-C02) exam with real questions"
+  },
+  "home": {
+    "title": "AWS Certified Cloud Practitioner",
+    "subtitle": "Practice Exam Platform",
+    "description": "Simulate the real CLF-C02 exam with timed practice sessions. Questions are sourced from a curated practice bank.",
+    "selectPreset": "Select a Practice Mode",
+    "start": "Start Exam",
+    "shortDesc": "Quick warm-up",
+    "mediumDesc": "Standard practice",
+    "fullDesc": "Full-length experience",
+    "disclaimer": "This is a practice tool and does NOT represent official AWS exam results."
+  },
+  "session": {
+    "title": "Practice Exam",
+    "question": "Question",
+    "of": "of",
+    "singleSelect": "Select one answer",
+    "multiSelect": "Select all that apply",
+    "submit": "Submit Exam",
+    "confirmSubmit": "Are you sure you want to submit? Unanswered questions will be scored as incorrect.",
+    "confirmYes": "Submit",
+    "confirmNo": "Continue",
+    "timer": "Time remaining",
+    "timerHidden": "Timer paused — tab hidden",
+    "warning5": "5 minutes remaining",
+    "warning2": "2 minutes remaining",
+    "warning1": "1 minute remaining",
+    "timeUp": "Time is up!",
+    "paused": "Exam paused",
+    "resume": "Resume",
+    "missingSession": "No active session found. Start a new practice exam.",
+    "goHome": "Go to Home",
+    "autoSubmitted": "Your exam was auto-submitted.",
+    "disclaimer": "This score is an approximation and does NOT represent official AWS exam results. The AWS Certified Cloud Practitioner exam requires a scaled score of 700/1000."
+  },
+  "results": {
+    "title": "Your Results",
+    "score": "Score",
+    "percentage": "Percentage",
+    "correct": "Correct",
+    "total": "Total",
+    "rawPoints": "Raw Points",
+    "passed": "Passed",
+    "failed": "Failed",
+    "passThreshold": "Pass threshold: 70%",
+    "review": "Review Answers",
+    "yourAnswer": "Your answer",
+    "correctAnswer": "Correct answer",
+    "incorrect": "Incorrect",
+    "correct": "Correct",
+    "explanation": "Explanation",
+    "notAvailable": "Explanation not available in this practice set.",
+    "summaryPrint": "Summary for Printing",
+    "print": "Print",
+    "weakAreas": "Weak Areas",
+    "weakAreaIntro": "Complete a practice session to see your weak-area analysis.",
+    "domainBreakdown": "Domain Breakdown",
+    "accuracy": "Accuracy",
+    "disclaimer": "This score is an approximation and does NOT represent official AWS exam results. The AWS Certified Cloud Practitioner exam requires a scaled score of 700/1000."
+  },
+  "resources": {
+    "title": "Study Resources",
+    "subtitle": "Recommended resources to help you prepare for the AWS Certified Cloud Practitioner exam.",
+    "categories": {
+      "official": "Official AWS Resources",
+      "practice": "Practice Exams",
+      "documentation": "AWS Documentation",
+      "training": "Training Courses",
+      "whitepapers": "AWS Whitepapers",
+      "community": "Community Resources"
+    },
+    "links": {
+      "examGuide": "Exam Guide (CLF-C02)",
+      "sampleQuestions": "Sample Questions",
+      "freeDigital": "AWS Skill Builder — Free Digital Training",
+      "pricingCalculator": "AWS Pricing Calculator",
+      "wellArchitected": "AWS Well-Architected Framework",
+      "faq": "AWS Cloud Practitioner FAQ",
+      "awsDocs": "AWS Documentation Home",
+      "iamDocs": "IAM Documentation",
+      "s3Docs": "Amazon S3 Documentation",
+      "ec2Docs": "Amazon EC2 Documentation",
+      "lambdaDocs": "AWS Lambda Documentation",
+      "rdsDocs": "Amazon RDS Documentation",
+      "officialCourse": "AWS Cloud Practitioner Essentials",
+      "examPrep": "Exam Prep Official Course",
+      "awsRampUp": "AWS Ramp-Up Guide",
+      "overview": "Overview of Amazon Web Services",
+      "wellArchitectedWP": "Well-Architected Framework Whitepaper",
+      "practitionerGuide": "Cloud Practitioner Essentials Guide",
+      "awsBlogs": "AWS Architecture Blog",
+      "rePost": "AWS re:Post",
+      "youtube": "AWS Online Tech Talks"
+    }
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "Something went wrong",
+    "retry": "Retry",
+    "themeToggle": "Toggle theme",
+    "localeSwitch": "Switch language",
+    "skipLink": "Skip to main content",
+    "home": "Home",
+    "session": "Practice Exam",
+    "results": "Results",
+    "resources": "Resources",
+    "footer": "AWS CCP Practice Exam — Unofficial practice tool"
+  },
+  "locale": {
+    "en": "English",
+    "es": "Español",
+    "title": "Choose Language / Elige Idioma"
+  },
+  "notFound": {
+    "title": "Page Not Found",
+    "message": "The page you are looking for does not exist.",
+    "goHome": "Go to Home"
+  }
+}

@@ -1,0 +1,123 @@
+{
+  "app": {
+    "title": "Práctica para el examen AWS CCP",
+    "description": "Practica para el examen AWS Certified Cloud Practitioner (CLF-C02) con preguntas reales"
+  },
+  "home": {
+    "title": "AWS Certified Cloud Practitioner",
+    "subtitle": "Plataforma de Práctica",
+    "description": "Simula el examen real CLF-C02 con sesiones de práctica cronometradas. Las preguntas provienen de un banco de práctica seleccionado.",
+    "selectPreset": "Selecciona un Modo de Práctica",
+    "start": "Comenzar Examen",
+    "shortDesc": "Calentamiento rápido",
+    "mediumDesc": "Práctica estándar",
+    "fullDesc": "Experiencia completa",
+    "disclaimer": "Esta es una herramienta de práctica y NO representa los resultados oficiales del examen AWS."
+  },
+  "session": {
+    "title": "Examen de Práctica",
+    "question": "Pregunta",
+    "of": "de",
+    "singleSelect": "Selecciona una respuesta",
+    "multiSelect": "Selecciona todas las que correspondan",
+    "submit": "Enviar Examen",
+    "confirmSubmit": "¿Estás seguro de que quieres enviar? Las preguntas sin responder se calificarán como incorrectas.",
+    "confirmYes": "Enviar",
+    "confirmNo": "Continuar",
+    "timer": "Tiempo restante",
+    "timerHidden": "Temporizador pausado — pestaña oculta",
+    "warning5": "Quedan 5 minutos",
+    "warning2": "Quedan 2 minutos",
+    "warning1": "Queda 1 minuto",
+    "timeUp": "¡Se acabó el tiempo!",
+    "paused": "Examen pausado",
+    "resume": "Reanudar",
+    "missingSession": "No se encontró ninguna sesión activa. Comienza un nuevo examen de práctica.",
+    "goHome": "Ir al Inicio",
+    "autoSubmitted": "Tu examen fue enviado automáticamente.",
+    "disclaimer": "Este puntaje es una aproximación y NO representa los resultados oficiales del examen AWS. El examen AWS Certified Cloud Practitioner requiere un puntaje escalado de 700/1000."
+  },
+  "results": {
+    "title": "Tus Resultados",
+    "score": "Puntaje",
+    "percentage": "Porcentaje",
+    "correct": "Correctas",
+    "total": "Total",
+    "rawPoints": "Puntos",
+    "passed": "Aprobado",
+    "failed": "Reprobado",
+    "passThreshold": "Umbral de aprobación: 70%",
+    "review": "Revisar Respuestas",
+    "yourAnswer": "Tu respuesta",
+    "correctAnswer": "Respuesta correcta",
+    "incorrect": "Incorrecta",
+    "correct": "Correcta",
+    "explanation": "Explicación",
+    "notAvailable": "Explicación no disponible en este conjunto de práctica.",
+    "summaryPrint": "Resumen para Imprimir",
+    "print": "Imprimir",
+    "weakAreas": "Áreas Débiles",
+    "weakAreaIntro": "Completa una sesión de práctica para ver tu análisis de áreas débiles.",
+    "domainBreakdown": "Desglose por Dominio",
+    "accuracy": "Precisión",
+    "disclaimer": "Este puntaje es una aproximación y NO representa los resultados oficiales del examen AWS. El examen AWS Certified Cloud Practitioner requiere un puntaje escalado de 700/1000."
+  },
+  "resources": {
+    "title": "Recursos de Estudio",
+    "subtitle": "Recursos recomendados para ayudarte a preparar el examen AWS Certified Cloud Practitioner.",
+    "categories": {
+      "official": "Recursos Oficiales de AWS",
+      "practice": "Exámenes de Práctica",
+      "documentation": "Documentación de AWS",
+      "training": "Cursos de Formación",
+      "whitepapers": "White Papers de AWS",
+      "community": "Recursos de la Comunidad"
+    },
+    "links": {
+      "examGuide": "Guía del Examen (CLF-C02)",
+      "sampleQuestions": "Preguntas de Muestra",
+      "freeDigital": "AWS Skill Builder — Formación Digital Gratuita",
+      "pricingCalculator": "Calculadora de Precios de AWS",
+      "wellArchitected": "AWS Well-Architected Framework",
+      "faq": "Preguntas Frecuentes de AWS Cloud Practitioner",
+      "awsDocs": "Documentación de AWS",
+      "iamDocs": "Documentación de IAM",
+      "s3Docs": "Documentación de Amazon S3",
+      "ec2Docs": "Documentación de Amazon EC2",
+      "lambdaDocs": "Documentación de AWS Lambda",
+      "rdsDocs": "Documentación de Amazon RDS",
+      "officialCourse": "AWS Cloud Practitioner Essentials",
+      "examPrep": "Curso Oficial de Preparación",
+      "awsRampUp": "Guía de inicio AWS Ramp-Up",
+      "overview": "Resumen de Amazon Web Services",
+      "wellArchitectedWP": "White Paper de Well-Architected Framework",
+      "practitionerGuide": "Guía Esencial de Cloud Practitioner",
+      "awsBlogs": "Blog de Arquitectura AWS",
+      "rePost": "AWS re:Post",
+      "youtube": "Charlas Técnicas de AWS"
+    }
+  },
+  "common": {
+    "loading": "Cargando...",
+    "error": "Algo salió mal",
+    "retry": "Reintentar",
+    "themeToggle": "Cambiar tema",
+    "localeSwitch": "Cambiar idioma",
+    "skipLink": "Saltar al contenido principal",
+    "home": "Inicio",
+    "session": "Examen de Práctica",
+    "results": "Resultados",
+    "resources": "Recursos",
+    "footer": "Práctica para Examen AWS CCP — Herramienta de práctica no oficial"
+  },
+  "locale": {
+    "en": "English",
+    "es": "Español",
+    "title": "Elige tu idioma / Choose your language"
+  },
+  "notFound": {
+    "title": "Página No Encontrada",
+    "message": "La página que buscas no existe.",
+    "goHome": "Ir al Inicio"
+  }
+}

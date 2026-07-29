@@ -1,0 +1,176 @@
+/* ======== Constants (const object pattern) ======== */
+
+export const DOMAIN = {
+  CLOUD_CONCEPTS: "CLOUD_CONCEPTS",
+  SECURITY: "SECURITY",
+  TECHNOLOGY_SERVICES: "TECHNOLOGY_SERVICES",
+  BILLING_PRICING: "BILLING_PRICING",
+} as const;
+
+export type Domain = (typeof DOMAIN)[keyof typeof DOMAIN];
+
+/** CLF-C02 target proportions */
+export const DOMAIN_TARGETS: Record<Domain, number> = {
+  CLOUD_CONCEPTS: 0.24,
+  SECURITY: 0.33,
+  TECHNOLOGY_SERVICES: 0.26,
+  BILLING_PRICING: 0.17,
+} as const;
+
+/** Maps CSV domain names to our internal keys */
+export const CSV_DOMAIN_MAP: Record<string, Domain> = {
+  "Cloud Concepts": DOMAIN.CLOUD_CONCEPTS,
+  "Security and Compliance": DOMAIN.SECURITY,
+  "Cloud Technology and Services": DOMAIN.TECHNOLOGY_SERVICES,
+  "Billing, Pricing, and Support": DOMAIN.BILLING_PRICING,
+} as const;
+
+export const LOCALE = { EN: "en", ES: "es" } as const;
+export type Locale = (typeof LOCALE)[keyof typeof LOCALE];
+
+export const OPTION_LETTER = {
+  A: "A", B: "B", C: "C", D: "D", E: "E", F: "F",
+} as const;
+export type OptionLetter = (typeof OPTION_LETTER)[keyof typeof OPTION_LETTER];
+
+export const SESSION_CONFIG = {
+  SHORT: { questionCount: 10, durationMinutes: 10, label: "10 questions / 10 min" },
+  MEDIUM: { questionCount: 20, durationMinutes: 20, label: "20 questions / 20 min" },
+  FULL: { questionCount: 50, durationMinutes: 60, label: "50 questions / 60 min" },
+} as const;
+
+export type SessionPreset = keyof typeof SESSION_CONFIG;
+
+export const SESSION_STATUS = {
+  ACTIVE: "active",
+  PAUSED: "paused",
+  COMPLETED: "completed",
+  TIMED_OUT: "timed-out",
+} as const;
+
+export type SessionStatus = (typeof SESSION_STATUS)[keyof typeof SESSION_STATUS];
+
+export const THEME = { LIGHT: "light", DARK: "dark" } as const;
+export type Theme = (typeof THEME)[keyof typeof THEME];
+
+export const STORAGE_KEY = "aws-ccp-exam:v1";
+
+/** Domains in display order */
+export const DOMAIN_ORDER: Domain[] = [
+  DOMAIN.CLOUD_CONCEPTS,
+  DOMAIN.SECURITY,
+  DOMAIN.TECHNOLOGY_SERVICES,
+  DOMAIN.BILLING_PRICING,
+];
+
+export const DOMAIN_LABELS: Record<Domain, string> = {
+  CLOUD_CONCEPTS: "Cloud Concepts",
+  SECURITY: "Security and Compliance",
+  TECHNOLOGY_SERVICES: "Cloud Technology and Services",
+  BILLING_PRICING: "Billing, Pricing, and Support",
+};
+
+/* ======== Flat serializable interfaces ======== */
+
+export interface NormalizedQuestion {
+  id: string;
+  questionText: string;
+  multiSelect: boolean;
+  optionA: string;
+  optionB: string;
+  optionC: string;
+  optionD: string;
+  optionE: string;
+  optionF: string;
+  correctAnswers: OptionLetter[];
+  times: number;
+  domain: Domain;
+}
+
+export interface DomainPool {
+  domain: Domain;
+  questions: NormalizedQuestion[];
+}
+
+export interface PoolIndex {
+  pools: DomainPool[];
+  generatedAt: string;
+  totals: Record<Domain, number>;
+  grandTotal: number;
+}
+
+export interface AnswerRecord {
+  questionId: string;
+  selected: OptionLetter[];
+}
+
+export interface AnswerResult extends AnswerRecord {
+  correctAnswers: OptionLetter[];
+  isCorrect: boolean;
+}
+
+export interface SessionConfig {
+  questionCount: number;
+  durationMinutes: number;
+  label: string;
+}
+
+export interface SessionState {
+  id: string;
+  questionIds: string[];
+  answers: AnswerRecord[];
+  currentIndex: number;
+  config: SessionConfig;
+  startTime: number | null;
+  status: SessionStatus;
+}
+
+export interface SessionResult {
+  sessionId: string;
+  rawPoints: number;
+  correctCount: number;
+  totalQuestions: number;
+  percentage: number;
+  passed: boolean;
+  answers: AnswerResult[];
+  completedAt: number;
+  preset: SessionPreset;
+}
+
+export interface DomainAnalytics {
+  domain: Domain;
+  correct: number;
+  total: number;
+  timestamp: number;
+}
+
+export interface BrowserStore {
+  activeSessionId: string | null;
+  sessions: SessionState[];
+  results: SessionResult[];
+  analytics: DomainAnalytics[];
+  locale: Locale;
+  theme: Theme;
+}
+
+export interface ExplanationEntry {
+  questionId: string;
+  domain: Domain;
+  explanation: string;
+}
+
+export interface QuestionData {
+  byId: Record<string, NormalizedQuestion>;
+  pools: DomainPool[];
+  totals: Record<Domain, number>;
+  grandTotal: number;
+}
+
+export const DISCLAIMER_TEXT =
+  "This score is an approximation and does NOT represent official AWS exam results. The AWS Certified Cloud Practitioner exam requires a scaled score of 700/1000.";
+
+export const EXPLANATION_UNAVAILABLE =
+  "Explanation not available in this practice set.";
+
+export const LOW_POOL_WARNING =
+  "Some domains are running low on fresh questions.";

@@ -1,0 +1,136 @@
+# AWS CCP Exam Practice Platform
+
+A static, bilingual (English/Spanish) practice platform for the **AWS Certified Cloud Practitioner (CLF-C02)** exam. Built with Next.js 15, React 19, TypeScript, Tailwind CSS 4, and sourced from `master_questions_final.csv`.
+
+## Features
+
+- **Timed practice sessions**: 10q/10m, 20q/20m, and 50q/60m presets with CLF-C02 domain weighting
+- **Realistic scoring**: One raw point per correct answer, all-or-nothing multi-select, inclusive 70% pass threshold
+- **Domain analytics**: Per-domain accuracy breakdown, weak-area aggregation, and persistent results
+- **Bilingual UI**: Static English and Spanish routes with client-side locale switching
+- **Responsive design**: Light/dark theme, keyboard navigation, skip link, and `aria-live` timer
+- **Curated explanations**: 200+ entries with a stable fallback message for uncovered questions
+- **Study resources**: Curated links to official AWS documentation, training, and community resources
+
+## Local Commands
+
+```bash
+# Install dependencies
+npm install
+
+# Normalize and deduplicate the CSV source
+npm run normalize
+
+# Development server
+npm run dev
+
+# TypeScript check
+npm run typecheck
+
+# Unit tests (Vitest)
+npm test
+
+# Unit tests (watch mode)
+npm run test:watch
+
+# E2E tests (Playwright)
+npm run test:e2e
+
+# Production build (static export)
+npm run build
+
+# Lint
+npm run lint
+```
+
+## Project Structure
+
+```
+├── master_questions_final.csv    # Source question bank
+├── scripts/
+│   └── normalize.ts              # CSV normalization & dedup
+├── src/
+│   ├── app/                      # Next.js App Router pages
+│   │   ├── layout.tsx            # Root layout with locale chooser
+│   │   ├── page.tsx              # Root locale chooser
+│   │   ├── not-found.tsx         # 404 page
+│   │   └── [locale]/
+│   │       ├── layout.tsx        # Locale layout (header/nav/footer)
+│   │       ├── page.tsx          # Home page with preset selection
+│   │       ├── session/page.tsx  # Exam session page
+│   │       ├── results/page.tsx  # Results page
+│   │       └── resources/page.tsx # Study resources page
+│   ├── components/               # Reusable components
+│   ├── data/
+│   │   ├── questions/            # Generated domain pools (gitignored?)
+│   │   └── explanations.json     # Curated explanations
+│   ├── lib/                      # Core logic
+│   │   ├── browser-store.ts      # localStorage persistence
+│   │   ├── quiz-engine.ts        # Sampling, scoring, session
+│   │   └── timer.ts              # Timer state machine
+│   └── types/
+│       └── contracts.ts          # All types and constants
+├── messages/
+│   ├── en.json                   # English translations
+│   └── es.json                   # Spanish translations
+├── tests/
+│   ├── unit/                     # Vitest unit tests
+│   └── e2e/                      # Playwright E2E tests
+├── package.json
+├── next.config.ts
+├── tsconfig.json
+├── vitest.config.ts
+└── playwright.config.ts
+```
+
+## Deployment
+
+### Vercel
+
+```bash
+npm run build
+npx vercel --prod
+```
+
+### GitHub Pages (legacy/manual)
+
+```bash
+npm run build
+npx gh-pages -d out
+```
+
+### S3 + CloudFront
+
+```bash
+npm run build
+aws s3 sync out/ s3://your-bucket-name/
+aws cloudfront create-invalidation --distribution-id YOUR_DIST --paths "/*"
+```
+
+### Rollback
+
+- **Vercel**: Use the Vercel dashboard to roll back to a previous deployment
+- **GitHub Pages**: Revert the `gh-pages` branch to a prior commit
+- **S3/CloudFront**: Restore the bucket from a prior version or redeploy the previous artifact and invalidate the CloudFront cache
+
+## Architecture Notes
+
+- `output: "export"` produces a fully static site. No Node.js server is required.
+- All routes are statically generated at build time (`generateStaticParams` for `en`/`es`).
+- Session state is stored in `localStorage` under key `aws-ccp-exam:v1` as one JSON-serializable object.
+- The timer starts on the first answer, pauses when the tab is hidden, and has a finite 2x wall-clock cap.
+- Question IDs are unique within a session but reused across sessions.
+- Domain pool sizes are generated from the deduped output — no hardcoded totals.
+- No GitHub Actions, CI workflows, runtime middleware, or dynamic `[id]` routes.
+
+### Public Static Content
+
+This deployment model intentionally publishes the generated question bank and its `correctAnswers` fields to the browser. Anyone who can load the static site can inspect the questions, answer keys, explanations, and other shipped assets through browser tools or downloaded files. Treat this as public educational content, not private or confidential material. Do not include secrets or sensitive data in the question source or generated assets.
+
+## Unofficial Disclaimer
+
+This is an **unofficial** practice tool. It does NOT represent the official AWS Certified Cloud Practitioner exam. The AWS Certified Cloud Practitioner exam requires a scaled score of 700/1000. This tool uses a simplified 70% threshold for practice purposes only.
+
+## Usage
+
+Unofficial educational practice tool. Review the public-content warning above before deploying it.

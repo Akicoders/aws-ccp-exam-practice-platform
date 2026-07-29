@@ -1,0 +1,24 @@
+{
+  "totals": {
+    "CLOUD_CONCEPTS": 671,
+    "SECURITY": 3784,
+    "TECHNOLOGY_SERVICES": 5176,
+    "BILLING_PRICING": 1411
+  },
+  "grandTotal": 11042,
+  "generatedAt": "2026-07-29T19:31:26.518Z",
+  "presets": {
+    "10q/10m": {
+      "questionCount": 10,
+      "durationMinutes": 10
+    },
+    "20q/20m": {
+      "questionCount": 20,
+      "durationMinutes": 20
+    },
+    "50q/60m": {
+      "questionCount": 50,
+      "durationMinutes": 60
+    }
+  }
+}
