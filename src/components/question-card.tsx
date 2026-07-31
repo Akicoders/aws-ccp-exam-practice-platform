@@ -15,6 +15,7 @@ interface QuestionCardProps {
   question: NormalizedQuestion;
   selectedOptions: OptionLetter[];
   onSelect?: (option: OptionLetter) => void;
+  selectionLabel?: string;
   showResult?: boolean;
   isCorrect?: boolean;
   correctAnswers?: OptionLetter[];
@@ -24,6 +25,7 @@ export default function QuestionCard({
   question,
   selectedOptions,
   onSelect,
+  selectionLabel,
   showResult = false,
   isCorrect,
   correctAnswers,
@@ -48,11 +50,13 @@ export default function QuestionCard({
     return "border-border dark:border-border-dark hover:border-brand-300 dark:hover:border-brand-700 hover:bg-surface-alt dark:hover:bg-surface-dark-alt";
   };
 
-  const label = question.multiSelect ? "Select all that apply" : "Select one answer";
+  const label =
+    selectionLabel ??
+    (question.multiSelect ? "Select all that apply" : "Select one answer");
 
   return (
     <fieldset className="space-y-4">
-      <legend className="text-base font-medium mb-2">
+      <legend lang="en" className="text-base font-medium mb-2">
         {question.questionText}
       </legend>
       <p className="text-xs text-text-secondary dark:text-text-dark-secondary mb-3">

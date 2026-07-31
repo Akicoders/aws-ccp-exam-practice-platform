@@ -707,8 +707,8 @@
     "domain": "TECHNOLOGY_SERVICES"
   },
   {
-    "id": "3921",
-    "questionText": "Which of the following is an AWS value proposition that describes a user’s ability to scale infrastructure based on demand?",
+    "id": "4239",
+    "questionText": "Which of the following is an AWS value proposition that describes a user's ability to scale infrastructure based on demand?",
     "multiSelect": false,
     "optionA": "Speed of innovation",
     "optionB": "Resource elasticity",
@@ -719,7 +719,7 @@
     "correctAnswers": [
       "B"
     ],
-    "times": 5,
+    "times": 4,
     "domain": "TECHNOLOGY_SERVICES"
   },
   {
@@ -1397,8 +1397,8 @@
     "domain": "TECHNOLOGY_SERVICES"
   },
   {
-    "id": "4235",
-    "questionText": "A company has an application with robust hardware requirements. The application must be accessed by students who are using lightweight, low-cost laptops. Which AWS service will help the company deploy the application without investing in backend infrastructure or high-end client hardware?",
+    "id": "3906",
+    "questionText": "A company has an application with robust hardware requirements. The application must be accessed by students who are using lightweight, low- cost laptops. Which AWS service will help the company deploy the application without investing in backend infrastructure or high-end client hardware?",
     "multiSelect": false,
     "optionA": "Amazon AppStream 2.0",
     "optionB": "AWS AppSync",
@@ -1409,7 +1409,7 @@
     "correctAnswers": [
       "A"
     ],
-    "times": 4,
+    "times": 3,
     "domain": "TECHNOLOGY_SERVICES"
   },
   {
@@ -6521,6 +6521,22 @@
     "domain": "TECHNOLOGY_SERVICES"
   },
   {
+    "id": "426",
+    "questionText": "Which AWS service automates application deployments?",
+    "multiSelect": false,
+    "optionA": "AWS CodeCommit",
+    "optionB": "AWS CodeDeploy",
+    "optionC": "AWS CodePipeline",
+    "optionD": "AWS CodeBuild",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "B"
+    ],
+    "times": 2,
+    "domain": "TECHNOLOGY_SERVICES"
+  },
+  {
     "id": "427",
     "questionText": "Which AWS service helps build and test code in a managed environment?",
     "multiSelect": false,
@@ -9446,6 +9462,22 @@
     "domain": "TECHNOLOGY_SERVICES"
   },
   {
+    "id": "3921",
+    "questionText": "Which of the following is an AWS value proposition that describes a user’s ability to scale infrastructure based on demand?",
+    "multiSelect": false,
+    "optionA": "Speed of innovation",
+    "optionB": "Resource elasticity",
+    "optionC": "Decoupled architecture",
+    "optionD": "Global deployment",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "B"
+    ],
+    "times": 5,
+    "domain": "TECHNOLOGY_SERVICES"
+  },
+  {
     "id": "3937",
     "questionText": "Which actions are examples of a company’s effort to rightsize its AWS resources to control cloud costs? (Choose two.)",
     "multiSelect": true,
@@ -9916,6 +9948,22 @@
     "domain": "TECHNOLOGY_SERVICES"
   },
   {
+    "id": "4210",
+    "questionText": "An ecommerce company has migrated its IT infrastructure from an on-premises data center to the AWS Cloud. Which cost is the company's direct responsibility?",
+    "multiSelect": false,
+    "optionA": "Cost of application software licenses",
+    "optionB": "Cost of the hardware infrastructure on AWS",
+    "optionC": "Cost of power for the AWS servers",
+    "optionD": "Cost of physical security for the AWS data center",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "A"
+    ],
+    "times": 2,
+    "domain": "TECHNOLOGY_SERVICES"
+  },
+  {
     "id": "4213",
     "questionText": "A company is deploying a machine learning (ML) research project that will require a lot of compute power over several months. The ML processing jobs do not need to run at specific times. Which Amazon EC2 instance purchasing option will meet these requirements at the lowest cost?",
     "multiSelect": false,
@@ -9932,8 +9980,8 @@
     "domain": "TECHNOLOGY_SERVICES"
   },
   {
-    "id": "4974",
-    "questionText": "Which AWS Cloud benefit is shown by an architecture’s ability to withstand failures with minimal downtime?",
+    "id": "4214",
+    "questionText": "Which AWS Cloud benefit is shown by an architecture's ability to withstand failures with minimal downtime?",
     "multiSelect": false,
     "optionA": "Agility",
     "optionB": "Elasticity",
@@ -9944,7 +9992,24 @@
     "correctAnswers": [
       "D"
     ],
-    "times": 4,
+    "times": 3,
+    "domain": "TECHNOLOGY_SERVICES"
+  },
+  {
+    "id": "4244",
+    "questionText": "Which actions are examples of a company's effort to rightsize its AWS resources to control cloud costs? (Choose two.)",
+    "multiSelect": true,
+    "optionA": "Switch from Amazon RDS to Amazon DynamoDB to accommodate NoSQL datasets.",
+    "optionB": "Base the selection of Amazon EC2 instance types on past utilization patterns.",
+    "optionC": "Use Amazon S3 Lifecycle policies to move objects that users access infrequently to lower-cost storage tiers.",
+    "optionD": "Use Multi-AZ deployments for Amazon RDS.",
+    "optionE": "Replace existing Amazon EC2 instances with AWS Elastic Beanstalk.",
+    "optionF": "",
+    "correctAnswers": [
+      "B",
+      "C"
+    ],
+    "times": 2,
     "domain": "TECHNOLOGY_SERVICES"
   },
   {
@@ -10025,6 +10090,22 @@
       "C"
     ],
     "times": 4,
+    "domain": "TECHNOLOGY_SERVICES"
+  },
+  {
+    "id": "4297",
+    "questionText": "A company is planning to migrate to the AWS Cloud. The company wants to identify measurable business outcomes that will explain the value of the company’s decision to migrate. Which phase of the cloud transformation journey includes these activities?",
+    "multiSelect": false,
+    "optionA": "Envision",
+    "optionB": "Align",
+    "optionC": "Scale",
+    "optionD": "Launch",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "A"
+    ],
+    "times": 2,
     "domain": "TECHNOLOGY_SERVICES"
   },
   {
@@ -10957,6 +11038,22 @@
     "optionF": "",
     "correctAnswers": [
       "C"
+    ],
+    "times": 2,
+    "domain": "TECHNOLOGY_SERVICES"
+  },
+  {
+    "id": "7980",
+    "questionText": "Why are AWS CloudFormation templates used?",
+    "multiSelect": false,
+    "optionA": "To reduce provisioning time by using automation.",
+    "optionB": "To transfer existing infrastructure to another company.",
+    "optionC": "To reuse on premises infrastructure in the AWS Cloud.",
+    "optionD": "To deploy large infrastructure with no cost implications.",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "A"
     ],
     "times": 2,
     "domain": "TECHNOLOGY_SERVICES"
@@ -17025,6 +17122,22 @@
     "optionB": "Aurora Blue/Green Deployments",
     "optionC": "Aurora Global Database",
     "optionD": "Aurora Backtrack",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "B"
+    ],
+    "times": 1,
+    "domain": "TECHNOLOGY_SERVICES"
+  },
+  {
+    "id": "1427",
+    "questionText": "Which of the following BEST describes the difference between AMAZON ECS and AMAZON EKS?",
+    "multiSelect": false,
+    "optionA": "ECS uses Docker; EKS uses containerd",
+    "optionB": "ECS is AWS's proprietary container orchestration with simpler configuration; EKS provides managed Kubernetes for organizations that need Kubernetes API compatibility, portability, or have existing Kubernetes expertise",
+    "optionC": "EKS is cheaper than ECS for all workloads",
+    "optionD": "ECS supports more Regions than EKS",
     "optionE": "",
     "optionF": "",
     "correctAnswers": [
@@ -27640,6 +27753,22 @@
     "domain": "TECHNOLOGY_SERVICES"
   },
   {
+    "id": "2732",
+    "questionText": "A startup runs its proprietary application on docker containers. As a Cloud Practitioner, which AWS service would you recommend so that the startup can run containers and still have access to the underlying servers?",
+    "multiSelect": false,
+    "optionA": "Amazon Elastic Container Service (Amazon ECS)",
+    "optionB": "AWS Lambda",
+    "optionC": "AWS Fargate",
+    "optionD": "Amazon Elastic Container Registry (Amazon ECR)",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "A"
+    ],
+    "times": 1,
+    "domain": "TECHNOLOGY_SERVICES"
+  },
+  {
     "id": "2733",
     "questionText": "What is the primary benefit of deploying an Amazon Relational Database Service (Amazon RDS) database in a Read Replica configuration?",
     "multiSelect": false,
@@ -27651,6 +27780,23 @@
     "optionF": "",
     "correctAnswers": [
       "D"
+    ],
+    "times": 1,
+    "domain": "TECHNOLOGY_SERVICES"
+  },
+  {
+    "id": "2735",
+    "questionText": "Which of the following AWS services offer block-level storage? (Select two)",
+    "multiSelect": true,
+    "optionA": "Amazon Elastic File System (Amazon EFS)",
+    "optionB": "Amazon Elastic Block Store (Amazon EBS)",
+    "optionC": "Amazon Elastic Container Service (Amazon ECS)",
+    "optionD": "Amazon Simple Storage Service (Amazon S3)",
+    "optionE": "Instance Store",
+    "optionF": "",
+    "correctAnswers": [
+      "B",
+      "E"
     ],
     "times": 1,
     "domain": "TECHNOLOGY_SERVICES"
@@ -30947,19 +31093,148 @@
     "domain": "TECHNOLOGY_SERVICES"
   },
   {
-    "id": "4202",
-    "questionText": "A company has a centralized group of users with large file storage requirements that have exceeded the space available on premises. The company wants to extend its file storage capabilities for this group while retaining the performance benefit of sharing content locally. What is the MOST operationally efficient AWS solution for this scenario?",
+    "id": "3210",
+    "questionText": "A company plans to use an Amazon Snowball Edge device to transfer files to the AWS Cloud.Which activities related to a Snowball Edge device are available to the company at no cost?",
+    "multiSelect": false,
+    "optionA": "Use of the Snowball Edge appliance for a 10-day period",
+    "optionB": "The transfer of data out of Amazon S3 and to the Snowball Edge appliance",
+    "optionC": "The transfer of data from the Snowball Edge appliance into Amazon S3",
+    "optionD": "Daily use of the Snowball Edge appliance after 10 days",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "C"
+    ],
+    "times": 1,
+    "domain": "TECHNOLOGY_SERVICES"
+  },
+  {
+    "id": "3212",
+    "questionText": "A company has a centralized group of users with large file storage requirements that have exceeded the space available on premises. The company wants to extend its file storage capabilities for this group while retaining the performance benefit of sharing content locally.What is the MOST operationally efficient AWS solution for this scenario?",
     "multiSelect": false,
     "optionA": "Create an Amazon S3 bucket for each user. Mount each bucket by using an S3 file system mounting utility.",
-    "optionB": "Configure and deploy an AWS Storage Gateway file gateway. Connect each user's workstation to the file gateway.",
-    "optionC": "Move each user's working environment to Amazon WorkSpaces. Set up an Amazon WorkDocs account for each user.",
+    "optionB": "Configure and deploy an AWS Storage Gateway file gateway. Connect each user’s workstation to the file gateway.",
+    "optionC": "Move each user’s working environment to Amazon WorkSpaces. Set up an Amazon WorkDocs account for each user.",
     "optionD": "Deploy an Amazon EC2 instance and attach an Amazon Elastic Block Store (Amazon EBS) Provisioned IOPS volume. Share the EBS volume directly with the users.",
     "optionE": "",
     "optionF": "",
     "correctAnswers": [
       "B"
     ],
-    "times": 5,
+    "times": 1,
+    "domain": "TECHNOLOGY_SERVICES"
+  },
+  {
+    "id": "3216",
+    "questionText": "A company is running and managing its own Docker environment on Amazon EC2 instances. The company wants an alternative to help manage cluster size, scheduling, and environment maintenance.Which AWS service meets these requirements?",
+    "multiSelect": false,
+    "optionA": "AWS Lambda",
+    "optionB": "Amazon RDS",
+    "optionC": "AWS Fargate",
+    "optionD": "Amazon Athena",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "C"
+    ],
+    "times": 1,
+    "domain": "TECHNOLOGY_SERVICES"
+  },
+  {
+    "id": "3221",
+    "questionText": "A company wants to manage deployed IT services and govern its infrastructure as code (IaC) templates.Which AWS service will meet this requirement?",
+    "multiSelect": false,
+    "optionA": "AWS Resource Explorer",
+    "optionB": "AWS Service Catalog",
+    "optionC": "AWS Organizations",
+    "optionD": "AWS Systems Manager",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "B"
+    ],
+    "times": 1,
+    "domain": "TECHNOLOGY_SERVICES"
+  },
+  {
+    "id": "3223",
+    "questionText": "A company is using a central data platform to manage multiple types of data for its customers. The company wants to use AWS services to discover, transform, and visualize the data.Which combination of AWS services should the company use to meet these requirements? (Choose two.)",
+    "multiSelect": true,
+    "optionA": "AWS Glue",
+    "optionB": "Amazon Elastic File System (Amazon EFS)",
+    "optionC": "Amazon Redshift",
+    "optionD": "Amazon QuickSight",
+    "optionE": "Amazon Quantum Ledger Database (Amazon QLDB)",
+    "optionF": "",
+    "correctAnswers": [
+      "A",
+      "D"
+    ],
+    "times": 1,
+    "domain": "TECHNOLOGY_SERVICES"
+  },
+  {
+    "id": "3224",
+    "questionText": "A global company wants to migrate its third-party applications to the AWS Cloud. The company wants help from a global team of experts to complete the migration faster and more reliably in accordance with AWS internal best practices.Which AWS service or resource will meet these requirements?",
+    "multiSelect": false,
+    "optionA": "AWS Support",
+    "optionB": "AWS Professional Services",
+    "optionC": "AWS Launch Wizard",
+    "optionD": "AWS Managed Services (AMS)",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "B"
+    ],
+    "times": 1,
+    "domain": "TECHNOLOGY_SERVICES"
+  },
+  {
+    "id": "3225",
+    "questionText": "An e-learning platform needs to run an application for 2 months each year. The application will be deployed on Amazon EC2 instances. Any application downtime during those 2 months must be avoided.Which EC2 purchasing option will meet these requirements MOST cost-effectively?",
+    "multiSelect": false,
+    "optionA": "Reserved Instances",
+    "optionB": "Dedicated Hosts",
+    "optionC": "Spot Instances",
+    "optionD": "On-Demand Instances",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "D"
+    ],
+    "times": 1,
+    "domain": "TECHNOLOGY_SERVICES"
+  },
+  {
+    "id": "3226",
+    "questionText": "A developer wants to deploy an application quickly on AWS without manually creating the required resources.Which AWS service will meet these requirements?",
+    "multiSelect": false,
+    "optionA": "Amazon EC2",
+    "optionB": "AWS Elastic Beanstalk",
+    "optionC": "AWS CodeBuild",
+    "optionD": "Amazon Personalize",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "B"
+    ],
+    "times": 1,
+    "domain": "TECHNOLOGY_SERVICES"
+  },
+  {
+    "id": "3229",
+    "questionText": "An online gaming company needs to choose a purchasing option to run its Amazon EC2 instances for 1 year. The web traffic is consistent, and any increases in traffic are predictable. The EC2 instances must be online and available without any disruption.Which EC2 instance purchasing option will meet these requirements MOST cost-effectively?",
+    "multiSelect": false,
+    "optionA": "On-Demand Instances",
+    "optionB": "Reserved Instances",
+    "optionC": "Spot Instances",
+    "optionD": "Spot Fleet",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "B"
+    ],
+    "times": 1,
     "domain": "TECHNOLOGY_SERVICES"
   },
   {
@@ -30976,6 +31251,38 @@
       "A"
     ],
     "times": 2,
+    "domain": "TECHNOLOGY_SERVICES"
+  },
+  {
+    "id": "3243",
+    "questionText": "A startup wants to provision an EC2 instance for the lowest possible cost for a long-term duration but needs to make sure that the instance would never be interrupted. As a Cloud Practitioner, which of the following options would you recommend?",
+    "multiSelect": false,
+    "optionA": "Spot Instance",
+    "optionB": "Reserved Instance",
+    "optionC": "Dedicated Host",
+    "optionD": "On-Demand Instance",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "B"
+    ],
+    "times": 1,
+    "domain": "TECHNOLOGY_SERVICES"
+  },
+  {
+    "id": "3245",
+    "questionText": "A data analytics company is running a proprietary batch analytics application on AWS and wants to use a storage service which would be accessed by hundreds of EC2 instances simultaneously to append data to existing files. As a Cloud Practitioner, which AWS service would you suggest for this use-case?",
+    "multiSelect": false,
+    "optionA": "EFS",
+    "optionB": "Instance Store",
+    "optionC": "EBS",
+    "optionD": "S3",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "A"
+    ],
+    "times": 1,
     "domain": "TECHNOLOGY_SERVICES"
   },
   {
@@ -31192,19 +31499,19 @@
     "domain": "TECHNOLOGY_SERVICES"
   },
   {
-    "id": "4557",
+    "id": "3269",
     "questionText": "Which of the following is an AWS database service?",
     "multiSelect": false,
-    "optionA": "Amazon Redshift",
-    "optionB": "Amazon Elastic Block Store (Amazon EBS)",
-    "optionC": "Amazon S3 Glacier",
-    "optionD": "AWS Snowball",
+    "optionA": "Glue",
+    "optionB": "Database Migration Service",
+    "optionC": "Storage Gateway",
+    "optionD": "Redshift",
     "optionE": "",
     "optionF": "",
     "correctAnswers": [
-      "A"
+      "D"
     ],
-    "times": 3,
+    "times": 1,
     "domain": "TECHNOLOGY_SERVICES"
   },
   {
@@ -31400,6 +31707,23 @@
       "D"
     ],
     "times": 2,
+    "domain": "TECHNOLOGY_SERVICES"
+  },
+  {
+    "id": "3323",
+    "questionText": "An IT company wants to run a log backup process every Monday at 2 AM. The usual runtime of the process is 5 minutes. As a Cloud Practitioner, which AWS services would you recommend to build a serverless solution for this use-case? (Select two)",
+    "multiSelect": true,
+    "optionA": "CloudWatch",
+    "optionB": "Lambda",
+    "optionC": "EC2 Instance",
+    "optionD": "Systems Manager",
+    "optionE": "Step Function",
+    "optionF": "",
+    "correctAnswers": [
+      "A",
+      "B"
+    ],
+    "times": 1,
     "domain": "TECHNOLOGY_SERVICES"
   },
   {
@@ -32099,6 +32423,39 @@
     "domain": "TECHNOLOGY_SERVICES"
   },
   {
+    "id": "3463",
+    "questionText": "Which of the following are the serverless computing services offered by AWS (Select two)",
+    "multiSelect": true,
+    "optionA": "Amazon Elastic Compute Cloud (EC2)",
+    "optionB": "AWS Lambda",
+    "optionC": "AWS Elastic Beanstalk",
+    "optionD": "AWS Fargate",
+    "optionE": "Amazon Lightsail",
+    "optionF": "",
+    "correctAnswers": [
+      "B",
+      "D"
+    ],
+    "times": 1,
+    "domain": "TECHNOLOGY_SERVICES"
+  },
+  {
+    "id": "3465",
+    "questionText": "Which of the following is a container service of AWS?",
+    "multiSelect": false,
+    "optionA": "AWS Elastic Beanstalk",
+    "optionB": "Amazon Simple Notification Service",
+    "optionC": "AWS Fargate",
+    "optionD": "Amazon SageMaker",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "C"
+    ],
+    "times": 1,
+    "domain": "TECHNOLOGY_SERVICES"
+  },
+  {
     "id": "3468",
     "questionText": "Which entity ensures that your application on Amazon EC2 always has the right amount of capacity to handle the current traffic demand?",
     "multiSelect": false,
@@ -32207,6 +32564,22 @@
     "optionF": "",
     "correctAnswers": [
       "A",
+      "B"
+    ],
+    "times": 1,
+    "domain": "TECHNOLOGY_SERVICES"
+  },
+  {
+    "id": "3482",
+    "questionText": "Compared to the On-demand prices, what is the highest possible discount offered for reserved instances?",
+    "multiSelect": false,
+    "optionA": "90",
+    "optionB": "75",
+    "optionC": "50",
+    "optionD": "40",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
       "B"
     ],
     "times": 1,
@@ -33145,6 +33518,22 @@
     "domain": "TECHNOLOGY_SERVICES"
   },
   {
+    "id": "3717",
+    "questionText": "When designing AWS workloads to be operational even when there are component failures, what is an AWS best practice?",
+    "multiSelect": false,
+    "optionA": "Perform quarterly disaster recovery tests.",
+    "optionB": "Place the main component on the us-east-1 Region.",
+    "optionC": "Design for automatic failover to healthy resources.",
+    "optionD": "Design workloads to +t on a single Amazon EC2 instance.",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "C"
+    ],
+    "times": 1,
+    "domain": "TECHNOLOGY_SERVICES"
+  },
+  {
     "id": "3734",
     "questionText": "A company has temporary workload that is also variable. The company needs to use Amazon EC2 instances for the workload. The EC2 instances need to handle short bursts of work that cannot stop before +nishing. Which purchase option will meet these requirements?",
     "multiSelect": false,
@@ -33289,6 +33678,22 @@
     "domain": "TECHNOLOGY_SERVICES"
   },
   {
+    "id": "4022",
+    "questionText": "A company wants to use Amazon EC2 instances to provide a static website to users all over the world. The company needs to minimize latency for the users. Which solution meets these requirements?",
+    "multiSelect": false,
+    "optionA": "Use EC2 instances in multiple edge locations.",
+    "optionB": "Use EC2 instances in the same Availability Zone but in different AWS Regions.",
+    "optionC": "Use Amazon CloudFront with the EC2 instances con+gured as the source.",
+    "optionD": "Use EC2 instances in the same Availability Zone but in different AWS accounts.",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "D"
+    ],
+    "times": 1,
+    "domain": "TECHNOLOGY_SERVICES"
+  },
+  {
     "id": "4023",
     "questionText": "A team of researchers is going to collect data at remote locations around the world. Many locations do not have internet connectivity. The team needs to capture the data in the +eld, and transfer it to the AWS Cloud later. Which AWS service will support these requirements?",
     "multiSelect": false,
@@ -33417,6 +33822,22 @@
     "domain": "TECHNOLOGY_SERVICES"
   },
   {
+    "id": "4117",
+    "questionText": "What does Amazon CloudFront provide?",
+    "multiSelect": false,
+    "optionA": "Automatic scaling for all resources to power an application from a single uni+ed interface",
+    "optionB": "Secure delivery of data, videos, applications, and APIs to users globally with low latency",
+    "optionC": "Ability to directly manage traffic globally through a variety of routing types, including latency-based routing, geo DNS, geoproximity, and",
+    "optionD": "Automatic distribution of incoming application traffic across multiple targets, such as Amazon EC2 instances, containers, IP addresses, and",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "B"
+    ],
+    "times": 1,
+    "domain": "TECHNOLOGY_SERVICES"
+  },
+  {
     "id": "4124",
     "questionText": "Which bene+t of cloud computing gives a company the ability to deploy applications to users all over the world through a network of AWS Regions, Availability Zones, and edge locations?",
     "multiSelect": false,
@@ -33494,6 +33915,135 @@
       "C"
     ],
     "times": 1,
+    "domain": "TECHNOLOGY_SERVICES"
+  },
+  {
+    "id": "4202",
+    "questionText": "A company has a centralized group of users with large file storage requirements that have exceeded the space available on premises. The company wants to extend its file storage capabilities for this group while retaining the performance benefit of sharing content locally. What is the MOST operationally efficient AWS solution for this scenario?",
+    "multiSelect": false,
+    "optionA": "Create an Amazon S3 bucket for each user. Mount each bucket by using an S3 file system mounting utility.",
+    "optionB": "Configure and deploy an AWS Storage Gateway file gateway. Connect each user's workstation to the file gateway.",
+    "optionC": "Move each user's working environment to Amazon WorkSpaces. Set up an Amazon WorkDocs account for each user.",
+    "optionD": "Deploy an Amazon EC2 instance and attach an Amazon Elastic Block Store (Amazon EBS) Provisioned IOPS volume. Share the EBS volume directly with the users.",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "B"
+    ],
+    "times": 5,
+    "domain": "TECHNOLOGY_SERVICES"
+  },
+  {
+    "id": "4235",
+    "questionText": "A company has an application with robust hardware requirements. The application must be accessed by students who are using lightweight, low-cost laptops. Which AWS service will help the company deploy the application without investing in backend infrastructure or high-end client hardware?",
+    "multiSelect": false,
+    "optionA": "Amazon AppStream 2.0",
+    "optionB": "AWS AppSync",
+    "optionC": "Amazon WorkLink",
+    "optionD": "AWS Elastic Beanstalk",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "A"
+    ],
+    "times": 4,
+    "domain": "TECHNOLOGY_SERVICES"
+  },
+  {
+    "id": "4236",
+    "questionText": "A company wants to query its server logs to gain insights about its customers' experiences. Which AWS service will store this data MOST cost-effectively?",
+    "multiSelect": false,
+    "optionA": "Amazon Aurora",
+    "optionB": "Amazon Elastic File System (Amazon EFS)",
+    "optionC": "Amazon Elastic Block Store (Amazon EBS)",
+    "optionD": "Amazon S3",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "D"
+    ],
+    "times": 2,
+    "domain": "TECHNOLOGY_SERVICES"
+  },
+  {
+    "id": "4251",
+    "questionText": "A company needs to engage third-party consultants to help maintain and support its AWS environment and the company's business needs. Which AWS service or resource will meet these requirements?",
+    "multiSelect": false,
+    "optionA": "AWS Support",
+    "optionB": "AWS Organizations",
+    "optionC": "AWS Service Catalog",
+    "optionD": "AWS Partner Network (APN)",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "D"
+    ],
+    "times": 1,
+    "domain": "TECHNOLOGY_SERVICES"
+  },
+  {
+    "id": "4252",
+    "questionText": "A company is planning to move data backups to the AWS Cloud. The company needs to replace on-premises storage with storage that is cloud-based but locally cached. Which AWS service meets these requirements?",
+    "multiSelect": false,
+    "optionA": "AWS Storage Gateway",
+    "optionB": "AWS Snowcone",
+    "optionC": "AWS Backup",
+    "optionD": "Amazon Elastic File System (Amazon EFS)",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "A"
+    ],
+    "times": 3,
+    "domain": "TECHNOLOGY_SERVICES"
+  },
+  {
+    "id": "4262",
+    "questionText": "A company has a physical tape library to store data backups. The tape library is running out of space. The company needs to extend the tape library’s capacity to the AWS Cloud. Which AWS service should the company use to meet this requirement?",
+    "multiSelect": false,
+    "optionA": "Amazon Elastic File System (Amazon EFS)",
+    "optionB": "Amazon Elastic Block Store (Amazon EBS)",
+    "optionC": "Amazon S3",
+    "optionD": "AWS Storage Gateway",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "D"
+    ],
+    "times": 1,
+    "domain": "TECHNOLOGY_SERVICES"
+  },
+  {
+    "id": "4269",
+    "questionText": "What is a benefit of using AWS serverless computing?",
+    "multiSelect": false,
+    "optionA": "Application deployment and management are not required",
+    "optionB": "Application security will be fully managed by AWS",
+    "optionC": "Monitoring and logging are not needed",
+    "optionD": "Management of infrastructure is offloaded to AWS",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "D"
+    ],
+    "times": 2,
+    "domain": "TECHNOLOGY_SERVICES"
+  },
+  {
+    "id": "4295",
+    "questionText": "A company launched an Amazon EC2 instance with the latest Amazon Linux 2 Amazon Machine Image (AMI). Which actions can a system administrator take to connect to the EC2 instance? (Choose two.)",
+    "multiSelect": true,
+    "optionA": "Use Amazon EC2 Instance Connect",
+    "optionB": "Use a Remote Desktop Protocol (RDP) connection",
+    "optionC": "Use AWS Batch",
+    "optionD": "Use AWS Systems Manager Session Manager",
+    "optionE": "Use Amazon Connect",
+    "optionF": "",
+    "correctAnswers": [
+      "A",
+      "D"
+    ],
+    "times": 3,
     "domain": "TECHNOLOGY_SERVICES"
   },
   {
@@ -35004,6 +35554,22 @@
     "domain": "TECHNOLOGY_SERVICES"
   },
   {
+    "id": "4557",
+    "questionText": "Which of the following is an AWS database service?",
+    "multiSelect": false,
+    "optionA": "Amazon Redshift",
+    "optionB": "Amazon Elastic Block Store (Amazon EBS)",
+    "optionC": "Amazon S3 Glacier",
+    "optionD": "AWS Snowball",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "A"
+    ],
+    "times": 3,
+    "domain": "TECHNOLOGY_SERVICES"
+  },
+  {
     "id": "4559",
     "questionText": "What are the benefits of developing and running a new application in the AWS Cloud compared to on-premises? (Choose two.)",
     "multiSelect": true,
@@ -35296,8 +35862,25 @@
     "domain": "TECHNOLOGY_SERVICES"
   },
   {
-    "id": "10967",
-    "questionText": "Which element of the AWS global infrastructure consists of one or more discrete data centers each with redundant power networking and connectivity which are housed in separate facilities?",
+    "id": "4610",
+    "questionText": "Which of the following are advantages of the AWS Cloud? (Choose two.)",
+    "multiSelect": true,
+    "optionA": "AWS manages the maintenance of the cloud infrastructure",
+    "optionB": "AWS manages the security of applications built on AWS",
+    "optionC": "AWS manages capacity planning for physical servers",
+    "optionD": "AWS manages the development of applications on AWS",
+    "optionE": "AWS manages cost planning for virtual servers",
+    "optionF": "",
+    "correctAnswers": [
+      "A",
+      "C"
+    ],
+    "times": 1,
+    "domain": "TECHNOLOGY_SERVICES"
+  },
+  {
+    "id": "4614",
+    "questionText": "Which element of the AWS global infrastructure consists of one or more discrete data centers, each with redundant power, networking, and connectivity, which are housed in separate facilities?",
     "multiSelect": false,
     "optionA": "AWS Regions",
     "optionB": "Availability Zones",
@@ -35308,7 +35891,7 @@
     "correctAnswers": [
       "B"
     ],
-    "times": 2,
+    "times": 1,
     "domain": "TECHNOLOGY_SERVICES"
   },
   {
@@ -36050,6 +36633,23 @@
       "C"
     ],
     "times": 2,
+    "domain": "TECHNOLOGY_SERVICES"
+  },
+  {
+    "id": "4748",
+    "questionText": "Which of the following AWS services are serverless? (Choose two.)",
+    "multiSelect": true,
+    "optionA": "AWS Lambda",
+    "optionB": "Amazon Elasticsearch Service",
+    "optionC": "AWS Elastic Beanstalk",
+    "optionD": "Amazon DynamoDB",
+    "optionE": "Amazon Redshift",
+    "optionF": "",
+    "correctAnswers": [
+      "A",
+      "D"
+    ],
+    "times": 1,
     "domain": "TECHNOLOGY_SERVICES"
   },
   {
@@ -36973,6 +37573,54 @@
     "domain": "TECHNOLOGY_SERVICES"
   },
   {
+    "id": "4970",
+    "questionText": "A company has a centralized group of users with large file storage requirements that have exceeded the space available on premises. The company wants to extend its file storage capabilities for this group while retaining the performance benefit of sharing content locally. What is the MOST operationally efficient AWS solution for this scenario?",
+    "multiSelect": false,
+    "optionA": "Create an Amazon S3 bucket for each user. Mount each bucket by using an S3 file system mounting utility.",
+    "optionB": "Configure and deploy an AWS Storage Gateway file gateway. Connect each user’s workstation to the file gateway.",
+    "optionC": "Move each user’s working environment to Amazon WorkSpaces. Set up an Amazon WorkDocs account for each user.",
+    "optionD": "Deploy an Amazon EC2 instance and attach an Amazon Elastic Block Store (Amazon EBS) Provisioned IOPS volume. Share the EBS volume directly with the users.",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "B"
+    ],
+    "times": 1,
+    "domain": "TECHNOLOGY_SERVICES"
+  },
+  {
+    "id": "4974",
+    "questionText": "Which AWS Cloud benefit is shown by an architecture’s ability to withstand failures with minimal downtime?",
+    "multiSelect": false,
+    "optionA": "Agility",
+    "optionB": "Elasticity",
+    "optionC": "Scalability",
+    "optionD": "High availability",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "D"
+    ],
+    "times": 4,
+    "domain": "TECHNOLOGY_SERVICES"
+  },
+  {
+    "id": "4992",
+    "questionText": "A company wants to use AWS Managed Services (AMS) for operational support and wants to understand the scope of AMS. Which AMS feature will meet these requirements?",
+    "multiSelect": false,
+    "optionA": "Landing zone and network management",
+    "optionB": "Customer application development",
+    "optionC": "DevSecOps pipeline configuration",
+    "optionD": "Application log monitoring",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "A"
+    ],
+    "times": 1,
+    "domain": "TECHNOLOGY_SERVICES"
+  },
+  {
     "id": "4993",
     "questionText": "A company is in the process of finding correct Amazon EC2 instance types and sizes to meet its performance and capacity requirements. The company wants to find the lowest possible cost. Which option accurately characterizes the company's actions?",
     "multiSelect": false,
@@ -36986,6 +37634,22 @@
       "C"
     ],
     "times": 3,
+    "domain": "TECHNOLOGY_SERVICES"
+  },
+  {
+    "id": "5008",
+    "questionText": "A company wants its Amazon EC2 instances to operate in a highly available environment, even if there is a natural disaster in a particular geographic area. Which solution achieves this goal?",
+    "multiSelect": false,
+    "optionA": "Use EC2 instances in multiple AWS Regions.",
+    "optionB": "Use EC2 instances in multiple edge locations.",
+    "optionC": "Use EC2 instances in the same Availability Zone but in different AWS Regions.",
+    "optionD": "Use Amazon CloudFront with the EC2 instances configured as the source.",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "A"
+    ],
+    "times": 1,
     "domain": "TECHNOLOGY_SERVICES"
   },
   {
@@ -37053,6 +37717,22 @@
     "domain": "TECHNOLOGY_SERVICES"
   },
   {
+    "id": "5037",
+    "questionText": "A startup wants to reduce costs but doesn't mind if workloads are interrupted. Which EC2 pricing is best?",
+    "multiSelect": false,
+    "optionA": "On-Demand",
+    "optionB": "Spot",
+    "optionC": "Reserved",
+    "optionD": "Savings Plans",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "B"
+    ],
+    "times": 1,
+    "domain": "TECHNOLOGY_SERVICES"
+  },
+  {
     "id": "5040",
     "questionText": "A company wants to minimize downtime during software deployments. Which AWS service provides blue/green deployment?",
     "multiSelect": false,
@@ -37100,6 +37780,22 @@
       "A"
     ],
     "times": 2,
+    "domain": "TECHNOLOGY_SERVICES"
+  },
+  {
+    "id": "5044",
+    "questionText": "Which AWS service provides serverless compute?",
+    "multiSelect": false,
+    "optionA": "Amazon EC2",
+    "optionB": "AWS Lambda",
+    "optionC": "Amazon ECS",
+    "optionD": "Amazon EKS",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "B"
+    ],
+    "times": 1,
     "domain": "TECHNOLOGY_SERVICES"
   },
   {
@@ -37254,6 +37950,22 @@
     "optionB": "Amazon EKS",
     "optionC": "AWS Lambda",
     "optionD": "AWS Fargate",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "B"
+    ],
+    "times": 1,
+    "domain": "TECHNOLOGY_SERVICES"
+  },
+  {
+    "id": "5061",
+    "questionText": "Which AWS service provides domain name system (DNS) services?",
+    "multiSelect": false,
+    "optionA": "Amazon CloudFront",
+    "optionB": "Amazon Route 53",
+    "optionC": "AWS Direct Connect",
+    "optionD": "AWS Global Accelerator",
     "optionE": "",
     "optionF": "",
     "correctAnswers": [
@@ -41237,6 +41949,22 @@
     "domain": "TECHNOLOGY_SERVICES"
   },
   {
+    "id": "5503",
+    "questionText": "Which AWS service supports a hybrid architecture that gives users the ability to extend AWS infrastructure, AWS services, APIs, and tools to data centers, co- location environments, or on-premises facilities?",
+    "multiSelect": false,
+    "optionA": "AWS Snowmobile",
+    "optionB": "AWS Local Zones",
+    "optionC": "AWS Outposts",
+    "optionD": "AWS Fargate",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "C"
+    ],
+    "times": 1,
+    "domain": "TECHNOLOGY_SERVICES"
+  },
+  {
     "id": "5506",
     "questionText": "Which AWS service can be used to turn text into lifelike speech?",
     "multiSelect": false,
@@ -41315,6 +42043,23 @@
       "C"
     ],
     "times": 2,
+    "domain": "TECHNOLOGY_SERVICES"
+  },
+  {
+    "id": "5518",
+    "questionText": "A company launched an Amazon EC2 instance with the latest Amazon Linux 2 Amazon Machine Image (AMI). Which actions can a system administrator take to connect to the EC2 instance? (Choose two.)",
+    "multiSelect": true,
+    "optionA": "Use Amazon EC2 Instance Connect.",
+    "optionB": "Use a Remote Desktop Protocol (RDP) connection.",
+    "optionC": "Use AWS Batch",
+    "optionD": "Use AWS Systems Manager Session Manager.",
+    "optionE": "Use Amazon Connect",
+    "optionF": "",
+    "correctAnswers": [
+      "A",
+      "C"
+    ],
+    "times": 1,
     "domain": "TECHNOLOGY_SERVICES"
   },
   {
@@ -41538,6 +42283,22 @@
     "optionF": "",
     "correctAnswers": [
       "B"
+    ],
+    "times": 1,
+    "domain": "TECHNOLOGY_SERVICES"
+  },
+  {
+    "id": "5552",
+    "questionText": "Which responsibility belongs to AWS when a company hosts its databases on Amazon EC2 instances?",
+    "multiSelect": false,
+    "optionA": "Database backups",
+    "optionB": "Database software patches",
+    "optionC": "Operating system patches",
+    "optionD": "Operating system installations.",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "D"
     ],
     "times": 1,
     "domain": "TECHNOLOGY_SERVICES"
@@ -42642,6 +43403,22 @@
     "domain": "TECHNOLOGY_SERVICES"
   },
   {
+    "id": "5723",
+    "questionText": "A company is using AWS for all its IT infrastructure. The company's developers are allowed to deploy applications on their own. The developers want to deploy their applications without having to provision the infrastructure themselves. Which AWS service should the developers use to meet these requirements?",
+    "multiSelect": false,
+    "optionA": "AWS Cloud Formation",
+    "optionB": "AWS CodeBuild",
+    "optionC": "AWS Elastic Beanstalk",
+    "optionD": "AWS CodeDeploy",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "B"
+    ],
+    "times": 1,
+    "domain": "TECHNOLOGY_SERVICES"
+  },
+  {
     "id": "5725",
     "questionText": "A company needs a managed NFS file system that the company can use with its AWS compute resources. Which AWS service or feature will meet these requirements?",
     "multiSelect": false,
@@ -42669,6 +43446,22 @@
     "optionF": "",
     "correctAnswers": [
       "A"
+    ],
+    "times": 1,
+    "domain": "TECHNOLOGY_SERVICES"
+  },
+  {
+    "id": "5729",
+    "questionText": "A company wants its Amazon EC2 instances to operate in a highly available environment, even if there is a natural disaster in a particular geographic area. Which solution achieves this goal?",
+    "multiSelect": false,
+    "optionA": "Use EC2 instances in a single Availability Zone",
+    "optionB": "Use EC2 instances in multiple AWS Regions",
+    "optionC": "Use EC2 instances in multiple edge locations.",
+    "optionD": "Use Amazon CloudFront with the EC2 instances configured as the source.",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "B"
     ],
     "times": 1,
     "domain": "TECHNOLOGY_SERVICES"
@@ -43156,6 +43949,23 @@
     "domain": "TECHNOLOGY_SERVICES"
   },
   {
+    "id": "5802",
+    "questionText": "Which of the following are advantages of moving to the AWS Cloud? (Choose two.)",
+    "multiSelect": true,
+    "optionA": "The ability to turn over the responsibility for all security to AWS",
+    "optionB": "The ability to use the pay as you go model",
+    "optionC": "The ability to have full control over the physical infrastructure",
+    "optionD": "No longer having to guess what capacity will be required",
+    "optionE": "No longer worrying about users access controls",
+    "optionF": "",
+    "correctAnswers": [
+      "B",
+      "D"
+    ],
+    "times": 1,
+    "domain": "TECHNOLOGY_SERVICES"
+  },
+  {
     "id": "5805",
     "questionText": "A company wants to deploy and manage a Docker based application on AWS. Which solution meets these requirements with the LEAST amount of operational overhead?",
     "multiSelect": false,
@@ -43167,6 +43977,22 @@
     "optionF": "",
     "correctAnswers": [
       "D"
+    ],
+    "times": 1,
+    "domain": "TECHNOLOGY_SERVICES"
+  },
+  {
+    "id": "5808",
+    "questionText": "A company plans to migrate its application to AWS and run the application on Amazon EC2 instances. The application will have continuous usage for 1 year. Which EC2 instance purchasing option will meet these requirements MOST cost effectively?",
+    "multiSelect": false,
+    "optionA": "Reserved Instances",
+    "optionB": "Spot Instances",
+    "optionC": "On Demand Instances",
+    "optionD": "Dedicated Hosts",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "A"
     ],
     "times": 1,
     "domain": "TECHNOLOGY_SERVICES"
@@ -43195,6 +44021,70 @@
     "optionB": "AWS Storage Gateway",
     "optionC": "AWS Direct Connect",
     "optionD": "AWS Snowball",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "B"
+    ],
+    "times": 1,
+    "domain": "TECHNOLOGY_SERVICES"
+  },
+  {
+    "id": "5827",
+    "questionText": "Which AWS service uses a combination of publishers and subscribers?",
+    "multiSelect": false,
+    "optionA": "AWS Lambda",
+    "optionB": "Amazon Simple Notification Service (Amazon SNS)",
+    "optionC": "Amazon Cloud Watch",
+    "optionD": "AWS CloudFormation",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "B"
+    ],
+    "times": 1,
+    "domain": "TECHNOLOGY_SERVICES"
+  },
+  {
+    "id": "5829",
+    "questionText": "A company wants to protect its AWS Cloud information systems and assets while performing risk assessment and mitigation tasks Which pillar of the AWS Well Architected framework is supported by these goals?",
+    "multiSelect": false,
+    "optionA": "Reliability",
+    "optionB": "Security",
+    "optionC": "Operational excellence",
+    "optionD": "Performance efficiency",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "B"
+    ],
+    "times": 1,
+    "domain": "TECHNOLOGY_SERVICES"
+  },
+  {
+    "id": "5830",
+    "questionText": "A company is migrating an application that includes an Oracle database to AWS. The company cannot rewrite the application. To which AWS service could the company migrate the database?",
+    "multiSelect": false,
+    "optionA": "Amazon Athena",
+    "optionB": "Amazon DynamoDB",
+    "optionC": "Amazon RDS",
+    "optionD": "Amazon DocumentDB (with MongoDB compatibility)",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "C"
+    ],
+    "times": 1,
+    "domain": "TECHNOLOGY_SERVICES"
+  },
+  {
+    "id": "5833",
+    "questionText": "A company is building an application that will receive millions of database queries each second. The company needs the data store for the application to scale to meet these needs. Which AWS service will meet this requirement?",
+    "multiSelect": false,
+    "optionA": "Amazon DynamoDB",
+    "optionB": "AWS Cloud9",
+    "optionC": "Amazon Elastic ache for Memcached",
+    "optionD": "Amazon Neptune",
     "optionE": "",
     "optionF": "",
     "correctAnswers": [
@@ -43281,6 +44171,23 @@
       "B"
     ],
     "times": 2,
+    "domain": "TECHNOLOGY_SERVICES"
+  },
+  {
+    "id": "5855",
+    "questionText": "Which of the following are advantages of the AWS Cloud? (Choose two.)",
+    "multiSelect": true,
+    "optionA": "AWS manages all the security within the cloud.",
+    "optionB": "Expenses never change from month to month.",
+    "optionC": "Users can stop spending money on the maintenance of data centers.",
+    "optionD": "Users do not need to deploy applications globally.",
+    "optionE": "Users can stop guessing about resource capacity.",
+    "optionF": "",
+    "correctAnswers": [
+      "A",
+      "C"
+    ],
+    "times": 1,
     "domain": "TECHNOLOGY_SERVICES"
   },
   {
@@ -43493,6 +44400,22 @@
     "domain": "TECHNOLOGY_SERVICES"
   },
   {
+    "id": "5881",
+    "questionText": "A company has a MySQL database running on a single Amazon EC2 instance. The company now requires higher availability in the event of an outage. Which set of tasks would meet this requirement?",
+    "multiSelect": false,
+    "optionA": "Add an Application Load Balancer in front of the EC2 instance.",
+    "optionB": "Configure EC2 Auto Recovery to move the instance to another Availability Zone.",
+    "optionC": "Migrate to Amazon RDS and enable Multi-AZ.",
+    "optionD": "Enable termination protection for the EC2 instance to avoid outages.",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "C"
+    ],
+    "times": 1,
+    "domain": "TECHNOLOGY_SERVICES"
+  },
+  {
     "id": "5883",
     "questionText": "A company wants its Amazon EC2 instances to share the same geographic area but use multiple independent underlying power sources. Which solution achieves this goal?",
     "multiSelect": false,
@@ -43616,6 +44539,22 @@
     "optionF": "",
     "correctAnswers": [
       "B"
+    ],
+    "times": 1,
+    "domain": "TECHNOLOGY_SERVICES"
+  },
+  {
+    "id": "5912",
+    "questionText": "A company wants to use Amazon EC2 instances to provide a static website to users all over the world. The company needs to minimize latency for the users. Which solution meets these requirements?",
+    "multiSelect": false,
+    "optionA": "Use EC2 instances in a single Availability Zone.",
+    "optionB": "Use EC2 instances across multiple Availability Zones in the same AWS Region.",
+    "optionC": "Use Amazon CloudFront with the EC2 instances configured as the source.",
+    "optionD": "Use EC2 instances in the same edge location and the same AWS Region.",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "D"
     ],
     "times": 1,
     "domain": "TECHNOLOGY_SERVICES"
@@ -44268,6 +45207,22 @@
     "domain": "TECHNOLOGY_SERVICES"
   },
   {
+    "id": "6020",
+    "questionText": "A company’s application is running on Amazon EC2 instances. The company is planning a partial migration to a serverless architecture in the next year and wants to pay for resources up front. Which AWS purchasing option will optimize the company's costs?",
+    "multiSelect": false,
+    "optionA": "Convertible Reserved Instances",
+    "optionB": "Spot Instances",
+    "optionC": "EC2 Instance Savings Plans",
+    "optionD": "Compute Savings Plan",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "C"
+    ],
+    "times": 1,
+    "domain": "TECHNOLOGY_SERVICES"
+  },
+  {
     "id": "6022",
     "questionText": "Which AWS compute service automatically scales resources up or down to meet application workload demands?",
     "multiSelect": false,
@@ -44327,6 +45282,22 @@
     "optionF": "",
     "correctAnswers": [
       "A"
+    ],
+    "times": 1,
+    "domain": "TECHNOLOGY_SERVICES"
+  },
+  {
+    "id": "6040",
+    "questionText": "A company wants to use a managed service to simplify the setup operation, and scaling of its MySQL database in the AWS Cloud. Which AWS service will meet these requirements?",
+    "multiSelect": false,
+    "optionA": "Amazon EMR",
+    "optionB": "Amazon RDS",
+    "optionC": "Amazon Redshift",
+    "optionD": "Amazon DynamoDB",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "B"
     ],
     "times": 1,
     "domain": "TECHNOLOGY_SERVICES"
@@ -44520,6 +45491,22 @@
     "optionF": "",
     "correctAnswers": [
       "C"
+    ],
+    "times": 1,
+    "domain": "TECHNOLOGY_SERVICES"
+  },
+  {
+    "id": "6067",
+    "questionText": "Which AWS service or resource is serverless?",
+    "multiSelect": false,
+    "optionA": "AWS Snowball Edge",
+    "optionB": "Amazon EC2",
+    "optionC": "Amazon Elastic Kubernetes Service (Amazon EKS)",
+    "optionD": "Amazon API Gateway",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "D"
     ],
     "times": 1,
     "domain": "TECHNOLOGY_SERVICES"
@@ -44747,6 +45734,22 @@
     "optionF": "",
     "correctAnswers": [
       "D"
+    ],
+    "times": 1,
+    "domain": "TECHNOLOGY_SERVICES"
+  },
+  {
+    "id": "6110",
+    "questionText": "A company needs the ability to acquire resources when the resources are needed. The company also needs the ability to release the resources when the resources are no longer needed. Which AWS concept represents the company’s goals?",
+    "multiSelect": false,
+    "optionA": "Scalability",
+    "optionB": "Sustainability",
+    "optionC": "Elasticity",
+    "optionD": "Operational excellence",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "A"
     ],
     "times": 1,
     "domain": "TECHNOLOGY_SERVICES"
@@ -45105,6 +46108,38 @@
     "domain": "TECHNOLOGY_SERVICES"
   },
   {
+    "id": "6157",
+    "questionText": "A company wants a key-value NoSQL database that is fully managed and serverless. Which AWS service will meet these requirements?",
+    "multiSelect": false,
+    "optionA": "Amazon DynamoDB",
+    "optionB": "Amazon RDS",
+    "optionC": "Amazon Aurora",
+    "optionD": "Amazon MemoryDB for Redis",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "A"
+    ],
+    "times": 1,
+    "domain": "TECHNOLOGY_SERVICES"
+  },
+  {
+    "id": "6164",
+    "questionText": "A company wants to create a chatbot and integrate the chatbot with its current web application. Which AWS service will meet these requirements?",
+    "multiSelect": false,
+    "optionA": "AmazonKendra",
+    "optionB": "Amazon Lex",
+    "optionC": "AmazonTextract",
+    "optionD": "AmazonPolly",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "B"
+    ],
+    "times": 1,
+    "domain": "TECHNOLOGY_SERVICES"
+  },
+  {
     "id": "6165",
     "questionText": "A company wants to migrate its on-premises application to the AWS Cloud. The company is legally obligated to retain certain data in its onpremises data center. Which AWS service or feature will support this requirement?",
     "multiSelect": false,
@@ -45116,6 +46151,22 @@
     "optionF": "",
     "correctAnswers": [
       "D"
+    ],
+    "times": 1,
+    "domain": "TECHNOLOGY_SERVICES"
+  },
+  {
+    "id": "6166",
+    "questionText": "Which AWS service provides a highly accurate and easy-to-use enterprise search service that is powered by machine learning (ML)?",
+    "multiSelect": false,
+    "optionA": "Amazon Kendra",
+    "optionB": "Amazon SageMaker",
+    "optionC": "Amazon Augmented Al (Amazon A2I)",
+    "optionD": "Amazon Polly",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "A"
     ],
     "times": 1,
     "domain": "TECHNOLOGY_SERVICES"
@@ -45144,6 +46195,22 @@
     "optionB": "Amazon EC2",
     "optionC": "Amazon Redshift",
     "optionD": "Amazon RDS",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "D"
+    ],
+    "times": 1,
+    "domain": "TECHNOLOGY_SERVICES"
+  },
+  {
+    "id": "6175",
+    "questionText": "A company wants to deploy and manage a Docker-based application on AWS. Which solution meets these requirements with the LEAST amount of operational overhead?",
+    "multiSelect": false,
+    "optionA": "An open-source Docker orchestrator on Amazon EC2 instances",
+    "optionB": "AWS AppSync",
+    "optionC": "Amazon Elastic Container Registry (Amazon ECR)",
+    "optionD": "Amazon Elastic Container Service (Amazon ECS)",
     "optionE": "",
     "optionF": "",
     "correctAnswers": [
@@ -45201,6 +46268,22 @@
     "domain": "TECHNOLOGY_SERVICES"
   },
   {
+    "id": "6184",
+    "questionText": "Which of the following describes an AWS Region?",
+    "multiSelect": false,
+    "optionA": "A specific location within a geographic area that provides high availability",
+    "optionB": "A set of data centers spanning multiple countries",
+    "optionC": "A global picture of a user's cloud computing environment",
+    "optionD": "A collection of databases that can be accessed from a specific geographic area only",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "A"
+    ],
+    "times": 1,
+    "domain": "TECHNOLOGY_SERVICES"
+  },
+  {
     "id": "6186",
     "questionText": "Which AWS service or feature captures information about the network traffic to and from an Amazon EC2 instance?",
     "multiSelect": false,
@@ -45229,6 +46312,22 @@
     "correctAnswers": [
       "A",
       "D"
+    ],
+    "times": 1,
+    "domain": "TECHNOLOGY_SERVICES"
+  },
+  {
+    "id": "6188",
+    "questionText": "A company wants to manage its AWS Cloud resources through a web interface. Which AWS service will meet this requirement?",
+    "multiSelect": false,
+    "optionA": "AWS Management Console",
+    "optionB": "AWS CLI",
+    "optionC": "AWS SDK",
+    "optionD": "AWS Cloud",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "A"
     ],
     "times": 1,
     "domain": "TECHNOLOGY_SERVICES"
@@ -46177,6 +47276,22 @@
     "optionB": "Global reach",
     "optionC": "Scalability",
     "optionD": "High availability",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "C"
+    ],
+    "times": 1,
+    "domain": "TECHNOLOGY_SERVICES"
+  },
+  {
+    "id": "6364",
+    "questionText": "Which feature enables Amazon EC2 instances to be more elastic in response to changing workload demand?",
+    "multiSelect": false,
+    "optionA": "Resource groups",
+    "optionB": "Lifecycle policies",
+    "optionC": "Application Load Balancer",
+    "optionD": "Amazon EC2 Auto Scaling",
     "optionE": "",
     "optionF": "",
     "correctAnswers": [
@@ -54434,6 +55549,23 @@
     "domain": "TECHNOLOGY_SERVICES"
   },
   {
+    "id": "7533",
+    "questionText": "Which of these databases supports relational databases with tables and SQL queries(Select 2)?",
+    "multiSelect": true,
+    "optionA": "Amazon ElastiCache",
+    "optionB": "Amazon Neptune",
+    "optionC": "Amazon DynamoDB",
+    "optionD": "Amazon RDS",
+    "optionE": "Amazon Redshift",
+    "optionF": "",
+    "correctAnswers": [
+      "D",
+      "E"
+    ],
+    "times": 1,
+    "domain": "TECHNOLOGY_SERVICES"
+  },
+  {
     "id": "7536",
     "questionText": "Which of these is a fully managed container orchestration service in AWS?",
     "multiSelect": false,
@@ -54560,6 +55692,22 @@
     "optionF": "",
     "correctAnswers": [
       "D"
+    ],
+    "times": 1,
+    "domain": "TECHNOLOGY_SERVICES"
+  },
+  {
+    "id": "7561",
+    "questionText": "Which of these is a managed source code version control service provided by AWS?",
+    "multiSelect": false,
+    "optionA": "AWS CodeCommit",
+    "optionB": "AWS CodeDeploy",
+    "optionC": "AWS CodeBuild",
+    "optionD": "AWS CodePipeline",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "A"
     ],
     "times": 1,
     "domain": "TECHNOLOGY_SERVICES"
@@ -55453,6 +56601,22 @@
     "domain": "TECHNOLOGY_SERVICES"
   },
   {
+    "id": "7701",
+    "questionText": "You need to quickly run a mission critical batch program that cannot be interrupted. Which of these options would you choose?",
+    "multiSelect": false,
+    "optionA": "Savings Plans",
+    "optionB": "On Demand Instances",
+    "optionC": "Reserved Instances",
+    "optionD": "Spot Instances",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "B"
+    ],
+    "times": 1,
+    "domain": "TECHNOLOGY_SERVICES"
+  },
+  {
     "id": "7705",
     "questionText": "Which of these S3 storage classes does NOT provide immediate access to data (select 2)?",
     "multiSelect": true,
@@ -55594,6 +56758,23 @@
     "optionF": "",
     "correctAnswers": [
       "B"
+    ],
+    "times": 1,
+    "domain": "TECHNOLOGY_SERVICES"
+  },
+  {
+    "id": "7728",
+    "questionText": "Which of the following are advantages of the AWS Cloud? (Select TWO.)",
+    "multiSelect": true,
+    "optionA": "AWS manages the maintenance of the cloud infrastructure",
+    "optionB": "AWS manages the security of applications built on AWS",
+    "optionC": "AWS manages capacity planning for physical servers",
+    "optionD": "AWS manages the development of applications on AWS",
+    "optionE": "AWS manages cost planning for virtual servers",
+    "optionF": "",
+    "correctAnswers": [
+      "A",
+      "C"
     ],
     "times": 1,
     "domain": "TECHNOLOGY_SERVICES"
@@ -56284,6 +57465,22 @@
     "domain": "TECHNOLOGY_SERVICES"
   },
   {
+    "id": "7818",
+    "questionText": "You have been running an on-demand Amazon EC2 instance running Linux for 4hrs, 5 minutes and 6 seconds. How much time will you be billed for?",
+    "multiSelect": false,
+    "optionA": "5hrs",
+    "optionB": "4hrs, 6mins",
+    "optionC": "4hrs, 5mins, and 6 seconds",
+    "optionD": "4hrs",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "C"
+    ],
+    "times": 1,
+    "domain": "TECHNOLOGY_SERVICES"
+  },
+  {
     "id": "7819",
     "questionText": "Which of the below is an example of an architectural benefit of moving to the cloud?",
     "multiSelect": false,
@@ -56345,6 +57542,22 @@
     "optionF": "",
     "correctAnswers": [
       "B"
+    ],
+    "times": 1,
+    "domain": "TECHNOLOGY_SERVICES"
+  },
+  {
+    "id": "7823",
+    "questionText": "Your CTO wants to move to cloud. What cost advantages are there to moving to cloud?",
+    "multiSelect": false,
+    "optionA": "You provision only what you need and adjust to peak load",
+    "optionB": "You can reduce your marketing costs",
+    "optionC": "You don't need to pay for application licensing",
+    "optionD": "You get free data transfer into and out of the cloud",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "A"
     ],
     "times": 1,
     "domain": "TECHNOLOGY_SERVICES"
@@ -57153,6 +58366,22 @@
     "optionF": "",
     "correctAnswers": [
       "C"
+    ],
+    "times": 1,
+    "domain": "TECHNOLOGY_SERVICES"
+  },
+  {
+    "id": "7956",
+    "questionText": "A company runs business applications in an on premises data center and in the AWS Cloud. The company needs a shared file system that can be available to both environments. Which AWS service meets these requirements?",
+    "multiSelect": false,
+    "optionA": "Amazon Elastic Block Store (Amazon EBS)",
+    "optionB": "Amazon S3",
+    "optionC": "Amazon ElastiCache",
+    "optionD": "Amazon Elastic File System (Amazon EFS)",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "D"
     ],
     "times": 1,
     "domain": "TECHNOLOGY_SERVICES"
@@ -58503,6 +59732,22 @@
     "optionF": "",
     "correctAnswers": [
       "B"
+    ],
+    "times": 1,
+    "domain": "TECHNOLOGY_SERVICES"
+  },
+  {
+    "id": "8141",
+    "questionText": "Which of the following best describes scalability?",
+    "multiSelect": false,
+    "optionA": "The ability of an application to automatically add preconfigured compute resources to meet increasing demand",
+    "optionB": "The ability of an application to increase or decrease compute resources to match changing demand",
+    "optionC": "The ability to more densely pack virtualized resources onto a single physical server",
+    "optionD": "The ability to bill resource usage using a pay-per-user model",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "A"
     ],
     "times": 1,
     "domain": "TECHNOLOGY_SERVICES"
@@ -61091,6 +62336,22 @@
     "domain": "TECHNOLOGY_SERVICES"
   },
   {
+    "id": "8396",
+    "questionText": "Which AWS service is a highly available and scalable DNS web service?",
+    "multiSelect": false,
+    "optionA": "Amazon CloudFront",
+    "optionB": "Amazon Route 53",
+    "optionC": "AWS Direct Connect",
+    "optionD": "AWS Global Accelerator",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "B"
+    ],
+    "times": 1,
+    "domain": "TECHNOLOGY_SERVICES"
+  },
+  {
     "id": "8400",
     "questionText": "Which AWS service is a physical device used to transfer large amounts of data into or out of AWS when network transfer is impractical?",
     "multiSelect": false,
@@ -61294,6 +62555,22 @@
     "optionF": "",
     "correctAnswers": [
       "A"
+    ],
+    "times": 1,
+    "domain": "TECHNOLOGY_SERVICES"
+  },
+  {
+    "id": "8436",
+    "questionText": "Which AWS service converts text into lifelike speech?",
+    "multiSelect": false,
+    "optionA": "Amazon Transcribe",
+    "optionB": "Amazon Polly",
+    "optionC": "Amazon Lex",
+    "optionD": "Amazon Comprehend",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "B"
     ],
     "times": 1,
     "domain": "TECHNOLOGY_SERVICES"
@@ -61875,6 +63152,22 @@
     "domain": "TECHNOLOGY_SERVICES"
   },
   {
+    "id": "8525",
+    "questionText": "Which EC2 pricing model offers a significant discount in exchange for committing to a 1- or 3-year term?",
+    "multiSelect": false,
+    "optionA": "On-Demand",
+    "optionB": "Reserved Instances",
+    "optionC": "Spot Instances",
+    "optionD": "Dedicated Hosts",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "B"
+    ],
+    "times": 1,
+    "domain": "TECHNOLOGY_SERVICES"
+  },
+  {
     "id": "8530",
     "questionText": "Which AWS service allows you to run interactive SQL queries directly against data stored in S3?",
     "multiSelect": false,
@@ -61998,6 +63291,22 @@
     "optionF": "",
     "correctAnswers": [
       "A"
+    ],
+    "times": 1,
+    "domain": "TECHNOLOGY_SERVICES"
+  },
+  {
+    "id": "8586",
+    "questionText": "Which AWS service is a fully managed Kubernetes service?",
+    "multiSelect": false,
+    "optionA": "Amazon ECS",
+    "optionB": "AWS Lambda",
+    "optionC": "Amazon EKS",
+    "optionD": "AWS Outposts",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "C"
     ],
     "times": 1,
     "domain": "TECHNOLOGY_SERVICES"
@@ -68374,6 +69683,22 @@
     "domain": "TECHNOLOGY_SERVICES"
   },
   {
+    "id": "9607",
+    "questionText": "Which of the following BEST describes the purpose of AWS CodeStar?",
+    "multiSelect": false,
+    "optionA": "Manages infrastructure deployments using CloudFormation templates",
+    "optionB": "Provides a unified project development environment integrating CodeCommit, CodeBuild, CodeDeploy, and CodePipeline with project tracking",
+    "optionC": "Provides code review using ML-powered analysis",
+    "optionD": "Manages container deployments on EKS",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "B"
+    ],
+    "times": 1,
+    "domain": "TECHNOLOGY_SERVICES"
+  },
+  {
     "id": "9608",
     "questionText": "A company uses Amazon S3 to store customer-uploaded images. They want to automatically generate thumbnails every time a new image is uploaded. Which architecture achieves this without managing servers?",
     "multiSelect": false,
@@ -74441,12 +75766,109 @@
     "domain": "TECHNOLOGY_SERVICES"
   },
   {
+    "id": "10440",
+    "questionText": "A company plans to migrate to the AWS Cloud. The company is gathering information about its on- premises infrastructure and requires information such as the hostname, IP address, and MAC address. Which AWS service will meet these requirements?",
+    "multiSelect": false,
+    "optionA": "AWS DataSync",
+    "optionB": "AWS Application Migration Service",
+    "optionC": "AWS Application Discovery Service",
+    "optionD": "AWS Database Migration Service (AWS DMS)",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "C"
+    ],
+    "times": 1,
+    "domain": "TECHNOLOGY_SERVICES"
+  },
+  {
+    "id": "10441",
+    "questionText": "A company is storing data that will not be frequently accessed in the AWS Cloud. If the company needs to access the data, the data needs to be retrieved within 12 hours. The company wants a solution that is cost- effective for storage costs for each gigabyte. Which Amazon S3 storage class will meet these requirements?",
+    "multiSelect": false,
+    "optionA": "S3 Standard",
+    "optionB": "S3 Glacier Flexible Retrieval",
+    "optionC": "S3 One Zone-Infrequent Access (S3 One Zone-IA)",
+    "optionD": "S3 Standard-Infrequent Access (S3 Standard-IA)",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "B"
+    ],
+    "times": 1,
+    "domain": "TECHNOLOGY_SERVICES"
+  },
+  {
+    "id": "10442",
+    "questionText": "A company is planning to move data backups to the AWS Cloud. The company needs to replace on- premises storage with storage that is cloud-based but locally cached. Which AWS service meets these requirements?",
+    "multiSelect": false,
+    "optionA": "AWS Storage Gateway",
+    "optionB": "AWS Snowcone",
+    "optionC": "AWS Backup",
+    "optionD": "Amazon Elastic File System (Amazon EFS)",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "A"
+    ],
+    "times": 1,
+    "domain": "TECHNOLOGY_SERVICES"
+  },
+  {
     "id": "10446",
     "questionText": "A company wants to migrate its on-premises NoSQL workload to Amazon DynamoD",
     "multiSelect": false,
     "optionA": "AWS Migration Hub",
     "optionB": "AWS Database Migration Service (AWS DMS)",
     "optionC": "Migration Evaluator",
+    "optionD": "AWS Application Migration Service",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "B"
+    ],
+    "times": 1,
+    "domain": "TECHNOLOGY_SERVICES"
+  },
+  {
+    "id": "10448",
+    "questionText": "A company wants to use AWS. The company has stringent requirements about low-latency access to on- premises systems and data residency. Which AWS service should the company use to design a solution that meets these requirements?",
+    "multiSelect": false,
+    "optionA": "AWS Wavelength",
+    "optionB": "AWS Transit Gateway",
+    "optionC": "AWS Ground Station",
+    "optionD": "AWS Outposts",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "D"
+    ],
+    "times": 1,
+    "domain": "TECHNOLOGY_SERVICES"
+  },
+  {
+    "id": "10450",
+    "questionText": "Which combination of AWS services can be used to move a commercial relational database to an Amazon- managed open-source database? (Choose two.)",
+    "multiSelect": true,
+    "optionA": "AWS Database Migration Service (AWS DMS)",
+    "optionB": "AWS software development kits (SDKs)",
+    "optionC": "AWS Schema Conversion Tool",
+    "optionD": "AWS Systems Manager",
+    "optionE": "Amazon EMR",
+    "optionF": "",
+    "correctAnswers": [
+      "A",
+      "C"
+    ],
+    "times": 1,
+    "domain": "TECHNOLOGY_SERVICES"
+  },
+  {
+    "id": "10451",
+    "questionText": "A company plans to perform a one-time migration of a large dataset with millions of files from its on- premises data center to the AWS Cloud. Which AWS service should the company use for the migration?",
+    "multiSelect": false,
+    "optionA": "AWS Database Migration Service (AWS DMS)",
+    "optionB": "AWS DataSync",
+    "optionC": "AWS Migration Hub",
     "optionD": "AWS Application Migration Service",
     "optionE": "",
     "optionF": "",
@@ -74981,6 +76403,22 @@
     "optionF": "",
     "correctAnswers": [
       "B"
+    ],
+    "times": 1,
+    "domain": "TECHNOLOGY_SERVICES"
+  },
+  {
+    "id": "10513",
+    "questionText": "A company is planning to migrate to the AWS Cloud. The company needs to understand the existing on-premises usage and configuration. The company does not want to replicate its workloads to AWS, yet. Which AWS service or tool will meet these requirements?",
+    "multiSelect": false,
+    "optionA": "AWS Application Discovery Service",
+    "optionB": "AWS Application Migration Service",
+    "optionC": "Cloud Migration Factory",
+    "optionD": "AWS Transfer Family",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "A"
     ],
     "times": 1,
     "domain": "TECHNOLOGY_SERVICES"
@@ -77948,6 +79386,22 @@
     "domain": "TECHNOLOGY_SERVICES"
   },
   {
+    "id": "10967",
+    "questionText": "Which element of the AWS global infrastructure consists of one or more discrete data centers each with redundant power networking and connectivity which are housed in separate facilities?",
+    "multiSelect": false,
+    "optionA": "AWS Regions",
+    "optionB": "Availability Zones",
+    "optionC": "Edge locations",
+    "optionD": "Amazon CloudFront",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "B"
+    ],
+    "times": 2,
+    "domain": "TECHNOLOGY_SERVICES"
+  },
+  {
     "id": "10972",
     "questionText": "Which services can be used across hybrid AWS Cloud architectures?",
     "multiSelect": true,
@@ -80825,6 +82279,22 @@
     "domain": "TECHNOLOGY_SERVICES"
   },
   {
+    "id": "11319",
+    "questionText": "Which AWS service or feature can a company use to create a private, secured, and scalable network environment in the AWS Cloud?",
+    "multiSelect": false,
+    "optionA": "Amazon Elastic Container Service (Amazon ECS)",
+    "optionB": "Amazon S3",
+    "optionC": "Amazon VPC",
+    "optionD": "Route tables",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "C"
+    ],
+    "times": 1,
+    "domain": "TECHNOLOGY_SERVICES"
+  },
+  {
     "id": "11320",
     "questionText": "A company plans to migrate on-premises Internet Small Computer Systems Interface (iSCSI) storage to AWS. The company needs low-latency access to the stored data. The company also must minimize infrastructure changes to workloads that use the storage. Which AWS storage solution will meet these requirements?",
     "multiSelect": false,
@@ -82000,6 +83470,38 @@
     "domain": "TECHNOLOGY_SERVICES"
   },
   {
+    "id": "11472",
+    "questionText": "A company is migrating to the AWS Cloud and plans to run experimental workloads for 3 to 6 months on AWS.Which pricing model will meet these requirements?",
+    "multiSelect": false,
+    "optionA": "Use Savings Plans for a 3-year term.",
+    "optionB": "Use Dedicated Hosts.",
+    "optionC": "Buy Reserved Instances.",
+    "optionD": "Use On-Demand Instances.",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "D"
+    ],
+    "times": 1,
+    "domain": "TECHNOLOGY_SERVICES"
+  },
+  {
+    "id": "11473",
+    "questionText": "A company wants a time-series database service that makes it easier to store and analyze trillions of events each day.Which AWS service will meet this requirement?",
+    "multiSelect": false,
+    "optionA": "Amazon Neptune",
+    "optionB": "Amazon Timestream",
+    "optionC": "Amazon Forecast",
+    "optionD": "Amazon DocumentDB (with MongoDB compatibility)",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "B"
+    ],
+    "times": 1,
+    "domain": "TECHNOLOGY_SERVICES"
+  },
+  {
     "id": "11475",
     "questionText": "A company has developed an eCommerce web application in AWS. What should they do to ensure that the application has the highest level of availability?",
     "multiSelect": false,
@@ -82027,6 +83529,38 @@
     "optionF": "",
     "correctAnswers": [
       "A"
+    ],
+    "times": 1,
+    "domain": "TECHNOLOGY_SERVICES"
+  },
+  {
+    "id": "11479",
+    "questionText": "One of the most important AWS best-practices to follow is the cloud architecture principle of elasticity. How does this principle improve your architecture’s design?",
+    "multiSelect": false,
+    "optionA": "By automatically scaling your on-premises resources based on changes in demand.",
+    "optionB": "By automatically scaling your AWS resources using an Elastic Load Balancer.",
+    "optionC": "By reducing interdependencies between application components wherever possible.",
+    "optionD": "By automatically provisioning the required AWS resources based on changes in demand.",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "D"
+    ],
+    "times": 1,
+    "domain": "TECHNOLOGY_SERVICES"
+  },
+  {
+    "id": "11482",
+    "questionText": "A company is deploying a new two-tier web application in AWS. Where should the most frequently accessed data be stored so that the application’s response time is optimal?",
+    "multiSelect": false,
+    "optionA": "AWS OpsWorks.",
+    "optionB": "AWS Storage Gateway.",
+    "optionC": "Amazon EBS volume.",
+    "optionD": "Amazon ElastiCache.",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "D"
     ],
     "times": 1,
     "domain": "TECHNOLOGY_SERVICES"
@@ -82160,6 +83694,22 @@
     "domain": "TECHNOLOGY_SERVICES"
   },
   {
+    "id": "11507",
+    "questionText": "Sarah has deployed an application in the Northern California (us-west-1) region. After examining the application’s traffic, she notices that about 30% of the traffic is coming from Asia. What can she do to reduce latency for the users in Asia?",
+    "multiSelect": false,
+    "optionA": "Replicate the current resources across multiple Availability Zones within the same region.",
+    "optionB": "Migrate the application to a hosting provider in Asia.",
+    "optionC": "Recreate the website content.",
+    "optionD": "Create a CDN using CloudFront, so that content is cached at Edge Locations close to and in Asia.",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "D"
+    ],
+    "times": 1,
+    "domain": "TECHNOLOGY_SERVICES"
+  },
+  {
     "id": "11508",
     "questionText": "Amazon Glacier is an Amazon S3 storage class that is suitable for storing [...] & [...]. (Choose TWO)",
     "multiSelect": false,
@@ -82171,6 +83721,22 @@
     "optionF": "",
     "correctAnswers": [
       "A"
+    ],
+    "times": 1,
+    "domain": "TECHNOLOGY_SERVICES"
+  },
+  {
+    "id": "11510",
+    "questionText": "Your application has recently experienced significant global growth, and international users are complaining of high latency. What is the AWS characteristic that can help improve your international users’ experience?",
+    "multiSelect": false,
+    "optionA": "Elasticity.",
+    "optionB": "Global reach.",
+    "optionC": "Data durability.",
+    "optionD": "High availability.",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "B"
     ],
     "times": 1,
     "domain": "TECHNOLOGY_SERVICES"
@@ -82208,6 +83774,22 @@
     "domain": "TECHNOLOGY_SERVICES"
   },
   {
+    "id": "11516",
+    "questionText": "Which of the following statements describes the AWS Cloud’s agility?",
+    "multiSelect": false,
+    "optionA": "AWS allows you to host your applications in multiple regions around the world.",
+    "optionB": "AWS provides customizable hardware at the lowest possible cost.",
+    "optionC": "AWS allows you to provision resources in minutes.",
+    "optionD": "AWS allows you to pay upfront to reduce costs.",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "C"
+    ],
+    "times": 1,
+    "domain": "TECHNOLOGY_SERVICES"
+  },
+  {
     "id": "11517",
     "questionText": "What are the benefits of using the Amazon Relational Database Service? (Choose TWO)",
     "multiSelect": false,
@@ -82216,6 +83798,22 @@
     "optionC": "Resizable compute capacity.",
     "optionD": "Scales automatically to larger or smaller instance types.",
     "optionE": "Supports the document and key-value data structure.",
+    "optionF": "",
+    "correctAnswers": [
+      "A"
+    ],
+    "times": 1,
+    "domain": "TECHNOLOGY_SERVICES"
+  },
+  {
+    "id": "11520",
+    "questionText": "Which AWS Service provides the current status of all AWS Services in all AWS Regions?",
+    "multiSelect": false,
+    "optionA": "AWS Service Health Dashboard.",
+    "optionB": "AWS Management Console.",
+    "optionC": "Amazon CloudWatch.",
+    "optionD": "AWS Personal Health Dashboard.",
+    "optionE": "",
     "optionF": "",
     "correctAnswers": [
       "A"
@@ -82272,6 +83870,22 @@
     "domain": "TECHNOLOGY_SERVICES"
   },
   {
+    "id": "11526",
+    "questionText": "A customer is planning to move billions of images and videos to be stored on Amazon S3. The customer has approximately 60 Petabytes of data to move. Which of the following AWS Services is the best choice to transfer the data to AWS?",
+    "multiSelect": false,
+    "optionA": "Snowball.",
+    "optionB": "S3 Transfer Acceleration.",
+    "optionC": "Snowmobile.",
+    "optionD": "Amazon VPC.",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "C"
+    ],
+    "times": 1,
+    "domain": "TECHNOLOGY_SERVICES"
+  },
+  {
     "id": "11528",
     "questionText": "Which of the following are use cases for Amazon S3? (Choose TWO)",
     "multiSelect": false,
@@ -82299,6 +83913,22 @@
     "optionF": "",
     "correctAnswers": [
       "C"
+    ],
+    "times": 1,
+    "domain": "TECHNOLOGY_SERVICES"
+  },
+  {
+    "id": "11532",
+    "questionText": "Which of the following AWS Services helps with planning application migration to the AWS Cloud?",
+    "multiSelect": false,
+    "optionA": "AWS Snowball Migration Service.",
+    "optionB": "AWS Application Discovery Service.",
+    "optionC": "AWS DMS.",
+    "optionD": "AWS Migration Hub.",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "B"
     ],
     "times": 1,
     "domain": "TECHNOLOGY_SERVICES"
@@ -82347,6 +83977,38 @@
     "optionF": "",
     "correctAnswers": [
       "A"
+    ],
+    "times": 1,
+    "domain": "TECHNOLOGY_SERVICES"
+  },
+  {
+    "id": "11540",
+    "questionText": "What is the AWS Compute service that executes code only when triggered by events?",
+    "multiSelect": false,
+    "optionA": "AWS Lambda.",
+    "optionB": "Amazon CloudWatch.",
+    "optionC": "AWS Transit Gateway.",
+    "optionD": "Amazon EC2.",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "A"
+    ],
+    "times": 1,
+    "domain": "TECHNOLOGY_SERVICES"
+  },
+  {
+    "id": "11541",
+    "questionText": "Both AWS and traditional IT distributors provide a wide range of virtual servers to meet their customers’ requirements. What is the name of these virtual servers in AWS?",
+    "multiSelect": false,
+    "optionA": "Amazon EBS Snapshots.",
+    "optionB": "Amazon VPC.",
+    "optionC": "AWS Managed Servers.",
+    "optionD": "Amazon EC2 Instances.",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "D"
     ],
     "times": 1,
     "domain": "TECHNOLOGY_SERVICES"
@@ -82416,6 +84078,22 @@
     "domain": "TECHNOLOGY_SERVICES"
   },
   {
+    "id": "11552",
+    "questionText": "A company has a web application that is hosted on a single EC2 instance and is approaching 100 percent CPU Utilization during peak loads. Rather than scaling the server vertically, the company has decided to deploy three Amazon EC2 instances in parallel and to distribute traffic across the three servers. What AWS Service should the company use to distribute the traffic evenly?",
+    "multiSelect": false,
+    "optionA": "AWS Global Accelerator.",
+    "optionB": "AWS Application Load Balancer (ALB).",
+    "optionC": "Amazon CloudFront.",
+    "optionD": "Transit VPC.",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "B"
+    ],
+    "times": 1,
+    "domain": "TECHNOLOGY_SERVICES"
+  },
+  {
     "id": "11553",
     "questionText": "Which of the following factors should be considered when determining the region in which AWS Resources will be deployed? (Choose TWO)",
     "multiSelect": false,
@@ -82443,6 +84121,22 @@
     "optionF": "",
     "correctAnswers": [
       "C"
+    ],
+    "times": 1,
+    "domain": "TECHNOLOGY_SERVICES"
+  },
+  {
+    "id": "11557",
+    "questionText": "Which AWS Service helps enterprises extend their on-premises storage to AWS in a cost-effective manner?",
+    "multiSelect": false,
+    "optionA": "AWS Data Pipeline.",
+    "optionB": "AWS Storage Gateway.",
+    "optionC": "Amazon Aurora.",
+    "optionD": "Amazon EFS.",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "B"
     ],
     "times": 1,
     "domain": "TECHNOLOGY_SERVICES"
@@ -82512,6 +84206,22 @@
     "domain": "TECHNOLOGY_SERVICES"
   },
   {
+    "id": "11564",
+    "questionText": "A company is migrating a web application to AWS. The application’s compute capacity is continually utilized throughout the year. Which of the below options offers the company the most cost-effective solution?",
+    "multiSelect": false,
+    "optionA": "On-demand Instances.",
+    "optionB": "Dedicated Hosts.",
+    "optionC": "Spot Instances.",
+    "optionD": "Reserved Instances.",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "D"
+    ],
+    "times": 1,
+    "domain": "TECHNOLOGY_SERVICES"
+  },
+  {
     "id": "11568",
     "questionText": "Which of the following are true regarding the languages that are supported on AWS Lambda? (Choose TWO)",
     "multiSelect": false,
@@ -82576,6 +84286,22 @@
     "domain": "TECHNOLOGY_SERVICES"
   },
   {
+    "id": "11575",
+    "questionText": "A company is developing an application that will leverage facial recognition to automate photo tagging. Which AWS Service should the company use for facial recognition?",
+    "multiSelect": false,
+    "optionA": "Amazon Comprehend.",
+    "optionB": "AWS IAM.",
+    "optionC": "Amazon Polly.",
+    "optionD": "Amazon Rekognition.",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "D"
+    ],
+    "times": 1,
+    "domain": "TECHNOLOGY_SERVICES"
+  },
+  {
     "id": "11576",
     "questionText": "Which of the following are examples of AWS-managed databases? (Choose TWO)",
     "multiSelect": false,
@@ -82587,6 +84313,22 @@
     "optionF": "",
     "correctAnswers": [
       "A"
+    ],
+    "times": 1,
+    "domain": "TECHNOLOGY_SERVICES"
+  },
+  {
+    "id": "11577",
+    "questionText": "A company’s AWS workflow requires that it periodically perform large-scale image and video processing jobs. The customer is seeking to minimize cost and has stated that the amount of time it takes to process these jobs is not critical, but that cost minimization is the most important factor in designing the solution. Which EC2 instance class is best suited for this processing?",
+    "multiSelect": false,
+    "optionA": "EC2 On-Demand Instances.",
+    "optionB": "EC2 Reserved Instances - No Upfront.",
+    "optionC": "EC2 Spot Instances.",
+    "optionD": "EC2 Reserved Instances - All Upfront.",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "C"
     ],
     "times": 1,
     "domain": "TECHNOLOGY_SERVICES"
@@ -82640,6 +84382,22 @@
     "domain": "TECHNOLOGY_SERVICES"
   },
   {
+    "id": "11586",
+    "questionText": "A developer wants to quickly deploy and manage his application in the AWS Cloud, but he doesn’t have any experience with cloud computing. Which of the following AWS services would help the developer achieve his goal?",
+    "multiSelect": false,
+    "optionA": "AWS Fargate.",
+    "optionB": "AWS Batch.",
+    "optionC": "Amazon Personalize.",
+    "optionD": "AWS Elastic Beanstalk.",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "D"
+    ],
+    "times": 1,
+    "domain": "TECHNOLOGY_SERVICES"
+  },
+  {
     "id": "11587",
     "questionText": "For Amazon RDS databases, what does AWS perform on your behalf? (Choose TWO)",
     "multiSelect": false,
@@ -82667,6 +84425,22 @@
     "optionF": "",
     "correctAnswers": [
       "C"
+    ],
+    "times": 1,
+    "domain": "TECHNOLOGY_SERVICES"
+  },
+  {
+    "id": "11589",
+    "questionText": "You want to transfer 200 Terabytes of data from on-premises locations to the AWS Cloud, which of the following can do the job in a cost-effective way?",
+    "multiSelect": false,
+    "optionA": "AWS Snowmobile.",
+    "optionB": "AWS Import/Export.",
+    "optionC": "AWS DMS.",
+    "optionD": "AWS Snowball.",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "D"
     ],
     "times": 1,
     "domain": "TECHNOLOGY_SERVICES"
@@ -82800,6 +84574,22 @@
     "domain": "TECHNOLOGY_SERVICES"
   },
   {
+    "id": "11611",
+    "questionText": "You are working as a site reliability engineer (SRE) in an AWS environment, which of the following services helps monitor your applications?",
+    "multiSelect": false,
+    "optionA": "Amazon CloudWatch.",
+    "optionB": "Amazon CloudSearch.",
+    "optionC": "Amazon Elastic MapReduce.",
+    "optionD": "Amazon CloudHSM.",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "A"
+    ],
+    "times": 1,
+    "domain": "TECHNOLOGY_SERVICES"
+  },
+  {
     "id": "11612",
     "questionText": "What factors determine how you are charged when using AWS Lambda? (Choose TWO)",
     "multiSelect": false,
@@ -82843,6 +84633,38 @@
     "optionF": "",
     "correctAnswers": [
       "C"
+    ],
+    "times": 1,
+    "domain": "TECHNOLOGY_SERVICES"
+  },
+  {
+    "id": "11616",
+    "questionText": "How can you increase your application’s fault-tolerance while it is being hosted in AWS?",
+    "multiSelect": false,
+    "optionA": "Deploy your application across multiple EC2 instances.",
+    "optionB": "Deploy your application across multiple Availability Zones.",
+    "optionC": "Host your application on one powerful EC2 instance type instead of multiple smaller instances.",
+    "optionD": "Deploy the underlying application resources across multiple subnets.",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "B"
+    ],
+    "times": 1,
+    "domain": "TECHNOLOGY_SERVICES"
+  },
+  {
+    "id": "11620",
+    "questionText": "You are planning to launch an advertising campaign over the coming weekend to promote a new digital product. It is expected that there will be heavy spikes in load during the campaign period, and you can’t afford any downtime. You need additional compute resources to handle the additional load. What is the most cost-effective EC2 instance purchasing option for this job?",
+    "multiSelect": false,
+    "optionA": "Savings Plans.",
+    "optionB": "Spot Instances.",
+    "optionC": "Reserved Instances.",
+    "optionD": "On-Demand Instances.",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "D"
     ],
     "times": 1,
     "domain": "TECHNOLOGY_SERVICES"
@@ -83089,6 +84911,74 @@
     "domain": "TECHNOLOGY_SERVICES"
   },
   {
+    "id": "11662",
+    "questionText": "Which of the following are characteristics of Amazon S3? (Select TWO.)",
+    "multiSelect": true,
+    "optionA": "A global file system",
+    "optionB": "An object store",
+    "optionC": "A local file store",
+    "optionD": "A network file system",
+    "optionE": "A durable storage system",
+    "optionF": "",
+    "correctAnswers": [
+      "B",
+      "E"
+    ],
+    "times": 1,
+    "domain": "TECHNOLOGY_SERVICES"
+  },
+  {
+    "id": "11663",
+    "questionText": "Which services can be used across hybrid AWS Cloud architectures? (Select TWO.)",
+    "multiSelect": true,
+    "optionA": "Amazon Route 53",
+    "optionB": "Virtual Private Gateway",
+    "optionC": "Classic Load Balancer",
+    "optionD": "Auto Scaling",
+    "optionE": "Amazon CloudWatch default metrics",
+    "optionF": "",
+    "correctAnswers": [
+      "A",
+      "B"
+    ],
+    "times": 1,
+    "domain": "TECHNOLOGY_SERVICES"
+  },
+  {
+    "id": "11668",
+    "questionText": "Which AWS services should be used for read/write of constantly changing data? (Select TWO.)",
+    "multiSelect": true,
+    "optionA": "Amazon Glacier",
+    "optionB": "Amazon RDS",
+    "optionC": "AWS Snowball",
+    "optionD": "Amazon Redshift",
+    "optionE": "Amazon EFS",
+    "optionF": "",
+    "correctAnswers": [
+      "B",
+      "E"
+    ],
+    "times": 1,
+    "domain": "TECHNOLOGY_SERVICES"
+  },
+  {
+    "id": "11669",
+    "questionText": "Which of the following are features of Amazon CloudWatch Logs? (Select TWO.)",
+    "multiSelect": true,
+    "optionA": "Summaries by Amazon Simple Notification Service (Amazon SNS)",
+    "optionB": "Free Amazon Elasticsearch Service analytics",
+    "optionC": "Provided at no charge",
+    "optionD": "Real-time monitoring",
+    "optionE": "Adjustable retention",
+    "optionF": "",
+    "correctAnswers": [
+      "D",
+      "E"
+    ],
+    "times": 1,
+    "domain": "TECHNOLOGY_SERVICES"
+  },
+  {
     "id": "11671",
     "questionText": "Which of the following are valid ways for a customer to interact with AWS services? (Select TWO.)",
     "multiSelect": true,
@@ -83174,6 +85064,40 @@
     "domain": "TECHNOLOGY_SERVICES"
   },
   {
+    "id": "11682",
+    "questionText": "Which AWS services are defined as global instead of regional? (Select TWO.)",
+    "multiSelect": true,
+    "optionA": "Amazon Route 53",
+    "optionB": "Amazon EC2",
+    "optionC": "Amazon S3",
+    "optionD": "Amazon CloudFront",
+    "optionE": "Amazon DynamoDB",
+    "optionF": "",
+    "correctAnswers": [
+      "A",
+      "D"
+    ],
+    "times": 1,
+    "domain": "TECHNOLOGY_SERVICES"
+  },
+  {
+    "id": "11685",
+    "questionText": "Which of the following are categories of AWS Trusted Advisor? (Select TWO.)",
+    "multiSelect": true,
+    "optionA": "Fault Tolerance",
+    "optionB": "Instance Usage",
+    "optionC": "Infrastructure",
+    "optionD": "Performance",
+    "optionE": "Storage Capacity",
+    "optionF": "",
+    "correctAnswers": [
+      "A",
+      "D"
+    ],
+    "times": 1,
+    "domain": "TECHNOLOGY_SERVICES"
+  },
+  {
     "id": "11687",
     "questionText": "Which AWS solution should the company use to maximize operational efficiency and minimize the cost of running an application with a short runtime, invoked by data changes or system state shifts?",
     "multiSelect": false,
@@ -83222,6 +85146,151 @@
     "domain": "TECHNOLOGY_SERVICES"
   },
   {
+    "id": "11692",
+    "questionText": "- A company wants to improve the overall availability and performance of its applications that are hosted on AWS. Which AWS service should the company use?",
+    "multiSelect": false,
+    "optionA": "Amazon Connect",
+    "optionB": "Amazon Lightsail",
+    "optionC": "AWS Global Accelerator",
+    "optionD": "AWS Storage Gateway",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "C"
+    ],
+    "times": 1,
+    "domain": "TECHNOLOGY_SERVICES"
+  },
+  {
+    "id": "11703",
+    "questionText": "- A manufacturing company has a critical application that runs at a remote site that has a slow internet connection. The company wants to migrate the workload to AWS. The application is sensitive to latency and interruptions in connectivity. The company wants a solution that can host this application with minimum latency. Which AWS service or feature should the company use to meet these requirements?",
+    "multiSelect": false,
+    "optionA": "Availability Zones",
+    "optionB": "AWS Local Zones",
+    "optionC": "AWS Wavelength",
+    "optionD": "AWS Outposts",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "B"
+    ],
+    "times": 1,
+    "domain": "TECHNOLOGY_SERVICES"
+  },
+  {
+    "id": "11705",
+    "questionText": "- A company wants to use the AWS Cloud to provide secure access to desktop applications that are running in a fully managed environment. Which AWS service should the company use to meet this requirement?",
+    "multiSelect": false,
+    "optionA": "Amazon S3",
+    "optionB": "Amazon AppStream 2.0",
+    "optionC": "AWS AppSync",
+    "optionD": "AWS Outposts",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "B"
+    ],
+    "times": 1,
+    "domain": "TECHNOLOGY_SERVICES"
+  },
+  {
+    "id": "11707",
+    "questionText": "- Which AWS service uses edge locations?",
+    "multiSelect": false,
+    "optionA": "Amazon Aurora",
+    "optionB": "AWS Global Accelerator",
+    "optionC": "Amazon Connect",
+    "optionD": "AWS Outposts",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "B"
+    ],
+    "times": 1,
+    "domain": "TECHNOLOGY_SERVICES"
+  },
+  {
+    "id": "11708",
+    "questionText": "- A company needs to install an application in a Docker container. Which AWS service eliminates the need to provision and manage the container hosts?",
+    "multiSelect": false,
+    "optionA": "AWS Fargate",
+    "optionB": "Amazon FSx for Windows File Server",
+    "optionC": "Amazon Elastic Container Service (Amazon ECS)",
+    "optionD": "Amazon EC2",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "A"
+    ],
+    "times": 1,
+    "domain": "TECHNOLOGY_SERVICES"
+  },
+  {
+    "id": "11712",
+    "questionText": "- Which AWS service supports a hybrid architecture that gives users the ability to extend AWS infrastructure, AWS services, APIs, and tools to data centers, co-location environments, or on-premises facilities?",
+    "multiSelect": false,
+    "optionA": "AWS Snowmobile",
+    "optionB": "AWS Local Zones",
+    "optionC": "AWS Outposts",
+    "optionD": "AWS Fargate",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "C"
+    ],
+    "times": 1,
+    "domain": "TECHNOLOGY_SERVICES"
+  },
+  {
+    "id": "11713",
+    "questionText": "- A company has a physical tape library to store data backups. The tape library is running out of space. The company needs to extend the tape library's capacity to the AWS Cloud. Which AWS service should the company use to meet this requirement?",
+    "multiSelect": false,
+    "optionA": "Amazon Elastic Block Store (Amazon EBS)",
+    "optionB": "Amazon S3",
+    "optionC": "Amazon Elastic File System (Amazon EFS)",
+    "optionD": "AWS Storage Gateway",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "D"
+    ],
+    "times": 1,
+    "domain": "TECHNOLOGY_SERVICES"
+  },
+  {
+    "id": "11715",
+    "questionText": "- Which AWS service can be used to turn text into lifelike speech?",
+    "multiSelect": false,
+    "optionA": "Amazon Polly",
+    "optionB": "Amazon Kendra",
+    "optionC": "Amazon Rekognition",
+    "optionD": "Amazon Connect",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "A"
+    ],
+    "times": 1,
+    "domain": "TECHNOLOGY_SERVICES"
+  },
+  {
+    "id": "11718",
+    "questionText": "- Which AWS services should a company use to read and write data that changes frequently? (Choose two.)",
+    "multiSelect": true,
+    "optionA": "Amazon S3 Glacier",
+    "optionB": "Amazon RDS, E. Amazon Elastic File System (Amazon EFS)",
+    "optionC": "AWS Snowball",
+    "optionD": "Amazon Redshift",
+    "optionE": "Amazon Elastic File System (Amazon EFS)",
+    "optionF": "",
+    "correctAnswers": [
+      "B",
+      "E"
+    ],
+    "times": 1,
+    "domain": "TECHNOLOGY_SERVICES"
+  },
+  {
     "id": "11719",
     "questionText": "A pharmaceutical company operates its infrastructure in a single AWS Region. The company has thousands of VPCs in various AWS accounts that it wants to interconnect. Which AWS service or feature should the company use to help simplify management and reduce operational costs?",
     "multiSelect": false,
@@ -83229,6 +85298,199 @@
     "optionB": "AWS Direct Connect",
     "optionC": "AWS Transit Gateway",
     "optionD": "VPC peering",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "C"
+    ],
+    "times": 1,
+    "domain": "TECHNOLOGY_SERVICES"
+  },
+  {
+    "id": "11720",
+    "questionText": "() Which task is an AWS responsibility when a workload is running in Amazon RDS?",
+    "multiSelect": false,
+    "optionA": "Creating the database table",
+    "optionB": "Updating the database schema",
+    "optionC": "Installing the database engine",
+    "optionD": "Dropping the database records",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "C"
+    ],
+    "times": 1,
+    "domain": "TECHNOLOGY_SERVICES"
+  },
+  {
+    "id": "11721",
+    "questionText": "() A development team wants to publish and manage web services that provide REST APIs. Which AWS service will meet this requirement?",
+    "multiSelect": false,
+    "optionA": "AWS App Mesh",
+    "optionB": "Amazon API Gateway",
+    "optionC": "Amazon CloudFront",
+    "optionD": "AWS Cloud Map",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "B"
+    ],
+    "times": 1,
+    "domain": "TECHNOLOGY_SERVICES"
+  },
+  {
+    "id": "11722",
+    "questionText": "() A company has a social media platform in which users upload and share photos with other users. The company wants to identify and remove inappropriate photos. The company has no machine learning (ML) scientists and must build this detection capability with no ML expertise. Which AWS service should the company use to build this capability?",
+    "multiSelect": false,
+    "optionA": "Amazon SageMaker",
+    "optionB": "Amazon Textract",
+    "optionC": "Amazon Rekognition",
+    "optionD": "Amazon Comprehend",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "C"
+    ],
+    "times": 1,
+    "domain": "TECHNOLOGY_SERVICES"
+  },
+  {
+    "id": "11723",
+    "questionText": "() A company wants to use Amazon S3 to store its legacy data. The data is rarely accessed. However, the data is critical and cannot be recreated. The data needs to be available for retrieval within seconds. Which S3 storage class meets these requirements MOST cost-effectively?",
+    "multiSelect": false,
+    "optionA": "S3 Standard",
+    "optionB": "S3 One Zone-Infrequent Access (S3 One Zone-IA)",
+    "optionC": "S3 Standard-Infrequent Access (S3 Standard-IA)",
+    "optionD": "S3 Glacier",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "C"
+    ],
+    "times": 1,
+    "domain": "TECHNOLOGY_SERVICES"
+  },
+  {
+    "id": "11725",
+    "questionText": "() Which AWS service helps developers use loose coupling and reliable messaging between microservices?",
+    "multiSelect": false,
+    "optionA": "Elastic Load Balancing",
+    "optionB": "Amazon Simple Notification Service (Amazon SNS)",
+    "optionC": "Amazon CloudFront",
+    "optionD": "Amazon Simple Queue Service (Amazon SQS)",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "D"
+    ],
+    "times": 1,
+    "domain": "TECHNOLOGY_SERVICES"
+  },
+  {
+    "id": "11728",
+    "questionText": "() A company needs an Amazon EC2 instance for a rightsized database server that must run constantly for 1 year. Which EC2 instance purchasing option will meet these requirements MOST cost-effectively?",
+    "multiSelect": false,
+    "optionA": "Standard Reserved Instance",
+    "optionB": "Convertible Reserved Instance",
+    "optionC": "On-Demand Instance",
+    "optionD": "Spot Instance",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "A"
+    ],
+    "times": 1,
+    "domain": "TECHNOLOGY_SERVICES"
+  },
+  {
+    "id": "11731",
+    "questionText": "() A company is creating a document that defines the operating system patch routine for all the company's systems. Which AWS resources should the company include in this document? (Choose two.)",
+    "multiSelect": true,
+    "optionA": "Amazon EC2 instances, D. Amazon RDS instances",
+    "optionB": "AWS Lambda functions",
+    "optionC": "AWS Fargate tasks",
+    "optionD": "Amazon RDS instances",
+    "optionE": "Amazon Elastic Container Service (Amazon ECS) instances",
+    "optionF": "",
+    "correctAnswers": [
+      "A",
+      "D"
+    ],
+    "times": 1,
+    "domain": "TECHNOLOGY_SERVICES"
+  },
+  {
+    "id": "11733",
+    "questionText": "() A company is migrating its public website to AWS. The company wants to host the domain name for the website on AWS. Which AWS service should the company use to meet this requirement?",
+    "multiSelect": false,
+    "optionA": "AWS Lambda",
+    "optionB": "Amazon Route 53",
+    "optionC": "Amazon CloudFront",
+    "optionD": "AWS Direct Connect",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "B"
+    ],
+    "times": 1,
+    "domain": "TECHNOLOGY_SERVICES"
+  },
+  {
+    "id": "11735",
+    "questionText": "() Which AWS service provides the capability to view end-to-end performance metrics and troubleshoot distributed applications?",
+    "multiSelect": false,
+    "optionA": "AWS Cloud9",
+    "optionB": "AWS CodeStar",
+    "optionC": "AWS Cloud Map",
+    "optionD": "AWS X-Ray",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "D"
+    ],
+    "times": 1,
+    "domain": "TECHNOLOGY_SERVICES"
+  },
+  {
+    "id": "11738",
+    "questionText": "() Which AWS service can a company use to store and manage Docker images?",
+    "multiSelect": false,
+    "optionA": "Amazon DynamoDB",
+    "optionB": "Amazon Kinesis Data Streams",
+    "optionC": "Amazon Elastic Container Registry (Amazon ECR)",
+    "optionD": "Amazon Elastic File System (Amazon EFS)",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "C"
+    ],
+    "times": 1,
+    "domain": "TECHNOLOGY_SERVICES"
+  },
+  {
+    "id": "11739",
+    "questionText": "() A global company is building a simple time-tracking mobile app. The app needs to operate globally and must store collected data in a database. Data must be accessible from the AWS Region that is closest to the user. What should the company do to meet these data storage requirements with the LEAST amount of operational overhead?",
+    "multiSelect": false,
+    "optionA": "Use Amazon EC2 in multiple Regions to host separate databases",
+    "optionB": "Use Amazon RDS cross-Region replication",
+    "optionC": "Use Amazon DynamoDB global tables",
+    "optionD": "Use AWS Database Migration Service (AWS DMS)",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "C"
+    ],
+    "times": 1,
+    "domain": "TECHNOLOGY_SERVICES"
+  },
+  {
+    "id": "11743",
+    "questionText": "() A company needs to deliver new website features quickly in an iterative manner to minimize the time to market. Which AWS Cloud concept does this requirement represent?",
+    "multiSelect": false,
+    "optionA": "Reliability",
+    "optionB": "Elasticity C. Agility",
+    "optionC": "Agility",
+    "optionD": "High availability",
     "optionE": "",
     "optionF": "",
     "correctAnswers": [
@@ -83254,6 +85516,38 @@
     "domain": "TECHNOLOGY_SERVICES"
   },
   {
+    "id": "11749",
+    "questionText": "() A company is generating large sets of critical data in its on-premises data center. The company needs to securely transfer the data to AWS for processing. These transfers must occur daily over a dedicated connection. Which AWS service should the company use to meet these requirements?",
+    "multiSelect": false,
+    "optionA": "AWS Backup",
+    "optionB": "AWS DataSync",
+    "optionC": "AWS Direct Connect",
+    "optionD": "AWS Snowball",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "C"
+    ],
+    "times": 1,
+    "domain": "TECHNOLOGY_SERVICES"
+  },
+  {
+    "id": "11751",
+    "questionText": "() Which of the following is a managed AWS service that is used specifically for extract, transform, and load (ETL) data?",
+    "multiSelect": false,
+    "optionA": "Amazon Athena",
+    "optionB": "AWS Glue",
+    "optionC": "Amazon S3",
+    "optionD": "AWS Snowball Edge",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "B"
+    ],
+    "times": 1,
+    "domain": "TECHNOLOGY_SERVICES"
+  },
+  {
     "id": "11757",
     "questionText": "A company needs to generate reports for business intelligence and operational analytics on petabytes of semi-structured and structured data. These reports are produced from standard SQL queries on data that is in an Amazon S3 data lake. Which AWS service provides the ability to analyze this data?",
     "multiSelect": false,
@@ -83265,6 +85559,22 @@
     "optionF": "",
     "correctAnswers": [
       "D"
+    ],
+    "times": 1,
+    "domain": "TECHNOLOGY_SERVICES"
+  },
+  {
+    "id": "11758",
+    "questionText": "A user needs a relational database but does not have the resources to manage the hardware, resiliency, and replication. Which AWS service option meets the user’s requirements?",
+    "multiSelect": false,
+    "optionA": "Run MySQL on Amazon Elastic Container Service (Amazon ECS)",
+    "optionB": "Run MySQL on Amazon EC2",
+    "optionC": "Choose Amazon RDS for MySQL",
+    "optionD": "Choose Amazon ElastiCache for Redis",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "C"
     ],
     "times": 1,
     "domain": "TECHNOLOGY_SERVICES"

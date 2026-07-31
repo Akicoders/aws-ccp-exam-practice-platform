@@ -1,12 +1,65 @@
 {
   "totals": {
-    "CLOUD_CONCEPTS": 671,
-    "SECURITY": 3784,
-    "TECHNOLOGY_SERVICES": 5176,
-    "BILLING_PRICING": 1411
+    "CLOUD_CONCEPTS": 721,
+    "SECURITY": 3947,
+    "TECHNOLOGY_SERVICES": 5319,
+    "BILLING_PRICING": 1460
   },
-  "grandTotal": 11042,
-  "generatedAt": "2026-07-29T19:31:26.518Z",
+  "grandTotal": 11447,
+  "generatedAt": "2026-07-30T17:24:33.481Z",
+  "sourceAudit": {
+    "sourceFile": "master_questions_final.csv",
+    "physicalLines": 11474,
+    "blankPhysicalLines": 12,
+    "parsedRows": 11447,
+    "parseErrors": 0,
+    "skipped": {
+      "noDomain": 0,
+      "noCorrectAnswers": 0,
+      "blankQuestion": 0
+    },
+    "invalidValues": {
+      "domains": {},
+      "correctAnswerTokens": {},
+      "multiSelect": {},
+      "times": {}
+    },
+    "optionWarnings": {
+      "optionA": 0,
+      "optionB": 0,
+      "optionC": 28,
+      "optionD": 79,
+      "optionE": 0,
+      "optionF": 0
+    },
+    "retainedRowsBeforeDedup": 11447,
+    "duplicateKey": "questionText + multiSelect + optionA-F + correctAnswers + domain",
+    "duplicateGroups": 0,
+    "duplicateRowsRemoved": 0,
+    "dedupReplacements": 0,
+    "outputRows": 11447,
+    "outputByDomain": {
+      "CLOUD_CONCEPTS": 721,
+      "SECURITY": 3947,
+      "TECHNOLOGY_SERVICES": 5319,
+      "BILLING_PRICING": 1460
+    },
+    "outputFields": [
+      "id",
+      "questionText",
+      "multiSelect",
+      "optionA",
+      "optionB",
+      "optionC",
+      "optionD",
+      "optionE",
+      "optionF",
+      "correctAnswers",
+      "times",
+      "domain"
+    ],
+    "missingOutputFields": {}
+  },
   "presets": {
     "10q/10m": {
       "questionCount": 10,

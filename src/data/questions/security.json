@@ -1514,6 +1514,22 @@
     "domain": "SECURITY"
   },
   {
+    "id": "3952",
+    "questionText": "Which task is a responsibility of AWS, according to the AWS shared responsibility model?",
+    "multiSelect": false,
+    "optionA": "Configure identity and access management for applications.",
+    "optionB": "Manage encryption options for data that is stored on AWS.",
+    "optionC": "Configure security groups for Amazon EC2 instances.",
+    "optionD": "Maintain the physical hardware of the infrastructure.",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "D"
+    ],
+    "times": 3,
+    "domain": "SECURITY"
+  },
+  {
     "id": "3954",
     "questionText": "Which actions are the responsibility of AWS, according to the AWS shared responsibility model? (Choose two.)",
     "multiSelect": true,
@@ -4191,6 +4207,22 @@
     "domain": "SECURITY"
   },
   {
+    "id": "459",
+    "questionText": "Which AWS service enables infrastructure as code (IaC)?",
+    "multiSelect": false,
+    "optionA": "AWS CloudFormation",
+    "optionB": "Amazon CloudWatch",
+    "optionC": "AWS Config",
+    "optionD": "AWS Systems Manager",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "A"
+    ],
+    "times": 2,
+    "domain": "SECURITY"
+  },
+  {
     "id": "463",
     "questionText": "What does Amazon GuardDuty provide?",
     "multiSelect": false,
@@ -4236,6 +4268,22 @@
       "B"
     ],
     "times": 3,
+    "domain": "SECURITY"
+  },
+  {
+    "id": "472",
+    "questionText": "What does AWS Artifact provide?",
+    "multiSelect": false,
+    "optionA": "AWS compliance reports and agreements",
+    "optionB": "Data migration services",
+    "optionC": "Centralized logging",
+    "optionD": "Cost reports",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "A"
+    ],
+    "times": 2,
     "domain": "SECURITY"
   },
   {
@@ -4454,6 +4502,22 @@
     "optionB": "AWS Shield",
     "optionC": "AWS GuardDuty",
     "optionD": "AWS WAF",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "A"
+    ],
+    "times": 2,
+    "domain": "SECURITY"
+  },
+  {
+    "id": "512",
+    "questionText": "Which AWS service provides DDoS protection?",
+    "multiSelect": false,
+    "optionA": "AWS Shield",
+    "optionB": "AWS WAF",
+    "optionC": "Amazon CloudFront",
+    "optionD": "AWS Security Hub",
     "optionE": "",
     "optionF": "",
     "correctAnswers": [
@@ -6367,6 +6431,38 @@
     "domain": "SECURITY"
   },
   {
+    "id": "4203",
+    "questionText": "According to security best practices, how should an Amazon EC2 instance be given access to an Amazon S3 bucket?",
+    "multiSelect": false,
+    "optionA": "Hard code an IAM user's secret key and access key directly in the application, and upload the file.",
+    "optionB": "Store the IAM user's secret key and access key in a text file on the EC2 instance, read the keys, then upload the file.",
+    "optionC": "Have the EC2 instance assume a role to obtain the privileges to upload the file.",
+    "optionD": "Modify the S3 bucket policy so that any service can upload to it at any time.",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "C"
+    ],
+    "times": 2,
+    "domain": "SECURITY"
+  },
+  {
+    "id": "4205",
+    "questionText": "Which AWS service or feature allows a user to establish a dedicated network connection between a company's on-premises data center and the AWS Cloud?",
+    "multiSelect": false,
+    "optionA": "AWS Direct Connect",
+    "optionB": "VPC peering",
+    "optionC": "AWS VPN",
+    "optionD": "Amazon Route 53",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "A"
+    ],
+    "times": 2,
+    "domain": "SECURITY"
+  },
+  {
     "id": "4212",
     "questionText": "A company wants to monitor for misconfigured security groups that are allowing unrestricted access to specific ports. Which AWS service will meet this requirement?",
     "multiSelect": false,
@@ -6396,6 +6492,23 @@
       "D"
     ],
     "times": 6,
+    "domain": "SECURITY"
+  },
+  {
+    "id": "4222",
+    "questionText": "A developer has been hired by a large company and needs AWS credentials. Which are security best practices that should be followed? (Choose two.)",
+    "multiSelect": true,
+    "optionA": "Grant the developer access to only the AWS resources needed to perform the job.",
+    "optionB": "Share the AWS account root user credentials with the developer.",
+    "optionC": "Add the developer to the administrator's group in AWS IAM.",
+    "optionD": "Configure a password policy that ensures the developer's password cannot be changed.",
+    "optionE": "Ensure the account password policy requires a minimum length.",
+    "optionF": "",
+    "correctAnswers": [
+      "A",
+      "E"
+    ],
+    "times": 2,
     "domain": "SECURITY"
   },
   {
@@ -6479,11 +6592,11 @@
     "domain": "SECURITY"
   },
   {
-    "id": "3910",
-    "questionText": "Which task is a customer’s responsibility, according to the AWS shared responsibility model?",
+    "id": "4237",
+    "questionText": "Which task is a customer's responsibility, according to the AWS shared responsibility model?",
     "multiSelect": false,
     "optionA": "Management of the guest operating systems",
-    "optionB": "Maintenance of the con+guration of infrastructure devices",
+    "optionB": "Maintenance of the configuration of infrastructure devices",
     "optionC": "Management of the host operating systems and virtualization",
     "optionD": "Maintenance of the software that powers Availability Zones",
     "optionE": "",
@@ -6491,7 +6604,7 @@
     "correctAnswers": [
       "A"
     ],
-    "times": 4,
+    "times": 2,
     "domain": "SECURITY"
   },
   {
@@ -6652,6 +6765,22 @@
       "C"
     ],
     "times": 4,
+    "domain": "SECURITY"
+  },
+  {
+    "id": "4291",
+    "questionText": "Which task is a responsibility of AWS, according to the AWS shared responsibility model?",
+    "multiSelect": false,
+    "optionA": "Encryption of application data",
+    "optionB": "Authentication of application users",
+    "optionC": "Protection of physical network infrastructure",
+    "optionD": "Configuration of firewalls",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "C"
+    ],
+    "times": 2,
     "domain": "SECURITY"
   },
   {
@@ -7042,6 +7171,22 @@
       "C"
     ],
     "times": 3,
+    "domain": "SECURITY"
+  },
+  {
+    "id": "5001",
+    "questionText": "Which AWS service can a company use to manage encryption keys in the cloud?",
+    "multiSelect": false,
+    "optionA": "AWS License Manager",
+    "optionB": "AWS Certificate Manager (ACM)",
+    "optionC": "AWS CloudHSM",
+    "optionD": "AWS Directory Service",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "C"
+    ],
+    "times": 2,
     "domain": "SECURITY"
   },
   {
@@ -13022,6 +13167,22 @@
     "domain": "SECURITY"
   },
   {
+    "id": "1620",
+    "questionText": "Which of the following is TRUE about AWS DIRECT CONNECT compared to AWS SITE-TO-SITE VPN?",
+    "multiSelect": false,
+    "optionA": "Direct Connect goes over the public internet; VPN is private",
+    "optionB": "Direct Connect requires weeks to provision and provides dedicated, consistent bandwidth; Site-to-Site VPN can be set up in minutes but performance varies because it uses the public internet",
+    "optionC": "Both provide identical performance and are differentiated only by cost",
+    "optionD": "VPN is always faster than Direct Connect",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "B"
+    ],
+    "times": 1,
+    "domain": "SECURITY"
+  },
+  {
     "id": "1621",
     "questionText": "A company uses AMAZON S3 and wants to ensure that OBJECTS UPLOADED TO A BUCKET ARE ALWAYS STORED WITH AES-256 ENCRYPTION, regardless of what the uploader specifies. What is the SIMPLEST configuration?",
     "multiSelect": false,
@@ -13386,6 +13547,22 @@
     "optionF": "",
     "correctAnswers": [
       "B"
+    ],
+    "times": 1,
+    "domain": "SECURITY"
+  },
+  {
+    "id": "1670",
+    "questionText": "Which of the following is an example of a PREVENTIVE security control in AWS?",
+    "multiSelect": false,
+    "optionA": "CloudTrail logging API calls",
+    "optionB": "GuardDuty alerting on suspicious activity",
+    "optionC": "An IAM policy denying access to production resources from non-corporate IP ranges",
+    "optionD": "Config detecting publicly accessible S3 buckets",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "C"
     ],
     "times": 1,
     "domain": "SECURITY"
@@ -14842,6 +15019,22 @@
     "optionF": "",
     "correctAnswers": [
       "D"
+    ],
+    "times": 1,
+    "domain": "SECURITY"
+  },
+  {
+    "id": "1918",
+    "questionText": "What is the purpose of AMAZON DETECTIVE?",
+    "multiSelect": false,
+    "optionA": "Detecting security vulnerabilities in EC2 instances",
+    "optionB": "Providing ML-powered security investigation tools to analyze and visualize relationships between security findings — helping security teams investigate potential security issues",
+    "optionC": "Auditing IAM policies for excessive permissions",
+    "optionD": "Monitoring database queries for unusual patterns",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "B"
     ],
     "times": 1,
     "domain": "SECURITY"
@@ -18855,6 +19048,22 @@
     "domain": "SECURITY"
   },
   {
+    "id": "2737",
+    "questionText": "A medical device company is looking for a durable and cost-effective way of storing their historic data. Due to compliance requirements, the data must be stored for 10 years. Which AWS Storage solution will you suggest?",
+    "multiSelect": false,
+    "optionA": "Amazon S3 Glacier Deep Archive",
+    "optionB": "Amazon S3 Glacier Flexible Retrieval",
+    "optionC": "AWS Storage Gateway",
+    "optionD": "Amazon Elastic File System (Amazon EFS)",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "A"
+    ],
+    "times": 1,
+    "domain": "SECURITY"
+  },
+  {
     "id": "2738",
     "questionText": "A financial services enterprise plans to enable Multi-Factor Authentication (MFA) for its employees. For ease of travel, they prefer not to use any physical devices to implement Multi-Factor Authentication (MFA). Which of the below options is best suited for this use case?",
     "multiSelect": false,
@@ -18881,6 +19090,23 @@
     "optionE": "",
     "optionF": "",
     "correctAnswers": [
+      "C"
+    ],
+    "times": 1,
+    "domain": "SECURITY"
+  },
+  {
+    "id": "2740",
+    "questionText": "Which of the following are correct statements regarding the AWS Shared Responsibility Model? (Select two)",
+    "multiSelect": true,
+    "optionA": "AWS is responsible for Security 'of' the Cloud",
+    "optionB": "For a service like Amazon EC2, that falls under Infrastructure as a Service (IaaS), AWS is responsible for maintaining guest operating system",
+    "optionC": "For abstracted services like Amazon S3, AWS operates the infrastructure layer, the operating system, and platforms",
+    "optionD": "Configuration Management is the responsibility of the customer",
+    "optionE": "AWS is responsible for training AWS and customer employees on AWS products and services",
+    "optionF": "",
+    "correctAnswers": [
+      "A",
       "C"
     ],
     "times": 1,
@@ -21634,6 +21860,86 @@
     "domain": "SECURITY"
   },
   {
+    "id": "3211",
+    "questionText": "A company has deployed applications on Amazon EC2 instances. The company needs to assess application vulnerabilities and must identify infrastructure deployments that do not meet best practices.Which AWS service can the company use to meet these requirements?",
+    "multiSelect": false,
+    "optionA": "AWS Trusted Advisor",
+    "optionB": "Amazon Inspector",
+    "optionC": "AWS Config",
+    "optionD": "Amazon GuardDuty",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "B"
+    ],
+    "times": 1,
+    "domain": "SECURITY"
+  },
+  {
+    "id": "3217",
+    "questionText": "A company wants to run a NoSQL database on Amazon EC2 instances.Which task is the responsibility of AWS in this scenario?",
+    "multiSelect": false,
+    "optionA": "Update the guest operating system of the EC2 instances.",
+    "optionB": "Maintain high availability at the database layer.",
+    "optionC": "Patch the physical infrastructure that hosts the EC2 instances.",
+    "optionD": "Configure the security group firewall.",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "C"
+    ],
+    "times": 1,
+    "domain": "SECURITY"
+  },
+  {
+    "id": "3227",
+    "questionText": "A company is storing sensitive customer data in an Amazon S3 bucket. The company wants to protect the data from accidental deletion or overwriting.Which S3 feature should the company use to meet these requirements?",
+    "multiSelect": false,
+    "optionA": "S3 Lifecycle rules",
+    "optionB": "S3 Versioning",
+    "optionC": "S3 bucket policies",
+    "optionD": "S3 server-side encryption",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "B"
+    ],
+    "times": 1,
+    "domain": "SECURITY"
+  },
+  {
+    "id": "3235",
+    "questionText": "A company has an AWS account. The company wants to audit its password and access key rotation details for compliance purposes.Which AWS service or tool will meet this requirement?",
+    "multiSelect": false,
+    "optionA": "IAM Access Analyzer",
+    "optionB": "AWS Artifact",
+    "optionC": "IAM credential report",
+    "optionD": "AWS Audit Manager",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "C"
+    ],
+    "times": 1,
+    "domain": "SECURITY"
+  },
+  {
+    "id": "3241",
+    "questionText": "A financial services company wants to ensure that its AWS account activity meets the governance, compliance and auditing norms. As a Cloud Practitioner, which AWS service would you recommend for this use-case?",
+    "multiSelect": false,
+    "optionA": "Trusted Advisor",
+    "optionB": "Config",
+    "optionC": "CloudWatch",
+    "optionD": "CloudTrail",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "D"
+    ],
+    "times": 1,
+    "domain": "SECURITY"
+  },
+  {
     "id": "3242",
     "questionText": "A silicon valley based healthcare startup stores anonymized patient health data on Amazon S3. The CTO further wants to ensure that any sensitive data on S3 is discovered and identified. As a Cloud Practitioner, which AWS service would you recommend addressing this use-case?",
     "multiSelect": false,
@@ -22024,6 +22330,22 @@
     "domain": "SECURITY"
   },
   {
+    "id": "3313",
+    "questionText": "Due to regulatory and compliance reasons, an organization is supposed to use a hardware device for any data encryption operations in the cloud. Which AWS service can be used to meet this compliance requirement?",
+    "multiSelect": false,
+    "optionA": "AWS Key Management Service (KMS)",
+    "optionB": "AWS CloudHSM",
+    "optionC": "AWS Secrets Manager",
+    "optionD": "AWS Trusted Advisor",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "B"
+    ],
+    "times": 1,
+    "domain": "SECURITY"
+  },
+  {
     "id": "3314",
     "questionText": "Which AWS service can be used to review the compliance and governance-related documents on AWS?",
     "multiSelect": false,
@@ -22051,6 +22373,39 @@
     "optionF": "",
     "correctAnswers": [
       "D"
+    ],
+    "times": 1,
+    "domain": "SECURITY"
+  },
+  {
+    "id": "3317",
+    "questionText": "Which service gives a personalized view of the status of the AWS services that are part of your Cloud architecture so that you can quickly assess the impact on your business when AWS service(s) are experiencing issues?",
+    "multiSelect": false,
+    "optionA": "AWS Inspector",
+    "optionB": "AWS Personal Health Dashboard",
+    "optionC": "Amazon CloudWatch",
+    "optionD": "AWS Service Health Dashboard",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "B"
+    ],
+    "times": 1,
+    "domain": "SECURITY"
+  },
+  {
+    "id": "3318",
+    "questionText": "Which of the following AWS services are always free to use (Select two)?",
+    "multiSelect": true,
+    "optionA": "Identity and Access Management (IAM)",
+    "optionB": "AWS Auto Scaling",
+    "optionC": "Elastic Compute Cloud (Amazon EC2)",
+    "optionD": "Simple Storage Service (Amazon S3)",
+    "optionE": "DynamoDB",
+    "optionF": "",
+    "correctAnswers": [
+      "A",
+      "B"
     ],
     "times": 1,
     "domain": "SECURITY"
@@ -22303,6 +22658,22 @@
     "domain": "SECURITY"
   },
   {
+    "id": "3433",
+    "questionText": "As per the AWS Shared Responsibility Model, which of the following is a responsibility of AWS from a security and compliance point of view?",
+    "multiSelect": false,
+    "optionA": "Service and Communications Protection",
+    "optionB": "Identity and Access Management",
+    "optionC": "Patching guest OS and applications",
+    "optionD": "Patching networking infrastructure",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "D"
+    ],
+    "times": 1,
+    "domain": "SECURITY"
+  },
+  {
     "id": "3434",
     "questionText": "Which of the following are recommended security best practices for the AWS account root user? (Select two)",
     "multiSelect": true,
@@ -22386,6 +22757,23 @@
     "domain": "SECURITY"
   },
   {
+    "id": "3466",
+    "questionText": "AWS Organizations provides which of the following benefits? (Select two)",
+    "multiSelect": true,
+    "optionA": "Check vulnerabilities on EC2 instances across the member AWS accounts",
+    "optionB": "Deploy patches on EC2 instances across the member AWS accounts",
+    "optionC": "Provision EC2 Spot instances across the member AWS accounts",
+    "optionD": "Volume discounts for Amazon EC2 and Amazon S3 aggregated across the member AWS accounts",
+    "optionE": "Share the reserved EC2 instances amongst the member AWS accounts",
+    "optionF": "",
+    "correctAnswers": [
+      "D",
+      "E"
+    ],
+    "times": 1,
+    "domain": "SECURITY"
+  },
+  {
     "id": "3467",
     "questionText": "Which of the following AWS authentication mechanisms supports a Multi-Factor Authentication (MFA) device that you can plug into a USB port on your computer?",
     "multiSelect": false,
@@ -22429,6 +22817,23 @@
     "optionF": "",
     "correctAnswers": [
       "A"
+    ],
+    "times": 1,
+    "domain": "SECURITY"
+  },
+  {
+    "id": "3474",
+    "questionText": "AWS Shield Advanced provides expanded DDoS attack protection for web applications running on which of the following resources? (Select two)",
+    "multiSelect": true,
+    "optionA": "Amazon Simple Storage Service (Amazon S3)",
+    "optionB": "Amazon CloudFront",
+    "optionC": "AWS Elastic Beanstalk",
+    "optionD": "Amazon Elastic Compute Cloud",
+    "optionE": "AWS Identity and Access Management (IAM)",
+    "optionF": "",
+    "correctAnswers": [
+      "B",
+      "D"
     ],
     "times": 1,
     "domain": "SECURITY"
@@ -23068,6 +23473,22 @@
     "domain": "SECURITY"
   },
   {
+    "id": "3603",
+    "questionText": "A company wants to run a NoSQL database on Amazon EC2 instances. Which task is the responsibility of AWS in this scenario?",
+    "multiSelect": false,
+    "optionA": "Update the guest operating system of the EC2 instances.",
+    "optionB": "Maintain high availability at the database layer.",
+    "optionC": "Patch the physical infrastructure that hosts the EC2 instances.",
+    "optionD": "Configure the security group +rewall.",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "C"
+    ],
+    "times": 1,
+    "domain": "SECURITY"
+  },
+  {
     "id": "3604",
     "questionText": "Which of the following are bene+ts of using AWS Trusted Advisor? (Choose two.)",
     "multiSelect": true,
@@ -23080,6 +23501,23 @@
     "correctAnswers": [
       "C",
       "D"
+    ],
+    "times": 1,
+    "domain": "SECURITY"
+  },
+  {
+    "id": "3616",
+    "questionText": "Which tasks are customer responsibilities, according to the AWS shared responsibility model? (Choose two.)",
+    "multiSelect": true,
+    "optionA": "Configure the AWS provided security group +rewall.",
+    "optionB": "Classify company assets in the AWS Cloud.",
+    "optionC": "Determine which Availability Zones to use for Amazon S3 buckets.",
+    "optionD": "Patch or upgrade Amazon DynamoDB.",
+    "optionE": "Select Amazon EC2 instances to run AWS Lambda on.",
+    "optionF": "",
+    "correctAnswers": [
+      "A",
+      "B"
     ],
     "times": 1,
     "domain": "SECURITY"
@@ -23156,6 +23594,22 @@
     "optionB": "Amazon Cognito",
     "optionC": "Amazon Athena",
     "optionD": "Amazon EC2",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "D"
+    ],
+    "times": 1,
+    "domain": "SECURITY"
+  },
+  {
+    "id": "3669",
+    "questionText": "Which option is AWS responsible for under the AWS shared responsibility model?",
+    "multiSelect": false,
+    "optionA": "Network and +rewall con+guration",
+    "optionB": "Client-side data encryption",
+    "optionC": "Management of user permissions",
+    "optionD": "Hardware and infrastructure",
     "optionE": "",
     "optionF": "",
     "correctAnswers": [
@@ -23261,6 +23715,23 @@
     "domain": "SECURITY"
   },
   {
+    "id": "3768",
+    "questionText": "Which of the following actions are controlled with AWS Identity and Access Management (IAM)? (Choose two.)",
+    "multiSelect": true,
+    "optionA": "Control access to AWS service APIs and to other speci+c resources.",
+    "optionB": "Provide intelligent threat detection and continuous monitoring.",
+    "optionC": "Protect the AWS environment using multi-factor authentication (MFA).",
+    "optionD": "Grant users access to AWS data centers.",
+    "optionE": "Provide +rewall protection for applications from common web attacks.",
+    "optionF": "",
+    "correctAnswers": [
+      "A",
+      "C"
+    ],
+    "times": 1,
+    "domain": "SECURITY"
+  },
+  {
     "id": "3790",
     "questionText": "Which VPC component can a company use to set up a virtual +rewall at the Amazon EC2 instance level?",
     "multiSelect": false,
@@ -23309,6 +23780,23 @@
     "domain": "SECURITY"
   },
   {
+    "id": "3813",
+    "questionText": "Which of the following services can be used to block network traffic to an instance? (Choose two.)",
+    "multiSelect": true,
+    "optionA": "Security groups",
+    "optionB": "Amazon Virtual Private Cloud (Amazon VPC) iow logs",
+    "optionC": "Network ACLs",
+    "optionD": "Amazon CloudWatch",
+    "optionE": "AWS CloudTrail",
+    "optionF": "",
+    "correctAnswers": [
+      "A",
+      "C"
+    ],
+    "times": 1,
+    "domain": "SECURITY"
+  },
+  {
     "id": "3819",
     "questionText": "A company wants to monitor for miscon+gured security groups that are allowing unrestricted access to speci+c ports. Which AWS service will meet this requirement?",
     "multiSelect": false,
@@ -23322,6 +23810,38 @@
       "A"
     ],
     "times": 1,
+    "domain": "SECURITY"
+  },
+  {
+    "id": "3828",
+    "questionText": "Which AWS service is used to provide encryption for Amazon EBS?",
+    "multiSelect": false,
+    "optionA": "AWS Certi+cate Manager",
+    "optionB": "AWS Systems Manager",
+    "optionC": "AWS KMS",
+    "optionD": "AWS Config",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "C"
+    ],
+    "times": 1,
+    "domain": "SECURITY"
+  },
+  {
+    "id": "3833",
+    "questionText": "Which task is the customer’s responsibility, according to the AWS shared responsibility model?",
+    "multiSelect": false,
+    "optionA": "Maintain the security of the AWS Cloud.",
+    "optionB": "Configure +rewalls and networks.",
+    "optionC": "Patch the operating system of Amazon RDS instances.",
+    "optionD": "Implement physical and environmental controls.",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "B"
+    ],
+    "times": 4,
     "domain": "SECURITY"
   },
   {
@@ -23389,6 +23909,22 @@
     "domain": "SECURITY"
   },
   {
+    "id": "3878",
+    "questionText": "A company wants to block SQL injection attacks. Which AWS service or feature should the company use to meet this requirement?",
+    "multiSelect": false,
+    "optionA": "AWS WAF",
+    "optionB": "Network ACLs",
+    "optionC": "Security groups",
+    "optionD": "AWS Certi+cate Manager (ACM)",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "A"
+    ],
+    "times": 1,
+    "domain": "SECURITY"
+  },
+  {
     "id": "3879",
     "questionText": "A company wants a uni+ed tool to provide a consistent method to interact with AWS services. Which AWS service or tool will meet this requirement?",
     "multiSelect": false,
@@ -23421,6 +23957,22 @@
     "domain": "SECURITY"
   },
   {
+    "id": "3910",
+    "questionText": "Which task is a customer’s responsibility, according to the AWS shared responsibility model?",
+    "multiSelect": false,
+    "optionA": "Management of the guest operating systems",
+    "optionB": "Maintenance of the con+guration of infrastructure devices",
+    "optionC": "Management of the host operating systems and virtualization",
+    "optionD": "Maintenance of the software that powers Availability Zones",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "A"
+    ],
+    "times": 4,
+    "domain": "SECURITY"
+  },
+  {
     "id": "3913",
     "questionText": "Which security service automatically recognizes and classi+es sensitive data or intellectual property on AWS?",
     "multiSelect": false,
@@ -23428,6 +23980,22 @@
     "optionB": "Amazon Macie",
     "optionC": "Amazon Inspector",
     "optionD": "AWS Shield",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "B"
+    ],
+    "times": 1,
+    "domain": "SECURITY"
+  },
+  {
+    "id": "3928",
+    "questionText": "Which AWS service can be used to retrieve compliance reports on demand?",
+    "multiSelect": false,
+    "optionA": "AWS Secrets Manager",
+    "optionB": "AWS Artifact",
+    "optionC": "AWS Security Hub",
+    "optionD": "AWS Certi+cate Manager",
     "optionE": "",
     "optionF": "",
     "correctAnswers": [
@@ -23460,6 +24028,22 @@
     "optionB": "Security groups",
     "optionC": "AWS Trusted Advisor",
     "optionD": "AWS WAF",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "B"
+    ],
+    "times": 1,
+    "domain": "SECURITY"
+  },
+  {
+    "id": "3946",
+    "questionText": "A company hosts an application on multiple Amazon EC2 instances. The application uses Amazon Simple Notification Service (Amazon SNS) to send messages. Which AWS service or feature will give the application permission to access required AWS services?",
+    "multiSelect": false,
+    "optionA": "AWS Certi+cate Manager (ACM)",
+    "optionB": "IAM roles",
+    "optionC": "AWS Security Hub",
+    "optionD": "Amazon GuardDuty",
     "optionE": "",
     "optionF": "",
     "correctAnswers": [
@@ -23517,6 +24101,22 @@
     "domain": "SECURITY"
   },
   {
+    "id": "3972",
+    "questionText": "What can a cloud practitioner use to retrieve AWS security and compliance documents and submit them as evidence to an auditor or regulator?",
+    "multiSelect": false,
+    "optionA": "AWS Certi+cate Manager",
+    "optionB": "AWS Systems Manager",
+    "optionC": "AWS Artifact",
+    "optionD": "Amazon Inspector",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "C"
+    ],
+    "times": 1,
+    "domain": "SECURITY"
+  },
+  {
     "id": "3975",
     "questionText": "Which AWS service is used to track, record, and audit con+guration changes made to AWS resources?",
     "multiSelect": false,
@@ -23524,6 +24124,22 @@
     "optionB": "AWS Config",
     "optionC": "AWS IAM",
     "optionD": "Amazon Inspector",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "B"
+    ],
+    "times": 1,
+    "domain": "SECURITY"
+  },
+  {
+    "id": "3985",
+    "questionText": "What can a user accomplish using AWS CloudTrail?",
+    "multiSelect": false,
+    "optionA": "Generate an IAM user credentials report.",
+    "optionB": "Record API calls made to AWS services.",
+    "optionC": "Assess the compliance of AWS resource con+gurations with policies and guidelines.",
+    "optionD": "Ensure that Amazon EC2 instances are patched with the latest security updates.",
     "optionE": "",
     "optionF": "",
     "correctAnswers": [
@@ -23615,6 +24231,22 @@
     "domain": "SECURITY"
   },
   {
+    "id": "4048",
+    "questionText": "A company has a managed IAM policy that does not grant the necessary permissions for users to accomplish required tasks. How can this be resolved?",
+    "multiSelect": false,
+    "optionA": "Enable AWS Shield Advanced.",
+    "optionB": "Create a custom IAM policy.",
+    "optionC": "Use a third-party web application +rewall (WAF) managed rule from the AWS Marketplace.",
+    "optionD": "Use AWS Key Management Service (AWS KMS) to create a customer-managed key.",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "A"
+    ],
+    "times": 1,
+    "domain": "SECURITY"
+  },
+  {
     "id": "4050",
     "questionText": "A company needs to run a pre-installed third-party +rewall on an Amazon EC2 instance. Which AWS service or feature can provide this solution?",
     "multiSelect": false,
@@ -23622,6 +24254,22 @@
     "optionB": "Security groups",
     "optionC": "AWS Marketplace",
     "optionD": "AWS Trusted Advisor",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "B"
+    ],
+    "times": 1,
+    "domain": "SECURITY"
+  },
+  {
+    "id": "4053",
+    "questionText": "Which of the following is a characteristic of the AWS account root user?",
+    "multiSelect": false,
+    "optionA": "The root user is the only user that can be con+gured with multi-factor authentication (MFA).",
+    "optionB": "The root user is the only user that can access the AWS Management Console.",
+    "optionC": "The root user is the +rst sign-in identity that is available when an AWS account is created.",
+    "optionD": "The root user has a password that cannot be changed.",
     "optionE": "",
     "optionF": "",
     "correctAnswers": [
@@ -23642,6 +24290,38 @@
     "optionF": "",
     "correctAnswers": [
       "A"
+    ],
+    "times": 1,
+    "domain": "SECURITY"
+  },
+  {
+    "id": "4086",
+    "questionText": "Which task is a responsibility of AWS, according to the AWS shared responsibility model?",
+    "multiSelect": false,
+    "optionA": "Encryption of application data",
+    "optionB": "Authentication of application users",
+    "optionC": "Protection of physical network infrastructure",
+    "optionD": "Configuration of +rewalls",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "D"
+    ],
+    "times": 1,
+    "domain": "SECURITY"
+  },
+  {
+    "id": "4101",
+    "questionText": "What does the Amazon S3 Intelligent-Tiering storage class offer?",
+    "multiSelect": false,
+    "optionA": "Payment iexibility by reserving storage capacity",
+    "optionB": "Long-term retention of data by copying the data to an encrypted Amazon Elastic Block Store (Amazon EBS) volume",
+    "optionC": "Automatic cost savings by moving objects between tiers based on access pattern changes",
+    "optionD": "Secure, durable, and lowest cost storage for data archival",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "D"
     ],
     "times": 1,
     "domain": "SECURITY"
@@ -23706,6 +24386,201 @@
     "optionF": "",
     "correctAnswers": [
       "C"
+    ],
+    "times": 1,
+    "domain": "SECURITY"
+  },
+  {
+    "id": "4215",
+    "questionText": "Which task is the customer's responsibility, according to the AWS shared responsibility model?",
+    "multiSelect": false,
+    "optionA": "Maintain the security of the AWS Cloud.",
+    "optionB": "Configure firewalls and networks.",
+    "optionC": "Patch the operating system of Amazon RDS instances.",
+    "optionD": "Implement physical and environmental controls.",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "B"
+    ],
+    "times": 1,
+    "domain": "SECURITY"
+  },
+  {
+    "id": "4221",
+    "questionText": "Which tasks are the customer's responsibility, according to the AWS shared responsibility model? (Choose two.)",
+    "multiSelect": true,
+    "optionA": "Establish the global infrastructure.",
+    "optionB": "Perform client-side data encryption.",
+    "optionC": "Configure IAM credentials.",
+    "optionD": "Secure edge locations.",
+    "optionE": "Patch Amazon RDS DB instances.",
+    "optionF": "",
+    "correctAnswers": [
+      "B",
+      "C"
+    ],
+    "times": 1,
+    "domain": "SECURITY"
+  },
+  {
+    "id": "4234",
+    "questionText": "A systems administrator created a new IAM user for a developer and assigned the user an access key instead of a user name and password. What is the access key used for?",
+    "multiSelect": false,
+    "optionA": "To access the AWS account as the AWS account root user",
+    "optionB": "To access the AWS account through the AWS Management Console",
+    "optionC": "To access the AWS account through a CLI",
+    "optionD": "To access all of a company's AWS accounts",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "C"
+    ],
+    "times": 1,
+    "domain": "SECURITY"
+  },
+  {
+    "id": "4257",
+    "questionText": "A company has teams that have different job roles and responsibilities. The company's employees often change teams. The company needs to manage permissions for the employees so that the permissions are appropriate for the job responsibilities. Which IAM resource should the company use to meet this requirement with the LEAST operational overhead?",
+    "multiSelect": false,
+    "optionA": "IAM user groups",
+    "optionB": "IAM roles",
+    "optionC": "IAM instance profiles",
+    "optionD": "IAM policies for individual users",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "B"
+    ],
+    "times": 1,
+    "domain": "SECURITY"
+  },
+  {
+    "id": "4261",
+    "questionText": "Which maintenance task is the customer's responsibility, according to the AWS shared responsibility model?",
+    "multiSelect": false,
+    "optionA": "Physical connectivity among Availability Zones",
+    "optionB": "Network switch maintenance",
+    "optionC": "Hardware updates and firmware patches",
+    "optionD": "Amazon EC2 updates and security patches",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "D"
+    ],
+    "times": 1,
+    "domain": "SECURITY"
+  },
+  {
+    "id": "4270",
+    "questionText": "Which of the following is the customer's responsibility under the AWS shared responsibility model? (Choose two.)",
+    "multiSelect": true,
+    "optionA": "Maintain the configuration of infrastructure devices",
+    "optionB": "Maintain patching and updates within the hardware infrastructure",
+    "optionC": "Maintain the configuration of guest operating systems and applications",
+    "optionD": "Manage decisions involving encryption options",
+    "optionE": "Maintain infrastructure hardware",
+    "optionF": "",
+    "correctAnswers": [
+      "C",
+      "D"
+    ],
+    "times": 2,
+    "domain": "SECURITY"
+  },
+  {
+    "id": "4273",
+    "questionText": "An external auditor has requested that a company provide a list of all its IAM users, including the status of users' credentials and access keys. What is the SIMPLEST way to provide this information?",
+    "multiSelect": false,
+    "optionA": "Create an IAM user account for the auditor, granting the auditor administrator permissions",
+    "optionB": "Take a screenshot of each user's page in the AWS Management Console, then provide the screenshots to the auditor",
+    "optionC": "Download the IAM credential report, then provide the report to the auditor",
+    "optionD": "Download the AWS Trusted Advisor report, then provide the report to the auditor",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "C"
+    ],
+    "times": 3,
+    "domain": "SECURITY"
+  },
+  {
+    "id": "4274",
+    "questionText": "Which task can a company perform by using security groups in the AWS Cloud?",
+    "multiSelect": false,
+    "optionA": "Allow access to an Amazon EC2 instance through only a specific port",
+    "optionB": "Deny access to malicious IP addresses at a subnet level",
+    "optionC": "Protect data that is cached by Amazon CloudFront",
+    "optionD": "Apply a stateless firewall to an Amazon EC2 instance",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "A"
+    ],
+    "times": 2,
+    "domain": "SECURITY"
+  },
+  {
+    "id": "4275",
+    "questionText": "Which of the following are features of network ACLs as they are used in the AWS Cloud? (Choose two.)",
+    "multiSelect": true,
+    "optionA": "They are stateless",
+    "optionB": "They are stateful",
+    "optionC": "They evaluate all rules before allowing traffic",
+    "optionD": "They process rules in order, starting with the lowest numbered rule, when deciding whether to allow traffic",
+    "optionE": "They operate at the instance level",
+    "optionF": "",
+    "correctAnswers": [
+      "A",
+      "D"
+    ],
+    "times": 3,
+    "domain": "SECURITY"
+  },
+  {
+    "id": "4277",
+    "questionText": "Who is responsible for managing IAM user access and secret keys according to the AWS shared responsibility model?",
+    "multiSelect": false,
+    "optionA": "IAM access and secret keys are static, so there is no need to rotate them",
+    "optionB": "The customer is responsible for rotating keys",
+    "optionC": "AWS will rotate the keys whenever required",
+    "optionD": "The AWS Support team will rotate keys when requested by the customer",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "B"
+    ],
+    "times": 2,
+    "domain": "SECURITY"
+  },
+  {
+    "id": "4280",
+    "questionText": "Which of the following is a characteristic of the AWS account root user?",
+    "multiSelect": false,
+    "optionA": "The root user is the only user that can be configured with multi-factor authentication (MFA)",
+    "optionB": "The root user is the only user that can access the AWS Management Console",
+    "optionC": "The root user is the first sign-in identity that is available when an AWS account is created",
+    "optionD": "The root user has a password that cannot be changed",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "C"
+    ],
+    "times": 3,
+    "domain": "SECURITY"
+  },
+  {
+    "id": "4281",
+    "questionText": "An Amazon EC2 instance previously used for development is inaccessible and no longer appears in the AWS Management Console. Which AWS service should be used to determine what action made this EC2 instance inaccessible?",
+    "multiSelect": false,
+    "optionA": "Amazon CloudWatch Logs",
+    "optionB": "AWS Security Hub",
+    "optionC": "Amazon Inspector",
+    "optionD": "AWS CloudTrail",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "D"
     ],
     "times": 1,
     "domain": "SECURITY"
@@ -24913,19 +25788,19 @@
     "domain": "SECURITY"
   },
   {
-    "id": "10669",
-    "questionText": "According to the AWS shared responsibility model who is responsible for configuration management?",
+    "id": "4529",
+    "questionText": "According to the AWS shared responsibility model, who is responsible for configuration management?",
     "multiSelect": false,
-    "optionA": "It is solely the responsibility of the customer",
-    "optionB": "It is solely the responsibility of AWS",
-    "optionC": "It is shared between AWS and the customer",
-    "optionD": "It is not part of the AWS shared responsibility model",
+    "optionA": "It is solely the responsibility of the customer.",
+    "optionB": "It is solely the responsibility of AWS.",
+    "optionC": "It is shared between AWS and the customer.",
+    "optionD": "It is not part of the AWS shared responsibility model.",
     "optionE": "",
     "optionF": "",
     "correctAnswers": [
       "C"
     ],
-    "times": 2,
+    "times": 1,
     "domain": "SECURITY"
   },
   {
@@ -25151,6 +26026,22 @@
       "C"
     ],
     "times": 2,
+    "domain": "SECURITY"
+  },
+  {
+    "id": "4573",
+    "questionText": "What does AWS Shield Standard provide?",
+    "multiSelect": false,
+    "optionA": "WAF rules",
+    "optionB": "DDoS protection",
+    "optionC": "Identity and Access Management (IAM) permissions and access to resources",
+    "optionD": "Data encryption",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "B"
+    ],
+    "times": 1,
     "domain": "SECURITY"
   },
   {
@@ -25840,19 +26731,19 @@
     "domain": "SECURITY"
   },
   {
-    "id": "10970",
-    "questionText": "A company has deployed several relational databases on Amazon EC2 instances. Every month the database software vendor releases new security patches that need to be applied to the databases. What is the MOST efficient way to apply the security patches?",
+    "id": "4692",
+    "questionText": "A company has deployed several relational databases on Amazon EC2 instances. Every month, the database software vendor releases new security patches that need to be applied to the databases. What is the MOST efficient way to apply the security patches?",
     "multiSelect": false,
-    "optionA": "Connect to each database instance on a monthly basis and download and apply the necessary security patches from the vendor",
-    "optionB": "Enable automate patching for the instances using the Amazon RDS console",
-    "optionC": "In AWS Config, configure a rule for the instances and the required patch level",
-    "optionD": "Use AWS Systems Manager to automate database patching according to a schedule",
+    "optionA": "Connect to each database instance on a monthly basis, and download and apply the necessary security patches from the vendor.",
+    "optionB": "Enable automatic patching for the instances using the Amazon RDS console.",
+    "optionC": "In AWS Config, configure a rule for the instances and the required patch level.",
+    "optionD": "Use AWS Systems Manager to automate database patching according to a schedule.",
     "optionE": "",
     "optionF": "",
     "correctAnswers": [
       "D"
     ],
-    "times": 2,
+    "times": 1,
     "domain": "SECURITY"
   },
   {
@@ -26504,6 +27395,22 @@
     "domain": "SECURITY"
   },
   {
+    "id": "4818",
+    "questionText": "A company needs to track the activity in its AWS accounts, and needs to know when an API call is made against its AWS resources. Which AWS tool or service can be used to meet these requirements?",
+    "multiSelect": false,
+    "optionA": "Amazon CloudWatch",
+    "optionB": "Amazon Inspector",
+    "optionC": "AWS Cloud Trail",
+    "optionD": "AWS IAM",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "C"
+    ],
+    "times": 1,
+    "domain": "SECURITY"
+  },
+  {
     "id": "4821",
     "questionText": "A company hosts images in an Amazon S3 bucket for a public-facing website that is viewed by millions of users around the globe. Which AWS service will deliver this content with reduced latency?",
     "multiSelect": false,
@@ -26876,6 +27783,22 @@
     "domain": "SECURITY"
   },
   {
+    "id": "4884",
+    "questionText": "A cloud practitioner needs to obtain AWS compliance reports before migrating an environment to the AWS Cloud. How can these reports be generated?",
+    "multiSelect": false,
+    "optionA": "Contact the AWS Compliance team",
+    "optionB": "Download the reports from AWS Artifact",
+    "optionC": "Open a case with AWS Support",
+    "optionD": "Generate the reports with Amazon Macie",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "B"
+    ],
+    "times": 1,
+    "domain": "SECURITY"
+  },
+  {
     "id": "4886",
     "questionText": "Which tasks require using AWS account root user credentials? (Choose two.)",
     "multiSelect": true,
@@ -26991,6 +27914,22 @@
     "domain": "SECURITY"
   },
   {
+    "id": "4913",
+    "questionText": "Which task is a customer's responsibility, according to the AWS shared responsibility model?",
+    "multiSelect": false,
+    "optionA": "Management of the guest operating systems",
+    "optionB": "Maintenance of the configuration of infrastructure devices",
+    "optionC": "Management of the host operating systems and virtualization",
+    "optionD": "Maintenance of the software that powers Availability ZonesA company > has refined its workload to use specific AWS services to improve > efficiency and reduce cost.",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "A"
+    ],
+    "times": 1,
+    "domain": "SECURITY"
+  },
+  {
     "id": "4922",
     "questionText": "Which AWS service is always available free of charge to users?",
     "multiSelect": false,
@@ -27056,6 +27995,22 @@
     "domain": "SECURITY"
   },
   {
+    "id": "4944",
+    "questionText": "Which task is the responsibility of AWS, according to the AWS shared responsibility model?",
+    "multiSelect": false,
+    "optionA": "Set up multi-factor authentication (MFA) for each Workspaces user > account.",
+    "optionB": "Ensure the environmental safety and security of the AWS > infrastructure that hosts Workspaces.",
+    "optionC": "Provide security for Workspaces user accounts through AWS Identity > and Access Management (IAM).",
+    "optionD": "Configure AWS CloudTrail to log API calls and user activity.A > company stores data in an Amazon S3 bucke",
+    "optionE": "The company must control who has permission to read, write, or > delete objects that the company stores in the S3 bucket.",
+    "optionF": "",
+    "correctAnswers": [
+      "B"
+    ],
+    "times": 1,
+    "domain": "SECURITY"
+  },
+  {
     "id": "4946",
     "questionText": "Which of the following are user authentication services managed by AWS? (Select TWO.)",
     "multiSelect": true,
@@ -27067,6 +28022,102 @@
     "optionF": "",
     "correctAnswers": [
       "A",
+      "D"
+    ],
+    "times": 1,
+    "domain": "SECURITY"
+  },
+  {
+    "id": "4947",
+    "questionText": "What does the Amazon S3 Intelligent-Tiering storage class offer?",
+    "multiSelect": false,
+    "optionA": "Payment flexibility by reserving storage capacity",
+    "optionB": "Long-term retention of data by copying the data to an encrypted > Amazon Elastic Block Store (AmazonEBS) volume",
+    "optionC": "Automatic cost savings by moving objects between tiers based on > access pattern changes",
+    "optionD": "Secure, durable, and lowest cost storage for data archival",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "C"
+    ],
+    "times": 1,
+    "domain": "SECURITY"
+  },
+  {
+    "id": "4957",
+    "questionText": "A company is using Amazon DynamoDB. Which task is the company's responsibility, according to the AWS shared responsibility model?",
+    "multiSelect": false,
+    "optionA": "Patch the operating system",
+    "optionB": "Provision hosts",
+    "optionC": "Manage database access permissions.",
+    "optionD": "Secure the operating system",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "C"
+    ],
+    "times": 2,
+    "domain": "SECURITY"
+  },
+  {
+    "id": "4971",
+    "questionText": "What is a customer responsibility when using AWS Lambda according to the AWS shared responsibility model?",
+    "multiSelect": false,
+    "optionA": "Managing the code within the Lambda function",
+    "optionB": "Confirming that the hardware is working in the data center",
+    "optionC": "Patching the operating system",
+    "optionD": "Shutting down Lambda functions when they are no longer in use",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "A"
+    ],
+    "times": 1,
+    "domain": "SECURITY"
+  },
+  {
+    "id": "4975",
+    "questionText": "Which task is the customer’s responsibility, according to the AWS shared responsibility model?",
+    "multiSelect": false,
+    "optionA": "Maintain the security of the AWS Cloud.",
+    "optionB": "Configure firewalls and networks.",
+    "optionC": "Patch the operating system of Amazon RDS instances.",
+    "optionD": "Implement physical and environmental controls.",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "B"
+    ],
+    "times": 1,
+    "domain": "SECURITY"
+  },
+  {
+    "id": "4977",
+    "questionText": "Which task is a customer’s responsibility, according to the AWS shared responsibility model?",
+    "multiSelect": false,
+    "optionA": "Management of the guest operating systems",
+    "optionB": "Maintenance of the configuration of infrastructure devices",
+    "optionC": "Management of the host operating systems and virtualization",
+    "optionD": "Maintenance of the software that powers Availability Zones",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "A"
+    ],
+    "times": 1,
+    "domain": "SECURITY"
+  },
+  {
+    "id": "4978",
+    "questionText": "Which maintenance task is the customer’s responsibility, according to the AWS shared responsibility model?",
+    "multiSelect": false,
+    "optionA": "Physical connectivity among Availability Zones",
+    "optionB": "Network switch maintenance",
+    "optionC": "Hardware updates and firmware patches",
+    "optionD": "Amazon EC2 updates and security patches",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
       "D"
     ],
     "times": 1,
@@ -27087,6 +28138,87 @@
       "D"
     ],
     "times": 3,
+    "domain": "SECURITY"
+  },
+  {
+    "id": "4985",
+    "questionText": "Which of the following is the customer's responsibility under the AWS shared responsibility model? (Choose two.)",
+    "multiSelect": true,
+    "optionA": "Maintain the configuration of infrastructure devices.",
+    "optionB": "Maintain patching and updates within the hardware infrastructure.",
+    "optionC": "Maintain the configuration of guest operating systems and applications.",
+    "optionD": "Manage decisions involving encryption options.",
+    "optionE": "Maintain infrastructure hardware.",
+    "optionF": "",
+    "correctAnswers": [
+      "A",
+      "C"
+    ],
+    "times": 1,
+    "domain": "SECURITY"
+  },
+  {
+    "id": "4986",
+    "questionText": "Which task can a company perform by using security groups in the AWS Cloud?",
+    "multiSelect": false,
+    "optionA": "Allow access to an Amazon EC2 instance through only a specific port.",
+    "optionB": "Deny access to malicious IP addresses at a subnet level.",
+    "optionC": "Protect data that is cached by Amazon CloudFront.",
+    "optionD": "Apply a stateless firewall to an Amazon EC2 instance.",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "D"
+    ],
+    "times": 1,
+    "domain": "SECURITY"
+  },
+  {
+    "id": "4987",
+    "questionText": "A company has a managed IAM policy that does not grant the necessary permissions for users to accomplish required tasks. How can this be resolved?",
+    "multiSelect": false,
+    "optionA": "Enable AWS Shield Advanced.",
+    "optionB": "Create a custom IAM policy.",
+    "optionC": "Use a third-party web application firewall (WAF) managed rule from the AWS Marketplace.",
+    "optionD": "Use AWS Key Management Service (AWS KMS) to create a customer-managed key.",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "A"
+    ],
+    "times": 1,
+    "domain": "SECURITY"
+  },
+  {
+    "id": "4994",
+    "questionText": "A company wants a report that lists the status of multi-factor authentication (MFA) devices that all users in the company's AWS account use. Which AWS feature or service will meet this requirement?",
+    "multiSelect": false,
+    "optionA": "AWS Cost and Usage Reports",
+    "optionB": "IAM credential reports",
+    "optionC": "Detailed Billing Reports - D AWS Cost Explorer reports",
+    "optionD": "(Option not available)",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "B"
+    ],
+    "times": 1,
+    "domain": "SECURITY"
+  },
+  {
+    "id": "4995",
+    "questionText": "A company wants to use machine learning capabilities to analyze log data from its Amazon EC2 instances and efficiently conduct security investigations. Which AWS service will meet these requirements?",
+    "multiSelect": false,
+    "optionA": "Amazon Inspector",
+    "optionB": "Amazon QuickSight",
+    "optionC": "Amazon Detective - D Amazon GuardDuty",
+    "optionD": "(Option not available)",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "C"
+    ],
+    "times": 1,
     "domain": "SECURITY"
   },
   {
@@ -27231,6 +28363,22 @@
       "A"
     ],
     "times": 2,
+    "domain": "SECURITY"
+  },
+  {
+    "id": "5038",
+    "questionText": "What is the main benefit of AWS Global Accelerator?",
+    "multiSelect": false,
+    "optionA": "Content caching at the edge",
+    "optionB": "Improves performance by routing users through AWS's global network",
+    "optionC": "Security group automation",
+    "optionD": "Cloud cost reduction",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "B"
+    ],
+    "times": 1,
     "domain": "SECURITY"
   },
   {
@@ -28418,6 +29566,22 @@
     "domain": "SECURITY"
   },
   {
+    "id": "5289",
+    "questionText": "What's the purpose of Elastic Load Balancing (ELB)?",
+    "multiSelect": false,
+    "optionA": "Distribute incoming traffic across instances",
+    "optionB": "Encrypt data",
+    "optionC": "Create IAM roles",
+    "optionD": "Monitor performance",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "A"
+    ],
+    "times": 1,
+    "domain": "SECURITY"
+  },
+  {
     "id": "5292",
     "questionText": "What does AWS provide under the Shared Responsibility Model for EC2?",
     "multiSelect": false,
@@ -29170,6 +30334,23 @@
     "domain": "SECURITY"
   },
   {
+    "id": "5445",
+    "questionText": "Which AWS services or features provide disaster recovery solutions for Amazon EC2 instances? (Choose two.)",
+    "multiSelect": true,
+    "optionA": "2¡‫ ׀•׀‬Reserved Instances",
+    "optionB": "EC2 Amazon Machine Images (AMIs)",
+    "optionC": "Amazon Elastic Block Store (Amazon EBS) snapshots",
+    "optionD": "AWS Shield",
+    "optionE": "Amazon GuardDuty",
+    "optionF": "",
+    "correctAnswers": [
+      "B",
+      "C"
+    ],
+    "times": 1,
+    "domain": "SECURITY"
+  },
+  {
     "id": "5446",
     "questionText": "A company is migrating to the AWS Cloud instead of running its infrastructure on premises. Which of the following are advantages of this migration? (Choose two.)",
     "multiSelect": true,
@@ -29429,6 +30610,23 @@
     "domain": "SECURITY"
   },
   {
+    "id": "5474",
+    "questionText": "Which tasks are the responsibility of AWS, according to the AWS shared responsibility model? (Choose two.)",
+    "multiSelect": true,
+    "optionA": "Patch the Amazon EC2 guest operating system.",
+    "optionB": "Upgrade the firmware of the network infrastructure.",
+    "optionC": "Apply password rotation for IAM users.",
+    "optionD": "Maintain the physical security of edge locations.",
+    "optionE": "Maintain least privilege access to the root user account.",
+    "optionF": "",
+    "correctAnswers": [
+      "B",
+      "D"
+    ],
+    "times": 2,
+    "domain": "SECURITY"
+  },
+  {
     "id": "5479",
     "questionText": "Which AWS service uses machine learning to help discover, monitor, and protect sensitive data that is stored in Amazon S3 buckets?",
     "multiSelect": false,
@@ -29641,6 +30839,22 @@
     "domain": "SECURITY"
   },
   {
+    "id": "5511",
+    "questionText": "Which AWS service helps protect against DDoS attacks?",
+    "multiSelect": false,
+    "optionA": "AWS Shield",
+    "optionB": "Amazon Inspector",
+    "optionC": "Amazon GuardDuty",
+    "optionD": "Amazon Detective",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "A"
+    ],
+    "times": 1,
+    "domain": "SECURITY"
+  },
+  {
     "id": "5512",
     "questionText": "Which AWS service can be used to decouple applications?",
     "multiSelect": false,
@@ -29654,6 +30868,22 @@
       "B"
     ],
     "times": 2,
+    "domain": "SECURITY"
+  },
+  {
+    "id": "5514",
+    "questionText": "A company hosts an application on an Amazon EC2 instance. The EC2 instance needs to access several AWS resources, including Amazon S3 and Amazon DynamoDB. What is the MOST operationally efficient solution to delegate permissions?",
+    "multiSelect": false,
+    "optionA": "Create an IAM role with the required permissions. Attach the role to the EC2 instance.",
+    "optionB": "Create an IAM user and use its access key and secret access key in the application.",
+    "optionC": "Create an IAM user and use its access key and secret access key to create a CLI profile in the EC2 instance",
+    "optionD": "Create an IAM role with the required permissions. Attach the role to the administrative IAM user.",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "A"
+    ],
+    "times": 1,
     "domain": "SECURITY"
   },
   {
@@ -29899,6 +31129,22 @@
     "domain": "SECURITY"
   },
   {
+    "id": "5563",
+    "questionText": "A company needs to evaluate its AWS environment and provide best practice recommendations in five categories: cost, performance, service limits, fault tolerance, and security. Which AWS service can the company use to meet these requirements?",
+    "multiSelect": false,
+    "optionA": "AWS Shield",
+    "optionB": "AWS WAF",
+    "optionC": "AWS Trusted Advisor",
+    "optionD": "AWS Service Catalog",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "C"
+    ],
+    "times": 1,
+    "domain": "SECURITY"
+  },
+  {
     "id": "5565",
     "questionText": "Which AWS service provides threat detection by monitoring for malicious activities and unauthorized actions to protect AWS accounts, workloads, and data that is stored in Amazon S3?",
     "multiSelect": false,
@@ -30011,6 +31257,22 @@
       "C"
     ],
     "times": 1,
+    "domain": "SECURITY"
+  },
+  {
+    "id": "5585",
+    "questionText": "Which task is the responsibility of the customer according to the AWS shared responsibility model?",
+    "multiSelect": false,
+    "optionA": "Maintain the security of the hardware that runs Amazon EC2 instances.",
+    "optionB": "Patch the guest operating system of Amazon EC2 instances.",
+    "optionC": "Protect the security of the AWS global infrastructure.",
+    "optionD": "Patch Amazon RDS software.",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "B"
+    ],
+    "times": 2,
     "domain": "SECURITY"
   },
   {
@@ -30155,6 +31417,23 @@
       "D"
     ],
     "times": 2,
+    "domain": "SECURITY"
+  },
+  {
+    "id": "5610",
+    "questionText": "A user has been granted permission to change their own IAM user password. Which AWS services can the user use to change the password? (Choose two.)",
+    "multiSelect": true,
+    "optionA": "AWS Command Line Interface (AWS CLI)",
+    "optionB": "AWS Key Management Service (AWS KMS)",
+    "optionC": "AWS Management Console",
+    "optionD": "AWS Resource Access Manager (AWS RAM)",
+    "optionE": "AWS Secrets Manager",
+    "optionF": "",
+    "correctAnswers": [
+      "A",
+      "C"
+    ],
+    "times": 1,
     "domain": "SECURITY"
   },
   {
@@ -30562,6 +31841,23 @@
     "domain": "SECURITY"
   },
   {
+    "id": "5678",
+    "questionText": "Which of the following are AWS best practice recommendations for the use of AWS Identity and Access Management (IAM)? (Choose two.)",
+    "multiSelect": true,
+    "optionA": "Use the AWS account root user tor daily access.",
+    "optionB": "Use access keys and secret access keys on Amazon EC2.",
+    "optionC": "Rotate credentials on a regular basis.",
+    "optionD": "Create a shared set of access keys for system administrators.",
+    "optionE": "Configure multi-factor authentication (MFA).",
+    "optionF": "",
+    "correctAnswers": [
+      "B",
+      "E"
+    ],
+    "times": 1,
+    "domain": "SECURITY"
+  },
+  {
     "id": "5684",
     "questionText": "A company is using Amazon RDS. Which task is the company's responsibility, according to the AWS shared responsibility model?",
     "multiSelect": false,
@@ -30901,6 +32197,23 @@
     "domain": "SECURITY"
   },
   {
+    "id": "5738",
+    "questionText": "A company is using Amazon EC2 instances. Which tasks are the company's responsibility, according to the AWS shared responsibility model? (Choose two.)",
+    "multiSelect": true,
+    "optionA": "Choose the initial root password of new Linux instances.",
+    "optionB": "Identify which users can access the EC2 instances, and manage their permissions in the operating system.",
+    "optionC": "Apply the updates of the hypervisor where the EC2 instances are running.",
+    "optionD": "Choose between a Wi-Fi connection and an Ethernet connection for the global internet access.",
+    "optionE": "Identify and manage the users who are allowed to create or delete EC2 instances.",
+    "optionF": "",
+    "correctAnswers": [
+      "C",
+      "E"
+    ],
+    "times": 1,
+    "domain": "SECURITY"
+  },
+  {
     "id": "5741",
     "questionText": "Where can AWS users review answers to frequently asked questions about security in the AWS Cloud?",
     "multiSelect": false,
@@ -30960,6 +32273,23 @@
     "optionF": "",
     "correctAnswers": [
       "C"
+    ],
+    "times": 1,
+    "domain": "SECURITY"
+  },
+  {
+    "id": "5749",
+    "questionText": "A company wants to build an application that uses AWS Lambda to run Python code. Under the AWS shared responsibility model, which tasks will be the company's responsibility? (Choose two.)",
+    "multiSelect": true,
+    "optionA": "Management of the underlying infrastructure",
+    "optionB": "Management of the operating system.",
+    "optionC": "Writing the business logic code.",
+    "optionD": "Installation of the computer language runtime.",
+    "optionE": "Providing AWS Identity and Access Management (1AM) access to the Lambda service.",
+    "optionF": "",
+    "correctAnswers": [
+      "A",
+      "E"
     ],
     "times": 1,
     "domain": "SECURITY"
@@ -31206,6 +32536,23 @@
     "domain": "SECURITY"
   },
   {
+    "id": "5807",
+    "questionText": "According to the AWS shared responsibility model which of the following are AWS responsibilities? (Choose two.)",
+    "multiSelect": true,
+    "optionA": "Network infrastructure and virtualization of infrastructure",
+    "optionB": "Security of application data",
+    "optionC": "Guest operating systems",
+    "optionD": "Physical security of hardware",
+    "optionE": "Credentials and policies",
+    "optionF": "",
+    "correctAnswers": [
+      "A",
+      "D"
+    ],
+    "times": 1,
+    "domain": "SECURITY"
+  },
+  {
     "id": "5810",
     "questionText": "A company needs to receive notification when a deployed workload is using more than a certain percentage of a service quota. Which AWS service should the company use to meet this requirement?",
     "multiSelect": false,
@@ -31249,6 +32596,22 @@
     "optionF": "",
     "correctAnswers": [
       "A"
+    ],
+    "times": 1,
+    "domain": "SECURITY"
+  },
+  {
+    "id": "5815",
+    "questionText": "Which of the following promotes AWS Cloud architectural best practices for designing and operating reliable, secure, efficient, and cost-effective systems?",
+    "multiSelect": false,
+    "optionA": "AWS Serverless Application Model framework",
+    "optionB": "AWS Business Support",
+    "optionC": "Principle of least privilege",
+    "optionD": "AWS Well Architected Framework",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "D"
     ],
     "times": 1,
     "domain": "SECURITY"
@@ -31368,6 +32731,22 @@
     "domain": "SECURITY"
   },
   {
+    "id": "5839",
+    "questionText": "Which task is the responsibility of the customer, according to the AWS shared responsibility model?",
+    "multiSelect": false,
+    "optionA": "Patch the Amazon DynamoDB operating system.",
+    "optionB": "Secure Amazon CloudFront edge locations by allowing physical access according to the principle of least privilege.",
+    "optionC": "Protect the hardware that runs AWS services.",
+    "optionD": "Use AWS Identity and Access Management (1AM) according to the principle of least privilege.",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "A"
+    ],
+    "times": 1,
+    "domain": "SECURITY"
+  },
+  {
     "id": "5840",
     "questionText": "A company wants to deploy a highly available third-party firewall appliance. Which AWS service or resource will support this task?",
     "multiSelect": false,
@@ -31477,6 +32856,22 @@
     "optionF": "",
     "correctAnswers": [
       "A"
+    ],
+    "times": 1,
+    "domain": "SECURITY"
+  },
+  {
+    "id": "5852",
+    "questionText": "A company's information security manager is supervising a move to AWS and wants to ensure that AWS best practices are followed. The manager has concerns about the potential misuse of AWS account root user credentials. Which of the following is an AWS best practice for using the AWS account root user credentials?",
+    "multiSelect": false,
+    "optionA": "Allow only the manager to use the account root user credentials for normal activities.",
+    "optionB": "Use the account root user credentials only for Amazon EC2 instances from the AWS Free Tier.",
+    "optionC": "Use the account root user credentials only when they alone must be used to perform a required function.",
+    "optionD": "Use the account root user credentials only for the creation of private VPC subnets.",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "C"
     ],
     "times": 1,
     "domain": "SECURITY"
@@ -31756,6 +33151,23 @@
     "domain": "SECURITY"
   },
   {
+    "id": "5909",
+    "questionText": "Which tasks are the responsibility of AWS, according to the AWS shared responsibility model? (Choose two.)",
+    "multiSelect": true,
+    "optionA": "Patch AWS network devices.",
+    "optionB": "Set user password rules.",
+    "optionC": "Provide physical security for compute resources.",
+    "optionD": "Configure security groups.",
+    "optionE": "Patch the operating system of an Amazon EC2 instance.",
+    "optionF": "",
+    "correctAnswers": [
+      "C",
+      "E"
+    ],
+    "times": 1,
+    "domain": "SECURITY"
+  },
+  {
     "id": "5910",
     "questionText": "A system administrator wants to allow IT department users to access the AWS CLI. What is the MINIMUM credential that is required to achieve this goal?",
     "multiSelect": false,
@@ -31799,6 +33211,23 @@
     "optionF": "",
     "correctAnswers": [
       "A"
+    ],
+    "times": 1,
+    "domain": "SECURITY"
+  },
+  {
+    "id": "5921",
+    "questionText": "Which actions represent best practices for using AWS IAM? (Choose two.)",
+    "multiSelect": true,
+    "optionA": "Configure a strong password policy.",
+    "optionB": "Share the security credentials among users of AWS accounts who are in the same Region.",
+    "optionC": "Use access keys to lag in to the AWS Management Console.",
+    "optionD": "Rotate access keys on a regular basis.",
+    "optionE": "Avoid using IAM roles to delegate permissions.",
+    "optionF": "",
+    "correctAnswers": [
+      "A",
+      "D"
     ],
     "times": 1,
     "domain": "SECURITY"
@@ -32195,6 +33624,22 @@
     "domain": "SECURITY"
   },
   {
+    "id": "5991",
+    "questionText": "Which AWS service is always available free of charge to users?",
+    "multiSelect": false,
+    "optionA": "Amazon Athena",
+    "optionB": "AWS Identity and Access Management (IAM)",
+    "optionC": "AWS Secrets Manager",
+    "optionD": "Amazon ElastiCache",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "B"
+    ],
+    "times": 1,
+    "domain": "SECURITY"
+  },
+  {
     "id": "5994",
     "questionText": "Which credential allows programmatic access to AWS resources for use from toe AWS CLI or the AWS API?",
     "multiSelect": false,
@@ -32424,6 +33869,22 @@
     "domain": "SECURITY"
   },
   {
+    "id": "6032",
+    "questionText": "A company needs to manage multiple logins across AWS accounts within the same organization in AWS Organizations. Which AWS service should the company use to meet this requirement?",
+    "multiSelect": false,
+    "optionA": "Amazon VPC",
+    "optionB": "Amazon GuardDuty",
+    "optionC": "Amazon Cognito",
+    "optionD": "AWS IAM Identity Center (AWS Single Sign-On)",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "D"
+    ],
+    "times": 1,
+    "domain": "SECURITY"
+  },
+  {
     "id": "6044",
     "questionText": "A company wants to access a report about the estimated environmental impact of the company's AWS usage. Which AWS service or feature should the company use to meet this requirement?",
     "multiSelect": false,
@@ -32601,6 +34062,22 @@
     "domain": "SECURITY"
   },
   {
+    "id": "6089",
+    "questionText": "What does “security of the cloud” refer to in the AWS shared responsibility model?",
+    "multiSelect": false,
+    "optionA": "Availability of AWS services such as Amazon EC2",
+    "optionB": "Security of the cloud infrastructure that runs all the AWS services",
+    "optionC": "Implementation of password policies for IAM users",
+    "optionD": "Security of customer environments by using AWS Network Firewall partners",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "B"
+    ],
+    "times": 1,
+    "domain": "SECURITY"
+  },
+  {
     "id": "6090",
     "questionText": "A company wants to push VPC Flow Logs to an Amazon S3 bucket. Which action is the company’s responsibility?",
     "multiSelect": false,
@@ -32612,6 +34089,22 @@
     "optionF": "",
     "correctAnswers": [
       "B"
+    ],
+    "times": 1,
+    "domain": "SECURITY"
+  },
+  {
+    "id": "6091",
+    "questionText": "A company needs to apply security rules to specific Amazon EC2 instances. Which AWS service or feature provides this functionality?",
+    "multiSelect": false,
+    "optionA": "AWS Shield",
+    "optionB": "Network ACLs",
+    "optionC": "Security groups",
+    "optionD": "AWS Firewall Manager",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "C"
     ],
     "times": 1,
     "domain": "SECURITY"
@@ -32683,6 +34176,22 @@
     "domain": "SECURITY"
   },
   {
+    "id": "6105",
+    "questionText": "A developer who has no AWS Cloud experience wants to use AWS technology to build a web application. Which AWS service should the developer use to start building the application?",
+    "multiSelect": false,
+    "optionA": "AWS Organizations",
+    "optionB": "AWS Identity and Access Management (IAM)",
+    "optionC": "AWS Billing and Cost Management",
+    "optionD": "Amazon Cognito",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "A"
+    ],
+    "times": 1,
+    "domain": "SECURITY"
+  },
+  {
     "id": "6109",
     "questionText": "A company wants to have one AWS account for the entire company and individual accounts for each department. Which AWS service should the company use to aggregate and manage all accounts?",
     "multiSelect": false,
@@ -32694,6 +34203,22 @@
     "optionF": "",
     "correctAnswers": [
       "B"
+    ],
+    "times": 1,
+    "domain": "SECURITY"
+  },
+  {
+    "id": "6112",
+    "questionText": "A company wants to monitor for misconfigured security groups that are allowing unrestricted access to specific ports. Which AWS service will meet this requirement?",
+    "multiSelect": false,
+    "optionA": "AWS Trusted Advisor",
+    "optionB": "Amazon CloudWatch",
+    "optionC": "Amazon Guard Duty",
+    "optionD": "AWS Health Dashboard",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "A"
     ],
     "times": 1,
     "domain": "SECURITY"
@@ -32780,6 +34305,22 @@
     "domain": "SECURITY"
   },
   {
+    "id": "6132",
+    "questionText": "Which task can a company perform by using security groups in the AWS Cloud?",
+    "multiSelect": false,
+    "optionA": "Allow access to an Amazon EC2 instance through only a specific port.",
+    "optionB": "Deny access to malicious IP addresses at a subnet level.",
+    "optionC": "Protect data that is cached by Amazon Cloud Front.",
+    "optionD": "Apply a stateless firewall to an Amazon EC2 instance.",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "B"
+    ],
+    "times": 1,
+    "domain": "SECURITY"
+  },
+  {
     "id": "6135",
     "questionText": "A company wants to automatically set up and govern a multi-account AWS environment. Which AWS service provides this functionality?",
     "multiSelect": false,
@@ -32791,6 +34332,39 @@
     "optionF": "",
     "correctAnswers": [
       "D"
+    ],
+    "times": 1,
+    "domain": "SECURITY"
+  },
+  {
+    "id": "6137",
+    "questionText": "A global company wants to use a managed security service for protection from SQL injection attacks. The service also must provide detailed logging information about access to the company’s ecommerce applications. Which AWS service will meet these requirements?",
+    "multiSelect": false,
+    "optionA": "AWS Network Firewall",
+    "optionB": "Amazon RDS for SQL Server",
+    "optionC": "Amazon GuardDuty",
+    "optionD": "AWS WAF",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "D"
+    ],
+    "times": 1,
+    "domain": "SECURITY"
+  },
+  {
+    "id": "6143",
+    "questionText": "Which scenarios represent the concept of elasticity on AWS? (Choose two.)",
+    "multiSelect": true,
+    "optionA": "Scaling the number of Amazon EC2 instances based on traffic",
+    "optionB": "Resizing Amazon RDS instances as business needs change",
+    "optionC": "Automatically directing traffic to less-utilized Amazon EC2 instances",
+    "optionD": "Using AWS compliance documents to accelerate the compliance process",
+    "optionE": "Having the ability to create and govern environments using code",
+    "optionF": "",
+    "correctAnswers": [
+      "A",
+      "B"
     ],
     "times": 1,
     "domain": "SECURITY"
@@ -32876,6 +34450,22 @@
     "domain": "SECURITY"
   },
   {
+    "id": "6169",
+    "questionText": "A company wants to access a report about the estimated environmental impact of the company's AWS usage. Which AWS service or feature should the company use to meet this requirement?",
+    "multiSelect": false,
+    "optionA": "AWS Organizations",
+    "optionB": "IAM policy",
+    "optionC": "AWS Billing console",
+    "optionD": "Amazon Simple Notification Service (Amazon SNS)",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "C"
+    ],
+    "times": 1,
+    "domain": "SECURITY"
+  },
+  {
     "id": "6170",
     "questionText": "Which AWS features will meet these requirements? (Select TWO.)",
     "multiSelect": true,
@@ -32943,6 +34533,22 @@
     "domain": "SECURITY"
   },
   {
+    "id": "6192",
+    "questionText": "A company has an environment that includes Amazon EC2 instances, Amazon Lightsail, and on-premises servers. The company wants to automate the security updates for its operating systems and applications. Which solution will meet these requirements with the LEAST operational effort?",
+    "multiSelect": false,
+    "optionA": "Use AWS Shield to identify and manage security events.",
+    "optionB": "Connect to each server by using a remote desktop connectio",
+    "optionC": "Run an update script.",
+    "optionD": "Use the AWS Systems Manager Patch Manager capability.",
+    "optionE": "Schedule Amazon GuardDuty to run on a nightly basis.",
+    "optionF": "",
+    "correctAnswers": [
+      "C"
+    ],
+    "times": 1,
+    "domain": "SECURITY"
+  },
+  {
     "id": "6194",
     "questionText": "Which of the following is entirely the responsibility of AWS, according to the AWS shared responsibility model? Passing Certification Exams Made Easy visit - https://www.2PassEasy.com Welcome to download the Newest 2passeasy AWS-Certified-Cloud-Practitioner dumps https://www.2passeasy.com/dumps/AWS-Certified-Cloud-Practitioner/ (370 New Questions)",
     "multiSelect": false,
@@ -32986,6 +34592,86 @@
     "optionF": "",
     "correctAnswers": [
       "B"
+    ],
+    "times": 1,
+    "domain": "SECURITY"
+  },
+  {
+    "id": "6200",
+    "questionText": "A company moves a workload to AWS to run on Amazon EC2 instances. The company needs to run the workload in the most cost-effective way. What can the company do to meet this requirement?",
+    "multiSelect": false,
+    "optionA": "Use AWS Key Management Service (AWS KMS).",
+    "optionB": "Use multiple AWS accounts and consolidated billing.",
+    "optionC": "Use AWS CloudFormation to deploy the infrastructure.",
+    "optionD": "Rightsized all the EC2 instances that are used in the deployment.",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "D"
+    ],
+    "times": 1,
+    "domain": "SECURITY"
+  },
+  {
+    "id": "6201",
+    "questionText": "Which aspect of security is the customer's responsibility, according to the AWS shared responsibility model?",
+    "multiSelect": false,
+    "optionA": "Patch and configuration management",
+    "optionB": "Service and communications protection or zone security",
+    "optionC": "Physical and environmental controls",
+    "optionD": "Awareness and training",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "A"
+    ],
+    "times": 1,
+    "domain": "SECURITY"
+  },
+  {
+    "id": "6203",
+    "questionText": "A company has an AWS-hosted website located behind an Application Load Balancer. The company wants to safeguard the website from SQL injection or cross- site scripting. Which AWS service should the company use?",
+    "multiSelect": false,
+    "optionA": "Amazon GuardDuty",
+    "optionB": "AWS WAF",
+    "optionC": "AWS Trusted Advisor",
+    "optionD": "Amazon Inspector",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "B"
+    ],
+    "times": 1,
+    "domain": "SECURITY"
+  },
+  {
+    "id": "6204",
+    "questionText": "A company is hosting a web application on Amazon EC2 instances. The company wants to implement custom conditions to filter and control inbound web traffic. Which AWS service will meet these requirements?",
+    "multiSelect": false,
+    "optionA": "Amazon GuardDuty",
+    "optionB": "AWSWAF",
+    "optionC": "Amazon Macie",
+    "optionD": "AWS Shield",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "B"
+    ],
+    "times": 1,
+    "domain": "SECURITY"
+  },
+  {
+    "id": "6205",
+    "questionText": "A developer needs to maintain a development environment infrastructure and a production environment infrastructure in a repeatable fashion. Which AWS service should the developer use to meet these requirements?",
+    "multiSelect": false,
+    "optionA": "AWS Ground Station",
+    "optionB": "AWS Shield",
+    "optionC": "AWS loT Device Defender",
+    "optionD": "AWS CloudFormation",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "D"
     ],
     "times": 1,
     "domain": "SECURITY"
@@ -42337,6 +44023,22 @@
     "domain": "SECURITY"
   },
   {
+    "id": "7813",
+    "questionText": "Which IAM entity is associated with an access key ID and secret access key?",
+    "multiSelect": false,
+    "optionA": "IAM Group",
+    "optionB": "IAM Role",
+    "optionC": "IAM Policy",
+    "optionD": "IAM User",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "D"
+    ],
+    "times": 1,
+    "domain": "SECURITY"
+  },
+  {
     "id": "7814",
     "questionText": "Which IAM entity can be used for assigning permissions to multiple users?",
     "multiSelect": false,
@@ -42364,6 +44066,22 @@
     "optionF": "",
     "correctAnswers": [
       "A",
+      "C"
+    ],
+    "times": 1,
+    "domain": "SECURITY"
+  },
+  {
+    "id": "7816",
+    "questionText": "Which service can be used to easily create multiple accounts?",
+    "multiSelect": false,
+    "optionA": "AWS IAM",
+    "optionB": "AWS CloudFormation",
+    "optionC": "AWS Organizations",
+    "optionD": "Amazon Connect",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
       "C"
     ],
     "times": 1,
@@ -43115,6 +44833,22 @@
     "domain": "SECURITY"
   },
   {
+    "id": "7951",
+    "questionText": "A company is running its application in the AWS Cloud and wants to protect against a DDoS attack. The company's security team wants near real-time visibility into DDoS attacks. Which AWS service or traffic filter will meet these requirements with the MOST features for DDoS protection?",
+    "multiSelect": false,
+    "optionA": "AWS Shield Advanced",
+    "optionB": "AWS Shield Standard",
+    "optionC": "Security groups",
+    "optionD": "Network ACLs",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "A"
+    ],
+    "times": 1,
+    "domain": "SECURITY"
+  },
+  {
     "id": "7954",
     "questionText": "Which AWS service provides inbound and outbound network ACLs to restrict connectivity to Amazon EC2 instances?",
     "multiSelect": false,
@@ -43138,6 +44872,22 @@
     "optionB": "Amazon Polly",
     "optionC": "Amazon Cognito",
     "optionD": "AWS Lambda",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "A"
+    ],
+    "times": 1,
+    "domain": "SECURITY"
+  },
+  {
+    "id": "7959",
+    "questionText": "A gaming company wants to move its on premises environment to AWS. The company needs its resources to be highly available. Which benefit does the AWS Cloud provide to meet this requirement?",
+    "multiSelect": false,
+    "optionA": "Reliability",
+    "optionB": "The AWS shared responsibility model",
+    "optionC": "Security",
+    "optionD": "Agility",
     "optionE": "",
     "optionF": "",
     "correctAnswers": [
@@ -43171,6 +44921,22 @@
     "optionB": "Amazon S3",
     "optionC": "Amazon Elastic Block Store (Amazon EBS) Snapshots",
     "optionD": "AWS DataSync",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "C"
+    ],
+    "times": 1,
+    "domain": "SECURITY"
+  },
+  {
+    "id": "7974",
+    "questionText": "Which option is a responsibility of AWS under the AWS shared responsibility model?",
+    "multiSelect": false,
+    "optionA": "Application data security",
+    "optionB": "Patch management for applications that run on Amazon EC2 instances",
+    "optionC": "Patch management of the underlying infrastructure for managed services",
+    "optionD": "Application identity and access management (IAM)",
     "optionE": "",
     "optionF": "",
     "correctAnswers": [
@@ -45452,6 +47218,22 @@
     "domain": "SECURITY"
   },
   {
+    "id": "8697",
+    "questionText": "Which AWS service provides managed protection against Distributed Denial of Service (DDoS) attacks?",
+    "multiSelect": false,
+    "optionA": "AWS Shield",
+    "optionB": "AWS WAF",
+    "optionC": "AWS Firewall Manager",
+    "optionD": "AWS Inspector",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "A"
+    ],
+    "times": 1,
+    "domain": "SECURITY"
+  },
+  {
     "id": "8704",
     "questionText": "Which AWS service automates the setup of a secure, multi-account landing zone based on AWS best practices?",
     "multiSelect": false,
@@ -45975,6 +47757,22 @@
     "optionF": "",
     "correctAnswers": [
       "B"
+    ],
+    "times": 1,
+    "domain": "SECURITY"
+  },
+  {
+    "id": "8847",
+    "questionText": "Under the AWS Shared Responsibility Model, which of the following is the customer's responsibility when using AWS Lambda?",
+    "multiSelect": false,
+    "optionA": "Patching the Lambda execution environment",
+    "optionB": "Managing the physical hardware running Lambda",
+    "optionC": "Writing secure application code and managing function permissions via IAM",
+    "optionD": "Ensuring Lambda service availability",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "C"
     ],
     "times": 1,
     "domain": "SECURITY"
@@ -53351,6 +55149,22 @@
     "domain": "SECURITY"
   },
   {
+    "id": "10201",
+    "questionText": "Which of the following is an example of identity federation in AWS?",
+    "multiSelect": false,
+    "optionA": "Creating IAM users for every employee",
+    "optionB": "Allowing users to log in with their corporate Active Directory credentials to access AWS",
+    "optionC": "Using MFA for all IAM users",
+    "optionD": "Applying password policies to IAM groups",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "B"
+    ],
+    "times": 1,
+    "domain": "SECURITY"
+  },
+  {
     "id": "10202",
     "questionText": "A company wants to ensure that no S3 buckets in their account are ever made public. Which service can automatically detect and alert on this misconfiguration?",
     "multiSelect": false,
@@ -54583,6 +56397,22 @@
     "domain": "SECURITY"
   },
   {
+    "id": "10439",
+    "questionText": "Which AWS service helps deliver highly available applications with fast failover for multi-Region and Multi- AZ architectures?",
+    "multiSelect": false,
+    "optionA": "AWS WAF",
+    "optionB": "AWS Global Accelerator",
+    "optionC": "AWS Shield",
+    "optionD": "AWS Direct Connect",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "B"
+    ],
+    "times": 1,
+    "domain": "SECURITY"
+  },
+  {
     "id": "10447",
     "questionText": "A company runs many Amazon EC2 instances in its VP",
     "multiSelect": false,
@@ -54593,6 +56423,39 @@
     "optionE": "",
     "optionF": "",
     "correctAnswers": [
+      "D"
+    ],
+    "times": 1,
+    "domain": "SECURITY"
+  },
+  {
+    "id": "10449",
+    "questionText": "A company runs an on-premises contact center for customers. The company needs to migrate to a cloud- based solution that can deliver artificial intelligence features to improve user experience. Which AWS service will meet these requirements?",
+    "multiSelect": false,
+    "optionA": "AWS Wavelength",
+    "optionB": "AWS IAM Identity Center (AWS Single Sign-On)",
+    "optionC": "AWS Direct Connect",
+    "optionD": "Amazon Connect",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "D"
+    ],
+    "times": 1,
+    "domain": "SECURITY"
+  },
+  {
+    "id": "10456",
+    "questionText": "An online retail company wants to migrate its on-premises workload to AWS. The company needs to automatically handle a seasonal workload increase in a cost-effective manner. Which AWS Cloud features will help the company meet this requirement? (Choose two.)",
+    "multiSelect": true,
+    "optionA": "Cross-Region workload deployment",
+    "optionB": "Pay-as-you-go pricing",
+    "optionC": "Built-in AWS CloudTrail audit capabilities",
+    "optionD": "Auto Scaling policies",
+    "optionE": "Centralized logging",
+    "optionF": "",
+    "correctAnswers": [
+      "B",
       "D"
     ],
     "times": 1,
@@ -55378,6 +57241,22 @@
       "E"
     ],
     "times": 1,
+    "domain": "SECURITY"
+  },
+  {
+    "id": "10669",
+    "questionText": "According to the AWS shared responsibility model who is responsible for configuration management?",
+    "multiSelect": false,
+    "optionA": "It is solely the responsibility of the customer",
+    "optionB": "It is solely the responsibility of AWS",
+    "optionC": "It is shared between AWS and the customer",
+    "optionD": "It is not part of the AWS shared responsibility model",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "C"
+    ],
+    "times": 2,
     "domain": "SECURITY"
   },
   {
@@ -56761,6 +58640,22 @@
     "domain": "SECURITY"
   },
   {
+    "id": "10765",
+    "questionText": "According to the AWS shared responsibility model what is the sole responsibility of AWS?",
+    "multiSelect": false,
+    "optionA": "Application security",
+    "optionB": "Edge location management",
+    "optionC": "Patch management",
+    "optionD": "Client-side data",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "B"
+    ],
+    "times": 2,
+    "domain": "SECURITY"
+  },
+  {
     "id": "10766",
     "questionText": "Under the AWS shared responsibility model, which of the following activities are the customer's responsibility?",
     "multiSelect": true,
@@ -57078,6 +58973,22 @@
     "domain": "SECURITY"
   },
   {
+    "id": "10785",
+    "questionText": "A user needs to generate a report that outlines the status of key security checks in an AWS account. The report must include the status of Amazon S3 bucket permissions, whether multi-factor authentication is enabled for the AWS account root user, if any security groups are configured to allow unrestricted access. Where can all this information be found in one location?",
+    "multiSelect": false,
+    "optionA": "Amazon QuickSight dashboard",
+    "optionB": "AWS CloudTrail trails",
+    "optionC": "AWS Trusted Advisor report",
+    "optionD": "IAM credential report",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "C"
+    ],
+    "times": 1,
+    "domain": "SECURITY"
+  },
+  {
     "id": "10786",
     "questionText": "Under the AWS shared responsibility model, which of the following are customer responsibilities?",
     "multiSelect": true,
@@ -57107,6 +59018,22 @@
     "correctAnswers": [
       "D",
       "E"
+    ],
+    "times": 1,
+    "domain": "SECURITY"
+  },
+  {
+    "id": "10788",
+    "questionText": "Which of the following allows an application running on an Amazon EC2 instance to securely write data to an Amazon S3 bucket without using long-term credentials?",
+    "multiSelect": false,
+    "optionA": "Amazon Cognito",
+    "optionB": "AWS Shield",
+    "optionC": "AWS IAM role",
+    "optionD": "AWS IAM user access key",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "C"
     ],
     "times": 1,
     "domain": "SECURITY"
@@ -57862,6 +59789,22 @@
     "domain": "SECURITY"
   },
   {
+    "id": "10970",
+    "questionText": "A company has deployed several relational databases on Amazon EC2 instances. Every month the database software vendor releases new security patches that need to be applied to the databases. What is the MOST efficient way to apply the security patches?",
+    "multiSelect": false,
+    "optionA": "Connect to each database instance on a monthly basis and download and apply the necessary security patches from the vendor",
+    "optionB": "Enable automate patching for the instances using the Amazon RDS console",
+    "optionC": "In AWS Config, configure a rule for the instances and the required patch level",
+    "optionD": "Use AWS Systems Manager to automate database patching according to a schedule",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "D"
+    ],
+    "times": 2,
+    "domain": "SECURITY"
+  },
+  {
     "id": "10971",
     "questionText": "Which of the following are main components of the AWS global infrastructure?",
     "multiSelect": true,
@@ -58139,6 +60082,22 @@
     "correctAnswers": [
       "B",
       "C"
+    ],
+    "times": 1,
+    "domain": "SECURITY"
+  },
+  {
+    "id": "11075",
+    "questionText": "Where should a company go to search software listings from independent software vendors to find, test, buy, and deploy software that runs on AWS?",
+    "multiSelect": false,
+    "optionA": "AWS Marketplace",
+    "optionB": "AWS Service Catalog",
+    "optionC": "AWS Artifact",
+    "optionD": "Amazon CloudSearch",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "A"
     ],
     "times": 1,
     "domain": "SECURITY"
@@ -59108,6 +61067,23 @@
     "domain": "SECURITY"
   },
   {
+    "id": "11309",
+    "questionText": "Which tasks are the responsibility of AWS, according to the AWS shared responsibility model? (Select TWO.)",
+    "multiSelect": true,
+    "optionA": "Patch AWS network devices.",
+    "optionB": "Set user password rules.",
+    "optionC": "Provide physical security for compute resources.",
+    "optionD": "Configure security groups.",
+    "optionE": "Patch the operating system of an Amazon EC2 instance.",
+    "optionF": "",
+    "correctAnswers": [
+      "A",
+      "C"
+    ],
+    "times": 1,
+    "domain": "SECURITY"
+  },
+  {
     "id": "11311",
     "questionText": "A company needs to use an AWS service to invoke an AWS Lambda function when an Amazon EC2 instance enters the stopping state. Which AWS service will meet this requirement?",
     "multiSelect": false,
@@ -59919,6 +61895,38 @@
     "domain": "SECURITY"
   },
   {
+    "id": "11465",
+    "questionText": "Which AWS service can be used to mitigate a Distributed Denial of Service (DDoS) attack?",
+    "multiSelect": false,
+    "optionA": "AWS Shield",
+    "optionB": "AWS Systems Manager",
+    "optionC": "Amazon CloudWatch",
+    "optionD": "AWS Key Management Service (AWS KMS)",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "A"
+    ],
+    "times": 1,
+    "domain": "SECURITY"
+  },
+  {
+    "id": "11471",
+    "questionText": "A company hosts a large amount of data in AWS. The company wants to identify if any of the data should be considered sensitive.Which AWS service will meet the requirement?",
+    "multiSelect": false,
+    "optionA": "Amazon Inspector",
+    "optionB": "Amazon Macie",
+    "optionC": "AWS Identity and Access Management (IAM)",
+    "optionD": "Amazon CloudWatch",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "B"
+    ],
+    "times": 1,
+    "domain": "SECURITY"
+  },
+  {
     "id": "11474",
     "questionText": "Which of the below options are related to the reliability of AWS? (Choose TWO)",
     "multiSelect": false,
@@ -59994,6 +62002,22 @@
     "optionF": "",
     "correctAnswers": [
       "A"
+    ],
+    "times": 1,
+    "domain": "SECURITY"
+  },
+  {
+    "id": "11487",
+    "questionText": "You have deployed your application on multiple Amazon EC2 instances. Your customers complain that sometimes they can’t reach your application. Which AWS service allows you to monitor the performance of your EC2 instances to assist in troubleshooting these issues?",
+    "multiSelect": false,
+    "optionA": "AWS Lambda.",
+    "optionB": "AWS Config.",
+    "optionC": "Amazon CloudWatch.",
+    "optionD": "AWS CloudTrail.",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "C"
     ],
     "times": 1,
     "domain": "SECURITY"
@@ -60138,6 +62162,22 @@
     "optionF": "",
     "correctAnswers": [
       "B"
+    ],
+    "times": 1,
+    "domain": "SECURITY"
+  },
+  {
+    "id": "11501",
+    "questionText": "What is the AWS service/feature that takes advantage of Amazon CloudFront’s globally distributed edge locations to transfer files to S3 with higher upload speeds?",
+    "multiSelect": false,
+    "optionA": "S3 Transfer Acceleration.",
+    "optionB": "AWS WAF.",
+    "optionC": "AWS Snowmobile.",
+    "optionD": "AWS Snowball.",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "A"
     ],
     "times": 1,
     "domain": "SECURITY"
@@ -60298,6 +62338,22 @@
     "optionF": "",
     "correctAnswers": [
       "B"
+    ],
+    "times": 1,
+    "domain": "SECURITY"
+  },
+  {
+    "id": "11529",
+    "questionText": "What is the AWS’ recommendation regarding access keys?",
+    "multiSelect": false,
+    "optionA": "Delete all access keys and use passwords instead.",
+    "optionB": "Only share them with trusted people.",
+    "optionC": "Rotate them regularly.",
+    "optionD": "Save them within your application code.",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "C"
     ],
     "times": 1,
     "domain": "SECURITY"
@@ -60479,6 +62535,22 @@
     "domain": "SECURITY"
   },
   {
+    "id": "11558",
+    "questionText": "An external auditor is requesting a log of all accesses to the AWS resources in the company’s account. Which of the following services will provide the auditor with the requested information?",
+    "multiSelect": false,
+    "optionA": "AWS CloudTrail.",
+    "optionB": "Amazon CloudFront.",
+    "optionC": "AWS CloudFormation.",
+    "optionD": "Amazon CloudWatch.",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "A"
+    ],
+    "times": 1,
+    "domain": "SECURITY"
+  },
+  {
     "id": "11563",
     "questionText": "Which AWS Service provides integration with Chef to automate the configuration of EC2 instances?",
     "multiSelect": false,
@@ -60490,6 +62562,22 @@
     "optionF": "",
     "correctAnswers": [
       "B"
+    ],
+    "times": 1,
+    "domain": "SECURITY"
+  },
+  {
+    "id": "11565",
+    "questionText": "An organization has a legacy application designed using monolithic-based architecture. Which AWS Service can be used to decouple the components of the application?",
+    "multiSelect": false,
+    "optionA": "Amazon SQS.",
+    "optionB": "Virtual Private Gateway.",
+    "optionC": "AWS Artifact.",
+    "optionD": "Amazon CloudFront.",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "A"
     ],
     "times": 1,
     "domain": "SECURITY"
@@ -60522,6 +62610,22 @@
     "optionF": "",
     "correctAnswers": [
       "D"
+    ],
+    "times": 1,
+    "domain": "SECURITY"
+  },
+  {
+    "id": "11571",
+    "questionText": "A company is developing a mobile application and wants to allow users to use their Amazon, Apple, Facebook, or Google identities to authenticate to the application. Which AWS Service should the company use for this purpose?",
+    "multiSelect": false,
+    "optionA": "Amazon GuardDuty.",
+    "optionB": "Amazon Personalize.",
+    "optionC": "Amazon Cognito.",
+    "optionD": "AWS IAM.",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "C"
     ],
     "times": 1,
     "domain": "SECURITY"
@@ -60703,6 +62807,22 @@
     "domain": "SECURITY"
   },
   {
+    "id": "11610",
+    "questionText": "A company is running a large web application that needs to always be available. The application tends to slow down when CPU usage is greater than 60%. How can they track when CPU usage goes above 60% for any of the EC2 Instances in their account?",
+    "multiSelect": false,
+    "optionA": "Use CloudFront to monitor the CPU usage.",
+    "optionB": "Set the AWS Config CPU threshold to 60% to receive a notification when EC2 usage exceeds that value.",
+    "optionC": "Use CloudWatch Alarms to monitor the CPU and alert when the CPU usage is >= 60%.",
+    "optionD": "Use SNS to monitor the utilization of the server.",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "C"
+    ],
+    "times": 1,
+    "domain": "SECURITY"
+  },
+  {
     "id": "11613",
     "questionText": "What are the main differences between an IAM user and an IAM role in AWS? (Choose TWO)",
     "multiSelect": false,
@@ -60783,6 +62903,38 @@
     "domain": "SECURITY"
   },
   {
+    "id": "11630",
+    "questionText": "Which AWS service identifies security groups that allow unrestricted access to a user’s AWS resources?",
+    "multiSelect": false,
+    "optionA": "AWS Trusted Advisor.",
+    "optionB": "Amazon Inspector.",
+    "optionC": "Amazon CloudWatch.",
+    "optionD": "AWS CloudTrail.",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "A"
+    ],
+    "times": 1,
+    "domain": "SECURITY"
+  },
+  {
+    "id": "11632",
+    "questionText": "Which AWS feature will reduce the customer’s total cost of ownership (TCO)?",
+    "multiSelect": false,
+    "optionA": "Shared responsibility security model.",
+    "optionB": "Single tenancy.",
+    "optionC": "Elastic computing.",
+    "optionD": "Encryption.",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "C"
+    ],
+    "times": 1,
+    "domain": "SECURITY"
+  },
+  {
     "id": "11634",
     "questionText": "Under the AWS shared responsibility model, which of the following activities are the customer’s responsibility? (Select TWO)",
     "multiSelect": false,
@@ -60826,6 +62978,22 @@
     "optionF": "",
     "correctAnswers": [
       "B"
+    ],
+    "times": 1,
+    "domain": "SECURITY"
+  },
+  {
+    "id": "11645",
+    "questionText": "Which of the following is the customer’s responsibility under the AWS shared responsibility model?",
+    "multiSelect": false,
+    "optionA": "Patching underlying infrastructure",
+    "optionB": "Physical security",
+    "optionC": "Patching Amazon EC2 instances",
+    "optionD": "Patching network infrastructure",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "C"
     ],
     "times": 1,
     "domain": "SECURITY"
@@ -60890,6 +63058,23 @@
     "optionF": "",
     "correctAnswers": [
       "C"
+    ],
+    "times": 1,
+    "domain": "SECURITY"
+  },
+  {
+    "id": "11666",
+    "questionText": "Under the AWS shared responsibility model, which of the following activities are the customer's responsibility? (Select TWO.)",
+    "multiSelect": true,
+    "optionA": "Patching operating system components for Amazon Relational Database Server (Amazon RDS)",
+    "optionB": "Encrypting data on the client-side",
+    "optionC": "Training the data center staff",
+    "optionD": "Configuring Network Access Control Lists (ACL)",
+    "optionE": "Maintaining environmental controls within a data center",
+    "optionF": "",
+    "correctAnswers": [
+      "B",
+      "D"
     ],
     "times": 1,
     "domain": "SECURITY"
@@ -60963,6 +63148,40 @@
     "domain": "SECURITY"
   },
   {
+    "id": "11679",
+    "questionText": "Which AWS services can be used to gather information about AWS account activity? (Select TWO.)",
+    "multiSelect": true,
+    "optionA": "Amazon CloudFront",
+    "optionB": "AWS Cloud9",
+    "optionC": "AWS CloudTrail",
+    "optionD": "AWS CloudHSM",
+    "optionE": "Amazon CloudWatch",
+    "optionF": "",
+    "correctAnswers": [
+      "C",
+      "E"
+    ],
+    "times": 1,
+    "domain": "SECURITY"
+  },
+  {
+    "id": "11683",
+    "questionText": "Under the shared responsibility model, which of the following tasks are the responsibility of the AWS customer? (Select TWO.)",
+    "multiSelect": true,
+    "optionA": "Ensuring that application data is encrypted at rest",
+    "optionB": "Ensuring that AWS NTP servers are set to the correct time",
+    "optionC": "Ensuring that users have received security training in the use of AWS services",
+    "optionD": "Ensuring that access to data centers is restricted",
+    "optionE": "Ensuring that hardware is disposed of properly",
+    "optionF": "",
+    "correctAnswers": [
+      "A",
+      "C"
+    ],
+    "times": 1,
+    "domain": "SECURITY"
+  },
+  {
     "id": "11690",
     "questionText": "Which AWS service or feature will help a company migrate its workloads to AWS without expertise in AWS Cloud computing?",
     "multiSelect": false,
@@ -60979,6 +63198,217 @@
     "domain": "SECURITY"
   },
   {
+    "id": "11691",
+    "questionText": "- Which AWS service uses machine learning to help discover, monitor, and protect sensitive data that is stored in Amazon S3 buckets?",
+    "multiSelect": false,
+    "optionA": "AWS Shield",
+    "optionB": "Amazon Macie",
+    "optionC": "AWS Network Firewall",
+    "optionD": "Amazon Cognito",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "B"
+    ],
+    "times": 1,
+    "domain": "SECURITY"
+  },
+  {
+    "id": "11693",
+    "questionText": "- Which AWS service or feature identifies whether an Amazon S3 bucket or an IAM role has been shared with an external entity?",
+    "multiSelect": false,
+    "optionA": "AWS Service Catalog",
+    "optionB": "AWS Systems Manager",
+    "optionC": "AWS IAM Access Analyzer",
+    "optionD": "AWS Organizations",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "C"
+    ],
+    "times": 1,
+    "domain": "SECURITY"
+  },
+  {
+    "id": "11696",
+    "questionText": "- A large enterprise with multiple VPCs in several AWS Regions around the world needs to connect and centrally manage network connectivity between its VPCs. Which AWS service or feature meets these requirements?",
+    "multiSelect": false,
+    "optionA": "AWS Direct Connect",
+    "optionB": "AWS Transit Gateway",
+    "optionC": "AWS Site-to-Site VPN",
+    "optionD": "VPC endpoints",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "B"
+    ],
+    "times": 1,
+    "domain": "SECURITY"
+  },
+  {
+    "id": "11698",
+    "questionText": "- Which AWS service should be used to monitor Amazon EC2 instances for CPU and network utilization?",
+    "multiSelect": false,
+    "optionA": "Amazon Inspector",
+    "optionB": "AWS CloudTrail",
+    "optionC": "Amazon CloudWatch",
+    "optionD": "AWS Config",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "C"
+    ],
+    "times": 1,
+    "domain": "SECURITY"
+  },
+  {
+    "id": "11700",
+    "questionText": "- A user wants to deploy a service to the AWS Cloud by using infrastructure-as-code (IaC) principles. Which AWS service can be used to meet this requirement?",
+    "multiSelect": false,
+    "optionA": "AWS Systems Manager",
+    "optionB": "AWS CloudFormation",
+    "optionC": "AWS CodeCommit",
+    "optionD": "AWS Config",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "B"
+    ],
+    "times": 1,
+    "domain": "SECURITY"
+  },
+  {
+    "id": "11702",
+    "questionText": "- A company is launching an application in the AWS Cloud. The application will use Amazon S3 storage. A large team of researchers will have shared access to the data. The company must be able to recover data that is accidentally overwritten or deleted. Which S3 feature should the company turn on to meet this requirement?",
+    "multiSelect": false,
+    "optionA": "Server access logging",
+    "optionB": "S3 Versioning",
+    "optionC": "S3 Lifecycle rules",
+    "optionD": "Encryption in transit and at rest",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "B"
+    ],
+    "times": 1,
+    "domain": "SECURITY"
+  },
+  {
+    "id": "11704",
+    "questionText": "- A company wants to migrate its applications from its on-premises data center to a VPC in the AWS Cloud. These applications will need to access on-premises resources. Which actions will meet these requirements? (Choose two.)",
+    "multiSelect": false,
+    "optionA": "Use AWS Service Catalog to identify a list of on-premises resources that can be migrated.",
+    "optionB": "Create a VPN connection between an on-premises device and a virtual private gateway in the VPC, D. Set up an AWS Direct Connect connection between the on-premises data center and AWS",
+    "optionC": "Use an Amazon CloudFront distribution and configure it to accelerate content delivery close to the on-premises resources.",
+    "optionD": "Set up an AWS Direct Connect connection between the on-premises data center and AWS.",
+    "optionE": "Use Amazon CloudFront to restrict access to static web content provided through the on-premises web servers.",
+    "optionF": "",
+    "correctAnswers": [
+      "B"
+    ],
+    "times": 1,
+    "domain": "SECURITY"
+  },
+  {
+    "id": "11706",
+    "questionText": "- A company wants to implement threat detection on its AWS infrastructure. However, the company does not want to deploy additional software. Which AWS service should the company use to meet these requirements?",
+    "multiSelect": false,
+    "optionA": "Amazon VPC",
+    "optionB": "Amazon EC2",
+    "optionC": "Amazon GuardDuty",
+    "optionD": "AWS Direct Connect",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "C"
+    ],
+    "times": 1,
+    "domain": "SECURITY"
+  },
+  {
+    "id": "11709",
+    "questionText": "- Which AWS service or feature checks access policies and offers actionable recommendations to help users set secure and functional policies?",
+    "multiSelect": false,
+    "optionA": "AWS Systems Manager",
+    "optionB": "AWS IAM Access Analyzer",
+    "optionC": "AWS Trusted Advisor",
+    "optionD": "Amazon GuardDuty",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "B"
+    ],
+    "times": 1,
+    "domain": "SECURITY"
+  },
+  {
+    "id": "11714",
+    "questionText": "- An online retail company has seasonal sales spikes several times a year, primarily around holidays. Demand is lower at other times. The company finds it difficult to predict the increasing infrastructure demand for each season. Which advantages of moving to the AWS Cloud would MOST benefit the company? (Choose two.)",
+    "multiSelect": true,
+    "optionA": "Global footprint",
+    "optionB": "Elasticity, E. Pay-as-you-go pricing",
+    "optionC": "AWS service quotas",
+    "optionD": "AWS shared responsibility model",
+    "optionE": "Pay-as-you-go pricing",
+    "optionF": "",
+    "correctAnswers": [
+      "B",
+      "E"
+    ],
+    "times": 1,
+    "domain": "SECURITY"
+  },
+  {
+    "id": "11716",
+    "questionText": "- A company wants to ensure that two Amazon EC2 instances are in separate data centers with minimal communication latency between the data centers. How can the company meet this requirement?",
+    "multiSelect": false,
+    "optionA": "Place the EC2 instances in two separate AWS Regions connected with a VPC peering connection.",
+    "optionB": "Place the EC2 instances in two separate Availability Zones within the same AWS Region.",
+    "optionC": "Place one EC2 instance on premises and the other in an AWS Region. Then connect them by using an AWS VPN connection.",
+    "optionD": "Place both EC2 instances in a placement group for dedicated bandwidth.",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "B"
+    ],
+    "times": 1,
+    "domain": "SECURITY"
+  },
+  {
+    "id": "11717",
+    "questionText": "- In which situations should a company create an IAM user instead of an IAM role? (Choose two.)",
+    "multiSelect": true,
+    "optionA": "When an application that runs on Amazon EC2 instances requires access to other AWS services",
+    "optionB": "When the company creates AWS access credentials for individuals, D. When the company needs to add users to IAM groups",
+    "optionC": "When the company creates an application that runs on a mobile phone that makes requests to AWS",
+    "optionD": "When the company needs to add users to IAM groups",
+    "optionE": "When users are authenticated in the corporate network and want to be able to use AWS without having to sign in a second time",
+    "optionF": "",
+    "correctAnswers": [
+      "B",
+      "D"
+    ],
+    "times": 1,
+    "domain": "SECURITY"
+  },
+  {
+    "id": "11724",
+    "questionText": "() An online retail company wants to migrate its on-premises workload to AWS. The company needs to automatically handle a seasonal workload increase in a cost-effective manner. Which AWS Cloud features will help the company meet this requirement? (Choose two.)",
+    "multiSelect": true,
+    "optionA": "Cross-Region workload deployment",
+    "optionB": "Pay-as-you-go pricing, D. Auto Scaling policies",
+    "optionC": "Built-in AWS CloudTrail audit capabilities",
+    "optionD": "Auto Scaling policies",
+    "optionE": "Centralized logging",
+    "optionF": "",
+    "correctAnswers": [
+      "B",
+      "D"
+    ],
+    "times": 1,
+    "domain": "SECURITY"
+  },
+  {
     "id": "11726",
     "questionText": "() A company needs to build an application that uses AWS services. The application will be delivered to residents in European Countries. The company must abide by regional regulatory requirements. Which AWS service or program should the company use to determine which AWS services meet the regional requirements?",
     "multiSelect": false,
@@ -60990,6 +63420,217 @@
     "optionF": "",
     "correctAnswers": [
       "D"
+    ],
+    "times": 1,
+    "domain": "SECURITY"
+  },
+  {
+    "id": "11727",
+    "questionText": "() A company needs to implement identity management for a fleet of mobile apps that are running in the AWS Cloud. Which AWS service will meet this requirement?",
+    "multiSelect": false,
+    "optionA": "Amazon Cognito",
+    "optionB": "AWS Security Hub",
+    "optionC": "AWS Shield",
+    "optionD": "AWS WAF",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "A"
+    ],
+    "times": 1,
+    "domain": "SECURITY"
+  },
+  {
+    "id": "11729",
+    "questionText": "() A company has multiple applications and is now building a new multi-tier application. The company will host the new application on Amazon EC2 instances. The company wants the network routing and traffic between the various applications to follow the security principle of least privilege. Which AWS service or feature should the company use to enforce this principle?",
+    "multiSelect": false,
+    "optionA": "Security groups",
+    "optionB": "AWS Shield",
+    "optionC": "AWS Global Accelerator",
+    "optionD": "AWS Direct Connect gateway",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "A"
+    ],
+    "times": 1,
+    "domain": "SECURITY"
+  },
+  {
+    "id": "11730",
+    "questionText": "() A company's web application requires AWS credentials and authorizations to use an AWS service. Which IAM entity should the company use as best practice?",
+    "multiSelect": false,
+    "optionA": "IAM role",
+    "optionB": "IAM user",
+    "optionC": "IAM group",
+    "optionD": "IAM multi-factor authentication (MFA)",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "A"
+    ],
+    "times": 1,
+    "domain": "SECURITY"
+  },
+  {
+    "id": "11734",
+    "questionText": "() A company needs to evaluate its AWS environment and provide best practice recommendations in five categories: cost, performance, service limits, fault tolerance, and security. Which AWS service can the company use to meet these requirements?",
+    "multiSelect": false,
+    "optionA": "AWS Shield",
+    "optionB": "AWS WAF",
+    "optionC": "AWS Trusted Advisor",
+    "optionD": "AWS Service Catalog",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "C"
+    ],
+    "times": 1,
+    "domain": "SECURITY"
+  },
+  {
+    "id": "11737",
+    "questionText": "() Which AWS service provides threat detection by monitoring for malicious activities and unauthorized actions to protect AWS accounts, workloads, and data that is stored in Amazon S3?",
+    "multiSelect": false,
+    "optionA": "AWS Shield",
+    "optionB": "AWS Firewall Manager",
+    "optionC": "Amazon GuardDuty",
+    "optionD": "Amazon Inspector",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "C"
+    ],
+    "times": 1,
+    "domain": "SECURITY"
+  },
+  {
+    "id": "11740",
+    "questionText": "() Which of the following are economic advantages of the AWS Cloud? (Choose two.)",
+    "multiSelect": true,
+    "optionA": "Increased workforce productivity, D. Simplified total cost of ownership (TCO) accounting",
+    "optionB": "Decreased need to encrypt user data",
+    "optionC": "Manual compliance audits",
+    "optionD": "Simplified total cost of ownership (TCO) accounting",
+    "optionE": "Faster product launches",
+    "optionF": "",
+    "correctAnswers": [
+      "A",
+      "D"
+    ],
+    "times": 1,
+    "domain": "SECURITY"
+  },
+  {
+    "id": "11741",
+    "questionText": "() Which controls does the customer fully inherit from AWS in the AWS shared responsibility model?",
+    "multiSelect": false,
+    "optionA": "Patch management controls",
+    "optionB": "Awareness and training controls",
+    "optionC": "Physical and environmental controls",
+    "optionD": "Configuration management controls",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "C"
+    ],
+    "times": 1,
+    "domain": "SECURITY"
+  },
+  {
+    "id": "11742",
+    "questionText": "() Which task is a customer's responsibility, according to the AWS shared responsibility model?",
+    "multiSelect": false,
+    "optionA": "Management of the guest operating systems",
+    "optionB": "Maintenance of the configuration of infrastructure devices",
+    "optionC": "Management of the host operating systems and virtualization",
+    "optionD": "Maintenance of the software that powers Availability Zones",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "A"
+    ],
+    "times": 1,
+    "domain": "SECURITY"
+  },
+  {
+    "id": "11745",
+    "questionText": "() Which AWS service tracks API calls and user activity?",
+    "multiSelect": false,
+    "optionA": "AWS Organizations",
+    "optionB": "AWS Config",
+    "optionC": "Amazon CloudWatch",
+    "optionD": "AWS CloudTrail",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "D"
+    ],
+    "times": 1,
+    "domain": "SECURITY"
+  },
+  {
+    "id": "11752",
+    "questionText": "() Which of the following actions are controlled with AWS Identity and Access Management (IAM)? (Choose two.)",
+    "multiSelect": true,
+    "optionA": "Control access to AWS service APIs and to other specific resources, C. Protect the AWS environment using multi-factor authentication (MFA)",
+    "optionB": "Provide intelligent threat detection and continuous monitoring.",
+    "optionC": "Protect the AWS environment using multi-factor authentication (MFA).",
+    "optionD": "Grant users access to AWS data centers.",
+    "optionE": "Provide firewall protection for applications from common web attacks.",
+    "optionF": "",
+    "correctAnswers": [
+      "A",
+      "C"
+    ],
+    "times": 1,
+    "domain": "SECURITY"
+  },
+  {
+    "id": "11753",
+    "questionText": "() Which of the following are shared controls that apply to both AWS and the customer, according to the AWS shared responsibility model? (Choose two.)",
+    "multiSelect": true,
+    "optionA": "Resource configuration management, B. Network data integrity",
+    "optionB": "Network data integrity",
+    "optionC": "Employee awareness and training",
+    "optionD": "Physical and environmental security",
+    "optionE": "Replacement and disposal of disk drives",
+    "optionF": "",
+    "correctAnswers": [
+      "A",
+      "B"
+    ],
+    "times": 1,
+    "domain": "SECURITY"
+  },
+  {
+    "id": "11754",
+    "questionText": "() What information is found on an AWS Identity and Access Management (IAM) credential report? (Choose two.)",
+    "multiSelect": false,
+    "optionA": "The date and time when an IAM user's password was last used to sign in to the AWS Management Console, D. Whether multi-factor authentication (MFA) has been enabled for an IAM user",
+    "optionB": "The type of multi-factor authentication (MFA) device assigned to an IAM user.",
+    "optionC": "The User-Agent browser identifier for each IAM user currently logged in.",
+    "optionD": "Whether multi-factor authentication (MFA) has been enabled for an IAM user.",
+    "optionE": "The number of incorrect login attempts by each IAM user in the previous 30 days.",
+    "optionF": "",
+    "correctAnswers": [
+      "A"
+    ],
+    "times": 1,
+    "domain": "SECURITY"
+  },
+  {
+    "id": "11756",
+    "questionText": "A company needs to set up user authentication for a new application. Users must be able to sign in directly with a user name and password, or through a third-party provider. Which AWS service should the company use to meet these requirements?",
+    "multiSelect": false,
+    "optionA": "AWS Single Sign-On",
+    "optionB": "AWS Signer",
+    "optionC": "Amazon Cognito",
+    "optionD": "AWS Directory Service",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "C"
     ],
     "times": 1,
     "domain": "SECURITY"

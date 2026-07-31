@@ -17,10 +17,11 @@ describe("CSV Domain Mapping", () => {
 describe("Question Pools", () => {
   it("generated data files exist with expected pools", async () => {
     const index = await import("@/data/questions/index");
-    expect(index.questionPools).toBeDefined();
-    expect(index.questionPools.length).toBe(4);
+    const pools = await index.loadQuestionPools();
+    expect(pools).toBeDefined();
+    expect(pools.length).toBe(4);
 
-    const poolDomains = index.questionPools.map((p: any) => p.domain);
+    const poolDomains = pools.map((p) => p.domain);
     expect(poolDomains).toContain(DOMAIN.CLOUD_CONCEPTS);
     expect(poolDomains).toContain(DOMAIN.SECURITY);
     expect(poolDomains).toContain(DOMAIN.TECHNOLOGY_SERVICES);
@@ -43,8 +44,8 @@ describe("Question Pools", () => {
 
   it("questions have correct fields", async () => {
     const index = await import("@/data/questions/index");
-    const pool = index.questionPools[0];
-    const q = pool.questions[0];
+    const pools = await index.loadQuestionPools();
+    const q = pools[0].questions[0];
     expect(q).toBeDefined();
     expect(q.id).toBeDefined();
     expect(q.questionText).toBeDefined();
@@ -53,6 +54,47 @@ describe("Question Pools", () => {
     expect(q.optionB).toBeDefined();
     expect(q.correctAnswers).toBeDefined();
     expect(q.domain).toBeDefined();
+  });
+
+  it("excludes the trailing split sentinel from source line metadata", async () => {
+    const metadata = (await import("@/data/questions/index.json")).default;
+    const audit = metadata.sourceAudit;
+
+    expect(audit.parsedRows).toBe(11447);
+    expect(audit.physicalLines).toBe(11474);
+    expect(audit.blankPhysicalLines).toBe(12);
+    expect(audit.parseErrors).toBe(0);
+    expect(audit.skipped).toEqual({
+      noDomain: 0,
+      noCorrectAnswers: 0,
+      blankQuestion: 0,
+    });
+    expect(audit.retainedRowsBeforeDedup).toBe(11447);
+    expect(audit.duplicateGroups).toBe(0);
+    expect(audit.duplicateRowsRemoved).toBe(0);
+    expect(audit.dedupReplacements).toBe(0);
+    expect(audit.outputRows).toBe(11447);
+    expect(audit.outputByDomain).toEqual({
+      CLOUD_CONCEPTS: 721,
+      SECURITY: 3947,
+      TECHNOLOGY_SERVICES: 5319,
+      BILLING_PRICING: 1460,
+    });
+    expect(audit.outputFields).toEqual([
+      "id",
+      "questionText",
+      "multiSelect",
+      "optionA",
+      "optionB",
+      "optionC",
+      "optionD",
+      "optionE",
+      "optionF",
+      "correctAnswers",
+      "times",
+      "domain",
+    ]);
+    expect(audit.missingOutputFields).toEqual({});
   });
 });
 

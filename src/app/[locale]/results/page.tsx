@@ -5,9 +5,11 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { useMessages } from "../locale-layout-client";
 import QuestionCard from "@/components/question-card";
 import Disclaimer from "@/components/disclaimer";
+import SessionLoading from "@/components/session-loading";
 import {
   type SessionResult,
   type NormalizedQuestion,
+  type DomainPool,
   type DomainAnalytics,
   DISCLAIMER_TEXT,
   EXPLANATION_UNAVAILABLE,
@@ -15,7 +17,7 @@ import {
   DOMAIN_LABELS,
 } from "@/types/contracts";
 import { loadStore } from "@/lib/browser-store";
-import { questionPools } from "@/data/questions/index";
+import { loadQuestionPools } from "@/data/questions/index";
 import explanations from "@/data/explanations.json";
 
 type ExplanationEntry = {
@@ -35,37 +37,46 @@ export default function ResultsPage({
   const msg = useMessages(locale);
   const [result, setResult] = useState<SessionResult | null>(null);
   const [analytics, setAnalytics] = useState<DomainAnalytics[]>([]);
+  const [questionPools, setQuestionPools] = useState<DomainPool[] | null>(null);
   const [loading, setLoading] = useState(true);
   const [reviewIndex, setReviewIndex] = useState<number | null>(null);
 
   useEffect(() => {
-    try {
-      const sessionId = searchParams.get("sessionId");
-      if (!sessionId) {
-        setLoading(false);
-        return;
-      }
+    let active = true;
 
-      const store = loadStore(locale as any, "light");
-      const found = store.results.find((r) => r.sessionId === sessionId);
-      if (found) {
-        setResult(found);
+    const loadResults = async () => {
+      try {
+        const sessionId = searchParams.get("sessionId");
+        if (!sessionId) {
+          setLoading(false);
+          return;
+        }
+
+        const store = loadStore(locale as any, "light");
+        const found = store.results.find((r) => r.sessionId === sessionId);
+        if (found) {
+          const pools = await loadQuestionPools();
+          if (!active) return;
+          setQuestionPools(pools);
+          setResult(found);
+        }
+        if (!active) return;
+        setAnalytics(store.analytics);
+        setLoading(false);
+      } catch {
+        if (!active) return;
+        setLoading(false);
       }
-      setAnalytics(store.analytics);
-      setLoading(false);
-    } catch {
-      setLoading(false);
-    }
+    };
+
+    void loadResults();
+    return () => {
+      active = false;
+    };
   }, [locale, searchParams]);
 
   if (loading) {
-    return (
-      <div className="flex items-center justify-center min-h-[50vh]">
-        <div className="animate-pulse text-text-secondary dark:text-text-dark-secondary">
-          Loading results...
-        </div>
-      </div>
-    );
+    return <SessionLoading label={msg.common.loading} />;
   }
 
   if (!result) {
@@ -86,6 +97,9 @@ export default function ResultsPage({
 
   // Build question lookup
   const questionMap = new Map<string, NormalizedQuestion>();
+  if (!questionPools) {
+    return <div>{msg.common.error}</div>;
+  }
   for (const pool of questionPools) {
     for (const q of pool.questions) {
       questionMap.set(q.id, q);
@@ -122,10 +136,15 @@ export default function ResultsPage({
           ← Back to results
         </button>
 
-        <QuestionCard
-          question={question}
-          selectedOptions={answer.selected}
-          showResult
+          <QuestionCard
+            question={question}
+            selectedOptions={answer.selected}
+            selectionLabel={
+              question.multiSelect
+                ? msg.session.multiSelect
+                : msg.session.singleSelect
+            }
+            showResult
           isCorrect={answer.isCorrect}
           correctAnswers={answer.correctAnswers}
         />

@@ -93,9 +93,8 @@ export function computeQuotas(
  * Sample questions for a session ensuring no duplicate IDs within session.
  */
 export function sampleSession(
-  data: QuestionData,
-  preset: SessionPreset,
-  previousSessionIds: string[]
+  data: Pick<QuestionData, "pools">,
+  preset: SessionPreset
 ): {
   questions: NormalizedQuestion[];
   warnings: SamplingWarning[];
@@ -118,9 +117,7 @@ export function sampleSession(
     if (!pool) continue;
 
     const candidates = pool.questions.filter((q) => !usedIds.has(q.id));
-    // Shuffle and pick
-    const shuffled = [...candidates].sort(() => Math.random() - 0.5);
-    const picked = shuffled.slice(0, qa.count);
+    const picked = pickRandomQuestions(candidates, qa.count);
     for (const q of picked) {
       usedIds.add(q.id);
       selected.push(q);
@@ -128,10 +125,11 @@ export function sampleSession(
 
     // If we couldn't get enough, backfill from used questions
     if (picked.length < qa.count) {
-      const backfill = pool.questions
-        .filter((q) => !picked.find((p) => p.id === q.id))
-        .sort(() => Math.random() - 0.5)
-        .slice(0, qa.count - picked.length);
+      const pickedIds = new Set(picked.map((q) => q.id));
+      const backfill = pickRandomQuestions(
+        pool.questions.filter((q) => !pickedIds.has(q.id)),
+        qa.count - picked.length
+      );
       for (const q of backfill) {
         usedIds.add(q.id);
         selected.push(q);
@@ -139,7 +137,7 @@ export function sampleSession(
     }
   }
 
-  // Final shuffle
+  // Shuffle only the small session result, not the full question bank.
   selected.sort(() => Math.random() - 0.5);
 
   return {
@@ -147,6 +145,26 @@ export function sampleSession(
     warnings,
     spec: config,
   };
+}
+
+function pickRandomQuestions(
+  questions: NormalizedQuestion[],
+  count: number
+): NormalizedQuestion[] {
+  const picked: NormalizedQuestion[] = [];
+  const candidates = [...questions];
+  const limit = Math.min(count, candidates.length);
+
+  for (let index = 0; index < limit; index++) {
+    const randomIndex = index + Math.floor(Math.random() * (candidates.length - index));
+    [candidates[index], candidates[randomIndex]] = [
+      candidates[randomIndex],
+      candidates[index],
+    ];
+    picked.push(candidates[index]);
+  }
+
+  return picked;
 }
 
 /**

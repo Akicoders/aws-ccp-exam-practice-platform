@@ -27,24 +27,6 @@ const OUT_DIR = path.resolve("src/data/questions");
 
 const OPTION_KEYS = ["optionA", "optionB", "optionC", "optionD", "optionE", "optionF"] as const;
 
-/**
- * Normalize text for dedup key:
- * - Unicode NFD (compatibility decomposition)
- * - Lowercase
- * - Remove punctuation (replace with space)
- * - Collapse whitespace
- * - Trim
- */
-function normalizeText(text: string): string {
-  return text
-    .normalize("NFD")
-    .replace(/[\u0300-\u036f]/g, "") // Remove diacritics
-    .toLowerCase()
-    .replace(/[^\w\s]/g, " ") // Replace punctuation with space
-    .replace(/\s+/g, " ") // Collapse whitespace
-    .trim();
-}
-
 function parseOptionLetter(val: string): OptionLetter | null {
   const v = val.trim().toUpperCase();
   if (v in OPTION_LETTER) return v as OptionLetter;
@@ -57,6 +39,14 @@ function parseCorrectAnswers(val: string): OptionLetter[] {
     .split(",")
     .map((v) => parseOptionLetter(v))
     .filter((x): x is OptionLetter => x !== null);
+}
+
+function invalidCorrectAnswerTokens(val: string): string[] {
+  if (!val || val.trim() === "") return [];
+  return val
+    .split(",")
+    .map((v) => v.trim().toUpperCase())
+    .filter((v) => !parseOptionLetter(v));
 }
 
 function parseMultiSelect(val: string): boolean {
@@ -72,6 +62,16 @@ function parseTimes(val: string): number {
 function parseDomain(val: string): Domain | null {
   const cleaned = val.trim().replace(/^"/, "").replace(/"$/, "");
   return CSV_DOMAIN_MAP[cleaned] ?? null;
+}
+
+function dedupKey(question: NormalizedQuestion): string {
+  return JSON.stringify([
+    question.questionText,
+    question.multiSelect,
+    ...OPTION_KEYS.map((key) => question[key]),
+    [...question.correctAnswers].sort(),
+    question.domain,
+  ]);
 }
 
 interface RawRow {
@@ -108,35 +108,80 @@ function main(): void {
 
   console.log(`Parsed ${parsed.data.length} rows.`);
 
+  const physicalLines = csvContent.split(/\r?\n/);
+  if (csvContent.endsWith("\n")) {
+    physicalLines.pop();
+  }
+  const physicalLineCount = physicalLines.length;
+  const blankPhysicalLines = physicalLines.filter((line) => line.trim() === "").length;
+
   // Step 1: Normalize and dedup
   const dedupMap = new Map<string, NormalizedQuestion>();
   const warnings: string[] = [];
+  const missingOptionCounts: Record<(typeof OPTION_KEYS)[number], number> = {
+    optionA: 0,
+    optionB: 0,
+    optionC: 0,
+    optionD: 0,
+    optionE: 0,
+    optionF: 0,
+  };
+  const invalidDomainValues: Record<string, number> = {};
+  const invalidCorrectTokens: Record<string, number> = {};
+  const invalidMultiSelectValues: Record<string, number> = {};
+  const invalidTimesValues: Record<string, number> = {};
+  const duplicateKeys = new Set<string>();
   let skippedNoDomain = 0;
   let skippedNoCorrect = 0;
+  let skippedBlankQuestion = 0;
+  let duplicateRows = 0;
+  let dedupReplacements = 0;
 
   for (const row of parsed.data) {
     const domain = parseDomain(row.domain);
     if (!domain) {
       skippedNoDomain++;
+      const value = row.domain?.trim() || "<blank>";
+      invalidDomainValues[value] = (invalidDomainValues[value] || 0) + 1;
       continue;
     }
 
     const correctAnswers = parseCorrectAnswers(row.correctAnswers);
+    for (const token of invalidCorrectAnswerTokens(row.correctAnswers)) {
+      invalidCorrectTokens[token] = (invalidCorrectTokens[token] || 0) + 1;
+    }
     if (correctAnswers.length === 0) {
       skippedNoCorrect++;
       continue;
     }
 
     const questionText = (row.question || "").trim();
-    if (!questionText) continue;
+    if (!questionText) {
+      skippedBlankQuestion++;
+      continue;
+    }
 
-    const normKey = normalizeText(questionText);
+    const multiSelectValue = (row.multiSelect || "").trim().toLowerCase();
+    if (
+      multiSelectValue &&
+      !["true", "1", "yes", "false", "0", "no"].includes(multiSelectValue)
+    ) {
+      invalidMultiSelectValues[multiSelectValue] =
+        (invalidMultiSelectValues[multiSelectValue] || 0) + 1;
+    }
+
+    const timesValue = (row.times || "").trim();
+    if (timesValue === "" || Number.isNaN(Number.parseInt(timesValue, 10))) {
+      invalidTimesValues[timesValue || "<blank>"] =
+        (invalidTimesValues[timesValue || "<blank>"] || 0) + 1;
+    }
 
     // Check for missing options (A-D are the main options; E/F optional)
     const MAIN_OPTIONS = ["optionA", "optionB", "optionC", "optionD"] as const;
     for (const key of MAIN_OPTIONS) {
       const val = (row[key] || "").trim();
       if (!val) {
+        missingOptionCounts[key]++;
         warnings.push(
           `Question ${row.id}: ${key} is empty — using placeholder`
         );
@@ -158,14 +203,18 @@ function main(): void {
       domain,
     };
 
-    const existing = dedupMap.get(normKey);
+    const key = dedupKey(newQ);
+    const existing = dedupMap.get(key);
     if (existing) {
+      duplicateRows++;
+      duplicateKeys.add(key);
       // Keep the one with highest times
       if (newQ.times > existing.times) {
-        dedupMap.set(normKey, newQ);
+        dedupReplacements++;
+        dedupMap.set(key, newQ);
       }
     } else {
-      dedupMap.set(normKey, newQ);
+      dedupMap.set(key, newQ);
     }
   }
 
@@ -173,6 +222,10 @@ function main(): void {
   console.log(`After dedup: ${questions.length} unique questions.`);
   console.log(`Skipped (no domain): ${skippedNoDomain}`);
   console.log(`Skipped (no correct answers): ${skippedNoCorrect}`);
+  console.log(`Skipped (blank question): ${skippedBlankQuestion}`);
+  console.log(`Duplicate groups: ${duplicateKeys.size}`);
+  console.log(`Duplicate rows removed: ${duplicateRows}`);
+  console.log(`Dedup replacements by higher times: ${dedupReplacements}`);
 
   if (warnings.length > 0) {
     console.warn(`\nOption warnings (${warnings.length}):`);
@@ -202,6 +255,24 @@ function main(): void {
   }
   console.log(`  TOTAL: ${grandTotal}`);
 
+  const outputFields = [
+    "id",
+    "questionText",
+    "multiSelect",
+    ...OPTION_KEYS,
+    "correctAnswers",
+    "times",
+    "domain",
+  ];
+  const missingOutputFields: Record<string, number> = {};
+  for (const question of questions) {
+    for (const field of outputFields) {
+      if (!(field in question)) {
+        missingOutputFields[field] = (missingOutputFields[field] || 0) + 1;
+      }
+    }
+  }
+
   // Step 3: Write output files
   fs.mkdirSync(OUT_DIR, { recursive: true });
 
@@ -230,6 +301,38 @@ function main(): void {
         totals,
         grandTotal,
         generatedAt: index.generatedAt,
+        sourceAudit: {
+          sourceFile: path.basename(CSV_PATH),
+          physicalLines: physicalLineCount,
+          blankPhysicalLines,
+          parsedRows: parsed.data.length,
+          parseErrors: parsed.errors.length,
+          skipped: {
+            noDomain: skippedNoDomain,
+            noCorrectAnswers: skippedNoCorrect,
+            blankQuestion: skippedBlankQuestion,
+          },
+          invalidValues: {
+            domains: invalidDomainValues,
+            correctAnswerTokens: invalidCorrectTokens,
+            multiSelect: invalidMultiSelectValues,
+            times: invalidTimesValues,
+          },
+          optionWarnings: missingOptionCounts,
+          retainedRowsBeforeDedup: parsed.data.length -
+            skippedNoDomain -
+            skippedNoCorrect -
+            skippedBlankQuestion,
+          duplicateKey:
+            "questionText + multiSelect + optionA-F + correctAnswers + domain",
+          duplicateGroups: duplicateKeys.size,
+          duplicateRowsRemoved: duplicateRows,
+          dedupReplacements,
+          outputRows: questions.length,
+          outputByDomain: totals,
+          outputFields,
+          missingOutputFields,
+        },
         presets: {
           "10q/10m": { questionCount: 10, durationMinutes: 10 },
           "20q/20m": { questionCount: 20, durationMinutes: 20 },
@@ -247,19 +350,37 @@ function main(): void {
   const loadContent = `// Auto-generated by normalize.ts — do not edit
 // Generated at: ${index.generatedAt}
 
-import type { DomainPool, PoolIndex } from "@/types/contracts";
+import type {
+  Domain,
+  DomainPool,
+  NormalizedQuestion,
+  PoolIndex,
+} from "@/types/contracts";
 
-import cloudConcepts from "./cloud_concepts.json";
-import security from "./security.json";
-import technologyServices from "./technology_services.json";
-import billingPricing from "./billing_pricing.json";
+import metadata from "./index.json";
 
-export const questionPools: DomainPool[] = [
-  { domain: "CLOUD_CONCEPTS", questions: cloudConcepts },
-  { domain: "SECURITY", questions: security },
-  { domain: "TECHNOLOGY_SERVICES", questions: technologyServices },
-  { domain: "BILLING_PRICING", questions: billingPricing },
-];
+type QuestionModule = { default: unknown };
+
+function asQuestions(module: QuestionModule): NormalizedQuestion[] {
+  return module.default as NormalizedQuestion[];
+}
+
+export async function loadQuestionPools(): Promise<DomainPool[]> {
+  const [cloudConcepts, security, technologyServices, billingPricing] =
+    await Promise.all([
+      import("./cloud_concepts.json") as Promise<QuestionModule>,
+      import("./security.json") as Promise<QuestionModule>,
+      import("./technology_services.json") as Promise<QuestionModule>,
+      import("./billing_pricing.json") as Promise<QuestionModule>,
+    ]);
+
+  return [
+    { domain: "CLOUD_CONCEPTS", questions: asQuestions(cloudConcepts) },
+    { domain: "SECURITY", questions: asQuestions(security) },
+    { domain: "TECHNOLOGY_SERVICES", questions: asQuestions(technologyServices) },
+    { domain: "BILLING_PRICING", questions: asQuestions(billingPricing) },
+  ];
+}
 
 export const poolIndex: PoolIndex = {
   pools: [
@@ -268,9 +389,9 @@ export const poolIndex: PoolIndex = {
     { domain: "TECHNOLOGY_SERVICES", questions: [] },
     { domain: "BILLING_PRICING", questions: [] },
   ],
-  generatedAt: "${index.generatedAt}",
-  totals: ${JSON.stringify(totals)},
-  grandTotal: ${grandTotal},
+  generatedAt: metadata.generatedAt,
+  totals: metadata.totals as Record<Domain, number>,
+  grandTotal: metadata.grandTotal,
 };
 `;
   fs.writeFileSync(loadPath, loadContent);

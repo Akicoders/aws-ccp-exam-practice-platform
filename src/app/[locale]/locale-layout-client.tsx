@@ -28,16 +28,14 @@ export default function LocaleLayoutClient({
   const { locale } = use(params);
   const pathname = usePathname();
   const [theme, setThemeState] = useState<"light" | "dark">("light");
-  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
     try {
       const store = loadStore(locale as any, theme);
       setThemeState(store.theme);
       document.documentElement.classList.toggle("dark", store.theme === "dark");
-      setMounted(true);
     } catch {
-      setMounted(true);
+      document.documentElement.classList.remove("dark");
     }
   }, [locale]);
 
@@ -56,16 +54,6 @@ export default function LocaleLayoutClient({
 
   const msg = useMessages(locale);
   const otherLocale = locale === "en" ? "es" : "en";
-
-  if (!mounted) {
-    return (
-      <div className="flex min-h-screen items-center justify-center">
-        <div className="animate-pulse text-text-secondary dark:text-text-dark-secondary">
-          Loading...
-        </div>
-      </div>
-    );
-  }
 
   return (
     <div className="flex min-h-screen flex-col">

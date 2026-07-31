@@ -5,7 +5,9 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { useMessages } from "../locale-layout-client";
 import QuestionCard from "@/components/question-card";
 import Disclaimer from "@/components/disclaimer";
+import SessionLoading from "@/components/session-loading";
 import {
+  type Locale,
   type NormalizedQuestion,
   type SessionState,
   type SessionPreset,
@@ -14,7 +16,7 @@ import {
   SESSION_STATUS,
   DISCLAIMER_TEXT,
 } from "@/types/contracts";
-import { questionPools } from "@/data/questions/index";
+import { loadQuestionPools } from "@/data/questions/index";
 import { sampleSession, createSession, recordAnswer, scoreSession } from "@/lib/quiz-engine";
 import { loadStore, saveStore, upsertSession, addResult, mergeDomainAnalytics } from "@/lib/browser-store";
 
@@ -56,48 +58,45 @@ export default function SessionPage({
 
   // Initialize session
   useEffect(() => {
-    try {
-      const store = loadStore(locale as any, "light");
-      const qPools = questionPools;
-      const data = {
-        byId: {} as Record<string, NormalizedQuestion>,
-        pools: qPools,
-        totals: {} as any,
-        grandTotal: 0,
-      };
-      for (const pool of qPools) {
-        for (const q of pool.questions) {
-          data.byId[q.id] = q;
+    let active = true;
+
+    const initialize = async () => {
+      try {
+        const store = loadStore(locale as Locale, "light");
+        const pools = await loadQuestionPools();
+        if (!active) return;
+
+        const { questions: sampled, warnings: sampWarnings } = sampleSession(
+          { pools },
+          presetKey
+        );
+
+        if (sampWarnings.some((w) => w.type === "unmet-quota")) {
+          setError("Could not generate a valid session with unique questions. Try a shorter session.");
+          setLoading(false);
+          return;
         }
-        data.totals[pool.domain] = pool.questions.length;
-        data.grandTotal += pool.questions.length;
-      }
 
-      const { questions: sampled, warnings: sampWarnings } = sampleSession(
-        data,
-        presetKey,
-        store.results.map((r) => r.sessionId)
-      );
+        const newSession = createSession(sampled, config);
+        sessionRef.current = newSession;
+        setSession(newSession);
+        setQuestions(sampled);
 
-      if (sampWarnings.some((w) => w.type === "unmet-quota")) {
-        setError("Could not generate a valid session with unique questions. Try a shorter session.");
+        const updatedStore = upsertSession(store, newSession);
+        saveStore(updatedStore);
         setLoading(false);
-        return;
+      } catch {
+        if (!active) return;
+        setError("Failed to start session. Please try again.");
+        setLoading(false);
       }
+    };
 
-      const newSession = createSession(sampled, config);
-      sessionRef.current = newSession;
-      setSession(newSession);
-      setQuestions(sampled);
-
-      const updatedStore = upsertSession(store, newSession);
-      saveStore(updatedStore);
-      setLoading(false);
-    } catch (e) {
-      setError("Failed to start session. Please try again.");
-      setLoading(false);
-    }
-  }, []);
+    void initialize();
+    return () => {
+      active = false;
+    };
+  }, [config, locale, presetKey]);
 
   // Timer
   useEffect(() => {
@@ -213,13 +212,7 @@ export default function SessionPage({
   const [currentIndex, setCurrentIndex] = useState(0);
 
   if (loading) {
-    return (
-      <div className="flex items-center justify-center min-h-[50vh]">
-        <div className="animate-pulse text-text-secondary dark:text-text-dark-secondary">
-          Loading session...
-        </div>
-      </div>
-    );
+    return <SessionLoading label={msg.common.loading} />;
   }
 
   if (error) {
@@ -335,6 +328,11 @@ export default function SessionPage({
         question={currentQuestion}
         selectedOptions={currentAnswer?.selected ?? []}
         onSelect={handleOptionSelect}
+        selectionLabel={
+          currentQuestion.multiSelect
+            ? msg.session.multiSelect
+            : msg.session.singleSelect
+        }
       />
 
       {/* Progress bar */}

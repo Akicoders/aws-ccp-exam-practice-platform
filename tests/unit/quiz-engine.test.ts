@@ -89,7 +89,7 @@ describe("sampleSession", () => {
       makePool(DOMAIN.BILLING_PRICING, 50),
     ];
     const data = makeData(pools);
-    const { questions } = sampleSession(data, "SHORT", []);
+    const { questions } = sampleSession(data, "SHORT");
     expect(questions.length).toBe(SESSION_CONFIG.SHORT.questionCount);
   });
 
@@ -101,7 +101,7 @@ describe("sampleSession", () => {
       makePool(DOMAIN.BILLING_PRICING, 50),
     ];
     const data = makeData(pools);
-    const { questions } = sampleSession(data, "FULL", []);
+    const { questions } = sampleSession(data, "FULL");
     const ids = new Set(questions.map((q) => q.id));
     expect(ids.size).toBe(questions.length);
   });
@@ -115,8 +115,8 @@ describe("sampleSession", () => {
       makePool(DOMAIN.BILLING_PRICING, 50, 1),
     ];
     const data = makeData(pools);
-    const { questions: s1 } = sampleSession(data, "SHORT", []);
-    const { questions: s2 } = sampleSession(data, "SHORT", []);
+    const { questions: s1 } = sampleSession(data, "SHORT");
+    const { questions: s2 } = sampleSession(data, "SHORT");
     // This should normally work since we don't pass previous IDs
     expect(s2.length).toBe(SESSION_CONFIG.SHORT.questionCount);
   });

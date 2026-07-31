@@ -1434,6 +1434,40 @@
     "domain": "CLOUD_CONCEPTS"
   },
   {
+    "id": "4980",
+    "questionText": "Which of the following are pillars of the AWS Well-Architected Framework? (Choose two.)",
+    "multiSelect": true,
+    "optionA": "High availability",
+    "optionB": "Performance efficiency",
+    "optionC": "Cost optimization",
+    "optionD": "Going global in minutes",
+    "optionE": "Continuous development",
+    "optionF": "",
+    "correctAnswers": [
+      "B",
+      "C"
+    ],
+    "times": 2,
+    "domain": "CLOUD_CONCEPTS"
+  },
+  {
+    "id": "4990",
+    "questionText": "Which of the following are pillars of the AWS Well-Architected Framework? (Choose two.)",
+    "multiSelect": true,
+    "optionA": "Resource scalability",
+    "optionB": "Performance efficiency",
+    "optionC": "System elasticity",
+    "optionD": "Agile development",
+    "optionE": "Operational excellence",
+    "optionF": "",
+    "correctAnswers": [
+      "B",
+      "E"
+    ],
+    "times": 2,
+    "domain": "CLOUD_CONCEPTS"
+  },
+  {
     "id": "5029",
     "questionText": "Which design principles are included in the reliability pillar of the AWS Well-Architected Framework? (Choose two.)",
     "multiSelect": true,
@@ -1451,19 +1485,19 @@
     "domain": "CLOUD_CONCEPTS"
   },
   {
-    "id": "5588",
+    "id": "552",
     "questionText": "What are the five pillars of the AWS Well-Architected Framework?",
     "multiSelect": false,
-    "optionA": "Encryption, documentation, speed, hybrid design, and cost optimization",
-    "optionB": "Containerization, cost margins, globalization, marketplace, and developer operations",
-    "optionC": "Network, compute, storage, security, and developer operations",
-    "optionD": "Operational excellence, reliability, performance efficiency, security, and cost optimization",
+    "optionA": "Cost Optimization, Performance Efficiency, Security, Reliability, and Operational Excellence",
+    "optionB": "Cost, Sustainability, Automation, Security, and Agility",
+    "optionC": "Reliability, Resilience, Flexibility, Performance, and Security",
+    "optionD": "Efficiency, Performance, Optimization, Sustainability, and Automation",
     "optionE": "",
     "optionF": "",
     "correctAnswers": [
-      "D"
+      "A"
     ],
-    "times": 2,
+    "times": 1,
     "domain": "CLOUD_CONCEPTS"
   },
   {
@@ -3132,6 +3166,22 @@
     "domain": "CLOUD_CONCEPTS"
   },
   {
+    "id": "2746",
+    "questionText": "An organization maintains a separate Virtual Private Cloud (VPC) for each of its business units. Two units need to privately share data. Which is the most optimal way of privately sharing data between the two VPCs?",
+    "multiSelect": false,
+    "optionA": "VPC peering connection",
+    "optionB": "AWS Site-to-Site VPN",
+    "optionC": "AWS Direct Connect",
+    "optionD": "VPC Endpoint",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "A"
+    ],
+    "times": 1,
+    "domain": "CLOUD_CONCEPTS"
+  },
+  {
     "id": "2755",
     "questionText": "Which of the following statements is the MOST accurate when describing AWS Elastic Beanstalk?",
     "multiSelect": false,
@@ -3759,6 +3809,38 @@
     "domain": "CLOUD_CONCEPTS"
   },
   {
+    "id": "3232",
+    "questionText": "A company wants to protect its AWS Cloud information, systems, and assets while performing risk assessment and mitigation tasks.Which pillar of the AWS Well-Architected Framework is supported by these goals?",
+    "multiSelect": false,
+    "optionA": "Reliability",
+    "optionB": "Security",
+    "optionC": "Operational excellence",
+    "optionD": "Performance efficiency",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "B"
+    ],
+    "times": 1,
+    "domain": "CLOUD_CONCEPTS"
+  },
+  {
+    "id": "3234",
+    "questionText": "A company is running a monolithic on-premises application that does not scale and is difficult to maintain. The company has a plan to migrate the application to AWS and divide the application into microservices.Which best practice of the AWS Well-Architected Framework is the company following with this plan?",
+    "multiSelect": false,
+    "optionA": "Integrate functional testing as part of AWS deployment.",
+    "optionB": "Use automation to deploy changes.",
+    "optionC": "Deploy the application to multiple locations.",
+    "optionD": "Implement loosely coupled dependencies.",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "D"
+    ],
+    "times": 1,
+    "domain": "CLOUD_CONCEPTS"
+  },
+  {
     "id": "3265",
     "questionText": "The AWS Well-Architected Framework helps organizations build robust Cloud solutions based on AWS recommended best practices. Which of the following are part of the five pillars mandated in the Well-Architected Framework (Select two)",
     "multiSelect": true,
@@ -4052,6 +4134,38 @@
     "domain": "CLOUD_CONCEPTS"
   },
   {
+    "id": "3601",
+    "questionText": "Which option is a perspective that includes foundational capabilities of the AWS Cloud Adoption Framework (AWS CAF)?",
+    "multiSelect": false,
+    "optionA": "Sustainability",
+    "optionB": "Performance eXciency",
+    "optionC": "Governance",
+    "optionD": "Reliability",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "C"
+    ],
+    "times": 1,
+    "domain": "CLOUD_CONCEPTS"
+  },
+  {
+    "id": "3612",
+    "questionText": "A company wants to protect its AWS Cloud information, systems, and assets while performing risk assessment and mitigation tasks. Which pillar of the AWS Well-Architected Framework is supported by these goals?",
+    "multiSelect": false,
+    "optionA": "Reliability",
+    "optionB": "Security",
+    "optionC": "Operational excellence",
+    "optionD": "Performance eXciency",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "B"
+    ],
+    "times": 1,
+    "domain": "CLOUD_CONCEPTS"
+  },
+  {
     "id": "3613",
     "questionText": "A company is running a monolithic on-premises application that does not scale and is diXcult to maintain. The company has a plan to migrate the application to AWS and divide the application into microservices. Which best practice of the AWS Well-Architected Framework is the company following with this plan?",
     "multiSelect": false,
@@ -4117,6 +4231,23 @@
     "domain": "CLOUD_CONCEPTS"
   },
   {
+    "id": "3745",
+    "questionText": "Which design principles are included in the reliability pillar of the AWS Well-Architected Framework? (Choose two.)",
+    "multiSelect": true,
+    "optionA": "Automatically recover from failure.",
+    "optionB": "Grant everyone access to increase AWS service quotas.",
+    "optionC": "Stop guessing capacity.",
+    "optionD": "Design applications to run in a single Availability Zone.",
+    "optionE": "Plan to increase AWS service quotas +rst in a secondary AWS Region.",
+    "optionF": "",
+    "correctAnswers": [
+      "A",
+      "C"
+    ],
+    "times": 1,
+    "domain": "CLOUD_CONCEPTS"
+  },
+  {
     "id": "3754",
     "questionText": "A company migrated to the AWS Cloud. Now the company pays for services on an as-needed basis. Which advantage of cloud computing is the company bene+ting from?",
     "multiSelect": false,
@@ -4146,6 +4277,22 @@
       "D"
     ],
     "times": 2,
+    "domain": "CLOUD_CONCEPTS"
+  },
+  {
+    "id": "3847",
+    "questionText": "Which of the following is a recommended design principle of the AWS Well-Architected Framework?",
+    "multiSelect": false,
+    "optionA": "Reduce downtime by making infrastructure changes infrequently and in large increments.",
+    "optionB": "Invest the time to con+gure infrastructure manually.",
+    "optionC": "Learn to improve from operational failures.",
+    "optionD": "Use monolithic application design for centralization.",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "C"
+    ],
+    "times": 1,
     "domain": "CLOUD_CONCEPTS"
   },
   {
@@ -4197,6 +4344,86 @@
     "domain": "CLOUD_CONCEPTS"
   },
   {
+    "id": "3918",
+    "questionText": "Which pillar of the AWS Well-Architected Framework refers to the ability of a system to recover from infrastructure or service disruptions and dynamically acquire computing resources to meet demand?",
+    "multiSelect": false,
+    "optionA": "Security",
+    "optionB": "Reliability",
+    "optionC": "Performance eXciency",
+    "optionD": "Cost optimization",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "B"
+    ],
+    "times": 1,
+    "domain": "CLOUD_CONCEPTS"
+  },
+  {
+    "id": "3969",
+    "questionText": "A company must be able to develop, test, and launch an application in the AWS Cloud quickly. Which advantage of cloud computing will meet these requirements?",
+    "multiSelect": false,
+    "optionA": "Stop guessing capacity",
+    "optionB": "Trade +xed expense for variable expense",
+    "optionC": "Achieve economies of scale",
+    "optionD": "Increase speed and agility",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "D"
+    ],
+    "times": 1,
+    "domain": "CLOUD_CONCEPTS"
+  },
+  {
+    "id": "4014",
+    "questionText": "A company wants to set up its workloads to perform their intended functions and recover quickly from failure. Which pillar of the AWS Well-Architected Framework aligns with these goals?",
+    "multiSelect": false,
+    "optionA": "Performance eXciency",
+    "optionB": "Sustainability",
+    "optionC": "Reliability",
+    "optionD": "Security",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "A"
+    ],
+    "times": 1,
+    "domain": "CLOUD_CONCEPTS"
+  },
+  {
+    "id": "4021",
+    "questionText": "Which of the following are pillars of the AWS Well-Architected Framework? (Choose two.)",
+    "multiSelect": false,
+    "optionA": "High availability",
+    "optionB": "Performance eXciency",
+    "optionC": "Cost optimization",
+    "optionD": "Going global in minutes",
+    "optionE": "Continuous development",
+    "optionF": "",
+    "correctAnswers": [
+      "D"
+    ],
+    "times": 1,
+    "domain": "CLOUD_CONCEPTS"
+  },
+  {
+    "id": "4038",
+    "questionText": "A company wants to run its workloads in the AWS Cloud effectively, reduce management overhead, and improve processes. Which AWS Well-Architected Framework pillar represents these requirements?",
+    "multiSelect": false,
+    "optionA": "Reliability",
+    "optionB": "Operational excellence",
+    "optionC": "Performance eXciency",
+    "optionD": "Cost optimization",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "C"
+    ],
+    "times": 1,
+    "domain": "CLOUD_CONCEPTS"
+  },
+  {
     "id": "4067",
     "questionText": "A company wants to transform its workforce by attracting and developing a digitally iuent high-performance workforce. The company wants to attract a diverse and inclusive workforce with appropriate mix of technical and non-technical skills. Which AWS Cloud Adoption Framework (AWS CAF) perspective will meet these requirements?",
     "multiSelect": false,
@@ -4224,6 +4451,56 @@
     "optionF": "",
     "correctAnswers": [
       "B"
+    ],
+    "times": 1,
+    "domain": "CLOUD_CONCEPTS"
+  },
+  {
+    "id": "4089",
+    "questionText": "A company is designing its AWS workloads so that components can be updated regularly and so that changes can be made in small, reversible increments. Which pillar of the AWS Well-Architected Framework does this design support?",
+    "multiSelect": false,
+    "optionA": "Security",
+    "optionB": "Performance eXciency",
+    "optionC": "Operational excellence",
+    "optionD": "Reliability",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "D"
+    ],
+    "times": 1,
+    "domain": "CLOUD_CONCEPTS"
+  },
+  {
+    "id": "4096",
+    "questionText": "Which options are AWS Cloud Adoption Framework (AWS CAF) governance perspective capabilities? (Choose two.)",
+    "multiSelect": true,
+    "optionA": "Identity and access management",
+    "optionB": "Cloud +nancial management",
+    "optionC": "Application portfolio management",
+    "optionD": "Innovation management",
+    "optionE": "Product management",
+    "optionF": "",
+    "correctAnswers": [
+      "A",
+      "E"
+    ],
+    "times": 1,
+    "domain": "CLOUD_CONCEPTS"
+  },
+  {
+    "id": "4108",
+    "questionText": "Which of the following are pillars of the AWS Well-Architected Framework? (Choose two.)",
+    "multiSelect": true,
+    "optionA": "Resource scalability",
+    "optionB": "Performance eXciency",
+    "optionC": "System elasticity",
+    "optionD": "Agile development",
+    "optionE": "Operational excellence",
+    "optionF": "",
+    "correctAnswers": [
+      "C",
+      "E"
     ],
     "times": 1,
     "domain": "CLOUD_CONCEPTS"
@@ -4291,6 +4568,54 @@
       "E"
     ],
     "times": 2,
+    "domain": "CLOUD_CONCEPTS"
+  },
+  {
+    "id": "4268",
+    "questionText": "Which of the following is an AWS Well-Architected Framework design principle for operational excellence in the AWS Cloud?",
+    "multiSelect": false,
+    "optionA": "Go global in minutes",
+    "optionB": "Make frequent, small, reversible changes",
+    "optionC": "Implement a strong foundation of identity and access management",
+    "optionD": "Stop spending money on hardware infrastructure for data center operations",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "B"
+    ],
+    "times": 2,
+    "domain": "CLOUD_CONCEPTS"
+  },
+  {
+    "id": "4298",
+    "questionText": "Which guideline is a well-architected design principle for building cloud applications?",
+    "multiSelect": false,
+    "optionA": "Keep static data closer to compute resources",
+    "optionB": "Provision resources for peak capacity",
+    "optionC": "Design for automated recovery from failure",
+    "optionD": "Use tightly coupled components",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "C"
+    ],
+    "times": 2,
+    "domain": "CLOUD_CONCEPTS"
+  },
+  {
+    "id": "4301",
+    "questionText": "Which architecture design principle describes the need to isolate failures between dependent components in the AWS Cloud?",
+    "multiSelect": false,
+    "optionA": "Use a monolithic design",
+    "optionB": "Design for automation",
+    "optionC": "Design for single points of failure",
+    "optionD": "Loosely couple components",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "D"
+    ],
+    "times": 3,
     "domain": "CLOUD_CONCEPTS"
   },
   {
@@ -4536,6 +4861,23 @@
     "domain": "CLOUD_CONCEPTS"
   },
   {
+    "id": "4547",
+    "questionText": "Which of the following are pillars of the AWS Well-Architected Framework? (Choose two.)",
+    "multiSelect": true,
+    "optionA": "Multiple Availability Zones",
+    "optionB": "Performance efficiency",
+    "optionC": "Security",
+    "optionD": "Encryption usage",
+    "optionE": "High availability",
+    "optionF": "",
+    "correctAnswers": [
+      "B",
+      "C"
+    ],
+    "times": 1,
+    "domain": "CLOUD_CONCEPTS"
+  },
+  {
     "id": "4576",
     "questionText": "What does it mean if a user deploys a hybrid cloud architecture on AWS?",
     "multiSelect": false,
@@ -4715,6 +5057,54 @@
     "domain": "CLOUD_CONCEPTS"
   },
   {
+    "id": "4904",
+    "questionText": "Which design principle is achieved by following the reliability pillar of the AWS Well- Architected Framework?",
+    "multiSelect": false,
+    "optionA": "Vertical scaling",
+    "optionB": "Manual failure recovery",
+    "optionC": "Testing recovery procedures",
+    "optionD": "Changing infrastructure manually",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "C"
+    ],
+    "times": 2,
+    "domain": "CLOUD_CONCEPTS"
+  },
+  {
+    "id": "4912",
+    "questionText": "Which of the following is a recommended design principle of the AWS Well-Architected Framework?",
+    "multiSelect": false,
+    "optionA": "Reduce downtime by making infrastructure changes infrequently and in > large increments.",
+    "optionB": "Invest the time to configure infrastructure manually.",
+    "optionC": "Learn to improve from operational failures.",
+    "optionD": "Use monolithic application design for centralization.",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "C"
+    ],
+    "times": 1,
+    "domain": "CLOUD_CONCEPTS"
+  },
+  {
+    "id": "4918",
+    "questionText": "Which of the following is an AWS Well-Architected Framework design principle for operational excellence in the AWS Cloud?",
+    "multiSelect": false,
+    "optionA": "Go global in minutes",
+    "optionB": "Make frequent, small, reversible changes",
+    "optionC": "Implement a strong foundation of identity and access management",
+    "optionD": "Stop spending money on hardware infrastructure for data center > operations",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "B"
+    ],
+    "times": 1,
+    "domain": "CLOUD_CONCEPTS"
+  },
+  {
     "id": "4948",
     "questionText": "Which of the following promotes AWS Cloud architectural best practices for designing and operating reliable, secure, efficient, and cost-effective systems?",
     "multiSelect": false,
@@ -4781,6 +5171,87 @@
     "domain": "CLOUD_CONCEPTS"
   },
   {
+    "id": "4972",
+    "questionText": "Which AWS Cloud Adoption Framework (AWS CAF) capability belongs to the people perspective?",
+    "multiSelect": false,
+    "optionA": "Data architecture",
+    "optionB": "Event management",
+    "optionC": "Cloud fluency",
+    "optionD": "Strategic partnership",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "C"
+    ],
+    "times": 1,
+    "domain": "CLOUD_CONCEPTS"
+  },
+  {
+    "id": "4991",
+    "questionText": "Which AWS Well-Architected Framework pillar focuses on structured and streamlined allocation of computing resources?",
+    "multiSelect": false,
+    "optionA": "Reliability",
+    "optionB": "Operational excellence",
+    "optionC": "Performance efficiency",
+    "optionD": "Sustainability",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "C"
+    ],
+    "times": 1,
+    "domain": "CLOUD_CONCEPTS"
+  },
+  {
+    "id": "4997",
+    "questionText": "A company wants to design its cloud architecture so that it can support development innovations, and continuously improve processes and procedures. This is an example of which pillar of the AWS Well-Architected Framework?",
+    "multiSelect": false,
+    "optionA": "Security",
+    "optionB": "Performance efficiency",
+    "optionC": "Operational excellence",
+    "optionD": "Reliability",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "C"
+    ],
+    "times": 1,
+    "domain": "CLOUD_CONCEPTS"
+  },
+  {
+    "id": "5002",
+    "questionText": "Which pillar of the AWS Well-Architected Framework aligns with the ability to make frequent, small, and reversible changes to AWS Cloud architecture?",
+    "multiSelect": false,
+    "optionA": "Security",
+    "optionB": "Cost optimization",
+    "optionC": "Operational excellence",
+    "optionD": "Performance efficiency",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "C"
+    ],
+    "times": 1,
+    "domain": "CLOUD_CONCEPTS"
+  },
+  {
+    "id": "5003",
+    "questionText": "Which options are AWS Cloud Adoption Framework (AWS CAF) perspectives? (Choose two.)",
+    "multiSelect": true,
+    "optionA": "Cloud fluency",
+    "optionB": "Security",
+    "optionC": "Change acceleration",
+    "optionD": "Architecture",
+    "optionE": "Business",
+    "optionF": "",
+    "correctAnswers": [
+      "B",
+      "E"
+    ],
+    "times": 1,
+    "domain": "CLOUD_CONCEPTS"
+  },
+  {
     "id": "5009",
     "questionText": "A company is planning to migrate applications to the AWS Cloud. During a system audit, the company finds that its content management system (CMS) application is incompatible with cloud environments. Which migration strategies will help the company to migrate the CMS application with the LEAST effort? (Choose two.)",
     "multiSelect": true,
@@ -4798,6 +5269,22 @@
     "domain": "CLOUD_CONCEPTS"
   },
   {
+    "id": "5023",
+    "questionText": "Which advantage of cloud computing allows users to scale resources up and down based on the amount of load that an application supports?",
+    "multiSelect": false,
+    "optionA": "Go global in minutes",
+    "optionB": "Stop guessing capacity",
+    "optionC": "Benefit from massive economies of scale",
+    "optionD": "Trade fixed expense for variable expense",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "B"
+    ],
+    "times": 1,
+    "domain": "CLOUD_CONCEPTS"
+  },
+  {
     "id": "5032",
     "questionText": "A company migrated to the AWS Cloud. Now the company pays for services on an as-needed basis. Which advantage of cloud computing is the company benefiting from?",
     "multiSelect": false,
@@ -4811,6 +5298,22 @@
       "D"
     ],
     "times": 2,
+    "domain": "CLOUD_CONCEPTS"
+  },
+  {
+    "id": "5036",
+    "questionText": "A company wants to migrate its on-premises infrastructure to the AWS Cloud. Which advantage of cloud computing will help the company reduce upfront costs?",
+    "multiSelect": false,
+    "optionA": "Go global in minutes",
+    "optionB": "Increase speed and agility",
+    "optionC": "Benefit from massive economies of scale",
+    "optionD": "Trade fixed expense for variable expense",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "D"
+    ],
+    "times": 1,
     "domain": "CLOUD_CONCEPTS"
   },
   {
@@ -4892,6 +5395,22 @@
       "B"
     ],
     "times": 2,
+    "domain": "CLOUD_CONCEPTS"
+  },
+  {
+    "id": "5288",
+    "questionText": "What are the five pillars of the AWS Well-Architected Framework?",
+    "multiSelect": false,
+    "optionA": "Cost Optimization, Performance Efficiency, Security, Reliability,",
+    "optionB": "Cost, Sustainability, Automation, Security, and Agility",
+    "optionC": "Reliability, Resilience, Flexibility, Performance, and Security",
+    "optionD": "Efficiency, Performance, Optimization, Sustainability, and Automation",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "A"
+    ],
+    "times": 1,
     "domain": "CLOUD_CONCEPTS"
   },
   {
@@ -5055,6 +5574,22 @@
     "domain": "CLOUD_CONCEPTS"
   },
   {
+    "id": "5588",
+    "questionText": "What are the five pillars of the AWS Well-Architected Framework?",
+    "multiSelect": false,
+    "optionA": "Encryption, documentation, speed, hybrid design, and cost optimization",
+    "optionB": "Containerization, cost margins, globalization, marketplace, and developer operations",
+    "optionC": "Network, compute, storage, security, and developer operations",
+    "optionD": "Operational excellence, reliability, performance efficiency, security, and cost optimization",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "D"
+    ],
+    "times": 2,
+    "domain": "CLOUD_CONCEPTS"
+  },
+  {
     "id": "5615",
     "questionText": "A system automatically recovers from failure when a company launches its workload on the AWS Cloud services platform. Which pillar of the AWS Well-Architected Framework does this situation demonstrate?",
     "multiSelect": false,
@@ -5068,6 +5603,22 @@
       "D"
     ],
     "times": 2,
+    "domain": "CLOUD_CONCEPTS"
+  },
+  {
+    "id": "5649",
+    "questionText": "Which of the following is an AWS Well-Architected Framework design principle for operational excellence in the AWS Cloud?",
+    "multiSelect": false,
+    "optionA": "Go global in minutes.",
+    "optionB": "Make frequent, small, reversible changes.",
+    "optionC": "Implement a strong foundation of identity and access management.",
+    "optionD": "Stop spending money on hardware infrastructure for data center operations.",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "B"
+    ],
+    "times": 1,
     "domain": "CLOUD_CONCEPTS"
   },
   {
@@ -5333,6 +5884,39 @@
     "domain": "CLOUD_CONCEPTS"
   },
   {
+    "id": "5820",
+    "questionText": "Which AWS Cloud deployment model uses AWS Outposts as part of the application deployment infrastructure?",
+    "multiSelect": false,
+    "optionA": "On-premises",
+    "optionB": "Serverless",
+    "optionC": "Cloud native",
+    "optionD": "Hybrid",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "D"
+    ],
+    "times": 2,
+    "domain": "CLOUD_CONCEPTS"
+  },
+  {
+    "id": "5834",
+    "questionText": "Which design principles support the reliability pillar of the AWS Well Architected framework? (Choose two.)",
+    "multiSelect": true,
+    "optionA": "Perform operations as code",
+    "optionB": "Enable traceability",
+    "optionC": "Automatically scale to meet demand",
+    "optionD": "Deploy resources globally to improve response time",
+    "optionE": "Automatically recover from failure",
+    "optionF": "",
+    "correctAnswers": [
+      "C",
+      "E"
+    ],
+    "times": 1,
+    "domain": "CLOUD_CONCEPTS"
+  },
+  {
     "id": "5844",
     "questionText": "An ecommerce company is using Amazon EC2 Auto Scaling groups to manage a fleet of web servers running on Amazon EC2. This architecture follows which AWS Well-Architected Framework best practice?",
     "multiSelect": false,
@@ -5489,6 +6073,22 @@
     "optionF": "",
     "correctAnswers": [
       "C"
+    ],
+    "times": 1,
+    "domain": "CLOUD_CONCEPTS"
+  },
+  {
+    "id": "5990",
+    "questionText": "Which option is a perspective that includes foundational capabilities of the AWS Cloud Adoption Framework (AWS CAF)?",
+    "multiSelect": false,
+    "optionA": "Sustainability",
+    "optionB": "Security",
+    "optionC": "Performance efficiency",
+    "optionD": "Reliability",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "B"
     ],
     "times": 1,
     "domain": "CLOUD_CONCEPTS"
@@ -5678,6 +6278,38 @@
     "optionB": "Reliability",
     "optionC": "Operational excellence",
     "optionD": "Performance efficiency",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "C"
+    ],
+    "times": 1,
+    "domain": "CLOUD_CONCEPTS"
+  },
+  {
+    "id": "6113",
+    "questionText": "Which option is an AWS Cloud Adoption Framework (AWS CAF) perspective?",
+    "multiSelect": false,
+    "optionA": "Cloud fluency",
+    "optionB": "Security",
+    "optionC": "Change acceleration",
+    "optionD": "Architecture",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "B"
+    ],
+    "times": 1,
+    "domain": "CLOUD_CONCEPTS"
+  },
+  {
+    "id": "6129",
+    "questionText": "A company migrated its core application onto multiple workloads in the AWS Cloud. The company wants to improve the application’s reliability. Which cloud design principle should the company implement to achieve this goal?",
+    "multiSelect": false,
+    "optionA": "Maximize utilization.",
+    "optionB": "Decouple the components.",
+    "optionC": "Rightsize the resources.",
+    "optionD": "Adopt a consumption model.",
     "optionE": "",
     "optionF": "",
     "correctAnswers": [
@@ -6821,6 +7453,22 @@
     "domain": "CLOUD_CONCEPTS"
   },
   {
+    "id": "7559",
+    "questionText": "Which of these AWS Well-Architected Framework pillars focus on automating infrastructure provisioning with Infrastructure as Code?",
+    "multiSelect": false,
+    "optionA": "Operational Excellence",
+    "optionB": "Security",
+    "optionC": "Performance Efficiency",
+    "optionD": "Reliability",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "A"
+    ],
+    "times": 1,
+    "domain": "CLOUD_CONCEPTS"
+  },
+  {
     "id": "7610",
     "questionText": "Which of these AWS services helps you to establish a hybrid cloud (applications deployed in on premises and AWS)? (Select 2)",
     "multiSelect": true,
@@ -6947,6 +7595,23 @@
     "optionF": "",
     "correctAnswers": [
       "D",
+      "E"
+    ],
+    "times": 1,
+    "domain": "CLOUD_CONCEPTS"
+  },
+  {
+    "id": "7795",
+    "questionText": "Which of the options below are recommendations in the reliability pillar of the well-architected framework? (Select TWO.)",
+    "multiSelect": true,
+    "optionA": "Use ad-hoc recovery procedures",
+    "optionB": "Automatically recover from failure",
+    "optionC": "Scale vertically to increase aggregate system availability",
+    "optionD": "Attempt to accurately estimate capacity requirements",
+    "optionE": "Manage change in automation",
+    "optionF": "",
+    "correctAnswers": [
+      "B",
       "E"
     ],
     "times": 1,
@@ -9233,6 +9898,38 @@
     "domain": "CLOUD_CONCEPTS"
   },
   {
+    "id": "10444",
+    "questionText": "A company wants to transform its workforce by attracting and developing a digitally fluent high- performance workforce. The company wants to attract a diverse and inclusive workforce with appropriate mix of technical and non-technical skills. Which AWS Cloud Adoption Framework (AWS CAF) perspective will meet these requirements?",
+    "multiSelect": false,
+    "optionA": "Business",
+    "optionB": "People",
+    "optionC": "Platform",
+    "optionD": "Operations",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "B"
+    ],
+    "times": 1,
+    "domain": "CLOUD_CONCEPTS"
+  },
+  {
+    "id": "10445",
+    "questionText": "Which perspective in the AWS Cloud Adoption Framework (AWS CAF) includes a capability for well- designed data and analytics architecture?",
+    "multiSelect": false,
+    "optionA": "Security",
+    "optionB": "Governance",
+    "optionC": "Operations",
+    "optionD": "Platform",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "D"
+    ],
+    "times": 1,
+    "domain": "CLOUD_CONCEPTS"
+  },
+  {
     "id": "10454",
     "questionText": "A company needs to have the ability to set up infrastructure for new applications in minutes. Which advantage of cloud computing will help the company meet this requirement?",
     "multiSelect": false,
@@ -9289,6 +9986,22 @@
     "optionB": "People",
     "optionC": "Business",
     "optionD": "Platform",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "C"
+    ],
+    "times": 1,
+    "domain": "CLOUD_CONCEPTS"
+  },
+  {
+    "id": "10490",
+    "questionText": "Which AWS Well-Architected Framework concept represents a system's ability to remain functional when the system encounters operational problems?",
+    "multiSelect": false,
+    "optionA": "Consistency",
+    "optionB": "Elasticity",
+    "optionC": "Durability",
+    "optionD": "Latency",
     "optionE": "",
     "optionF": "",
     "correctAnswers": [
@@ -10451,6 +11164,22 @@
     "domain": "CLOUD_CONCEPTS"
   },
   {
+    "id": "11230",
+    "questionText": "Which component of AWS global infrastructure does Amazon CloudFront use to ensure low latency delivery?",
+    "multiSelect": false,
+    "optionA": "AWS Regions",
+    "optionB": "AWS Edge Locations",
+    "optionC": "AWS Availability Zones",
+    "optionD": "Amazon Virtual Private Cloud (Amazon VPC)",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "B"
+    ],
+    "times": 1,
+    "domain": "CLOUD_CONCEPTS"
+  },
+  {
     "id": "11308",
     "questionText": "A company wants to transform its workforce by attracting and developing a digitally fluent high-performance workforce. The company wants to attract a diverse and inclusive workforce with an appropriate mix of technical and non-technical skills. Which AWS Cloud Adoption Framework (AWS CAF) perspective will meet these requirements?",
     "multiSelect": false,
@@ -10807,6 +11536,23 @@
     "domain": "CLOUD_CONCEPTS"
   },
   {
+    "id": "11675",
+    "questionText": "Which design principles for cloud architecture are recommended when re-architecting a large monolithic application? (Select TWO.)",
+    "multiSelect": true,
+    "optionA": "Use manual monitoring.",
+    "optionB": "Use fixed servers.",
+    "optionC": "Implement loose coupling.",
+    "optionD": "Rely on individual components.",
+    "optionE": "Design for scalability.",
+    "optionF": "",
+    "correctAnswers": [
+      "C",
+      "E"
+    ],
+    "times": 1,
+    "domain": "CLOUD_CONCEPTS"
+  },
+  {
     "id": "11678",
     "questionText": "Which of the following features can be configured through the Amazon Virtual Private Cloud (Amazon VPC) Dashboard? (Select TWO.)",
     "multiSelect": true,
@@ -10818,6 +11564,70 @@
     "optionF": "",
     "correctAnswers": [
       "C",
+      "D"
+    ],
+    "times": 1,
+    "domain": "CLOUD_CONCEPTS"
+  },
+  {
+    "id": "11694",
+    "questionText": "- A company does not want to rely on elaborate forecasting to determine its usage of compute resources. Instead, the company wants to pay only for the resources that it uses. The company also needs the ability to increase or decrease its resource usage to meet business requirements. Which pillar of the AWS Well-Architected Framework aligns with these requirements?",
+    "multiSelect": false,
+    "optionA": "Operational excellence",
+    "optionB": "Security",
+    "optionC": "Reliability",
+    "optionD": "Cost optimization",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "D"
+    ],
+    "times": 1,
+    "domain": "CLOUD_CONCEPTS"
+  },
+  {
+    "id": "11695",
+    "questionText": "- A company wants to launch its workload on AWS and requires the system to automatically recover from failure. Which pillar of the AWS Well-Architected Framework includes this requirement?",
+    "multiSelect": false,
+    "optionA": "Cost optimization",
+    "optionB": "Operational excellence",
+    "optionC": "Performance efficiency",
+    "optionD": "Reliability",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "D"
+    ],
+    "times": 1,
+    "domain": "CLOUD_CONCEPTS"
+  },
+  {
+    "id": "11744",
+    "questionText": "() A company wants to increase its ability to recover its infrastructure in the case of a natural disaster. Which pillar of the AWS Well-Architected Framework does this ability represent?",
+    "multiSelect": false,
+    "optionA": "Cost optimization",
+    "optionB": "Performance efficiency",
+    "optionC": "Reliability",
+    "optionD": "Security",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "C"
+    ],
+    "times": 1,
+    "domain": "CLOUD_CONCEPTS"
+  },
+  {
+    "id": "11748",
+    "questionText": "() A company wants to migrate to AWS and use the same security software it uses on premises. The security software vendor offers its security software as a service on AWS. Where can the company purchase the security solution?",
+    "multiSelect": false,
+    "optionA": "AWS Partner Solutions Finder",
+    "optionB": "AWS Support Center",
+    "optionC": "AWS Management Console",
+    "optionD": "AWS Marketplace",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
       "D"
     ],
     "times": 1,

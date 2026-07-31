@@ -1966,19 +1966,19 @@
     "domain": "BILLING_PRICING"
   },
   {
-    "id": "4976",
-    "questionText": "A company is assessing its AWS Business Support plan to determine if the plan still meets the company’s needs. The company is considering switching to AWS Enterprise Support. Which additional benefit will the company receive with AWS Enterprise Support?",
+    "id": "4232",
+    "questionText": "A company is assessing its AWS Business Support plan to determine if the plan still meets the company's needs. The company is considering switching to AWS Enterprise Support. Which additional benefit will the company receive with AWS Enterprise Support?",
     "multiSelect": false,
     "optionA": "A full set of AWS Trusted Advisor checks",
     "optionB": "Phone, email, and chat access to cloud support engineers 24 hours a day, 7 days a week",
     "optionC": "A designated technical account manager (TAM) to assist in monitoring and optimization",
-    "optionD": "A consultative review and architecture guidance for the company’s applications",
+    "optionD": "A consultative review and architecture guidance for the company's applications",
     "optionE": "",
     "optionF": "",
     "correctAnswers": [
       "C"
     ],
-    "times": 4,
+    "times": 2,
     "domain": "BILLING_PRICING"
   },
   {
@@ -2285,6 +2285,23 @@
       "C"
     ],
     "times": 3,
+    "domain": "BILLING_PRICING"
+  },
+  {
+    "id": "5012",
+    "questionText": "Which of the following are advantages of moving to the AWS Cloud? (Choose two.)",
+    "multiSelect": true,
+    "optionA": "Users can implement all AWS services in seconds.",
+    "optionB": "AWS assumes all responsibility for the security of infrastructure and applications.",
+    "optionC": "Users experience increased speed and agility.",
+    "optionD": "Users benefit from massive economies of scale.",
+    "optionE": "Users can move hardware from their data center to the AWS Cloud.",
+    "optionF": "",
+    "correctAnswers": [
+      "C",
+      "D"
+    ],
+    "times": 2,
     "domain": "BILLING_PRICING"
   },
   {
@@ -6509,6 +6526,22 @@
     "domain": "BILLING_PRICING"
   },
   {
+    "id": "2743",
+    "questionText": "A financial services company wants to migrate from its on-premises data center to AWS Cloud. As a Cloud Practitioner, which AWS service would you recommend so that the company can compare the cost of running their IT infrastructure on-premises vs AWS Cloud?",
+    "multiSelect": false,
+    "optionA": "AWS Trusted Advisor",
+    "optionB": "AWS Budgets",
+    "optionC": "AWS Cost Explorer",
+    "optionD": "AWS Pricing Calculator",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "D"
+    ],
+    "times": 1,
+    "domain": "BILLING_PRICING"
+  },
+  {
     "id": "2749",
     "questionText": "Which of the following AWS services can be used to forecast your AWS account usage and costs?",
     "multiSelect": false,
@@ -7312,6 +7345,23 @@
     "domain": "BILLING_PRICING"
   },
   {
+    "id": "3236",
+    "questionText": "A company wants to receive a notification when a specific AWS cost threshold is reached.Which AWS services or tools can the company use to meet this requirement? (Choose two.)",
+    "multiSelect": true,
+    "optionA": "Amazon Simple Queue Service (Amazon SQS)",
+    "optionB": "AWS Budgets",
+    "optionC": "Cost Explorer",
+    "optionD": "Amazon CloudWatch",
+    "optionE": "AWS Cost and Usage Report",
+    "optionF": "",
+    "correctAnswers": [
+      "B",
+      "D"
+    ],
+    "times": 1,
+    "domain": "BILLING_PRICING"
+  },
+  {
     "id": "3247",
     "questionText": "Which of the following AWS Support plans provides access to online training with self-paced labs?",
     "multiSelect": false,
@@ -7444,19 +7494,19 @@
     "domain": "BILLING_PRICING"
   },
   {
-    "id": "8397",
-    "questionText": "Which AWS Support plan provides access to a Technical Account Manager (TAM)?",
+    "id": "3330",
+    "questionText": "Which AWS support plan provides access to a Technical Account Manager (TAM)?",
     "multiSelect": false,
-    "optionA": "Basic",
-    "optionB": "Developer",
-    "optionC": "Business",
-    "optionD": "Enterprise",
+    "optionA": "Developer",
+    "optionB": "Business",
+    "optionC": "Enterprise",
+    "optionD": "Business &amp; Enterprise",
     "optionE": "",
     "optionF": "",
     "correctAnswers": [
-      "D"
+      "C"
     ],
-    "times": 2,
+    "times": 1,
     "domain": "BILLING_PRICING"
   },
   {
@@ -7584,6 +7634,39 @@
     "correctAnswers": [
       "B",
       "D"
+    ],
+    "times": 1,
+    "domain": "BILLING_PRICING"
+  },
+  {
+    "id": "3461",
+    "questionText": "AWS Marketplace facilitates which of the following use-cases? (Select two)",
+    "multiSelect": true,
+    "optionA": "Sell Software as a Service (SaaS) solutions to AWS customers",
+    "optionB": "AWS customer can buy software that has been bundled into customized AMIs by the AWS Marketplace sellers",
+    "optionC": "Purchase compliance documents from third-party vendors",
+    "optionD": "Buy Amazon EC2 Standard Reserved Instances",
+    "optionE": "Raise request for purchasing AWS Direct Connect connection",
+    "optionF": "",
+    "correctAnswers": [
+      "A",
+      "B"
+    ],
+    "times": 1,
+    "domain": "BILLING_PRICING"
+  },
+  {
+    "id": "3464",
+    "questionText": "Which of the following AWS services can be used to forecast your AWS account usage and costs?",
+    "multiSelect": false,
+    "optionA": "AWS Budgets",
+    "optionB": "AWS Cost Explorer",
+    "optionC": "AWS Simple Monthly Calculator",
+    "optionD": "AWS Cost and Usage Reports",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "B"
     ],
     "times": 1,
     "domain": "BILLING_PRICING"
@@ -7738,6 +7821,23 @@
     "domain": "BILLING_PRICING"
   },
   {
+    "id": "3677",
+    "questionText": "Which of the following are advantages of moving to the AWS Cloud? (Choose two.)",
+    "multiSelect": true,
+    "optionA": "Users can implement all AWS services in seconds.",
+    "optionB": "AWS assumes all responsibility for the security of infrastructure and applications.",
+    "optionC": "Users experience increased speed and agility.",
+    "optionD": "Users bene+t from massive economies of scale.",
+    "optionE": "Users can move hardware from their data center to the AWS Cloud.",
+    "optionF": "",
+    "correctAnswers": [
+      "C",
+      "D"
+    ],
+    "times": 1,
+    "domain": "BILLING_PRICING"
+  },
+  {
     "id": "3696",
     "questionText": "Which bene+t of the AWS Cloud helps companies achieve lower usage costs because of the aggregate usage of all AWS users?",
     "multiSelect": false,
@@ -7815,6 +7915,22 @@
     "optionF": "",
     "correctAnswers": [
       "B"
+    ],
+    "times": 1,
+    "domain": "BILLING_PRICING"
+  },
+  {
+    "id": "3747",
+    "questionText": "Which recommendation can AWS Cost Explorer provide to help reduce cost?",
+    "multiSelect": false,
+    "optionA": "Use a speci+c database engine.",
+    "optionB": "Change the programming language for an application.",
+    "optionC": "Deploy a speci+c operating system.",
+    "optionD": "Terminate an idle instance.",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "D"
     ],
     "times": 1,
     "domain": "BILLING_PRICING"
@@ -7901,6 +8017,22 @@
     "domain": "BILLING_PRICING"
   },
   {
+    "id": "3960",
+    "questionText": "A company needs to organize its resources and track AWS costs on a detailed level. The company needs to categorize costs by business department, environment, and application. Which solution will meet these requirements?",
+    "multiSelect": false,
+    "optionA": "Access the AWS Cost Management console to organize resources, set an AWS budget, and receive noti+cations of unintentional usage.",
+    "optionB": "Use tags to organize the resources. Activate cost allocation tags to track AWS costs on a detailed level.",
+    "optionC": "Create Amazon CloudWatch dashboards to visually organize and track costs individually.",
+    "optionD": "Access the AWS Billing and Cost Management dashboard to organize and track resource consumption on a detailed level.",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "B"
+    ],
+    "times": 1,
+    "domain": "BILLING_PRICING"
+  },
+  {
     "id": "3964",
     "questionText": "Which abilities are bene+ts of the AWS Cloud? (Choose two.)",
     "multiSelect": true,
@@ -7951,6 +8083,23 @@
     "domain": "BILLING_PRICING"
   },
   {
+    "id": "4155",
+    "questionText": "Which statements represent the cost-effectiveness of the AWS Cloud? (Choose two.)",
+    "multiSelect": true,
+    "optionA": "Users can trade +xed expenses for variable expenses.",
+    "optionB": "Users can deploy all over the world in minutes.",
+    "optionC": "AWS offers increased speed and agility.",
+    "optionD": "AWS is responsible for patching the infrastructure.",
+    "optionE": "Users bene+t from economies of scale.",
+    "optionF": "",
+    "correctAnswers": [
+      "A",
+      "E"
+    ],
+    "times": 1,
+    "domain": "BILLING_PRICING"
+  },
+  {
     "id": "4158",
     "questionText": "A company is moving some of its on-premises IT services to the AWS Cloud. The +nance department wants to see the entire bill so it can forecast spending limits. Which AWS service can the company use to set spending limits and receive noti+cations if those limits are exceeded?",
     "multiSelect": false,
@@ -7980,6 +8129,38 @@
       "C"
     ],
     "times": 1,
+    "domain": "BILLING_PRICING"
+  },
+  {
+    "id": "4223",
+    "questionText": "A company has multiple AWS accounts that include compute workloads that cannot be interrupted. The company wants to obtain billing discounts that are based on the company's use of AWS services. Which AWS feature or purchasing option will meet these requirements?",
+    "multiSelect": false,
+    "optionA": "Resource tagging",
+    "optionB": "Consolidated billing",
+    "optionC": "Pay-as-you-go pricing",
+    "optionD": "Spot Instances",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "B"
+    ],
+    "times": 1,
+    "domain": "BILLING_PRICING"
+  },
+  {
+    "id": "4263",
+    "questionText": "A company is using the AWS Free Tier for several AWS services for an application. What will happen if the Free Tier usage period expires or if the application use exceeds the Free Tier usage limits?",
+    "multiSelect": false,
+    "optionA": "The company will be charged the standard pay-as-you-go service rates for the usage that exceeds the Free Tier usage.",
+    "optionB": "AWS Support will contact the company to set up standard service charges.",
+    "optionC": "The company will be charged for the services it consumed during the Free Tier period, plus additional charges for service consumption after the Free Tier period.",
+    "optionD": "The company’s AWS account will be frozen and can be restarted after a payment plan is established.",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "A"
+    ],
+    "times": 2,
     "domain": "BILLING_PRICING"
   },
   {
@@ -9008,6 +9189,22 @@
     "domain": "BILLING_PRICING"
   },
   {
+    "id": "4596",
+    "questionText": "How does the AWS Enterprise Support Concierge team help users?",
+    "multiSelect": false,
+    "optionA": "Supporting application development",
+    "optionB": "Providing architecture guidance",
+    "optionC": "Answering billing and account inquires",
+    "optionD": "Answering questions regarding technical support cases",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "C"
+    ],
+    "times": 3,
+    "domain": "BILLING_PRICING"
+  },
+  {
     "id": "4599",
     "questionText": "Which AWS tool is used to compare the cost of running an application on-premises to running the application in the AWS Cloud?",
     "multiSelect": false,
@@ -9670,6 +9867,23 @@
     "domain": "BILLING_PRICING"
   },
   {
+    "id": "4892",
+    "questionText": "When comparing AWS Cloud with on-premises Total Cost of Ownership, which expenses must be considered? (Choose two.)",
+    "multiSelect": true,
+    "optionA": "Physical storage hardware",
+    "optionB": "Operating system administration",
+    "optionC": "Network infrastructure of data center",
+    "optionD": "Project management",
+    "optionE": "Database schema development",
+    "optionF": "",
+    "correctAnswers": [
+      "A",
+      "C"
+    ],
+    "times": 1,
+    "domain": "BILLING_PRICING"
+  },
+  {
     "id": "4909",
     "questionText": "A company has two AWS accounts in an organization in AWS Organizations for consolidated billing. All of the company's AWS resources are hosted in one AWS Region. Account A has purchased five Amazon EC2 Standard Reserved Instances (RIs) and has four EC2 instances running. Account B has not purchased any RIs and also has four EC2 instances running. Which statement is true regarding pricing for these eight instances?",
     "multiSelect": false,
@@ -9720,6 +9934,22 @@
     "domain": "BILLING_PRICING"
   },
   {
+    "id": "4964",
+    "questionText": "A company is assessing its AWS Business Support plan to determine if the plan still meets the company's needs. The company is considering switching to AWS Enterprise Support. Which additional benefit will the company receive with AWS Enterprise Support?",
+    "multiSelect": false,
+    "optionA": "A full set of AWS Trusted Advisor checks",
+    "optionB": "Phone, email, and chat access to cloud support engineers 24 hours a > day, 7 days a week",
+    "optionC": "A designated technical account manager (TAM) to assist in monitoring > and optimization",
+    "optionD": "A consultative review and architecture guidance for the company's > applications",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "C"
+    ],
+    "times": 1,
+    "domain": "BILLING_PRICING"
+  },
+  {
     "id": "4969",
     "questionText": "A company is migrating its data center to AWS. The company needs an AWS Support plan that provides chat access to a cloud sup engineer 24 hours a day, 7 days a week. The company does not require access to infrastructure event management. What is the MOST cost-effective AWS Support plan that meets these requirements?",
     "multiSelect": false,
@@ -9752,6 +9982,38 @@
     "domain": "BILLING_PRICING"
   },
   {
+    "id": "4976",
+    "questionText": "A company is assessing its AWS Business Support plan to determine if the plan still meets the company’s needs. The company is considering switching to AWS Enterprise Support. Which additional benefit will the company receive with AWS Enterprise Support?",
+    "multiSelect": false,
+    "optionA": "A full set of AWS Trusted Advisor checks",
+    "optionB": "Phone, email, and chat access to cloud support engineers 24 hours a day, 7 days a week",
+    "optionC": "A designated technical account manager (TAM) to assist in monitoring and optimization",
+    "optionD": "A consultative review and architecture guidance for the company’s applications",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "C"
+    ],
+    "times": 4,
+    "domain": "BILLING_PRICING"
+  },
+  {
+    "id": "4979",
+    "questionText": "A company is using the AWS Free Tier for several AWS services for an application. What will happen if the Free Tier usage period expires or if the application use exceeds the Free Tier usage limits?",
+    "multiSelect": false,
+    "optionA": "The company will be charged the standard pay-as-you-go service rates for the usage that exceeds the Free Tier usage.",
+    "optionB": "AWS Support will contact the company to set up standard service charges.",
+    "optionC": "The company will be charged for the services it consumed during the Free Tier period, plus additional charges for service consumption after the Free Tier period.",
+    "optionD": "The company's AWS account will be frozen and can be restarted after a payment plan is established.",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "B"
+    ],
+    "times": 1,
+    "domain": "BILLING_PRICING"
+  },
+  {
     "id": "4982",
     "questionText": "Which of the following are benefits that a company receives when it moves an on-premises production workload to AWS? (Choose two.)",
     "multiSelect": true,
@@ -9766,6 +10028,22 @@
       "E"
     ],
     "times": 3,
+    "domain": "BILLING_PRICING"
+  },
+  {
+    "id": "4989",
+    "questionText": "Which AWS feature provides a no-cost platform for AWS users to join community groups, ask questions, find answers, and read community- generated articles about best practices?",
+    "multiSelect": false,
+    "optionA": "AWS Knowledge Center",
+    "optionB": "AWS re:Post",
+    "optionC": "AWS IQ",
+    "optionD": "AWS Enterprise Support",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "D"
+    ],
+    "times": 1,
     "domain": "BILLING_PRICING"
   },
   {
@@ -10328,6 +10606,23 @@
       "D"
     ],
     "times": 2,
+    "domain": "BILLING_PRICING"
+  },
+  {
+    "id": "5470",
+    "questionText": "Which of the following are advantages of the AWS Cloud? (Choose two.)",
+    "multiSelect": true,
+    "optionA": "AWS management of user-owned infrastructure",
+    "optionB": "Ability to quickly change required capacity",
+    "optionC": "High economies of scale",
+    "optionD": "Increased deployment time to market",
+    "optionE": "Increased fixed expenses",
+    "optionF": "",
+    "correctAnswers": [
+      "B",
+      "C"
+    ],
+    "times": 1,
     "domain": "BILLING_PRICING"
   },
   {
@@ -11006,6 +11301,22 @@
     "domain": "BILLING_PRICING"
   },
   {
+    "id": "5804",
+    "questionText": "What is a characteristic of Convertible Reserved Instances (RIs)?",
+    "multiSelect": false,
+    "optionA": "Users can exchange Convertible RIs for other Convertible RIs from a different instance family",
+    "optionB": "Users can exchange Convertible RIs for other Convertible RIs in different AWS Regions",
+    "optionC": "Users can sell and buy Convertible RIs on the AWS Marketplace",
+    "optionD": "Users can shorten the term of their Convertible RIs by merging them with other Convertible RIs",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "A"
+    ],
+    "times": 1,
+    "domain": "BILLING_PRICING"
+  },
+  {
     "id": "5806",
     "questionText": "Which of the following is an advantage of AWS Cloud computing?",
     "multiSelect": false,
@@ -11054,6 +11365,23 @@
     "domain": "BILLING_PRICING"
   },
   {
+    "id": "5818",
+    "questionText": "Which of the following are benefits that a company receives when it moves an on premises production workload to AWS? (Choose two.)",
+    "multiSelect": true,
+    "optionA": "AWS trains the company's staff on the use of all the AWS services",
+    "optionB": "AWS manages all security in the cloud",
+    "optionC": "AWS offers free support from technical account managers (TAMs)",
+    "optionD": "AWS offers high availability",
+    "optionE": "AWS provides economies of scale",
+    "optionF": "",
+    "correctAnswers": [
+      "D",
+      "E"
+    ],
+    "times": 1,
+    "domain": "BILLING_PRICING"
+  },
+  {
     "id": "5822",
     "questionText": "A user is able to set up a management payer account to view consolidated billing reports through.",
     "multiSelect": false,
@@ -11080,6 +11408,23 @@
     "optionE": "",
     "optionF": "",
     "correctAnswers": [
+      "C"
+    ],
+    "times": 1,
+    "domain": "BILLING_PRICING"
+  },
+  {
+    "id": "5826",
+    "questionText": "Which of the following are advantages of the AWS Cloud? (Choose two.)",
+    "multiSelect": true,
+    "optionA": "Trade variable expenses for capital expenses",
+    "optionB": "High economies of scale",
+    "optionC": "Launch globally in minutes",
+    "optionD": "Focus on managing hardware infrastructure",
+    "optionE": "Over provision to ensure capacity",
+    "optionF": "",
+    "correctAnswers": [
+      "B",
       "C"
     ],
     "times": 1,
@@ -11237,6 +11582,22 @@
     "optionB": "AWS Budgets",
     "optionC": "AWS Cost and Usage Report",
     "optionD": "Savings Plans",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "C"
+    ],
+    "times": 1,
+    "domain": "BILLING_PRICING"
+  },
+  {
+    "id": "5903",
+    "questionText": "A company has two AWS accounts in an organization in AWS Organizations for consolidated billing. All of the company’s AWS resources are hosted in one AWS Region. Account A has purchased five Amazon EC2 Standard Reserved Instances (RIs) and has four EC2 instances running. Account B has not purchased any RIs and also has four EC2 instances running. Which statement is true regarding pricing for these eight instances?",
+    "multiSelect": false,
+    "optionA": "The eight instances will be charged as regular instances.",
+    "optionB": "Four instances will be charged as RIs, and four will be charged as regular instances.",
+    "optionC": "Five instances will be charged as RIs, and three will be charged as regular instances.",
+    "optionD": "The eight instances will be charged as RIs.",
     "optionE": "",
     "optionF": "",
     "correctAnswers": [
@@ -11417,6 +11778,23 @@
     "optionF": "",
     "correctAnswers": [
       "B"
+    ],
+    "times": 1,
+    "domain": "BILLING_PRICING"
+  },
+  {
+    "id": "6038",
+    "questionText": "An ecommerce company plans to move its data center workload to the AWS Cloud to support highly dynamic usage patterns. Which benefits make the AWS Cloud cost-effective for the migration of this type of workload? (Choose two.)",
+    "multiSelect": true,
+    "optionA": "Reliability",
+    "optionB": "Security",
+    "optionC": "Elasticity",
+    "optionD": "Pay-as-you-go resource pricing",
+    "optionE": "High availability",
+    "optionF": "",
+    "correctAnswers": [
+      "D",
+      "E"
     ],
     "times": 1,
     "domain": "BILLING_PRICING"
@@ -11790,6 +12168,22 @@
     "domain": "BILLING_PRICING"
   },
   {
+    "id": "6179",
+    "questionText": "Which of the following is an advantage of AWS Cloud computing?",
+    "multiSelect": false,
+    "optionA": "Trade security for elasticity.",
+    "optionB": "Trade operational excellence for agility.",
+    "optionC": "Trade fixed expenses for variable expenses.",
+    "optionD": "Trade elasticity for performance.",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "C"
+    ],
+    "times": 1,
+    "domain": "BILLING_PRICING"
+  },
+  {
     "id": "6182",
     "questionText": "Which AWS service or tool helps to centrally manage billing and allow controlled access to resources across AWS accounts?",
     "multiSelect": false,
@@ -12030,6 +12424,23 @@
     "correctAnswers": [
       "A",
       "C"
+    ],
+    "times": 1,
+    "domain": "BILLING_PRICING"
+  },
+  {
+    "id": "6279",
+    "questionText": "Which costs must be addressed when comparing AWS Cloud vs on-premises Total Cost of Ownership? (Select two.)",
+    "multiSelect": true,
+    "optionA": "Software development",
+    "optionB": "Project management",
+    "optionC": "Storage hardware",
+    "optionD": "Physical servers",
+    "optionE": "Antivirus software license",
+    "optionF": "",
+    "correctAnswers": [
+      "C",
+      "D"
     ],
     "times": 1,
     "domain": "BILLING_PRICING"
@@ -14803,6 +15214,23 @@
     "domain": "BILLING_PRICING"
   },
   {
+    "id": "7577",
+    "questionText": "Which of these AWS support plans provides you with all AWS Trusted Advisor checks? (Select 2)",
+    "multiSelect": true,
+    "optionA": "Developer",
+    "optionB": "Business",
+    "optionC": "Operations",
+    "optionD": "Enterprise",
+    "optionE": "Basic",
+    "optionF": "",
+    "correctAnswers": [
+      "B",
+      "D"
+    ],
+    "times": 1,
+    "domain": "BILLING_PRICING"
+  },
+  {
     "id": "7592",
     "questionText": "Which of these programs gets you help from other consulting and technology firms to design and build services in AWS?",
     "multiSelect": false,
@@ -14968,6 +15396,22 @@
     "domain": "BILLING_PRICING"
   },
   {
+    "id": "7715",
+    "questionText": "How can consolidated billing within AWS Organizations help lower overall monthly expenses?",
+    "multiSelect": false,
+    "optionA": "By providing a consolidated view of monthly billing across multiple accounts",
+    "optionB": "By pooling usage across multiple accounts to achieve a pricing tier discount",
+    "optionC": "By automating the creation of new accounts through APIs",
+    "optionD": "By leveraging service control policies (SCP) for centralized service management",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "B"
+    ],
+    "times": 1,
+    "domain": "BILLING_PRICING"
+  },
+  {
     "id": "7717",
     "questionText": "When performing a total cost of ownership (TCO) analysis between on-premises and the AWS Cloud, which factors are only relevant to on-premises deployments? (choose 2)",
     "multiSelect": true,
@@ -14997,6 +15441,22 @@
     "correctAnswers": [
       "C",
       "E"
+    ],
+    "times": 1,
+    "domain": "BILLING_PRICING"
+  },
+  {
+    "id": "7724",
+    "questionText": "A user has an AWS account with a Business-level AWS Support plan and needs assistance with handling a production service disruption. Which action should the user take?",
+    "multiSelect": false,
+    "optionA": "Contact the dedicated Technical Account Manager",
+    "optionB": "Contact the dedicated AWS Concierge Support team",
+    "optionC": "Open a business-critical system down support case",
+    "optionD": "Open a production system down support case",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "D"
     ],
     "times": 1,
     "domain": "BILLING_PRICING"
@@ -15861,6 +16321,22 @@
     "domain": "BILLING_PRICING"
   },
   {
+    "id": "8161",
+    "questionText": "What is the purpose of cost allocation tags?",
+    "multiSelect": false,
+    "optionA": "To associate spend limits to automatically trigger resource shutdowns when necessary",
+    "optionB": "To help you identify the purpose and owner of a particular running resource to better understand and control deployments",
+    "optionC": "To help you identify resources for the purpose of tracking your account spending",
+    "optionD": "To visually associate account events with billing periods",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "C"
+    ],
+    "times": 1,
+    "domain": "BILLING_PRICING"
+  },
+  {
     "id": "8163",
     "questionText": "Which of these tools lets you design graphs within the browser interface to track your account spending?",
     "multiSelect": false,
@@ -16099,6 +16575,22 @@
       "A"
     ],
     "times": 1,
+    "domain": "BILLING_PRICING"
+  },
+  {
+    "id": "8397",
+    "questionText": "Which AWS Support plan provides access to a Technical Account Manager (TAM)?",
+    "multiSelect": false,
+    "optionA": "Basic",
+    "optionB": "Developer",
+    "optionC": "Business",
+    "optionD": "Enterprise",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "D"
+    ],
+    "times": 2,
     "domain": "BILLING_PRICING"
   },
   {
@@ -20430,6 +20922,22 @@
     "domain": "BILLING_PRICING"
   },
   {
+    "id": "10443",
+    "questionText": "A company need an AWS service that provides a clear baseline of what the company runs in its on- premises data centers. The company needs the projected cost to run its on-premises workloads in the AWS Cloud. What AWS service or tool will meet these requirements?",
+    "multiSelect": false,
+    "optionA": "AWS Compute Optimizer",
+    "optionB": "AWS Cost Explorer",
+    "optionC": "AWS Systems Manager Agent (SSM Agent)",
+    "optionD": "Migration Evaluator",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "D"
+    ],
+    "times": 1,
+    "domain": "BILLING_PRICING"
+  },
+  {
     "id": "10463",
     "questionText": "A company wants to track the monthly cost and usage of all Amazon EC2 instances in a specific AWS environment. Which AWS service or tool will meet these requirements?",
     "multiSelect": false,
@@ -21062,6 +21570,22 @@
     "correctAnswers": [
       "A",
       "D"
+    ],
+    "times": 1,
+    "domain": "BILLING_PRICING"
+  },
+  {
+    "id": "11073",
+    "questionText": "A company needs 24/7 phone, email, and chat access with a response time of less than 1 hour if a production system has a service interruption. Which AWS Support plan meets these requirements at the LOWEST cost?",
+    "multiSelect": false,
+    "optionA": "Basic",
+    "optionB": "Developer",
+    "optionC": "Business",
+    "optionD": "Enterprise",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "C"
     ],
     "times": 1,
     "domain": "BILLING_PRICING"
@@ -21994,6 +22518,22 @@
     "domain": "BILLING_PRICING"
   },
   {
+    "id": "11216",
+    "questionText": "As part of the Enterprise Support plan, who is the primary point of contact for ongoing support needs?",
+    "multiSelect": false,
+    "optionA": "TAM",
+    "optionB": "IEM",
+    "optionC": "ISM",
+    "optionD": "TSM",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "A"
+    ],
+    "times": 1,
+    "domain": "BILLING_PRICING"
+  },
+  {
     "id": "11233",
     "questionText": "You have just set up a brand new AWS account. You want to keep monthly billing under $100, but you are worried about going over that limit. What can you use in order to be notified when the monthly bill approaches $100?",
     "multiSelect": false,
@@ -22606,6 +23146,22 @@
     "domain": "BILLING_PRICING"
   },
   {
+    "id": "11626",
+    "questionText": "The AWS Cloud’s multiple Regions are an example of:",
+    "multiSelect": false,
+    "optionA": "Agility.",
+    "optionB": "Global infrastructure.",
+    "optionC": "Elasticity.",
+    "optionD": "Pay-as-you-go pricing.",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "B"
+    ],
+    "times": 1,
+    "domain": "BILLING_PRICING"
+  },
+  {
     "id": "11627",
     "questionText": "Which AWS characteristics make AWS cost effective for a workload with dynamic user demand? (Select TWO)",
     "multiSelect": true,
@@ -22620,6 +23176,22 @@
       "D"
     ],
     "times": 2,
+    "domain": "BILLING_PRICING"
+  },
+  {
+    "id": "11635",
+    "questionText": "How do customers benefit from Amazon’s massive economies of scale?",
+    "multiSelect": false,
+    "optionA": "Periodic price reductions as the result of Amazon’s operational efficiencies.",
+    "optionB": "New Amazon EC2 instance types providing the latest hardware.",
+    "optionC": "The ability to scale up and down when needed.",
+    "optionD": "Increased reliability in the underlying hardware of Amazon EC2 instances.",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "A"
+    ],
+    "times": 1,
     "domain": "BILLING_PRICING"
   },
   {
@@ -22719,6 +23291,40 @@
     "domain": "BILLING_PRICING"
   },
   {
+    "id": "11660",
+    "questionText": "Which of the following inspects AWS environments to find opportunities that can save money for users and also improve system performance ?",
+    "multiSelect": false,
+    "optionA": "AWS Cost Explorer",
+    "optionB": "AWS Trusted Advisor",
+    "optionC": "Consolidated billing",
+    "optionD": "Detailed billing",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "B"
+    ],
+    "times": 1,
+    "domain": "BILLING_PRICING"
+  },
+  {
+    "id": "11664",
+    "questionText": "Which AWS tools assist with estimating costs? (Select three.)",
+    "multiSelect": true,
+    "optionA": "Detailed billing report",
+    "optionB": "Cost allocation tags",
+    "optionC": "AWS Simple Monthly Calculator",
+    "optionD": "AWS Total Cost of Ownership (TCO) Calculator",
+    "optionE": "Cost Eliminator",
+    "optionF": "",
+    "correctAnswers": [
+      "B",
+      "C",
+      "D"
+    ],
+    "times": 1,
+    "domain": "BILLING_PRICING"
+  },
+  {
     "id": "11665",
     "questionText": "Which of the following are advantages of AWS consolidated billing? (Select TWO.)",
     "multiSelect": true,
@@ -22736,6 +23342,40 @@
     "domain": "BILLING_PRICING"
   },
   {
+    "id": "11676",
+    "questionText": "Which of the following can an AWS customer use to launch a new Amazon Relational Database Service (Amazon RDS) cluster? (Select TWO.)",
+    "multiSelect": true,
+    "optionA": "AWS Concierge",
+    "optionB": "AWS CloudFormation",
+    "optionC": "Amazon Simple Storage Service (Amazon S3)",
+    "optionD": "Amazon EC2 Auto Scaling",
+    "optionE": "AWS Management Console",
+    "optionF": "",
+    "correctAnswers": [
+      "B",
+      "E"
+    ],
+    "times": 1,
+    "domain": "BILLING_PRICING"
+  },
+  {
+    "id": "11684",
+    "questionText": "The financial benefits of using AWS are: (Select TWO.)",
+    "multiSelect": true,
+    "optionA": "reduced Total Cost of Ownership (TCO).",
+    "optionB": "increased capital expenditure (capex).",
+    "optionC": "reduced operational expenditure (opex).",
+    "optionD": "deferred payment plans for startups.",
+    "optionE": "business credit lines for stratups.",
+    "optionF": "",
+    "correctAnswers": [
+      "A",
+      "C"
+    ],
+    "times": 1,
+    "domain": "BILLING_PRICING"
+  },
+  {
     "id": "11686",
     "questionText": "Which AWS service or tool provides information about monthly costs of using Amazon EC2 and Amazon RDS for the past year?",
     "multiSelect": false,
@@ -22743,6 +23383,166 @@
     "optionB": "Cost Explorer",
     "optionC": "Amazon Forecast",
     "optionD": "Amazon CloudWatch",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "B"
+    ],
+    "times": 1,
+    "domain": "BILLING_PRICING"
+  },
+  {
+    "id": "11697",
+    "questionText": "- Which AWS service supports the creation of visual reports from AWS Cost and Usage Report data?",
+    "multiSelect": false,
+    "optionA": "Amazon Athena",
+    "optionB": "Amazon QuickSight",
+    "optionC": "Amazon CloudWatch",
+    "optionD": "AWS Organizations",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "B"
+    ],
+    "times": 1,
+    "domain": "BILLING_PRICING"
+  },
+  {
+    "id": "11699",
+    "questionText": "- A company is preparing to launch a new web store that is expected to receive high traffic for an upcoming event. The web store runs only on AWS, and the company has an AWS Enterprise Support plan. Which AWS resource will provide guidance about how the company should scale its architecture and operational support during the event?",
+    "multiSelect": false,
+    "optionA": "AWS Abuse team",
+    "optionB": "The designated AWS technical account manager (TAM)",
+    "optionC": "AWS infrastructure event management",
+    "optionD": "AWS Professional Services",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "C"
+    ],
+    "times": 1,
+    "domain": "BILLING_PRICING"
+  },
+  {
+    "id": "11701",
+    "questionText": "- A company that has multiple business units wants to centrally manage and govern its AWS Cloud environments. The company wants to automate the creation of AWS accounts, apply service control policies (SCPs), and simplify billing processes. Which AWS service or tool should the company use to meet these requirements?",
+    "multiSelect": false,
+    "optionA": "AWS Organizations",
+    "optionB": "Cost Explorer",
+    "optionC": "AWS Budgets",
+    "optionD": "AWS Trusted Advisor",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "A"
+    ],
+    "times": 1,
+    "domain": "BILLING_PRICING"
+  },
+  {
+    "id": "11710",
+    "questionText": "- A company runs its workloads on premises. The company wants to forecast the cost of running a large application on AWS. Which AWS service or tool can the company use to obtain this information?",
+    "multiSelect": false,
+    "optionA": "AWS Pricing Calculator",
+    "optionB": "AWS Budgets",
+    "optionC": "AWS Trusted Advisor",
+    "optionD": "Cost Explorer",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "A"
+    ],
+    "times": 1,
+    "domain": "BILLING_PRICING"
+  },
+  {
+    "id": "11711",
+    "questionText": "- A company wants to eliminate the need to guess infrastructure capacity before deployments. The company also wants to spend its budget on cloud resources only as the company uses the resources. Which advantage of the AWS Cloud matches the company's requirements?",
+    "multiSelect": false,
+    "optionA": "Reliability",
+    "optionB": "Global reach",
+    "optionC": "Economies of scale",
+    "optionD": "Pay-as-you-go pricing",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "D"
+    ],
+    "times": 1,
+    "domain": "BILLING_PRICING"
+  },
+  {
+    "id": "11732",
+    "questionText": "() A company is starting to build its infrastructure in the AWS Cloud. The company wants access to technical support during business hours. The company also wants general architectural guidance as teams build and test new applications. Which AWS Support plan will meet these requirements at the LOWEST cost?",
+    "multiSelect": false,
+    "optionA": "AWS Basic Support",
+    "optionB": "AWS Developer Support",
+    "optionC": "AWS Business Support",
+    "optionD": "AWS Enterprise Support",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "B"
+    ],
+    "times": 1,
+    "domain": "BILLING_PRICING"
+  },
+  {
+    "id": "11736",
+    "questionText": "() Which cloud computing benefit does AWS demonstrate with its ability to offer lower variable costs as a result of high purchase volumes?",
+    "multiSelect": false,
+    "optionA": "Pay-as-you-go pricing",
+    "optionB": "High availability",
+    "optionC": "Global reach",
+    "optionD": "Economies of scale",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "D"
+    ],
+    "times": 1,
+    "domain": "BILLING_PRICING"
+  },
+  {
+    "id": "11746",
+    "questionText": "() Which AWS service, feature, or tool uses machine learning to continuously monitor cost and usage for unusual cloud spending?",
+    "multiSelect": false,
+    "optionA": "Amazon Lookout for Metrics",
+    "optionB": "AWS Budgets",
+    "optionC": "Amazon CloudWatch",
+    "optionD": "AWS Cost Anomaly Detection",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "D"
+    ],
+    "times": 1,
+    "domain": "BILLING_PRICING"
+  },
+  {
+    "id": "11750",
+    "questionText": "() A company wants to run production workloads on AWS. The company wants access to technical support from engineers 24 hours a day, 7 days a week. The company also wants access to the AWS Health API and contextual architectural guidance for business use cases. The company has a strong IT support team and does not need concierge support. Which AWS Support plan will meet these requirements at the LOWEST cost?",
+    "multiSelect": false,
+    "optionA": "AWS Basic Support",
+    "optionB": "AWS Developer Support",
+    "optionC": "AWS Business Support",
+    "optionD": "AWS Enterprise Support",
+    "optionE": "",
+    "optionF": "",
+    "correctAnswers": [
+      "C"
+    ],
+    "times": 1,
+    "domain": "BILLING_PRICING"
+  },
+  {
+    "id": "11755",
+    "questionText": "() What is the LEAST expensive AWS Support plan that contains a full set of AWS Trusted Advisor best practice checks?",
+    "multiSelect": false,
+    "optionA": "AWS Enterprise Support",
+    "optionB": "AWS Business Support",
+    "optionC": "AWS Developer Support",
+    "optionD": "AWS Basic Support",
     "optionE": "",
     "optionF": "",
     "correctAnswers": [

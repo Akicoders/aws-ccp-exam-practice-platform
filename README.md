@@ -43,6 +43,23 @@ npm run build
 npm run lint
 ```
 
+## Question Bank Audit
+
+`src/data/questions/index.json` contains the generated audit for `master_questions_final.csv`.
+The current source contains 11,474 physical lines, including 12 blank lines, and 11,447 parsed records. Papa Parse reported 0 errors. No rows were skipped for an invalid domain, missing valid answer, or blank question, and no invalid domain, answer-token, `multiSelect`, or `times` values were found.
+
+Normalization deduplicates by the complete normalized payload: question text, `multiSelect`, `optionA-F`, `correctAnswers`, and domain. `id` and `times` identify the representative/frequency rather than the question content. All 11,447 parsed records are retained. Text-only repeats may remain when other source fields differ; those variants are intentionally distinct under the complete payload key. This prevents the previous text-only deduplication from discarding variants that shared a question stem but had different options or answer keys. The current output has 11,447 questions with no duplicate groups or removed rows:
+
+| Domain | Generated questions |
+| --- | ---: |
+| Cloud Concepts | 721 |
+| Security and Compliance | 3,947 |
+| Cloud Technology and Services | 5,319 |
+| Billing, Pricing, and Support | 1,460 |
+| **Total** | **11,447** |
+
+All generated records contain `id`, question text, `multiSelect`, `optionA-F`, `correctAnswers`, `times`, and `domain`. `optionC` is missing in 28 source rows and `optionD` in 79; those fields are explicitly replaced with `(Option not available)`. Optional `optionE` and `optionF` blanks remain blank. No usable populated field is silently dropped. The generated metadata is the source of truth for future regeneration audits.
+
 ## Project Structure
 
 ```

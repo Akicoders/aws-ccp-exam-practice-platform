@@ -27,6 +27,27 @@ test.describe("Static routes", () => {
     await expect(page.getByRole("timer", { name: "Time remaining" })).toBeVisible();
     await expect(page.getByText(/does NOT represent official AWS exam results/)).toBeVisible();
   });
+
+  test("session exposes an accessible loading state", async ({ page }) => {
+    await page.goto("/es/session/?preset=short", { waitUntil: "commit" });
+    const loading = page.getByRole("status");
+
+    await expect(loading).toBeVisible();
+    await expect(loading).toHaveAttribute("aria-busy", "true");
+    await expect(loading).toHaveAttribute("aria-label", "Cargando...");
+    await expect(loading).toContainText("Cargando...");
+  });
+
+  test("Spanish session keeps English question text visible", async ({ page }) => {
+    await page.goto("/es/session/?preset=short");
+    const question = page.locator("legend").first();
+
+    await expect(question).toBeVisible();
+    await expect(question).toHaveAttribute("lang", "en");
+    await expect(question).not.toHaveText("Selecciona una respuesta");
+    await expect(question).not.toHaveText("Selecciona todas las que correspondan");
+    await expect(page.getByText("Selecciona una respuesta").or(page.getByText("Selecciona todas las que correspondan"))).toBeVisible();
+  });
 });
 
 test.describe("Locale switching", () => {
