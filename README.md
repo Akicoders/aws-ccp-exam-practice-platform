@@ -14,6 +14,14 @@ A static, bilingual (English/Spanish) practice platform for the **AWS Certified 
 - **Curated explanations**: 200+ entries with a stable fallback message for uncovered questions
 - **Study resources**: Curated links to official AWS documentation, training, and community resources
 
+## Open Source
+
+- **Repository**: [Akicoders/aws-ccp-exam-practice-platform](https://github.com/Akicoders/aws-ccp-exam-practice-platform)
+- **License**: [MIT License](./LICENSE) for the repository's original source code
+- **Contributing**: [Open an issue](https://github.com/Akicoders/aws-ccp-exam-practice-platform/issues) or [submit a pull request](https://github.com/Akicoders/aws-ccp-exam-practice-platform/pulls)
+
+The question bank and generated question data are intentionally shipped as public educational content so learners can inspect and study them. They are not confidential exam material, and this project is not affiliated with or endorsed by AWS. Do not add secrets or sensitive data to the source question bank or generated assets.
+
 ### Browser Integrity Limitation
 
 This is a browser-based practice tool. A browser cannot reliably block window or tab switching, and this application cannot prove cheating or plagiarism. Simulation mode records best-effort `visibilitychange` and focus-loss signals with timestamps and shows their count in the results; an incident is only a browser signal, not proof of misconduct. It does not auto-submit when a signal occurs.
