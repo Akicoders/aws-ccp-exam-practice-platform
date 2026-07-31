@@ -7,7 +7,13 @@ import {
   mergeDomainAnalytics,
 } from "@/lib/browser-store";
 import type { BrowserStore, SessionState, SessionResult, DomainAnalytics, Domain } from "@/types/contracts";
-import { SESSION_STATUS, DOMAIN, SESSION_CONFIG, STORAGE_KEY } from "@/types/contracts";
+import {
+  SESSION_STATUS,
+  DOMAIN,
+  SESSION_CONFIG,
+  SESSION_MODE,
+  STORAGE_KEY,
+} from "@/types/contracts";
 
 const storage = new Map<string, string>();
 
@@ -55,7 +61,11 @@ describe("loadStore", () => {
       answers: [],
       currentIndex: 0,
       config: SESSION_CONFIG.SHORT,
+      mode: SESSION_MODE.STUDY,
       startTime: null,
+      elapsedVisibleMs: 0,
+      visibleSince: null,
+      integrityIncidents: [],
       status: SESSION_STATUS.ACTIVE,
     };
     const validResult: SessionResult = {
@@ -66,8 +76,11 @@ describe("loadStore", () => {
       percentage: 100,
       passed: true,
       answers: [],
+      timeSpentMs: 1000,
       completedAt: 100,
       preset: "SHORT",
+      mode: SESSION_MODE.STUDY,
+      integrityIncidentCount: 0,
     };
     const validAnalytics: DomainAnalytics = {
       domain: DOMAIN.CLOUD_CONCEPTS,
@@ -110,7 +123,11 @@ describe("loadStore", () => {
             answers: [null],
             currentIndex: 0,
             config: SESSION_CONFIG.SHORT,
+            mode: SESSION_MODE.STUDY,
             startTime: null,
+            elapsedVisibleMs: 0,
+            visibleSince: null,
+            integrityIncidents: [],
             status: SESSION_STATUS.ACTIVE,
           },
         ],
@@ -123,6 +140,7 @@ describe("loadStore", () => {
             percentage: 100,
             passed: true,
             answers: [{ questionId: "q1", selected: ["invalid"] }],
+            timeSpentMs: 1000,
             completedAt: 100,
             preset: "SHORT",
           },
@@ -161,7 +179,11 @@ describe("upsertSession", () => {
       answers: [],
       currentIndex: 0,
       config: SESSION_CONFIG.SHORT,
+      mode: SESSION_MODE.STUDY,
       startTime: null,
+      elapsedVisibleMs: 0,
+      visibleSince: null,
+      integrityIncidents: [],
       status: SESSION_STATUS.ACTIVE,
     };
     const updated = upsertSession(store, session);
@@ -176,7 +198,11 @@ describe("upsertSession", () => {
       answers: [],
       currentIndex: 0,
       config: SESSION_CONFIG.SHORT,
+      mode: SESSION_MODE.STUDY,
       startTime: null,
+      elapsedVisibleMs: 0,
+      visibleSince: null,
+      integrityIncidents: [],
       status: SESSION_STATUS.ACTIVE,
     };
     let store: BrowserStore = {
@@ -201,7 +227,11 @@ describe("addResult", () => {
       answers: [],
       currentIndex: 0,
       config: SESSION_CONFIG.SHORT,
+      mode: SESSION_MODE.STUDY,
       startTime: null,
+      elapsedVisibleMs: 0,
+      visibleSince: null,
+      integrityIncidents: [],
       status: SESSION_STATUS.ACTIVE,
     };
     let store: BrowserStore = {
@@ -220,8 +250,11 @@ describe("addResult", () => {
       percentage: 80,
       passed: true,
       answers: [],
+      timeSpentMs: 120000,
       completedAt: Date.now(),
       preset: "SHORT",
+      mode: SESSION_MODE.STUDY,
+      integrityIncidentCount: 0,
     };
     const updated = addResult(store, result);
     expect(updated.results.length).toBe(1);

@@ -3,6 +3,7 @@ import {
   computeQuotas,
   sampleSession,
   createSession,
+  recordIntegrityIncident,
   scoreSession,
 } from "@/lib/quiz-engine";
 import {
@@ -12,7 +13,9 @@ import {
   type Domain,
   type SessionPreset,
   DOMAIN,
+  INTEGRITY_INCIDENT_TYPE,
   SESSION_CONFIG,
+  SESSION_MODE,
 } from "@/types/contracts";
 
 function makePool(
@@ -123,6 +126,43 @@ describe("sampleSession", () => {
 });
 
 describe("createSession and scoreSession", () => {
+  it("records incidents only for simulation sessions and includes the count in results", () => {
+    const question: NormalizedQuestion = {
+      id: "q1",
+      questionText: "Test?",
+      multiSelect: false,
+      optionA: "A",
+      optionB: "B",
+      optionC: "",
+      optionD: "",
+      optionE: "",
+      optionF: "",
+      correctAnswers: ["A"],
+      times: 1,
+      domain: DOMAIN.CLOUD_CONCEPTS,
+    };
+    const study = createSession([question], { questionCount: 1, durationMinutes: 10 });
+    const simulation = createSession(
+      [question],
+      { questionCount: 1, durationMinutes: 10 },
+      SESSION_MODE.SIMULATION
+    );
+
+    expect(recordIntegrityIncident(study, INTEGRITY_INCIDENT_TYPE.FOCUS_LOST, 1000)).toBe(study);
+    const recorded = recordIntegrityIncident(
+      simulation,
+      INTEGRITY_INCIDENT_TYPE.FOCUS_LOST,
+      1000
+    );
+    const { result } = scoreSession(recorded, [question], 2000);
+
+    expect(recorded.integrityIncidents).toEqual([
+      { type: INTEGRITY_INCIDENT_TYPE.FOCUS_LOST, timestamp: 1000 },
+    ]);
+    expect(result.mode).toBe(SESSION_MODE.SIMULATION);
+    expect(result.integrityIncidentCount).toBe(1);
+  });
+
   it("scores correctly with single-select answers", () => {
     const questions: NormalizedQuestion[] = [
       {

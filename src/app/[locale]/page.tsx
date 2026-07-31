@@ -1,11 +1,13 @@
 "use client";
 
-import { use, useCallback } from "react";
+import { use, useCallback, useState } from "react";
 import { useRouter } from "next/navigation";
 import { useMessages } from "./locale-layout-client";
 import {
   SESSION_CONFIG,
+  SESSION_MODE,
   type SessionPreset,
+  type SessionMode,
   DOMAIN_TARGETS,
   DISCLAIMER_TEXT,
 } from "@/types/contracts";
@@ -21,13 +23,14 @@ export default function HomePage({
   const { locale } = use(params);
   const router = useRouter();
   const msg = useMessages(locale);
+  const [mode, setMode] = useState<SessionMode>(SESSION_MODE.STUDY);
 
   const startSession = useCallback(
     (preset: SessionPreset) => {
       const key = preset.toLowerCase();
-      router.push(`/${locale}/session?preset=${key}`);
+      router.push(`/${locale}/session?preset=${key}&mode=${mode}`);
     },
-    [locale, router]
+    [locale, mode, router]
   );
 
   return (
@@ -49,9 +52,48 @@ export default function HomePage({
           .join(" | ")}
       </div>
 
-      <h2 className="text-xl font-semibold text-center">
-        {msg.home.selectPreset}
-      </h2>
+      <section className="space-y-3" aria-labelledby="session-mode-title">
+        <h2 id="session-mode-title" className="text-xl font-semibold text-center">
+          {msg.home.selectMode}
+        </h2>
+        <fieldset className="grid gap-4 sm:grid-cols-2">
+          <legend className="sr-only">{msg.home.selectMode}</legend>
+          <label className="flex cursor-pointer gap-3 rounded-xl border border-border bg-surface-alt p-4 transition-colors hover:border-brand-500 has-[:focus-visible]:ring-2 has-[:focus-visible]:ring-brand-500 dark:border-border-dark dark:bg-surface-dark-alt">
+            <input
+              type="radio"
+              name="session-mode"
+              value={SESSION_MODE.STUDY}
+              checked={mode === SESSION_MODE.STUDY}
+              onChange={() => setMode(SESSION_MODE.STUDY)}
+              className="mt-1"
+            />
+            <span className="min-w-0">
+              <span className="block font-semibold">{msg.home.studyMode}</span>
+              <span className="mt-1 block text-sm text-text-secondary dark:text-text-dark-secondary">
+                {msg.home.studyModeDescription}
+              </span>
+            </span>
+          </label>
+          <label className="flex cursor-pointer gap-3 rounded-xl border border-border bg-surface-alt p-4 transition-colors hover:border-brand-500 has-[:focus-visible]:ring-2 has-[:focus-visible]:ring-brand-500 dark:border-border-dark dark:bg-surface-dark-alt">
+            <input
+              type="radio"
+              name="session-mode"
+              value={SESSION_MODE.SIMULATION}
+              checked={mode === SESSION_MODE.SIMULATION}
+              onChange={() => setMode(SESSION_MODE.SIMULATION)}
+              className="mt-1"
+            />
+            <span className="min-w-0">
+              <span className="block font-semibold">{msg.home.simulationMode}</span>
+              <span className="mt-1 block text-sm text-text-secondary dark:text-text-dark-secondary">
+                {msg.home.simulationModeDescription}
+              </span>
+            </span>
+          </label>
+        </fieldset>
+      </section>
+
+      <h2 className="text-xl font-semibold text-center">{msg.home.selectPreset}</h2>
 
       <div className="grid gap-4 sm:grid-cols-3">
         {PRESET_KEYS.map((key) => {

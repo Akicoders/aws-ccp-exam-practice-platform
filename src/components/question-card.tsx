@@ -1,14 +1,20 @@
 "use client";
 
-import { type NormalizedQuestion, type OptionLetter, OPTION_LETTER } from "@/types/contracts";
+import {
+  type Locale,
+  type NormalizedQuestion,
+  type OptionLetter,
+  LOCALE,
+} from "@/types/contracts";
+import { getQuestionCopy, getQuestionOptionText } from "@/data/questions/translations";
 
 const OPTIONS = [
-  { key: "A" as OptionLetter, field: "optionA" as const },
-  { key: "B" as OptionLetter, field: "optionB" as const },
-  { key: "C" as OptionLetter, field: "optionC" as const },
-  { key: "D" as OptionLetter, field: "optionD" as const },
-  { key: "E" as OptionLetter, field: "optionE" as const },
-  { key: "F" as OptionLetter, field: "optionF" as const },
+  "A" as OptionLetter,
+  "B" as OptionLetter,
+  "C" as OptionLetter,
+  "D" as OptionLetter,
+  "E" as OptionLetter,
+  "F" as OptionLetter,
 ];
 
 interface QuestionCardProps {
@@ -19,6 +25,9 @@ interface QuestionCardProps {
   showResult?: boolean;
   isCorrect?: boolean;
   correctAnswers?: OptionLetter[];
+  locale?: Locale;
+  correctLabel?: string;
+  incorrectLabel?: string;
 }
 
 export default function QuestionCard({
@@ -29,7 +38,11 @@ export default function QuestionCard({
   showResult = false,
   isCorrect,
   correctAnswers,
+  locale = LOCALE.EN,
+  correctLabel = "Correct",
+  incorrectLabel = "Incorrect",
 }: QuestionCardProps) {
+  const copy = getQuestionCopy(question, locale);
   const handleSelect = (option: OptionLetter) => {
     if (showResult || !onSelect) return;
     onSelect(option);
@@ -54,29 +67,31 @@ export default function QuestionCard({
     selectionLabel ??
     (question.multiSelect ? "Select all that apply" : "Select one answer");
 
+  const contentLang = copy.source === "reviewed-spanish" ? "es" : "en";
+
   return (
-    <fieldset className="space-y-4">
-      <legend lang="en" className="text-base font-medium mb-2">
-        {question.questionText}
+    <fieldset className="space-y-4 min-w-0">
+      <legend lang={contentLang} className="mb-2 text-base font-medium text-pretty break-words">
+        {copy.questionText}
       </legend>
       <p className="text-xs text-text-secondary dark:text-text-dark-secondary mb-3">
         {label}
         {showResult && isCorrect !== undefined && (
           <span className={`ml-2 font-medium ${isCorrect ? "text-green-600 dark:text-green-400" : "text-red-600 dark:text-red-400"}`}>
-            {isCorrect ? "✓ Correct" : "✗ Incorrect"}
+            {isCorrect ? `✓ ${correctLabel}` : `✗ ${incorrectLabel}`}
           </span>
         )}
       </p>
 
       <div className="space-y-2">
-        {OPTIONS.map(({ key, field }) => {
-          const optionText = question[field];
-          if (!optionText) return null; // Skip empty options
+         {OPTIONS.map((key) => {
+           const optionText = getQuestionOptionText(question, copy, key);
+           if (!optionText) return null; // Skip empty options
 
           return (
             <label
               key={key}
-              className={`flex items-start gap-3 rounded-lg border p-3 cursor-pointer transition-colors ${getOptionStyle(key)} ${showResult ? "cursor-default" : ""}`}
+              className={`flex min-h-11 items-start gap-3 rounded-lg border p-3 cursor-pointer touch-manipulation transition-colors ${getOptionStyle(key)} ${showResult ? "cursor-default" : ""}`}
             >
               <input
                 type={question.multiSelect ? "checkbox" : "radio"}
@@ -88,7 +103,7 @@ export default function QuestionCard({
                 className="mt-0.5"
                 aria-label={`Option ${key}: ${optionText}`}
               />
-              <div className="flex-1 text-sm">
+              <div lang={contentLang} className="min-w-0 flex-1 break-words text-sm">
                 <span className="font-medium mr-2">{key}.</span>
                 {optionText}
               </div>

@@ -5,12 +5,20 @@ A static, bilingual (English/Spanish) practice platform for the **AWS Certified 
 ## Features
 
 - **Timed practice sessions**: 10q/10m, 20q/20m, and 50q/60m presets with CLF-C02 domain weighting
+- **Two session modes**: Study mode pauses the timer when the tab is hidden and keeps feedback available; Simulation mode keeps the timer running and records conservative browser visibility/focus signals
 - **Realistic scoring**: One raw point per correct answer, all-or-nothing multi-select, inclusive 70% pass threshold
 - **Domain analytics**: Per-domain accuracy breakdown, weak-area aggregation, and persistent results
 - **Bilingual UI**: Static English and Spanish routes with client-side locale switching
 - **Responsive design**: Light/dark theme, keyboard navigation, skip link, and `aria-live` timer
+- **Quiz copy deterrence**: Quiz-only selection, copy, context-menu, and drag deterrence; this is a client-side usability measure, not cryptographic protection
 - **Curated explanations**: 200+ entries with a stable fallback message for uncovered questions
 - **Study resources**: Curated links to official AWS documentation, training, and community resources
+
+### Browser Integrity Limitation
+
+This is a browser-based practice tool. A browser cannot reliably block window or tab switching, and this application cannot prove cheating or plagiarism. Simulation mode records best-effort `visibilitychange` and focus-loss signals with timestamps and shows their count in the results; an incident is only a browser signal, not proof of misconduct. It does not auto-submit when a signal occurs.
+
+Study mode records no integrity incidents. In Simulation mode the timer continues while the page is hidden or unfocused. Browser focus and visibility behavior varies on mobile devices, so the app does not treat viewport or orientation changes as incidents, ignores focus-loss signals on coarse-pointer devices, and may receive incomplete signals depending on the browser.
 
 ## Local Commands
 
@@ -59,6 +67,10 @@ Normalization deduplicates by the complete normalized payload: question text, `m
 | **Total** | **11,447** |
 
 All generated records contain `id`, question text, `multiSelect`, `optionA-F`, `correctAnswers`, `times`, and `domain`. `optionC` is missing in 28 source rows and `optionD` in 79; those fields are explicitly replaced with `(Option not available)`. Optional `optionE` and `optionF` blanks remain blank. No usable populated field is silently dropped. The generated metadata is the source of truth for future regeneration audits.
+
+## Question Translation Coverage
+
+`master_questions_final.csv` and the generated question pools contain English source content only. Reviewed Spanish question and option text is intentionally separated from generated data in `src/data/questions/translations.ts`; the companion map currently contains **0 of 11,447 questions (0%)**. The Spanish UI therefore labels the English source as an explicit fallback instead of inventing or silently machine-translating AWS content. Add translations only after human review, keyed by the generated question ID.
 
 ## Project Structure
 
@@ -135,7 +147,8 @@ aws cloudfront create-invalidation --distribution-id YOUR_DIST --paths "/*"
 - `output: "export"` produces a fully static site. No Node.js server is required.
 - All routes are statically generated at build time (`generateStaticParams` for `en`/`es`).
 - Session state is stored in `localStorage` under key `aws-ccp-exam:v1` as one JSON-serializable object.
-- The timer starts on the first answer, pauses when the tab is hidden, and has a finite 2x wall-clock cap.
+- The timer starts on the first answer. Study mode pauses when the tab is hidden, has a finite 2x wall-clock cap, and persists visible elapsed time; Simulation mode uses wall-clock elapsed time while hidden or unfocused.
+- Active session IDs, mode, answers, current question, timer state, and simulation incident timestamps are serialized together so locale changes do not restart an exam.
 - Question IDs are unique within a session but reused across sessions.
 - Domain pool sizes are generated from the deduped output — no hardcoded totals.
 - No GitHub Actions, CI workflows, runtime middleware, or dynamic `[id]` routes.

@@ -8,6 +8,9 @@ import {
   type SessionConfig,
   type SessionPreset,
   type SessionStatus,
+  type SessionMode,
+  type IntegrityIncident,
+  type IntegrityIncidentType,
   type DomainAnalytics,
   type Locale,
   type Theme,
@@ -15,6 +18,8 @@ import {
   LOCALE,
   OPTION_LETTER,
   SESSION_CONFIG,
+  SESSION_MODE,
+  INTEGRITY_INCIDENT_TYPE,
   SESSION_STATUS,
   STORAGE_KEY,
   THEME,
@@ -34,6 +39,11 @@ function isFiniteNumber(value: unknown): value is number {
 
 function isNonNegativeInteger(value: unknown): value is number {
   return isFiniteNumber(value) && Number.isInteger(value) && value >= 0;
+}
+
+function readOptionalNonNegativeInteger(value: unknown, fallback: number): number | null {
+  if (value === undefined) return fallback;
+  return isNonNegativeInteger(value) ? value : null;
 }
 
 function isOptionLetter(value: unknown): value is (typeof OPTION_LETTER)[keyof typeof OPTION_LETTER] {
@@ -63,6 +73,14 @@ function isSessionStatus(value: unknown): value is SessionStatus {
 
 function isSessionPreset(value: unknown): value is SessionPreset {
   return typeof value === "string" && Object.keys(SESSION_CONFIG).includes(value);
+}
+
+function isSessionMode(value: unknown): value is SessionMode {
+  return value === SESSION_MODE.STUDY || value === SESSION_MODE.SIMULATION;
+}
+
+function isIntegrityIncidentType(value: unknown): value is IntegrityIncidentType {
+  return Object.values(INTEGRITY_INCIDENT_TYPE).includes(value as IntegrityIncidentType);
 }
 
 function normalizeOptionLetters(value: unknown): (typeof OPTION_LETTER)[keyof typeof OPTION_LETTER][] | null {
@@ -137,6 +155,14 @@ function normalizeAnswerResult(value: unknown): AnswerResult | null {
   };
 }
 
+function normalizeIntegrityIncident(value: unknown): IntegrityIncident | null {
+  if (!isRecord(value) || !isIntegrityIncidentType(value.type) || !isFiniteNumber(value.timestamp)) {
+    return null;
+  }
+
+  return { type: value.type, timestamp: value.timestamp };
+}
+
 function normalizeSessionConfig(value: unknown): SessionConfig | null {
   if (
     !isRecord(value) ||
@@ -182,13 +208,43 @@ function normalizeSession(value: unknown): SessionState | null {
     return null;
   }
 
+  const elapsedVisibleMs = readOptionalNonNegativeInteger(value.elapsedVisibleMs, 0);
+  if (elapsedVisibleMs === null) return null;
+
+  let mode: SessionMode;
+  if (value.mode === undefined) {
+    mode = SESSION_MODE.STUDY;
+  } else if (isSessionMode(value.mode)) {
+    mode = value.mode;
+  } else {
+    return null;
+  }
+
+  const integrityIncidents = value.integrityIncidents === undefined
+    ? []
+    : normalizeRequiredRecords(value.integrityIncidents, normalizeIntegrityIncident);
+  if (!integrityIncidents) return null;
+
+  let visibleSince: number | null;
+  if (value.visibleSince === undefined || value.visibleSince === null) {
+    visibleSince = null;
+  } else if (isFiniteNumber(value.visibleSince)) {
+    visibleSince = value.visibleSince;
+  } else {
+    return null;
+  }
+
   return {
     id: value.id,
     questionIds,
     answers,
     currentIndex: value.currentIndex,
     config,
+    mode,
     startTime,
+    elapsedVisibleMs,
+    visibleSince: startTime === null ? null : visibleSince,
+    integrityIncidents,
     status: value.status,
   };
 }
@@ -212,7 +268,21 @@ function normalizeResult(value: unknown): SessionResult | null {
   }
 
   const answers = normalizeRequiredRecords(value.answers, normalizeAnswerResult);
-  if (!answers || value.correctCount > value.totalQuestions || value.rawPoints > value.totalQuestions) {
+  const timeSpentMs = readOptionalNonNegativeInteger(value.timeSpentMs, 0);
+  const integrityIncidentCount = readOptionalNonNegativeInteger(value.integrityIncidentCount, 0);
+  const mode = value.mode === undefined
+    ? SESSION_MODE.STUDY
+    : isSessionMode(value.mode)
+      ? value.mode
+      : null;
+  if (
+    !answers ||
+    timeSpentMs === null ||
+    integrityIncidentCount === null ||
+    mode === null ||
+    value.correctCount > value.totalQuestions ||
+    value.rawPoints > value.totalQuestions
+  ) {
     return null;
   }
 
@@ -224,8 +294,11 @@ function normalizeResult(value: unknown): SessionResult | null {
     percentage: value.percentage,
     passed: value.passed,
     answers,
+    timeSpentMs,
     completedAt: value.completedAt,
     preset: value.preset,
+    mode,
+    integrityIncidentCount,
   };
 }
 

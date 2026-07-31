@@ -1,30 +1,48 @@
 "use client";
 
-import { use, useState, useEffect, useRef } from "react";
+import { use, useEffect, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useMessages } from "../locale-layout-client";
 import QuestionCard from "@/components/question-card";
 import Disclaimer from "@/components/disclaimer";
 import SessionLoading from "@/components/session-loading";
 import {
-  type SessionResult,
+  type Domain,
+  type Locale,
   type NormalizedQuestion,
-  type DomainPool,
-  type DomainAnalytics,
+  type SessionResult,
+  DOMAIN_LABELS,
+  DOMAIN_ORDER,
   DISCLAIMER_TEXT,
   EXPLANATION_UNAVAILABLE,
-  DOMAIN_ORDER,
-  DOMAIN_LABELS,
+  LOCALE,
+  SESSION_MODE,
+  TRANSLATION_SOURCE,
 } from "@/types/contracts";
 import { loadStore } from "@/lib/browser-store";
 import { loadQuestionPools } from "@/data/questions/index";
+import { getQuestionCopy } from "@/data/questions/translations";
 import explanations from "@/data/explanations.json";
 
-type ExplanationEntry = {
+interface ExplanationEntry {
   questionId: string;
   domain: string;
   explanation: string;
-};
+}
+
+interface DomainStat {
+  domain: Domain;
+  correct: number;
+  total: number;
+  accuracy: number;
+}
+
+function formatTimeSpent(timeSpentMs: number): string {
+  const totalSeconds = Math.max(0, Math.floor(timeSpentMs / 1000));
+  const minutes = Math.floor(totalSeconds / 60);
+  const seconds = totalSeconds % 60;
+  return `${minutes.toString().padStart(2, "0")}:${seconds.toString().padStart(2, "0")}`;
+}
 
 export default function ResultsPage({
   params,
@@ -35,11 +53,10 @@ export default function ResultsPage({
   const searchParams = useSearchParams();
   const router = useRouter();
   const msg = useMessages(locale);
+  const localeValue = locale as Locale;
   const [result, setResult] = useState<SessionResult | null>(null);
-  const [analytics, setAnalytics] = useState<DomainAnalytics[]>([]);
-  const [questionPools, setQuestionPools] = useState<DomainPool[] | null>(null);
+  const [questionMap, setQuestionMap] = useState<Map<string, NormalizedQuestion> | null>(null);
   const [loading, setLoading] = useState(true);
-  const [reviewIndex, setReviewIndex] = useState<number | null>(null);
 
   useEffect(() => {
     let active = true;
@@ -52,16 +69,21 @@ export default function ResultsPage({
           return;
         }
 
-        const store = loadStore(locale as any, "light");
-        const found = store.results.find((r) => r.sessionId === sessionId);
-        if (found) {
-          const pools = await loadQuestionPools();
-          if (!active) return;
-          setQuestionPools(pools);
-          setResult(found);
+        const store = loadStore(localeValue, "light");
+        const found = store.results.find((candidate) => candidate.sessionId === sessionId);
+        if (!found) {
+          setLoading(false);
+          return;
         }
+
+        const pools = await loadQuestionPools();
         if (!active) return;
-        setAnalytics(store.analytics);
+        const questions = new Map<string, NormalizedQuestion>();
+        for (const pool of pools) {
+          for (const question of pool.questions) questions.set(question.id, question);
+        }
+        setQuestionMap(questions);
+        setResult(found);
         setLoading(false);
       } catch {
         if (!active) return;
@@ -73,21 +95,19 @@ export default function ResultsPage({
     return () => {
       active = false;
     };
-  }, [locale, searchParams]);
+  }, [localeValue, searchParams]);
 
   if (loading) {
     return <SessionLoading label={msg.common.loading} />;
   }
 
-  if (!result) {
+  if (!result || !questionMap) {
     return (
       <div className="space-y-4 text-center">
-        <p className="text-text-secondary dark:text-text-dark-secondary">
-          No results found for this session.
-        </p>
+        <p className="text-text-secondary dark:text-text-dark-secondary">No results found for this session.</p>
         <button
           onClick={() => router.push(`/${locale}`)}
-          className="rounded-lg bg-brand-600 px-4 py-2 text-white text-sm font-medium hover:bg-brand-700"
+          className="min-h-11 rounded-lg bg-brand-600 px-4 py-2 text-sm font-medium text-white hover:bg-brand-700"
         >
           {msg.session.goHome}
         </button>
@@ -95,219 +115,240 @@ export default function ResultsPage({
     );
   }
 
-  // Build question lookup
-  const questionMap = new Map<string, NormalizedQuestion>();
-  if (!questionPools) {
-    return <div>{msg.common.error}</div>;
-  }
-  for (const pool of questionPools) {
-    for (const q of pool.questions) {
-      questionMap.set(q.id, q);
-    }
-  }
-
   const explanationMap = new Map<string, ExplanationEntry>();
-  for (const entry of explanations as ExplanationEntry[]) {
-    explanationMap.set(entry.questionId, entry);
-  }
+  for (const entry of explanations as ExplanationEntry[]) explanationMap.set(entry.questionId, entry);
 
-  const getExplanation = (questionId: string): string => {
-    const entry = explanationMap.get(questionId);
-    return entry?.explanation ?? EXPLANATION_UNAVAILABLE;
-  };
+  const domainStats: DomainStat[] = DOMAIN_ORDER.map((domain) => {
+    const answers = result.answers.filter((answer) => questionMap.get(answer.questionId)?.domain === domain);
+    const correct = answers.filter((answer) => answer.isCorrect).length;
+    const total = answers.length;
+    return {
+      domain,
+      correct,
+      total,
+      accuracy: total > 0 ? Math.round((correct / total) * 100) : 0,
+    };
+  }).filter((stat) => stat.total > 0);
 
+  const weakestDomain = [...domainStats].sort((left, right) => left.accuracy - right.accuracy)[0];
   const passColor = result.passed
     ? "text-green-600 dark:text-green-400"
     : "text-red-600 dark:text-red-400";
-
-  if (reviewIndex !== null) {
-    const answer = result.answers[reviewIndex];
+  const timeSpent = result.timeSpentMs > 0
+    ? formatTimeSpent(result.timeSpentMs)
+    : msg.results.notRecorded;
+  const modeLabel = result.mode === SESSION_MODE.SIMULATION
+    ? msg.results.simulationMode
+    : msg.results.studyMode;
+  const hasEnglishFallback = localeValue === LOCALE.ES && result.answers.some((answer) => {
     const question = questionMap.get(answer.questionId);
-    if (!question) {
-      return <div>Question not found.</div>;
-    }
-
-    return (
-      <div className="space-y-6">
-        <button
-          onClick={() => setReviewIndex(null)}
-          className="text-sm text-brand-600 hover:text-brand-700"
-        >
-          ← Back to results
-        </button>
-
-          <QuestionCard
-            question={question}
-            selectedOptions={answer.selected}
-            selectionLabel={
-              question.multiSelect
-                ? msg.session.multiSelect
-                : msg.session.singleSelect
-            }
-            showResult
-          isCorrect={answer.isCorrect}
-          correctAnswers={answer.correctAnswers}
-        />
-
-        <div className="rounded-lg border border-border dark:border-border-dark p-4">
-          <h3 className="font-medium text-sm mb-2">{msg.results.explanation}</h3>
-          <p className="text-sm text-text-secondary dark:text-text-dark-secondary">
-            {getExplanation(answer.questionId)}
-          </p>
-        </div>
-
-        <Disclaimer text={DISCLAIMER_TEXT} />
-      </div>
-    );
-  }
+    return question && getQuestionCopy(question, localeValue).source === TRANSLATION_SOURCE.ENGLISH_FALLBACK;
+  });
 
   return (
-    <div className="space-y-8">
-      <div className="text-center space-y-2">
-        <h1 className="text-3xl font-bold">{msg.results.title}</h1>
-        <div className={`text-5xl font-bold ${passColor}`}>
-          {Math.round(result.percentage)}%
-        </div>
-        <div className="text-lg">
-          <span className={passColor}>
-            {result.passed ? msg.results.passed : msg.results.failed}
-          </span>
-          <span className="text-text-secondary dark:text-text-dark-secondary ml-2">
+    <div className="min-w-0 space-y-6">
+      <header className="space-y-3 text-center">
+        <h1 className="text-balance text-3xl font-bold">{msg.results.title}</h1>
+        <div className={`text-5xl font-bold tabular-nums ${passColor}`}>{Math.round(result.percentage)}%</div>
+        <p className={`text-lg font-semibold ${passColor}`} role="status" aria-live="polite">
+          {result.passed ? msg.results.passed : msg.results.failed}
+          <span className="ml-2 text-sm font-normal text-text-secondary dark:text-text-dark-secondary">
             ({msg.results.passThreshold})
           </span>
-        </div>
-        <div className="text-sm text-text-secondary dark:text-text-dark-secondary">
-          {msg.results.rawPoints}: {result.rawPoints}/{result.totalQuestions} |{" "}
-          {msg.results.correct}: {result.correctCount}/{result.totalQuestions}
-        </div>
-      </div>
+        </p>
+      </header>
 
-      {/* Domain Breakdown */}
-      <div className="rounded-xl border border-border dark:border-border-dark p-4">
-        <h2 className="font-semibold mb-4">{msg.results.domainBreakdown}</h2>
-        <div className="space-y-3">
-          {result.answers.map((answer) => {
-            const q = questionMap.get(answer.questionId);
-            const domain = q?.domain;
-            if (!domain) return null;
-            return null; // We aggregate below
-          })}
-
-          {/* Aggregate domain stats */}
-          {(() => {
-            const domainStats: Record<string, { correct: number; total: number }> = {};
-            for (const answer of result.answers) {
-              const q = questionMap.get(answer.questionId);
-              const domain = q?.domain;
-              if (!domain) continue;
-              if (!domainStats[domain]) {
-                domainStats[domain] = { correct: 0, total: 0 };
-              }
-              domainStats[domain].total += 1;
-              if (answer.isCorrect) domainStats[domain].correct += 1;
-            }
-
-            return DOMAIN_ORDER.map((domain) => {
-              const stats = domainStats[domain];
-              if (!stats) return null;
-              const accuracy = stats.total > 0 ? Math.round((stats.correct / stats.total) * 100) : 0;
-              return (
-                <div key={domain}>
-                  <div className="flex justify-between text-sm mb-1">
-                    <span>{DOMAIN_LABELS[domain]}</span>
-                    <span>
-                      {stats.correct}/{stats.total} ({accuracy}%)
-                    </span>
-                  </div>
-                  <div className="w-full bg-border dark:bg-border-dark rounded-full h-2">
-                    <div
-                      className={`h-2 rounded-full transition-all ${
-                        accuracy >= 70
-                          ? "bg-green-500"
-                          : accuracy >= 40
-                            ? "bg-amber-500"
-                            : "bg-red-500"
-                      }`}
-                      style={{ width: `${accuracy}%` }}
-                    />
-                  </div>
-                </div>
-              );
-            });
-          })()}
-        </div>
-      </div>
-
-      {/* Weak Areas */}
-      <div className="rounded-xl border border-border dark:border-border-dark p-4">
-        <h2 className="font-semibold mb-2">{msg.results.weakAreas}</h2>
-        {analytics.length === 0 ? (
-          <p className="text-sm text-text-secondary dark:text-text-dark-secondary">
-            {msg.results.weakAreaIntro}
+      <section className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4" aria-label={msg.results.title}>
+        <div className="min-w-0 rounded-xl border border-border p-4 dark:border-border-dark">
+          <p className="text-xs font-medium uppercase tracking-wide text-text-secondary dark:text-text-dark-secondary">
+            {msg.results.correct}
           </p>
-        ) : (
-          <div className="space-y-3">
-            {analytics.map((a) => {
-              const accuracy = a.total > 0 ? Math.round((a.correct / a.total) * 100) : 0;
-              return (
-                <div key={a.domain}>
-                  <div className="flex justify-between text-sm mb-1">
-                    <span>{DOMAIN_LABELS[a.domain as keyof typeof DOMAIN_LABELS] || a.domain}</span>
-                    <span>
-                      {a.correct}/{a.total} ({accuracy}%)
-                    </span>
+          <p className="mt-1 text-2xl font-semibold tabular-nums">
+            {result.correctCount}/{result.totalQuestions}
+          </p>
+        </div>
+        <div className="min-w-0 rounded-xl border border-border p-4 dark:border-border-dark">
+          <p className="text-xs font-medium uppercase tracking-wide text-text-secondary dark:text-text-dark-secondary">
+            {msg.results.timeSpent}
+          </p>
+          <p className="mt-1 text-2xl font-semibold font-mono tabular-nums">{timeSpent}</p>
+        </div>
+        <div className="min-w-0 rounded-xl border border-border p-4 dark:border-border-dark">
+          <p className="text-xs font-medium uppercase tracking-wide text-text-secondary dark:text-text-dark-secondary">
+            {msg.results.rawPoints}
+          </p>
+          <p className="mt-1 text-2xl font-semibold tabular-nums">{result.rawPoints}</p>
+        </div>
+        <div className="min-w-0 rounded-xl border border-border p-4 dark:border-border-dark">
+          <p className="text-xs font-medium uppercase tracking-wide text-text-secondary dark:text-text-dark-secondary">
+            {msg.results.mode}
+          </p>
+          <p className="mt-1 break-words text-lg font-semibold">{modeLabel}</p>
+        </div>
+        <div className="min-w-0 rounded-xl border border-border p-4 dark:border-border-dark">
+          <p className="text-xs font-medium uppercase tracking-wide text-text-secondary dark:text-text-dark-secondary">
+            {msg.results.integrityIncidents}
+          </p>
+          <p className="mt-1 text-2xl font-semibold tabular-nums">{result.integrityIncidentCount}</p>
+          <p className="mt-1 text-xs text-text-secondary dark:text-text-dark-secondary">
+            {result.integrityIncidentCount === 0 ? msg.results.integrityIncidentNone : msg.results.integrityIncidentNote}
+          </p>
+        </div>
+      </section>
+
+      {hasEnglishFallback && (
+        <div
+          role="note"
+          className="rounded-lg border border-sky-200 bg-sky-50 px-4 py-3 text-sm text-sky-900 dark:border-sky-800 dark:bg-sky-950/30 dark:text-sky-100"
+        >
+          {msg.session.englishFallback}
+        </div>
+      )}
+
+      <section className="rounded-xl border border-border p-4 dark:border-border-dark sm:p-5">
+        <div className="mb-4 flex flex-wrap items-end justify-between gap-2">
+          <div>
+            <h2 className="font-semibold">{msg.results.domainBreakdown}</h2>
+            <p className="mt-1 text-sm text-text-secondary dark:text-text-dark-secondary">
+              {msg.results.correct}: {result.correctCount}/{result.totalQuestions}
+            </p>
+          </div>
+          {weakestDomain && (
+            <p className="text-sm font-medium text-amber-700 dark:text-amber-300">
+              {msg.results.priorityArea}: {DOMAIN_LABELS[weakestDomain.domain]}
+            </p>
+          )}
+        </div>
+        <div className="grid gap-4 sm:grid-cols-2">
+          {domainStats.map((stat) => (
+            <div key={stat.domain} className="min-w-0 rounded-lg bg-surface-alt p-3 dark:bg-surface-dark-alt">
+              <div className="flex min-w-0 justify-between gap-3 text-sm">
+                <span className="min-w-0 break-words">{DOMAIN_LABELS[stat.domain]}</span>
+                <span className="shrink-0 tabular-nums">{stat.correct}/{stat.total} ({stat.accuracy}%)</span>
+              </div>
+              <div className="mt-2 h-2 overflow-hidden rounded-full bg-border dark:bg-border-dark">
+                <div
+                  className={`h-2 rounded-full ${
+                    stat.accuracy >= 70
+                      ? "bg-green-500"
+                      : stat.accuracy >= 40
+                        ? "bg-amber-500"
+                        : "bg-red-500"
+                  }`}
+                  style={{ width: `${stat.accuracy}%` }}
+                  role="progressbar"
+                  aria-valuenow={stat.accuracy}
+                  aria-valuemin={0}
+                  aria-valuemax={100}
+                  aria-label={`${DOMAIN_LABELS[stat.domain]} ${stat.accuracy}%`}
+                />
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="rounded-xl border border-amber-200 bg-amber-50 p-4 dark:border-amber-800 dark:bg-amber-950/20 sm:p-5">
+        <h2 className="font-semibold text-amber-950 dark:text-amber-100">{msg.results.nextStep}</h2>
+        <p className="mt-2 text-sm leading-6 text-amber-900 dark:text-amber-200">
+          {result.passed ? msg.results.nextStepPass : msg.results.nextStepFail}
+        </p>
+      </section>
+
+      <section aria-labelledby="answer-review-title" className="space-y-3">
+        <div>
+          <h2 id="answer-review-title" className="font-semibold">{msg.results.reviewTitle}</h2>
+          <p className="mt-1 text-sm text-text-secondary dark:text-text-dark-secondary">{msg.results.reviewIntro}</p>
+        </div>
+        <div className="space-y-2">
+          {result.answers.map((answer, index) => {
+            const question = questionMap.get(answer.questionId);
+            if (!question) return null;
+            const explanation = explanationMap.get(answer.questionId)?.explanation ?? EXPLANATION_UNAVAILABLE;
+            const selected = answer.selected.length > 0
+              ? answer.selected.join(", ")
+              : msg.results.unanswered;
+            const statusLabel = answer.isCorrect ? msg.results.correct : msg.results.incorrect;
+            return (
+              <details key={answer.questionId} className="group overflow-hidden rounded-xl border border-border dark:border-border-dark">
+                <summary className="flex min-h-11 cursor-pointer list-none flex-wrap items-center gap-2 p-4 font-medium marker:hidden group-open:bg-surface-alt dark:group-open:bg-surface-dark-alt">
+                  <span className="shrink-0">{msg.results.questionNumber} {index + 1}</span>
+                  <span className={answer.isCorrect ? "text-green-700 dark:text-green-300" : "text-red-700 dark:text-red-300"}>
+                    {statusLabel}
+                  </span>
+                  <span className="min-w-0 flex-1 break-words text-sm font-normal text-text-secondary dark:text-text-dark-secondary">
+                    {question.questionText}
+                  </span>
+                </summary>
+                <div className="space-y-4 border-t border-border p-4 dark:border-border-dark">
+                  <QuestionCard
+                    question={question}
+                    selectedOptions={answer.selected}
+                    locale={localeValue}
+                    selectionLabel={question.multiSelect ? msg.session.multiSelect : msg.session.singleSelect}
+                    showResult
+                    isCorrect={answer.isCorrect}
+                    correctAnswers={answer.correctAnswers}
+                    correctLabel={msg.results.correctStatus}
+                    incorrectLabel={msg.results.incorrect}
+                  />
+                  <div className="grid gap-3 text-sm sm:grid-cols-2">
+                    <p className="min-w-0 break-words">
+                      <span className="font-medium">{msg.results.yourAnswer}:</span> {selected}
+                    </p>
+                    <p className="min-w-0 break-words">
+                      <span className="font-medium">{msg.results.correctAnswer}:</span> {answer.correctAnswers.join(", ")}
+                    </p>
                   </div>
-                  <div className="w-full bg-border dark:bg-border-dark rounded-full h-2">
-                    <div
-                      className={`h-2 rounded-full ${
-                        accuracy >= 70
-                          ? "bg-green-500"
-                          : accuracy >= 40
-                            ? "bg-amber-500"
-                            : "bg-red-500"
-                      }`}
-                      style={{ width: `${accuracy}%` }}
-                    />
+                  <div className="rounded-lg bg-surface-alt p-4 dark:bg-surface-dark-alt">
+                    <h3 className="text-sm font-semibold">{msg.results.explanation}</h3>
+                    <p className="mt-2 break-words text-sm leading-6 text-text-secondary dark:text-text-dark-secondary">
+                      {explanation}
+                    </p>
                   </div>
                 </div>
-              );
-            })}
-          </div>
-        )}
-      </div>
+              </details>
+            );
+          })}
+        </div>
+      </section>
 
-      {/* Review answers */}
-      <div className="text-center">
+      <div className="flex flex-wrap justify-center gap-3 no-print">
         <button
-          onClick={() => setReviewIndex(0)}
-          className="rounded-lg bg-brand-600 px-6 py-2 text-white text-sm font-medium hover:bg-brand-700"
+          onClick={() => window.print()}
+          className="min-h-11 rounded-lg border border-border px-5 py-2 text-sm font-medium transition-colors hover:bg-surface-alt dark:border-border-dark dark:hover:bg-surface-dark-alt"
         >
-          {msg.results.review} ({result.totalQuestions} questions)
+          {msg.results.print}
+        </button>
+        <button
+          onClick={() => router.push(`/${locale}`)}
+          className="min-h-11 rounded-lg bg-brand-600 px-5 py-2 text-sm font-medium text-white hover:bg-brand-700"
+        >
+          {msg.session.goHome}
         </button>
       </div>
 
-      {/* Summary for printing */}
-      <div className="rounded-xl border border-border dark:border-border-dark p-4">
-        <h2 className="font-semibold mb-2">{msg.results.summaryPrint}</h2>
-        <div className="text-sm space-y-1 text-text-secondary dark:text-text-dark-secondary">
-          <p>
-            {msg.results.score}: {Math.round(result.percentage)}% ({result.passed ? "Passed" : "Failed"})
-          </p>
-          <p>
-            {msg.results.correct}: {result.correctCount}/{result.totalQuestions}
-          </p>
-          <p>
-            {msg.results.percentage}: {Math.round(result.percentage)}%
-          </p>
-          <Disclaimer text={DISCLAIMER_TEXT} className="mt-2" />
-          <button
-            onClick={() => window.print()}
-            className="mt-2 rounded-lg border border-border dark:border-border-dark px-4 py-1 text-xs font-medium hover:bg-surface-alt dark:hover:bg-surface-dark-alt no-print"
-          >
-            {msg.results.print}
-          </button>
-        </div>
-      </div>
+      <section className="print-only space-y-3">
+        <h2 className="text-xl font-bold">{msg.results.summaryPrint}</h2>
+        <p>{msg.results.score}: {Math.round(result.percentage)}% ({result.passed ? msg.results.passed : msg.results.failed})</p>
+        <p>{msg.results.correct}: {result.correctCount}/{result.totalQuestions}</p>
+        <p>{msg.results.timeSpent}: {timeSpent}</p>
+        <h3 className="mt-4 font-bold">{msg.results.reviewTitle}</h3>
+        {result.answers.map((answer, index) => {
+          const question = questionMap.get(answer.questionId);
+          if (!question) return null;
+          const explanation = explanationMap.get(answer.questionId)?.explanation ?? EXPLANATION_UNAVAILABLE;
+          return (
+            <div key={answer.questionId} className="break-inside-avoid border-b border-black pb-3">
+              <p><strong>{msg.results.questionNumber} {index + 1}:</strong> {question.questionText}</p>
+              <p>{msg.results.yourAnswer}: {answer.selected.length ? answer.selected.join(", ") : msg.results.unanswered}</p>
+              <p>{msg.results.correctAnswer}: {answer.correctAnswers.join(", ")}</p>
+              <p>{msg.results.explanation}: {explanation}</p>
+            </div>
+          );
+        })}
+        <Disclaimer text={DISCLAIMER_TEXT} className="mt-3" />
+      </section>
 
       <Disclaimer text={DISCLAIMER_TEXT} />
     </div>

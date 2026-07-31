@@ -17,6 +17,13 @@ test.describe("Static routes", () => {
     await expect(page.getByText("Selecciona un Modo de Práctica")).toBeVisible();
   });
 
+  test("starts the selected simulation mode with a preset", async ({ page }) => {
+    await page.goto("/en/");
+    await page.getByRole("radio", { name: /Simulation mode/ }).check();
+    await page.getByRole("button", { name: /10 questions \/ 10 min/ }).click();
+    await expect(page).toHaveURL(/\/en\/session\/\?preset=short&mode=simulation/);
+  });
+
   test("/en/resources loads resources page", async ({ page }) => {
     await page.goto("/en/resources/");
     await expect(page.getByText("Study Resources")).toBeVisible();

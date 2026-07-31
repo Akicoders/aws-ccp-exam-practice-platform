@@ -41,6 +41,7 @@
     font-family: ui-sans-serif, system-ui, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
   }
 
   :focus-visible {
@@ -65,6 +66,31 @@
   }
 }
 
+/* Discourages casual copying during an active quiz; shipped client content is not secret. */
+.quiz-protected,
+.quiz-protected * {
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+.print-only {
+  display: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
 /* Print styles */
 @media print {
   .no-print {
@@ -74,5 +100,9 @@
   body {
     color: black !important;
     background: white !important;
+  }
+
+  .print-only {
+    display: block !important;
   }
 }

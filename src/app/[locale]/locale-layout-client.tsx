@@ -2,8 +2,9 @@
 
 import { use, useState, useEffect, useCallback } from "react";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useSearchParams } from "next/navigation";
 import { loadStore, saveStore } from "@/lib/browser-store";
+import type { Locale } from "@/types/contracts";
 import messagesEn from "@/../messages/en.json";
 import messagesEs from "@/../messages/es.json";
 
@@ -27,11 +28,12 @@ export default function LocaleLayoutClient({
 }) {
   const { locale } = use(params);
   const pathname = usePathname();
+  const searchParams = useSearchParams();
   const [theme, setThemeState] = useState<"light" | "dark">("light");
 
   useEffect(() => {
     try {
-      const store = loadStore(locale as any, theme);
+      const store = loadStore(locale as Locale, theme);
       setThemeState(store.theme);
       document.documentElement.classList.toggle("dark", store.theme === "dark");
     } catch {
@@ -44,7 +46,7 @@ export default function LocaleLayoutClient({
       const next = prev === "light" ? "dark" : "light";
       document.documentElement.classList.toggle("dark", next === "dark");
       try {
-        const store = loadStore(locale as any, next);
+        const store = loadStore(locale as Locale, next);
         store.theme = next;
         saveStore(store);
       } catch {}
@@ -54,6 +56,9 @@ export default function LocaleLayoutClient({
 
   const msg = useMessages(locale);
   const otherLocale = locale === "en" ? "es" : "en";
+  const routePath = pathname.replace(/^\/(en|es)/, "") || "/";
+  const query = searchParams.toString();
+  const localeHref = `/${otherLocale}${routePath}${query ? `?${query}` : ""}`;
 
   return (
     <div className="flex min-h-screen flex-col">
@@ -78,15 +83,15 @@ export default function LocaleLayoutClient({
           </div>
           <div className="flex items-center gap-3">
             <Link
-              href={`/${otherLocale}${pathname.replace(/^\/(en|es)/, "") || "/"}`}
-              className="text-xs font-medium px-2 py-1 rounded border border-border dark:border-border-dark hover:bg-brand-50 dark:hover:bg-brand-900/20 transition-colors"
+              href={localeHref}
+              className="min-h-11 min-w-11 rounded border border-border px-2 py-1 text-xs font-medium transition-colors hover:bg-brand-50 dark:border-border-dark dark:hover:bg-brand-900/20"
               aria-label={msg.common.localeSwitch}
             >
               {otherLocale === "en" ? "EN" : "ES"}
             </Link>
             <button
               onClick={toggleTheme}
-              className="text-sm px-2 py-1 rounded border border-border dark:border-border-dark hover:bg-brand-50 dark:hover:bg-brand-900/20 transition-colors"
+              className="min-h-11 min-w-11 rounded border border-border px-2 py-1 text-sm transition-colors hover:bg-brand-50 dark:border-border-dark dark:hover:bg-brand-900/20"
               aria-label={msg.common.themeToggle}
             >
               {theme === "light" ? "🌙" : "☀️"}

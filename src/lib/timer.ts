@@ -1,6 +1,8 @@
+import { SESSION_MODE, type SessionState } from "@/types/contracts";
+
 /**
- * Timer model: start on first answer, visibility pause, 5/2/1 warnings,
- * auto-submit at zero, finite 2x wall-clock cap from first answer.
+ * Timer model: start on first answer, mode-specific hidden-tab behavior,
+ * 5/2/1 warnings, auto-submit at zero, and a finite study wall-clock cap.
  */
 
 export interface TimerState {
@@ -17,6 +19,12 @@ export interface TimerState {
   /** Whether the timer has expired */
   expired: boolean;
   /** Whether warnings have been issued */
+  warned5: boolean;
+  warned2: boolean;
+  warned1: boolean;
+}
+
+export interface TimerWarnings {
   warned5: boolean;
   warned2: boolean;
   warned1: boolean;
@@ -116,4 +124,75 @@ export function onVisibilityChange(
     };
   }
   return state;
+}
+
+/** Start the persisted session timer exactly once, on the first answer. */
+export function startSessionTimer(session: SessionState, now: number): SessionState {
+  if (session.startTime !== null) return session;
+  return {
+    ...session,
+    startTime: now,
+    visibleSince: now,
+  };
+}
+
+/** Pause study time when hidden; simulation time always follows the wall clock. */
+export function updateSessionVisibility(
+  session: SessionState,
+  hidden: boolean,
+  now: number
+): SessionState {
+  if (session.startTime === null) return session;
+  if (session.mode === SESSION_MODE.SIMULATION) return session;
+
+  if (hidden && session.visibleSince !== null) {
+    return {
+      ...session,
+      elapsedVisibleMs: session.elapsedVisibleMs + Math.max(0, now - session.visibleSince),
+      visibleSince: null,
+    };
+  }
+
+  if (!hidden && session.visibleSince === null) {
+    return { ...session, visibleSince: now };
+  }
+
+  return session;
+}
+
+export function getSessionVisibleElapsedMs(session: SessionState, now: number): number {
+  if (session.startTime === null) return 0;
+  const currentVisibleMs = session.visibleSince === null
+    ? 0
+    : Math.max(0, now - session.visibleSince);
+  return session.elapsedVisibleMs + currentVisibleMs;
+}
+
+export function getSessionElapsedMs(session: SessionState, now: number): number {
+  if (session.startTime === null) return 0;
+  if (session.mode === SESSION_MODE.SIMULATION) {
+    return Math.max(0, now - session.startTime);
+  }
+  return getSessionVisibleElapsedMs(session, now);
+}
+
+export function getSessionRemainingMs(session: SessionState, now: number): number {
+  if (session.startTime === null) return session.config.durationMinutes * 60 * 1000;
+  return Math.max(0, session.config.durationMinutes * 60 * 1000 - getSessionElapsedMs(session, now));
+}
+
+export function getSessionWarnings(session: SessionState, now: number): TimerWarnings {
+  const remaining = getSessionRemainingMs(session, now);
+  return {
+    warned5: remaining <= 5 * 60 * 1000,
+    warned2: remaining <= 2 * 60 * 1000,
+    warned1: remaining <= 1 * 60 * 1000,
+  };
+}
+
+export function shouldExpireSession(session: SessionState, now: number): boolean {
+  if (session.startTime === null) return false;
+  if (getSessionRemainingMs(session, now) <= 0) return true;
+  if (session.mode === SESSION_MODE.SIMULATION) return false;
+  return now - session.startTime >= session.config.durationMinutes * 60 * 1000 * 2;
 }

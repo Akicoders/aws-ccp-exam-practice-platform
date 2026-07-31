@@ -50,6 +50,21 @@ export const SESSION_STATUS = {
 
 export type SessionStatus = (typeof SESSION_STATUS)[keyof typeof SESSION_STATUS];
 
+export const SESSION_MODE = {
+  STUDY: "study",
+  SIMULATION: "simulation",
+} as const;
+
+export type SessionMode = (typeof SESSION_MODE)[keyof typeof SESSION_MODE];
+
+export const INTEGRITY_INCIDENT_TYPE = {
+  VISIBILITY_HIDDEN: "visibility-hidden",
+  FOCUS_LOST: "focus-lost",
+} as const;
+
+export type IntegrityIncidentType =
+  (typeof INTEGRITY_INCIDENT_TYPE)[keyof typeof INTEGRITY_INCIDENT_TYPE];
+
 export const THEME = { LIGHT: "light", DARK: "dark" } as const;
 export type Theme = (typeof THEME)[keyof typeof THEME];
 
@@ -87,6 +102,25 @@ export interface NormalizedQuestion {
   domain: Domain;
 }
 
+export const TRANSLATION_SOURCE = {
+  ENGLISH_SOURCE: "english-source",
+  REVIEWED_SPANISH: "reviewed-spanish",
+  ENGLISH_FALLBACK: "english-fallback",
+} as const;
+
+export type TranslationSource = (typeof TRANSLATION_SOURCE)[keyof typeof TRANSLATION_SOURCE];
+
+export interface QuestionTranslation {
+  questionText: string;
+  options: Partial<Record<OptionLetter, string>>;
+}
+
+export interface QuestionCopy {
+  questionText: string;
+  options: Partial<Record<OptionLetter, string>>;
+  source: TranslationSource;
+}
+
 export interface DomainPool {
   domain: Domain;
   questions: NormalizedQuestion[];
@@ -115,13 +149,22 @@ export interface SessionConfig {
   label: string;
 }
 
+export interface IntegrityIncident {
+  type: IntegrityIncidentType;
+  timestamp: number;
+}
+
 export interface SessionState {
   id: string;
   questionIds: string[];
   answers: AnswerRecord[];
   currentIndex: number;
   config: SessionConfig;
+  mode: SessionMode;
   startTime: number | null;
+  elapsedVisibleMs: number;
+  visibleSince: number | null;
+  integrityIncidents: IntegrityIncident[];
   status: SessionStatus;
 }
 
@@ -133,8 +176,11 @@ export interface SessionResult {
   percentage: number;
   passed: boolean;
   answers: AnswerResult[];
+  timeSpentMs: number;
   completedAt: number;
   preset: SessionPreset;
+  mode: SessionMode;
+  integrityIncidentCount: number;
 }
 
 export interface DomainAnalytics {

@@ -10,12 +10,16 @@ import {
   type OptionLetter,
   type Domain,
   type DomainAnalytics,
+  type IntegrityIncidentType,
+  type SessionMode,
   DOMAIN,
   DOMAIN_TARGETS,
   DOMAIN_ORDER,
   SESSION_CONFIG,
+  SESSION_MODE,
   SESSION_STATUS,
 } from "@/types/contracts";
+import { getSessionElapsedMs } from "@/lib/timer";
 
 export interface SessionSpec {
   questionCount: number;
@@ -172,7 +176,8 @@ function pickRandomQuestions(
  */
 export function createSession(
   questions: NormalizedQuestion[],
-  config: SessionSpec
+  config: SessionSpec,
+  mode: SessionMode = SESSION_MODE.STUDY
 ): SessionState {
   return {
     id: crypto.randomUUID?.() ?? `${Date.now()}-${Math.random().toString(36).slice(2)}`,
@@ -180,7 +185,11 @@ export function createSession(
     answers: [],
     currentIndex: 0,
     config: { ...config, label: `${config.questionCount} questions / ${config.durationMinutes} min` },
+    mode,
     startTime: null,
+    elapsedVisibleMs: 0,
+    visibleSince: null,
+    integrityIncidents: [],
     status: SESSION_STATUS.ACTIVE,
   };
 }
@@ -205,12 +214,25 @@ export function recordAnswer(
   return { ...session, answers };
 }
 
+export function recordIntegrityIncident(
+  session: SessionState,
+  type: IntegrityIncidentType,
+  timestamp: number
+): SessionState {
+  if (session.mode !== SESSION_MODE.SIMULATION) return session;
+  return {
+    ...session,
+    integrityIncidents: [...session.integrityIncidents, { type, timestamp }],
+  };
+}
+
 /**
  * Score a completed session.
  */
 export function scoreSession(
   session: SessionState,
-  questions: NormalizedQuestion[]
+  questions: NormalizedQuestion[],
+  completedAt = Date.now()
 ): { result: SessionResult; domainAnalytics: DomainAnalytics[] } {
   const correctAnswers: AnswerResult[] = [];
   const domainCounts: Record<string, { correct: number; total: number }> = {};
@@ -268,10 +290,15 @@ export function scoreSession(
     percentage,
     passed,
     answers: correctAnswers,
-    completedAt: Date.now(),
+    timeSpentMs: getSessionElapsedMs(session, completedAt),
+    completedAt,
     preset: Object.entries(SESSION_CONFIG).find(
       ([, c]) => c.questionCount === totalQuestions
     )?.[0] as SessionPreset ?? "SHORT",
+    mode: session.mode,
+    integrityIncidentCount: session.mode === SESSION_MODE.SIMULATION
+      ? session.integrityIncidents.length
+      : 0,
   };
 
   return { result, domainAnalytics };
