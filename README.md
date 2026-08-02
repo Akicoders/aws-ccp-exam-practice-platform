@@ -5,6 +5,7 @@ A static, bilingual (English/Spanish) practice platform for the **AWS Certified 
 ## Features
 
 - **Timed practice sessions**: 10q/10m, 20q/20m, and 50q/60m presets with CLF-C02 domain weighting
+- **Custom exams**: Configure 1-180 minutes, 1-100 questions, Study or Simulation mode, and four integer domain percentages that must total 100%; quotas use deterministic largest-remainder rounding
 - **Two session modes**: Study mode pauses the timer when the tab is hidden and keeps feedback available; Simulation mode keeps the timer running and records conservative browser visibility/focus signals
 - **Realistic scoring**: One raw point per correct answer, all-or-nothing multi-select, inclusive 70% pass threshold
 - **Domain analytics**: Per-domain accuracy breakdown, weak-area aggregation, and persistent results
@@ -156,6 +157,8 @@ aws cloudfront create-invalidation --distribution-id YOUR_DIST --paths "/*"
 - All routes are statically generated at build time (`generateStaticParams` for `en`/`es`).
 - Session state is stored in `localStorage` under key `aws-ccp-exam:v1` as one JSON-serializable object.
 - The timer starts on the first answer. Study mode pauses when the tab is hidden, has a finite 2x wall-clock cap, and persists visible elapsed time; Simulation mode uses wall-clock elapsed time while hidden or unfocused.
+- Custom exam configurations are stored with the active session, including duration, question count, mode, and domain percentages. Custom duration is limited to 1–180 minutes and custom question count to 1–100; each domain percentage is an integer from 0–100 and all four must total exactly 100%.
+- Custom quotas use stable largest-remainder rounding, so the four domain quotas always sum to the requested question count before pool-capacity checks. A session is not started when the unique question pools cannot satisfy the requested quotas.
 - Active session IDs, mode, answers, current question, timer state, and simulation incident timestamps are serialized together so locale changes do not restart an exam.
 - Question IDs are unique within a session but reused across sessions.
 - Domain pool sizes are generated from the deduped output — no hardcoded totals.

@@ -12,19 +12,17 @@ import {
   type DomainAnalytics,
   type IntegrityIncidentType,
   type SessionMode,
+  type DomainWeights,
+  type SessionSpec,
   DOMAIN,
-  DOMAIN_TARGETS,
+  DEFAULT_DOMAIN_WEIGHTS,
   DOMAIN_ORDER,
   SESSION_CONFIG,
+  SESSION_PRESET,
   SESSION_MODE,
   SESSION_STATUS,
 } from "@/types/contracts";
 import { getSessionElapsedMs } from "@/lib/timer";
-
-export interface SessionSpec {
-  questionCount: number;
-  durationMinutes: number;
-}
 
 export interface QuotaAssignment {
   domain: Domain;
@@ -36,61 +34,64 @@ export interface SamplingWarning {
   message: string;
 }
 
-/**
- * Compute largest-remainder quotas from domain targets.
- */
-export function computeQuotas(
+/** Compute deterministic largest-remainder quotas from whole-number weights. */
+export function computeLargestRemainderQuotas(
   total: number,
-  poolSizes: Record<Domain, number>
-): { quotas: QuotaAssignment[]; warnings: SamplingWarning[] } {
-  const domains = DOMAIN_ORDER;
-  const warnings: SamplingWarning[] = [];
+  domainWeights: DomainWeights = DEFAULT_DOMAIN_WEIGHTS
+): QuotaAssignment[] {
+  if (!Number.isInteger(total) || total <= 0) {
+    return DOMAIN_ORDER.map((domain) => ({ domain, count: 0 }));
+  }
 
-  // Initial proportional allocation
-  const raw = domains.map((d) => ({
-    domain: d,
-    quota: DOMAIN_TARGETS[d] * total,
-    poolSize: poolSizes[d],
-  }));
-
-  // Largest remainder method
-  let allocated = 0;
-  const quotas = raw.map((r) => {
-    const base = Math.floor(r.quota);
-    allocated += base;
-    return { domain: r.domain, count: base, remainder: r.quota - base };
+  const weighted = DOMAIN_ORDER.map((domain, order) => {
+    const rawQuota = (domainWeights[domain] / 100) * total;
+    const base = Math.floor(rawQuota);
+    return {
+      domain,
+      count: base,
+      remainder: rawQuota - base,
+      order,
+    };
   });
 
-  let remaining = total - allocated;
-  quotas.sort((a, b) => b.remainder - a.remainder);
+  let remaining = total - weighted.reduce((sum, quota) => sum + quota.count, 0);
+  const ranked = [...weighted].sort(
+    (left, right) => right.remainder - left.remainder || left.order - right.order
+  );
 
-  for (const q of quotas) {
-    if (remaining <= 0) break;
-    const needed = q.count + 1;
-    if (needed > poolSizes[q.domain] * 0.8) {
+  for (let index = 0; index < remaining; index += 1) {
+    ranked[index % ranked.length].count += 1;
+  }
+
+  return weighted.map(({ domain, count }) => ({ domain, count }));
+}
+
+/** Compute quotas and report pool-capacity risks without changing requested counts. */
+export function computeQuotas(
+  total: number,
+  poolSizes: Record<Domain, number>,
+  domainWeights: DomainWeights = DEFAULT_DOMAIN_WEIGHTS
+): { quotas: QuotaAssignment[]; warnings: SamplingWarning[] } {
+  const warnings: SamplingWarning[] = [];
+
+  const quotas = computeLargestRemainderQuotas(total, domainWeights);
+  for (const quota of quotas) {
+    const poolSize = Math.max(0, poolSizes[quota.domain] ?? 0);
+    if (quota.count > 0 && quota.count > poolSize * 0.8) {
       warnings.push({
         type: "low-pool",
         message: `Some domains are running low on fresh questions.`,
       });
     }
-    if (needed > poolSizes[q.domain]) {
+    if (quota.count > poolSize) {
       warnings.push({
         type: "unmet-quota",
-        message: `Not enough unique questions in ${q.domain}. Try a shorter session.`,
+        message: `Not enough unique questions in ${quota.domain}. Try a shorter session.`,
       });
-      // Still assign what we can
-      q.count += Math.min(remaining, poolSizes[q.domain] - q.count);
-      remaining -= Math.min(remaining, poolSizes[q.domain] - q.count);
-    } else {
-      q.count += 1;
-      remaining -= 1;
     }
   }
 
-  return {
-    quotas: quotas.map(({ domain, count }) => ({ domain, count })),
-    warnings,
-  };
+  return { quotas, warnings };
 }
 
 /**
@@ -98,19 +99,31 @@ export function computeQuotas(
  */
 export function sampleSession(
   data: Pick<QuestionData, "pools">,
-  preset: SessionPreset
+  selection: SessionPreset | SessionSpec
 ): {
   questions: NormalizedQuestion[];
   warnings: SamplingWarning[];
   spec: SessionSpec;
 } {
-  const config = SESSION_CONFIG[preset];
+  const config: SessionSpec = typeof selection === "string"
+    ? SESSION_CONFIG[selection]
+    : selection;
+  const spec: SessionSpec = {
+    ...config,
+    domainWeights: config.domainWeights ?? DEFAULT_DOMAIN_WEIGHTS,
+    isCustom: config.isCustom ?? false,
+  };
   const poolSizes: Record<Domain, number> = {} as Record<Domain, number>;
   for (const pool of data.pools) {
     poolSizes[pool.domain] = pool.questions.length;
   }
 
-  const { quotas, warnings } = computeQuotas(config.questionCount, poolSizes);
+  const { quotas, warnings: quotaWarnings } = computeQuotas(
+    spec.questionCount,
+    poolSizes,
+    spec.domainWeights
+  );
+  const warnings = [...quotaWarnings];
 
   // Track used IDs across all pools for uniqueness within this session
   const usedIds = new Set<string>();
@@ -127,17 +140,12 @@ export function sampleSession(
       selected.push(q);
     }
 
-    // If we couldn't get enough, backfill from used questions
+    // Never reuse an ID inside a session, even when a domain is short.
     if (picked.length < qa.count) {
-      const pickedIds = new Set(picked.map((q) => q.id));
-      const backfill = pickRandomQuestions(
-        pool.questions.filter((q) => !pickedIds.has(q.id)),
-        qa.count - picked.length
-      );
-      for (const q of backfill) {
-        usedIds.add(q.id);
-        selected.push(q);
-      }
+      warnings.push({
+        type: "unmet-quota",
+        message: `Not enough unique questions in ${qa.domain}. Try a shorter session.`,
+      });
     }
   }
 
@@ -147,7 +155,7 @@ export function sampleSession(
   return {
     questions: selected,
     warnings,
-    spec: config,
+    spec,
   };
 }
 
@@ -179,12 +187,21 @@ export function createSession(
   config: SessionSpec,
   mode: SessionMode = SESSION_MODE.STUDY
 ): SessionState {
+  const isCustom = config.isCustom ?? false;
+  const sessionConfig = {
+    questionCount: config.questionCount,
+    durationMinutes: config.durationMinutes,
+    label: config.label ?? `${config.questionCount} questions / ${config.durationMinutes} min`,
+    domainWeights: config.domainWeights ?? DEFAULT_DOMAIN_WEIGHTS,
+    isCustom,
+  };
+
   return {
     id: crypto.randomUUID?.() ?? `${Date.now()}-${Math.random().toString(36).slice(2)}`,
     questionIds: questions.map((q) => q.id),
     answers: [],
     currentIndex: 0,
-    config: { ...config, label: `${config.questionCount} questions / ${config.durationMinutes} min` },
+    config: sessionConfig,
     mode,
     startTime: null,
     elapsedVisibleMs: 0,
@@ -292,13 +309,16 @@ export function scoreSession(
     answers: correctAnswers,
     timeSpentMs: getSessionElapsedMs(session, completedAt),
     completedAt,
-    preset: Object.entries(SESSION_CONFIG).find(
-      ([, c]) => c.questionCount === totalQuestions
-    )?.[0] as SessionPreset ?? "SHORT",
+    preset: session.config.isCustom
+      ? SESSION_PRESET.CUSTOM
+      : Object.entries(SESSION_CONFIG).find(
+          ([, c]) => c.questionCount === totalQuestions && c.durationMinutes === session.config.durationMinutes
+        )?.[0] as SessionPreset ?? SESSION_PRESET.SHORT,
     mode: session.mode,
     integrityIncidentCount: session.mode === SESSION_MODE.SIMULATION
       ? session.integrityIncidents.length
       : 0,
+    config: session.config,
   };
 
   return { result, domainAnalytics };

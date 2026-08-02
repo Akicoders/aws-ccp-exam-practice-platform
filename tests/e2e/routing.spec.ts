@@ -41,6 +41,66 @@ test.describe("Static routes", () => {
     await expect(page).toHaveURL(/\/en\/session\/\?preset=short&mode=simulation/);
   });
 
+  test("starts a custom exam and preserves its config across locale switching", async ({ page }) => {
+    await page.goto("/en/");
+    const customExam = page.getByRole("region", { name: "Custom exam" });
+
+    await customExam.getByLabel("Duration (minutes)").fill("12");
+    await customExam.getByLabel("Total questions").fill("10");
+    await customExam.getByLabel("Cloud Concepts").fill("10");
+    await customExam.getByLabel("Security and Compliance").fill("20");
+    await customExam.getByLabel("Cloud Technology and Services").fill("30");
+    await customExam.getByLabel("Billing, Pricing, and Support").fill("40");
+    await customExam.getByLabel("Exam mode").selectOption("simulation");
+
+    await expect(customExam).toContainText("1 question");
+    await expect(customExam).toContainText("2 questions");
+    await expect(customExam).toContainText("3 questions");
+    await expect(customExam).toContainText("4 questions");
+
+    await customExam.getByRole("button", { name: "Start custom exam", exact: true }).click();
+    await expect(page).toHaveURL(/\/en\/session\/\?preset=custom&sessionId=/);
+    await expect(page.getByRole("heading", { name: "Custom exam", exact: true })).toBeVisible();
+
+    const before = await page.evaluate(() => {
+      const store = JSON.parse(localStorage.getItem("aws-ccp-exam:v1") || "{}");
+      const session = store.sessions.find((candidate: { id: string }) => candidate.id === store.activeSessionId);
+      return { config: session?.config, mode: session?.mode };
+    });
+    expect(before.config).toMatchObject({
+      questionCount: 10,
+      durationMinutes: 12,
+      isCustom: true,
+      domainWeights: {
+        CLOUD_CONCEPTS: 10,
+        SECURITY: 20,
+        TECHNOLOGY_SERVICES: 30,
+        BILLING_PRICING: 40,
+      },
+    });
+    expect(before.mode).toBe("simulation");
+
+    await Promise.all([
+      page.waitForURL(/\/es\/session\/\?preset=custom&sessionId=/),
+      page.getByRole("link", { name: "Switch language", exact: true }).click(),
+    ]);
+    await expect(page.getByRole("heading", { name: "Examen personalizado", exact: true })).toBeVisible();
+
+    const after = await page.evaluate(() => {
+      const store = JSON.parse(localStorage.getItem("aws-ccp-exam:v1") || "{}");
+      const session = store.sessions.find((candidate: { id: string }) => candidate.id === store.activeSessionId);
+      return session?.config;
+    });
+    expect(after).toEqual(before.config);
+
+    await page.getByRole("button", { name: "Enviar Examen", exact: true }).click();
+    await page.getByRole("button", { name: "Enviar", exact: true }).click();
+    await expect(page).toHaveURL(/\/es\/results\/\?sessionId=/);
+    await expect(page.getByText("Examen personalizado", { exact: true })).toBeVisible();
+    await expect(page.getByText(/Distribución solicitada:/).first()).toBeVisible();
+    await expect(page.getByText(/Preguntas reales:/).first()).toBeVisible();
+  });
+
   test("localized resources pages hydrate through the shared layout", async ({ page }) => {
     for (const route of [
       [

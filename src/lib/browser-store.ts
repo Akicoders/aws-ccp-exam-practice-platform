@@ -6,9 +6,10 @@ import {
   type SessionState,
   type SessionResult,
   type SessionConfig,
-  type SessionPreset,
+  type StoredSessionPreset,
   type SessionStatus,
   type SessionMode,
+  type DomainWeights,
   type IntegrityIncident,
   type IntegrityIncidentType,
   type DomainAnalytics,
@@ -17,7 +18,9 @@ import {
   DOMAIN,
   LOCALE,
   OPTION_LETTER,
-  SESSION_CONFIG,
+  DEFAULT_DOMAIN_WEIGHTS,
+  DOMAIN_ORDER,
+  SESSION_PRESET,
   SESSION_MODE,
   INTEGRITY_INCIDENT_TYPE,
   SESSION_STATUS,
@@ -71,8 +74,8 @@ function isSessionStatus(value: unknown): value is SessionStatus {
   return Object.values(SESSION_STATUS).includes(value as SessionStatus);
 }
 
-function isSessionPreset(value: unknown): value is SessionPreset {
-  return typeof value === "string" && Object.keys(SESSION_CONFIG).includes(value);
+function isSessionPreset(value: unknown): value is StoredSessionPreset {
+  return typeof value === "string" && Object.values(SESSION_PRESET).includes(value as StoredSessionPreset);
 }
 
 function isSessionMode(value: unknown): value is SessionMode {
@@ -163,6 +166,22 @@ function normalizeIntegrityIncident(value: unknown): IntegrityIncident | null {
   return { type: value.type, timestamp: value.timestamp };
 }
 
+function normalizeDomainWeights(value: unknown): DomainWeights | null {
+  const source = value === undefined ? DEFAULT_DOMAIN_WEIGHTS : value;
+  if (!isRecord(source)) return null;
+
+  const weights = {} as Record<Domain, number>;
+  let total = 0;
+  for (const domain of DOMAIN_ORDER) {
+    const weight = source[domain];
+    if (!isNonNegativeInteger(weight) || weight > 100) return null;
+    weights[domain] = weight;
+    total += weight;
+  }
+
+  return total === 100 ? weights : null;
+}
+
 function normalizeSessionConfig(value: unknown): SessionConfig | null {
   if (
     !isRecord(value) ||
@@ -175,10 +194,16 @@ function normalizeSessionConfig(value: unknown): SessionConfig | null {
     return null;
   }
 
+  const domainWeights = normalizeDomainWeights(value.domainWeights);
+  const isCustom = value.isCustom === undefined ? false : value.isCustom;
+  if (!domainWeights || typeof isCustom !== "boolean") return null;
+
   return {
     questionCount: value.questionCount,
     durationMinutes: value.durationMinutes,
     label: value.label,
+    domainWeights,
+    isCustom,
   };
 }
 
@@ -270,6 +295,7 @@ function normalizeResult(value: unknown): SessionResult | null {
   const answers = normalizeRequiredRecords(value.answers, normalizeAnswerResult);
   const timeSpentMs = readOptionalNonNegativeInteger(value.timeSpentMs, 0);
   const integrityIncidentCount = readOptionalNonNegativeInteger(value.integrityIncidentCount, 0);
+  const config = value.config === undefined ? undefined : normalizeSessionConfig(value.config);
   const mode = value.mode === undefined
     ? SESSION_MODE.STUDY
     : isSessionMode(value.mode)
@@ -279,6 +305,7 @@ function normalizeResult(value: unknown): SessionResult | null {
     !answers ||
     timeSpentMs === null ||
     integrityIncidentCount === null ||
+    (value.config !== undefined && !config) ||
     mode === null ||
     value.correctCount > value.totalQuestions ||
     value.rawPoints > value.totalQuestions
@@ -299,6 +326,7 @@ function normalizeResult(value: unknown): SessionResult | null {
     preset: value.preset,
     mode,
     integrityIncidentCount,
+    config: config ?? undefined,
   };
 }
 

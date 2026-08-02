@@ -11,8 +11,8 @@ import {
   type Locale,
   type NormalizedQuestion,
   type SessionResult,
-  DOMAIN_LABELS,
   DOMAIN_ORDER,
+  DEFAULT_DOMAIN_WEIGHTS,
   DISCLAIMER_TEXT,
   EXPLANATION_UNAVAILABLE,
   LOCALE,
@@ -35,6 +35,7 @@ interface DomainStat {
   correct: number;
   total: number;
   accuracy: number;
+  requestedPercentage: number;
 }
 
 function formatTimeSpent(timeSpentMs: number): string {
@@ -127,10 +128,13 @@ export default function ResultsPage({
       correct,
       total,
       accuracy: total > 0 ? Math.round((correct / total) * 100) : 0,
+      requestedPercentage: result.config?.domainWeights[domain] ?? DEFAULT_DOMAIN_WEIGHTS[domain],
     };
-  }).filter((stat) => stat.total > 0);
+  });
 
-  const weakestDomain = [...domainStats].sort((left, right) => left.accuracy - right.accuracy)[0];
+  const weakestDomain = [...domainStats]
+    .filter((stat) => stat.total > 0)
+    .sort((left, right) => left.accuracy - right.accuracy)[0];
   const passColor = result.passed
     ? "text-green-600 dark:text-green-400"
     : "text-red-600 dark:text-red-400";
@@ -156,6 +160,11 @@ export default function ResultsPage({
             ({msg.results.passThreshold})
           </span>
         </p>
+        {result.config?.isCustom && (
+          <p className="text-sm font-semibold text-brand-700 dark:text-brand-300">
+            {msg.results.customExam}
+          </p>
+        )}
       </header>
 
       <section className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4" aria-label={msg.results.title}>
@@ -215,7 +224,7 @@ export default function ResultsPage({
           </div>
           {weakestDomain && (
             <p className="text-sm font-medium text-amber-700 dark:text-amber-300">
-              {msg.results.priorityArea}: {DOMAIN_LABELS[weakestDomain.domain]}
+               {msg.results.priorityArea}: {msg.results.domainLabels[weakestDomain.domain]}
             </p>
           )}
         </div>
@@ -223,9 +232,15 @@ export default function ResultsPage({
           {domainStats.map((stat) => (
             <div key={stat.domain} className="min-w-0 rounded-lg bg-surface-alt p-3 dark:bg-surface-dark-alt">
               <div className="flex min-w-0 justify-between gap-3 text-sm">
-                <span className="min-w-0 break-words">{DOMAIN_LABELS[stat.domain]}</span>
+                <span className="min-w-0 break-words">{msg.results.domainLabels[stat.domain]}</span>
                 <span className="shrink-0 tabular-nums">{stat.correct}/{stat.total} ({stat.accuracy}%)</span>
               </div>
+              {result.config?.isCustom && (
+                <div className="mt-1 flex flex-wrap gap-x-3 gap-y-1 text-xs text-text-secondary dark:text-text-dark-secondary">
+                  <span>{msg.results.requestedDistribution}: {stat.requestedPercentage}%</span>
+                  <span>{msg.results.actualQuestions}: {stat.total}</span>
+                </div>
+              )}
               <div className="mt-2 h-2 overflow-hidden rounded-full bg-border dark:bg-border-dark">
                 <div
                   className={`h-2 rounded-full ${
@@ -240,7 +255,7 @@ export default function ResultsPage({
                   aria-valuenow={stat.accuracy}
                   aria-valuemin={0}
                   aria-valuemax={100}
-                  aria-label={`${DOMAIN_LABELS[stat.domain]} ${stat.accuracy}%`}
+                   aria-label={`${msg.results.domainLabels[stat.domain]} ${stat.accuracy}%`}
                 />
               </div>
             </div>

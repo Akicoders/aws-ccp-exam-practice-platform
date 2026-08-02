@@ -6,7 +6,14 @@ import {
   addResult,
   mergeDomainAnalytics,
 } from "@/lib/browser-store";
-import type { BrowserStore, SessionState, SessionResult, DomainAnalytics, Domain } from "@/types/contracts";
+import type {
+  BrowserStore,
+  SessionState,
+  SessionResult,
+  DomainAnalytics,
+  Domain,
+  NormalizedQuestion,
+} from "@/types/contracts";
 import {
   SESSION_STATUS,
   DOMAIN,
@@ -14,6 +21,7 @@ import {
   SESSION_MODE,
   STORAGE_KEY,
 } from "@/types/contracts";
+import { createSession } from "@/lib/quiz-engine";
 
 const storage = new Map<string, string>();
 
@@ -52,6 +60,53 @@ describe("loadStore", () => {
     const loaded = loadStore("en", "light");
     expect(loaded.locale).toBe("es");
     expect(loaded.theme).toBe("dark");
+  });
+
+  it("persists a complete custom config while loading from another locale", () => {
+    const question: NormalizedQuestion = {
+      id: "custom-q1",
+      questionText: "Question",
+      multiSelect: false,
+      optionA: "A",
+      optionB: "B",
+      optionC: "",
+      optionD: "",
+      optionE: "",
+      optionF: "",
+      correctAnswers: ["A"],
+      times: 1,
+      domain: DOMAIN.CLOUD_CONCEPTS,
+    };
+    const session = createSession([question], {
+      questionCount: 1,
+      durationMinutes: 7,
+      isCustom: true,
+      domainWeights: {
+        CLOUD_CONCEPTS: 100,
+        SECURITY: 0,
+        TECHNOLOGY_SERVICES: 0,
+        BILLING_PRICING: 0,
+      },
+    }, SESSION_MODE.SIMULATION);
+    const store: BrowserStore = {
+      activeSessionId: session.id,
+      sessions: [session],
+      results: [],
+      analytics: [],
+      locale: "en",
+      theme: "light",
+    };
+
+    saveStore(store);
+    const loaded = loadStore("es", "light");
+
+    expect(loaded.sessions[0].config).toMatchObject({
+      questionCount: 1,
+      durationMinutes: 7,
+      isCustom: true,
+      domainWeights: store.sessions[0].config.domainWeights,
+    });
+    expect(loaded.sessions[0].mode).toBe(SESSION_MODE.SIMULATION);
   });
 
   it("filters malformed records and falls back to safe preferences", () => {

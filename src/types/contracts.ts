@@ -17,6 +17,16 @@ export const DOMAIN_TARGETS: Record<Domain, number> = {
   BILLING_PRICING: 0.17,
 } as const;
 
+/** Official CLF-C02 distribution as whole-number percentages. */
+export const DEFAULT_DOMAIN_WEIGHTS = {
+  CLOUD_CONCEPTS: 24,
+  SECURITY: 33,
+  TECHNOLOGY_SERVICES: 26,
+  BILLING_PRICING: 17,
+} as const;
+
+export type DomainWeights = Readonly<Record<Domain, number>>;
+
 /** Maps CSV domain names to our internal keys */
 export const CSV_DOMAIN_MAP: Record<string, Domain> = {
   "Cloud Concepts": DOMAIN.CLOUD_CONCEPTS,
@@ -33,13 +43,43 @@ export const OPTION_LETTER = {
 } as const;
 export type OptionLetter = (typeof OPTION_LETTER)[keyof typeof OPTION_LETTER];
 
-export const SESSION_CONFIG = {
-  SHORT: { questionCount: 10, durationMinutes: 10, label: "10 questions / 10 min" },
-  MEDIUM: { questionCount: 20, durationMinutes: 20, label: "20 questions / 20 min" },
-  FULL: { questionCount: 50, durationMinutes: 60, label: "50 questions / 60 min" },
+export const SESSION_PRESET = {
+  SHORT: "SHORT",
+  MEDIUM: "MEDIUM",
+  FULL: "FULL",
+  CUSTOM: "CUSTOM",
 } as const;
 
-export type SessionPreset = keyof typeof SESSION_CONFIG;
+export type SessionPreset = Exclude<
+  (typeof SESSION_PRESET)[keyof typeof SESSION_PRESET],
+  typeof SESSION_PRESET.CUSTOM
+>;
+
+export type StoredSessionPreset = (typeof SESSION_PRESET)[keyof typeof SESSION_PRESET];
+
+export const SESSION_CONFIG = {
+  SHORT: {
+    questionCount: 10,
+    durationMinutes: 10,
+    label: "10 questions / 10 min",
+    domainWeights: DEFAULT_DOMAIN_WEIGHTS,
+    isCustom: false,
+  },
+  MEDIUM: {
+    questionCount: 20,
+    durationMinutes: 20,
+    label: "20 questions / 20 min",
+    domainWeights: DEFAULT_DOMAIN_WEIGHTS,
+    isCustom: false,
+  },
+  FULL: {
+    questionCount: 50,
+    durationMinutes: 60,
+    label: "50 questions / 60 min",
+    domainWeights: DEFAULT_DOMAIN_WEIGHTS,
+    isCustom: false,
+  },
+} as const;
 
 export const SESSION_STATUS = {
   ACTIVE: "active",
@@ -147,6 +187,16 @@ export interface SessionConfig {
   questionCount: number;
   durationMinutes: number;
   label: string;
+  domainWeights: DomainWeights;
+  isCustom: boolean;
+}
+
+export interface SessionSpec {
+  questionCount: number;
+  durationMinutes: number;
+  label?: string;
+  domainWeights?: DomainWeights;
+  isCustom?: boolean;
 }
 
 export interface IntegrityIncident {
@@ -178,9 +228,10 @@ export interface SessionResult {
   answers: AnswerResult[];
   timeSpentMs: number;
   completedAt: number;
-  preset: SessionPreset;
+  preset: StoredSessionPreset;
   mode: SessionMode;
   integrityIncidentCount: number;
+  config?: SessionConfig;
 }
 
 export interface DomainAnalytics {

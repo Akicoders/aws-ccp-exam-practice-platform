@@ -1,6 +1,7 @@
 import { describe, it, expect } from "vitest";
 import {
   computeQuotas,
+  computeLargestRemainderQuotas,
   sampleSession,
   createSession,
   recordIntegrityIncident,
@@ -16,6 +17,7 @@ import {
   INTEGRITY_INCIDENT_TYPE,
   SESSION_CONFIG,
   SESSION_MODE,
+  SESSION_PRESET,
 } from "@/types/contracts";
 
 function makePool(
@@ -81,6 +83,23 @@ describe("computeQuotas", () => {
     const { warnings } = computeQuotas(20, poolSizes);
     expect(warnings.length).toBeGreaterThan(0);
   });
+
+  it("uses deterministic largest-remainder rounding for custom weights", () => {
+    const quotas = computeLargestRemainderQuotas(10, {
+      CLOUD_CONCEPTS: 24,
+      SECURITY: 33,
+      TECHNOLOGY_SERVICES: 26,
+      BILLING_PRICING: 17,
+    });
+
+    expect(quotas).toEqual([
+      { domain: DOMAIN.CLOUD_CONCEPTS, count: 2 },
+      { domain: DOMAIN.SECURITY, count: 3 },
+      { domain: DOMAIN.TECHNOLOGY_SERVICES, count: 3 },
+      { domain: DOMAIN.BILLING_PRICING, count: 2 },
+    ]);
+    expect(quotas.reduce((sum, quota) => sum + quota.count, 0)).toBe(10);
+  });
 });
 
 describe("sampleSession", () => {
@@ -123,6 +142,60 @@ describe("sampleSession", () => {
     // This should normally work since we don't pass previous IDs
     expect(s2.length).toBe(SESSION_CONFIG.SHORT.questionCount);
   });
+
+  it("samples a custom distribution without duplicate IDs", () => {
+    const pools: DomainPool[] = [
+      makePool(DOMAIN.CLOUD_CONCEPTS, 20),
+      makePool(DOMAIN.SECURITY, 20),
+      makePool(DOMAIN.TECHNOLOGY_SERVICES, 20),
+      makePool(DOMAIN.BILLING_PRICING, 20),
+    ];
+    const { questions, spec } = sampleSession(makeData(pools), {
+      questionCount: 8,
+      durationMinutes: 12,
+      isCustom: true,
+      domainWeights: {
+        CLOUD_CONCEPTS: 50,
+        SECURITY: 0,
+        TECHNOLOGY_SERVICES: 25,
+        BILLING_PRICING: 25,
+      },
+    });
+    const counts = Object.fromEntries(
+      pools.map((pool) => [pool.domain, questions.filter((question) => question.domain === pool.domain).length])
+    );
+
+    expect(spec.isCustom).toBe(true);
+    expect(counts[DOMAIN.CLOUD_CONCEPTS]).toBe(4);
+    expect(counts[DOMAIN.SECURITY]).toBe(0);
+    expect(counts[DOMAIN.TECHNOLOGY_SERVICES]).toBe(2);
+    expect(counts[DOMAIN.BILLING_PRICING]).toBe(2);
+    expect(new Set(questions.map((question) => question.id)).size).toBe(8);
+  });
+
+  it("returns a recoverable warning instead of reusing IDs when a custom quota is unavailable", () => {
+    const pools: DomainPool[] = [
+      makePool(DOMAIN.CLOUD_CONCEPTS, 1),
+      makePool(DOMAIN.SECURITY, 20),
+      makePool(DOMAIN.TECHNOLOGY_SERVICES, 20),
+      makePool(DOMAIN.BILLING_PRICING, 20),
+    ];
+    const { questions, warnings } = sampleSession(makeData(pools), {
+      questionCount: 10,
+      durationMinutes: 10,
+      isCustom: true,
+      domainWeights: {
+        CLOUD_CONCEPTS: 50,
+        SECURITY: 20,
+        TECHNOLOGY_SERVICES: 20,
+        BILLING_PRICING: 10,
+      },
+    });
+
+    expect(questions.length).toBeLessThan(10);
+    expect(new Set(questions.map((question) => question.id)).size).toBe(questions.length);
+    expect(warnings.some((warning) => warning.type === "unmet-quota")).toBe(true);
+  });
 });
 
 describe("createSession and scoreSession", () => {
@@ -161,6 +234,25 @@ describe("createSession and scoreSession", () => {
     ]);
     expect(result.mode).toBe(SESSION_MODE.SIMULATION);
     expect(result.integrityIncidentCount).toBe(1);
+
+    const custom = createSession(
+      [question],
+      {
+        questionCount: 1,
+        durationMinutes: 7,
+        isCustom: true,
+        domainWeights: {
+          CLOUD_CONCEPTS: 100,
+          SECURITY: 0,
+          TECHNOLOGY_SERVICES: 0,
+          BILLING_PRICING: 0,
+        },
+      }
+    );
+    const { result: customResult } = scoreSession(custom, [question], 2000);
+    expect(customResult.preset).toBe(SESSION_PRESET.CUSTOM);
+    expect(customResult.config?.isCustom).toBe(true);
+    expect(customResult.config?.domainWeights.CLOUD_CONCEPTS).toBe(100);
   });
 
   it("scores correctly with single-select answers", () => {

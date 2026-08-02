@@ -7,12 +7,15 @@ import QuestionCard from "@/components/question-card";
 import Disclaimer from "@/components/disclaimer";
 import SessionLoading from "@/components/session-loading";
 import {
+  type Domain,
   type Locale,
   type NormalizedQuestion,
   type OptionLetter,
   type IntegrityIncidentType,
   type SessionPreset,
   type SessionState,
+  DOMAIN_ORDER,
+  DEFAULT_DOMAIN_WEIGHTS,
   SESSION_CONFIG,
   SESSION_MODE,
   SESSION_STATUS,
@@ -20,6 +23,7 @@ import {
   DISCLAIMER_TEXT,
   TRANSLATION_SOURCE,
 } from "@/types/contracts";
+import { createCustomSessionSpec } from "@/lib/custom-exam";
 import { loadQuestionPools } from "@/data/questions/index";
 import { getQuestionCopy } from "@/data/questions/translations";
 import {
@@ -56,11 +60,33 @@ export default function SessionPage({
   const msg = useMessages(locale);
   const localeValue = locale as Locale;
   const sessionIdFromUrl = searchParams.get("sessionId");
-  const presetKey = (searchParams.get("preset") || "short").toUpperCase() as SessionPreset;
+  const rawPreset = searchParams.get("preset") || "short";
+  const isCustomPreset = rawPreset.toLowerCase() === "custom";
+  const presetKey = rawPreset.toUpperCase() as SessionPreset;
   const sessionMode = searchParams.get("mode") === SESSION_MODE.SIMULATION
     ? SESSION_MODE.SIMULATION
     : SESSION_MODE.STUDY;
-  const config = SESSION_CONFIG[presetKey] || SESSION_CONFIG.SHORT;
+  const customSpec = isCustomPreset
+    ? createCustomSessionSpec({
+        durationMinutes: searchParams.get("duration") ?? "",
+        questionCount: searchParams.get("questions") ?? "",
+        mode: sessionMode,
+        domainWeights: {
+          CLOUD_CONCEPTS: searchParams.get("cloud_concepts") ?? "",
+          SECURITY: searchParams.get("security") ?? "",
+          TECHNOLOGY_SERVICES: searchParams.get("technology_services") ?? "",
+          BILLING_PRICING: searchParams.get("billing_pricing") ?? "",
+        },
+      })
+    : null;
+  const config = customSpec ?? SESSION_CONFIG[presetKey] ?? SESSION_CONFIG.SHORT;
+  const domainWeights = config.domainWeights ?? DEFAULT_DOMAIN_WEIGHTS;
+  const configKey = [
+    config.questionCount,
+    config.durationMinutes,
+    config.isCustom ? "custom" : "preset",
+    ...DOMAIN_ORDER.map((domain) => domainWeights[domain]),
+  ].join(":");
 
   const [session, setSession] = useState<SessionState | null>(null);
   const [questions, setQuestions] = useState<NormalizedQuestion[]>([]);
@@ -107,6 +133,12 @@ export default function SessionPage({
         const pools = await loadQuestionPools();
         if (!active) return;
 
+        if (isCustomPreset && !customSpec) {
+          setError(msg.session.invalidCustomConfig);
+          setLoading(false);
+          return;
+        }
+
         const existing = sessionIdFromUrl
           ? store.sessions.find((candidate) => candidate.id === sessionIdFromUrl)
           : null;
@@ -116,6 +148,10 @@ export default function SessionPage({
           (existing.status === SESSION_STATUS.ACTIVE || existing.status === SESSION_STATUS.PAUSED) &&
           existing.config.questionCount === config.questionCount &&
           existing.config.durationMinutes === config.durationMinutes &&
+          existing.config.isCustom === config.isCustom &&
+          DOMAIN_ORDER.every(
+            (domain) => existing.config.domainWeights[domain] === domainWeights[domain]
+          ) &&
           (!searchParams.has("mode") || existing.mode === sessionMode)
         ) {
           const questionMap = new Map(
@@ -142,9 +178,9 @@ export default function SessionPage({
           }
         }
 
-        const { questions: sampled, warnings: samplingWarnings } = sampleSession(
+        const { questions: sampled, warnings: samplingWarnings, spec } = sampleSession(
           { pools },
-          presetKey
+          isCustomPreset && customSpec ? customSpec : presetKey
         );
 
         if (samplingWarnings.some((warning) => warning.type === "unmet-quota")) {
@@ -153,15 +189,24 @@ export default function SessionPage({
           return;
         }
 
-        const newSession = createSession(sampled, config, sessionMode);
+        const newSession = createSession(sampled, spec, sessionMode);
         sessionRef.current = newSession;
         setSession(newSession);
         setQuestions(sampled);
         persistSession(newSession);
-        router.replace(
-          `/${locale}/session?preset=${presetKey.toLowerCase()}&sessionId=${encodeURIComponent(newSession.id)}&mode=${sessionMode}`,
-          { scroll: false }
-        );
+        const nextParams = new URLSearchParams({
+          preset: isCustomPreset ? "custom" : presetKey.toLowerCase(),
+          sessionId: newSession.id,
+          mode: sessionMode,
+        });
+        if (isCustomPreset) {
+          nextParams.set("duration", String(spec.durationMinutes));
+          nextParams.set("questions", String(spec.questionCount));
+          for (const domain of DOMAIN_ORDER) {
+            nextParams.set(domain.toLowerCase(), String(spec.domainWeights?.[domain] ?? 0));
+          }
+        }
+        router.replace(`/${locale}/session?${nextParams.toString()}`, { scroll: false });
         setLoading(false);
       } catch {
         if (!active) return;
@@ -174,7 +219,7 @@ export default function SessionPage({
     return () => {
       active = false;
     };
-  }, [config, locale, localeValue, persistSession, presetKey, router, sessionIdFromUrl, sessionMode, searchParams, updateTimerView]);
+  }, [configKey, isCustomPreset, locale, localeValue, msg.session.invalidCustomConfig, persistSession, presetKey, router, sessionIdFromUrl, sessionMode, searchParams, updateTimerView]);
 
   const handleFirstAnswer = useCallback(() => {
     const current = sessionRef.current;
@@ -389,6 +434,10 @@ export default function SessionPage({
   const currentAnswer = session.answers.find((answer) => answer.questionId === currentQuestion.id);
   const answeredCount = session.answers.filter((answer) => answer.selected.length > 0).length;
   const currentCopy = getQuestionCopy(currentQuestion, localeValue);
+  const actualDomainCounts = DOMAIN_ORDER.reduce((counts, domain) => {
+    counts[domain] = questions.filter((question) => question.domain === domain).length;
+    return counts;
+  }, {} as Record<Domain, number>);
 
   const handleOptionSelect = (option: OptionLetter) => {
     const selected = currentAnswer?.selected ?? [];
@@ -478,6 +527,30 @@ export default function SessionPage({
           )}
         </div>
       </div>
+
+      {session.config.isCustom && (
+        <section
+          className="space-y-3 rounded-xl border border-brand-200 bg-brand-50/50 p-4 dark:border-brand-800 dark:bg-brand-900/10"
+          aria-labelledby="custom-session-summary"
+        >
+          <div>
+            <h2 id="custom-session-summary" className="font-semibold">{msg.session.customExam}</h2>
+            <p className="mt-1 text-sm text-text-secondary dark:text-text-dark-secondary">
+              {msg.session.requestedDistribution}
+            </p>
+          </div>
+          <div className="grid gap-2 sm:grid-cols-2">
+            {DOMAIN_ORDER.map((domain) => (
+              <div key={domain} className="flex min-w-0 items-center justify-between gap-3 rounded-md bg-surface px-3 py-2 text-sm dark:bg-surface-dark">
+                <span className="min-w-0 break-words">{msg.session.domainLabels[domain]}</span>
+                <span className="shrink-0 tabular-nums">
+                  {session.config.domainWeights[domain]}% · {actualDomainCounts[domain]} {msg.session.actualQuestions}
+                </span>
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
 
       {warnings.warned5 && !warnings.warned2 && (
         <div role="alert" className="text-sm font-medium text-amber-600 dark:text-amber-400">
